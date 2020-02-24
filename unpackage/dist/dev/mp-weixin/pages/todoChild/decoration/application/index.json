@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "家装申请",
+  "usingComponents": {
+    "application-input": "/pages/todoChild/decoration/application/components/ApplicationInput"
+  }
+}

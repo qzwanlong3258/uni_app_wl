@@ -1,0 +1,18 @@
+
+.home-top.data-v-388aab7b {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 70rpx;
+	z-index: 99;
+}
+.swiper-img.data-v-388aab7b {
+}
+.bottom-show.data-v-388aab7b {
+	width: 100%;
+	margin-top: 45rpx;
+}
+.bottom-show image.data-v-388aab7b {
+	width: 100%;
+}
+

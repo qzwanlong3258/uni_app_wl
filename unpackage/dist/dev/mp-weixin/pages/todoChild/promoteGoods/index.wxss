@@ -1,0 +1,41 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+page {
+  background: #FFFFFF;
+}
+.promote-goods-box {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+}
+.promote-goods-box > view {
+    padding: 20rpx 0;
+}
+.promote-goods-box .goods + .goods {
+    border-top: 1rpx solid #EEEEEE;
+}
+.promote-goods-box .submit-box {
+    position: fixed;
+    bottom: 20rpx;
+    color: white;
+    font-size: 36rpx;
+    width: calc(100% - 48rpx);
+}
+.promote-goods-box .submit-box view {
+      width: 100%;
+      height: 100rpx;
+      border: 1rpx solid #EEEEEE;
+      text-align: center;
+      line-height: 100rpx;
+}
+.promote-goods-box .submit-box view:nth-child(1) {
+      background-color: #fad64c;
+      margin-bottom: 12rpx;
+}
+.promote-goods-box .submit-box view:nth-child(2) {
+      color: #333333;
+}
+

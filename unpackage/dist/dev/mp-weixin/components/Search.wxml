@@ -1,0 +1,1 @@
+<view class="search-box"><view class="icon iconfont iconiconfontzhizuobiaozhun22 _i"></view><input type="text" placeholder="搜索" placeholder-class="placeholder-class" data-event-opts="{{[['input',[['__set_model',['$0','value','$event',[]],['search']],['handSearchValueThrottl',['$event']]]]]}}" value="{{search.value}}" bindinput="__e"/></view>

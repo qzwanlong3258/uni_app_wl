@@ -1,0 +1,36 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.nav-list.data-v-62ab6e02 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.nav-list .nav-clomun.data-v-62ab6e02 {
+    width: 16%;
+    margin-left: 7%;
+    margin-top: 46rpx;
+}
+.nav-list .nav-clomun .show-icon.data-v-62ab6e02 {
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 50%;
+      line-height: 120rpx;
+      text-align: center;
+}
+.nav-list .nav-clomun .show-icon ._i.data-v-62ab6e02 {
+        font-size: 70rpx;
+        color: #e8be2e;
+}
+.nav-list .nav-clomun .nav-name.data-v-62ab6e02 {
+      width: 100%;
+      text-align: center;
+      margin-top: 16rpx;
+}
+

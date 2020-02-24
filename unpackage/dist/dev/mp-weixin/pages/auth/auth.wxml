@@ -1,0 +1,1 @@
+<view class="container data-v-390ffc22"><image class="gxg-logo data-v-390ffc22" src="{{yldLogo}}"></image><button class="auth-btn title-font data-v-390ffc22" open-type="getUserInfo" data-event-opts="{{[['getuserinfo',[['getUserInfo',['$event']]]]]}}" bindgetuserinfo="__e">微信一键授权</button></view>

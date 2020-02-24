@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.goods-info-box.data-v-0a5dd38c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+.goods-info-box image.data-v-0a5dd38c {
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 30rpx;
+}
+.goods-info-box .content .title.data-v-0a5dd38c {
+    color: #333333;
+    min-height: 100rpx;
+    font-size: 34rpx;
+    display: -webkit-box;
+    /* 流体布局 */
+    -webkit-line-clamp: 2;
+    /* 多行文字溢出点点点... */
+    -webkit-box-orient: vertical;
+    /* 从上向下垂直排列子元素 */
+    word-break: break-all;
+    /* 允许在单词内换行 */
+    text-overflow: ellipsis;
+    /* 显示省略符号来代表被修剪的文本 */
+    overflow: hidden;
+}
+.goods-info-box .content .desc.data-v-0a5dd38c {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #999999;
+    letter-spacing: 5rpx;
+}
+.goods-info-box .content .rule.data-v-0a5dd38c {
+    margin-top: 24rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+.goods-info-box .content .rule text.data-v-0a5dd38c:nth-child(1) {
+      color: #E8541E;
+      background: #FCEEE9;
+      margin-right: 26rpx;
+}
+.goods-info-box .selected.data-v-0a5dd38c {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    top: 200rpx;
+    right: 30rpx;
+    border: 5rpx solid #EEEEEE;
+    background: #EEEEEE;
+}
+.goods-info-box .active.data-v-0a5dd38c {
+    background: #FAD64C;
+}
+

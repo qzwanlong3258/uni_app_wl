@@ -1,0 +1,399 @@
+@charset "UTF-8";
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  position: absolute;
+  overflow: scroll;
+}
+/*导航下划线*/
+.border-active {
+  border-bottom: 5rpx solid #df365d;
+}
+/*点击改变区块样式*/
+.hover-active {
+  background: #000000 !important;
+  color: #f2f2f2 !important;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/*原生button样式*/
+button {
+  background-color: #fafafe;
+}
+button::after {
+  border: none;
+  background: none;
+}
+/*底部提交按钮位置*/
+.start-todo {
+  position: fixed;
+  bottom: 40rpx;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+}
+/*自定义button的样式*/
+.customize-button {
+  border-radius: 42rpx;
+  color: #fff;
+  background: #000;
+  text-align: center;
+}
+/*页面大按钮主色调*/
+.cus-big-button {
+  width: 690rpx;
+  height: 80rpx;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 48rpx;
+  color: #fff;
+  background: -webkit-linear-gradient(315deg, #46d0fe, #409eff);
+  background: linear-gradient(135deg, #46d0fe, #409eff);
+  margin-left: 30rpx;
+}
+/*页面大按钮副色调*/
+.primary-cus-big-button {
+  width: 690rpx;
+  height: 80rpx;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 48rpx;
+  color: #fff;
+  background: -webkit-linear-gradient(315deg, #df365d, #ee141e);
+  background: linear-gradient(135deg, #df365d, #ee141e);
+  margin-left: 30rpx;
+}
+/*底部覆盖副按钮*/
+.primary-cus-button {
+  width: 100%;
+  height: 100rpx;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  background: -webkit-linear-gradient(315deg, #df365d, #ee141e);
+  background: linear-gradient(135deg, #df365d, #ee141e);
+}
+/*背景图*/
+.back-ground-set {
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+/*主题色*/
+.theme-color {
+  color: #FAD64C;
+}
+.primary-theme-color {
+  color: #FAD64C;
+}
+/*字体主颜色*/
+.primary-text-color {
+  color: #404040;
+}
+/*副色调*/
+.conllect-color {
+  color: #e64340;
+}
+/*重要级文字信息*/
+.important-font {
+  color: #1e1d22;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+/*标题字体颜色*/
+.title-font {
+  font-size: 32rpx;
+  color: #404040;
+}
+/*内容文字*/
+.content-font {
+  font-size: 28rpx;
+}
+/* 按钮属性 */
+.type-btn-font {
+  font-size: 26rpx;
+}
+/*提示性文字：如好评人数*/
+.tip-font {
+  color: #8f8fa7;
+  font-size: 24rpx;
+}
+/*阴影*/
+.box-shadow-setting {
+  box-shadow: 0 0 6rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+/*列表底部留白高度*/
+.white-height {
+  height: 120rpx;
+}
+/* 黑色透明蒙板 */
+.transparent-background {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+}
+/* 脱离文档流 */
+.out-document {
+  position: absolute;
+  z-index: 1;
+}
+/*单行省略号*/
+.one-line-elipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/** border主题色线条 */
+.border-theme-color {
+  border: 1rpx solid #e8be2e;
+}
+.border-primary-theme-color {
+  border: 1rpx solid #df365d;
+}
+/**border灰色线条*/
+.border-primary-color {
+  border: 1rpx solid #ddd;
+}
+/*有框的输入框样式*/
+.type-input {
+  border: 1rpx solid #ddd;
+  height: 70rpx;
+  border-radius: 30rpx;
+  padding-left: 20rpx;
+}
+/*空白页样式设计*/
+.null-data {
+  width: 50%;
+  height: 300rpx;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 130rpx;
+}
+/*对checkedbox的样式修改*/
+/* checkbox未选中时样式 */
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  height: 36rpx;
+  width: 36rpx;
+}
+/* checkbox选中时样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background-color: #409eff;
+  border: 1rpx solid #409eff;
+  /* 自定义样式.... */
+  color: #fff !important;
+}
+/*对微信radios的样式修改*/
+radio .wx-radio-input {
+  border-radius: 50%;
+  /* 圆角 */
+  width: 36rpx;
+  height: 36rpx;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked {
+  border: none;
+  background: #409eff !important;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  /* 圆角 */
+  width: 36rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 36rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 30rpx;
+  /* 对勾大小 30upx */
+  color: #fff;
+  /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+@font-face {
+  font-family: 'iconfont';
+  /* project id 1204278 */
+  src: url("//at.alicdn.com/t/font_1204278_23alfoewxkm.eot");
+  src: url("//at.alicdn.com/t/font_1204278_23alfoewxkm.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1204278_23alfoewxkm.woff2") format("woff2"), url("//at.alicdn.com/t/font_1204278_23alfoewxkm.woff") format("woff"), url("//at.alicdn.com/t/font_1204278_23alfoewxkm.ttf") format("truetype"), url("//at.alicdn.com/t/font_1204278_23alfoewxkm.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconshouji:before {
+  content: "\E625";
+}
+.iconyanzhengma:before {
+  content: "\E626";
+}
+.icontuijian:before {
+  content: "\E6A6";
+}
+.icondown:before {
+  content: "\E7ED";
+}
+.iconiconfontzhizuobiaozhun22:before {
+  content: "\E615";
+}
+.iconlaba:before {
+  content: "\E61B";
+}
+.iconjifen:before {
+  content: "\E61D";
+}
+.icon19:before {
+  content: "\E638";
+}
+.iconxing:before {
+  content: "\E616";
+}
+.iconjian:before {
+  content: "\E632";
+}
+.iconjia:before {
+  content: "\E630";
+}
+.iconweizhi-tianchong:before {
+  content: "\E656";
+}
+.iconqueding:before {
+  content: "\E681";
+}
+.page_view-inner-padding {
+  box-sizing: border-box;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+.page_view-all-inner-padding {
+  box-sizing: border-box;
+  padding: 24rpx;
+}
+.page_view-bottomMenu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0rpx;
+  padding-bottom: 30rpx;
+  background: white;
+  border-top-left-radius: 100rpx;
+  border-top-right-radius: 100rpx;
+}
+.page_icon-right.active {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+.page_text-single-omit {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page_view-full {
+  width: 100%;
+  height: 100%;
+}
+.page_view-box {
+  border-radius: 15rpx;
+  background-color: #FFFFFF;
+}
+.page_view-box + .page_view-box {
+  margin-top: 24rpx;
+}
+.page_view-box-inner-padding {
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+.page_view-border-top + .page_view-border-top {
+  border-top: 1rpx solid #EEEEEE;
+}
+.nullData_view {
+  width: 350rpx;
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 175rpx);
+  -webkit-filter: opacity(0.4);
+          filter: opacity(0.4);
+}
+.customerInfor_text-role.member {
+  color: white;
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+  margin-left: 10rpx;
+  border-radius: 6rpx;
+  background-color: #00B578;
+}
+.customerInfor_text-role.designer {
+  color: white;
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+  margin-left: 10rpx;
+  border-radius: 6rpx;
+  background-color: #FF6010;
+}
+.customerInfor_text-role.customer {
+  color: white;
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+  margin-left: 10rpx;
+  border-radius: 6rpx;
+  background-color: #1677FF;
+}
+@font-face {
+  font-family: "iconfont";
+  src: url("//at.alicdn.com/t/font_1611611_jkdlddv6xxg.eot?t=1579244751877");
+  /* IE9 */
+  src: url("//at.alicdn.com/t/font_1611611_jkdlddv6xxg.eot?t=1579244751877#iefix") format("embedded-opentype"), url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAATkAAsAAAAACeQAAASXAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqGUIVNATYCJAMUCwwABCAFhG0HeRuKCCMRJmSSQfYXBXbDcYbQqTh3BNwdG9UINThgGII29FefVqPlgpZYU0X67/2eg6dvrfzVXT3Xg0cYBJUXBcCzG0Z1UYiKWDj0BBKQhd4A2JxmcO5xsXo8Ez7t4hN7RHaUc6R4/QC4mJbgH7KzZhLPBDoI3uTAcnEgniiqa/onYBxMwnvO+t70P4dLm88LaH7LcpljY1EviqMJlGVjjFuLZIGcnt3zE7Ibxi4v8jQEiGhLb2TEqAk5HkWfJICsXbViET6hQitwgpcGBSsVOYjDm/3mHnDA+3r5Sx/xYHAWfeaU5SOXMuSHf+xjbysRzHUQsIczAGwdWKA3oCCthaa12CDUG0sk91eGABEegxmqW/Ro/LHv//+ItyFJZPzDA4NFEZAAXZQg7JCwwg+BRYWBH4gKCz/0hFSLpyDnWkTOWREB7UA8SI4u6ewNEiISfCCJwnlJM0eSKr6L0ywMq4QFDw/Upum64uRlSyetSJ4/L7x8OePFi+KzZ0tSk8whlYXWjXKJaFzhmBajA2JZMrBe9sMgIj5pSWntGaiFC1YGu/oYIggFWU7xMPKmy+iX3DuhmUNo1Uc4nT3QK519DKOFhznbn1mD/ChJUTqQYWg6K3SoUDZA+0D1DID4g5IzQ1JamFFrZ/oo/JN5FEHOaAdvv+t5uPn8fY+DFd1M6u5o9fB6f2Xini15dg5ktLIIkBcw39aa0UTso2zmUH2kI6UOoIJXIRqBE8q2/niprd5LCkojt/XZ37/P1KA7VZxn0UAhX3OoCSrVkmiJPWyk5x/wJKG2VKvFO1iSkxujai+LiDr2tJA6Kcw+z6mLLf669c43zXfPnFsqnKWWAcUxNh5aHkPPIz4vnSbxiYQZLx7p/tcdZCF6Po6v22cYZ6BB/QqDdWCpf0BYWUHQTRl6buDbguB5iTtlUp2jjY0MOVzMFcM9WPflvLjY1HJCQcxac/PyuHPBzdJ6ZUmXZFGyIo48G82dR1S2UCX8q7Pcc6nnuUuKu6lP//x5avM5tIrzNJodFRUfV1QYHw8aUDAHwhdK/U+eFs3rcfMaJdEDsiwZ28ozzfzgh3xSBgP3YYRpJHHn4Ib+btYdcwj4/8zbNtyTv9CQhP5138OPT2VTS6SBXyU8VgDexGx+iJyl60pz1q8jRmb/Y+yGZapwdbVTqdhiSRbHlvcnMnJdBPxZtio+DGOphcggeI4NwVBGG7B4OiMV2xscMX0hwDMYInoxen1MNa1YREOgJ7sBCBVcAkPGDbBUcB+p2PfgqOM/BFSIhYiiVO8Ys7GrEHppR11wAXMHssLO1JbWz/5EX4NOca5H+MWUyQtTP6ajH8iYhpiTL34uxYFLssM7OA9DEDiSbGhLv5ZynIfBFb1Rb2VvWoYn1AUXwNwBssLOqV3azOd/oq9Bp4qSMu0vpkydAxM9YwPkh4gblVxK/3zxM6U4PM4l2YF3aMBghAQ4iodtaEvP2iFwnBlQJddU1E8v2e9xGxChX9dJIkUzYde31CePCdlqNlpuxOY17apvlZ/ziuzv9U6BtDikjTBXza461ErBqSFTS47EvmsaAA==") format("woff2"), url("//at.alicdn.com/t/font_1611611_jkdlddv6xxg.woff?t=1579244751877") format("woff"), url("//at.alicdn.com/t/font_1611611_jkdlddv6xxg.ttf?t=1579244751877") format("truetype"), url("//at.alicdn.com/t/font_1611611_jkdlddv6xxg.svg?t=1579244751877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 1.25em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconyou:before {
+  content: "\E688";
+}
+.icongerencanbaoxinxichaxun:before {
+  content: "\E608";
+}
+.iconshengyuyiliaofeijiesuanjiluchaxun:before {
+  content: "\E60A";
+}
+.iconxinshenqing-:before {
+  content: "\E619";
+}
+page {
+  background: #F5F5F5;
+}
+

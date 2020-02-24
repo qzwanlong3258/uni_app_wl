@@ -1,0 +1,16 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.nullData_image {
+  width: 100%;
+  height: 300rpx;
+}
+.nullData_text {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+

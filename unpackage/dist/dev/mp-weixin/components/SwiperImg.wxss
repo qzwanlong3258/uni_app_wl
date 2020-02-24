@@ -1,0 +1,46 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.swiper.data-v-7c16bf44 {
+  width: 100%;
+}
+.swiper .swiper-item.data-v-7c16bf44 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.swiper .swiper-item image.data-v-7c16bf44 {
+      width: 100%;
+      height: 100%;
+}
+.show-swiper.data-v-7c16bf44 {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 30rpx;
+  margin: -30rpx auto 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.show-swiper .swiper-dot.data-v-7c16bf44 {
+    width: 70rpx;
+    height: 14rpx;
+    border-radius: 20rpx;
+    background: #eee;
+    border: 1rpx solid #eee;
+}
+.show-swiper .swiper-dot.swiper-dot.data-v-7c16bf44:not(:first-child) {
+      margin-left: 8rpx;
+}
+.show-swiper .swiper-dot-active.data-v-7c16bf44 {
+    background: #df365d;
+    color: #fff;
+}
+

@@ -1,0 +1,24 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.mine-box.data-v-1389f3fb {
+  width: 100%;
+}
+.mine-box .menu.data-v-1389f3fb {
+    width: 700rpx;
+    height: 300rpx;
+    margin: 0 auto;
+    -webkit-transform: translateY(-90rpx);
+            transform: translateY(-90rpx);
+}
+.mine-box .menu .item + .item.data-v-1389f3fb {
+      margin-top: 20rpx;
+}
+.mine-box .main-menu.data-v-1389f3fb {
+    width: 100%;
+    background: white;
+}
+

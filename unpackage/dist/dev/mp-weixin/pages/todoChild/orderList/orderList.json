@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "order-infor": "/components/OrderInfor",
+    "order-button": "/components/OrderButton",
+    "no-more-data": "/components/NoMoreData",
+    "ljl-order-menu": "/components/LjlOrderMenu/index",
+    "null-data": "/components/NullData"
+  }
+}

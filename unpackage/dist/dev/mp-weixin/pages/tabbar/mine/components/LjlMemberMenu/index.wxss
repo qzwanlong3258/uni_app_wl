@@ -1,0 +1,31 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.menu-box .header.data-v-2f5b2539 {
+  height: 60rpx;
+  background: white;
+  opacity: 0.45;
+  position: relative;
+}
+.menu-box .header text.data-v-2f5b2539 {
+    position: absolute;
+    right: 14rpx;
+    line-height: 60rpx;
+    font-weight: bold;
+}
+.menu-box .content.data-v-2f5b2539 {
+  height: 130rpx;
+  background: white;
+  box-sizing: border-box;
+  padding: 24rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.menu-box .content .column.data-v-2f5b2539 {
+    width: 33%;
+}
+

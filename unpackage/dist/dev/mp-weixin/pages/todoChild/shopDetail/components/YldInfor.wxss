@@ -1,0 +1,68 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.infor-box.data-v-62b5ae3a {
+  width: 100%;
+  background: #fff;
+}
+.infor-box .box-top.data-v-62b5ae3a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 120rpx;
+    line-height: 120rpx;
+}
+.infor-box .box-top .shop-tip.data-v-62b5ae3a {
+      width: 94rpx;
+      height: 50rpx;
+      line-height: 50rpx;
+      text-align: center;
+      color: #fff;
+      background: #df365d;
+      margin-left: 3%;
+      margin-top: 35rpx;
+      border-radius: 6rpx;
+}
+.infor-box .box-top .title-font.data-v-62b5ae3a {
+      margin-left: 3%;
+}
+.infor-box .box-bottom.data-v-62b5ae3a {
+    width: 100%;
+    color: #8f8fa7;
+}
+.infor-box .box-bottom .counts-infor.data-v-62b5ae3a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      font-size: 28rpx;
+      margin: 16rpx 3%;
+}
+.infor-box .box-bottom .counts-infor .buy-counts.data-v-62b5ae3a {
+        margin-left: 3%;
+}
+.infor-box .box-bottom .price-infor.data-v-62b5ae3a {
+      width: 94%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      margin: 0 3%;
+      height: 100rpx;
+      line-height: 100rpx;
+}
+.infor-box .box-bottom .price-infor .save-price.data-v-62b5ae3a {
+        font-size: 32rpx;
+}
+.infor-box .box-bottom .price-infor .save-price text.data-v-62b5ae3a {
+          font-size: 36rpx;
+          margin-right: 8rpx;
+          font-weight: bold;
+}
+.infor-box .box-bottom .price-infor .origin-price.data-v-62b5ae3a {
+        font-size: 30rpx;
+        margin-left: 3%;
+        text-decoration: line-through;
+}
+

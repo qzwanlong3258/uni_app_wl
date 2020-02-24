@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "分销中心",
+  "usingComponents": {
+    "ljl-nav": "/components/LjlNav",
+    "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem",
+    "ljl-menu": "/components/LjlMenu/index"
+  }
+}

@@ -1,0 +1,19 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.shop-detail.data-v-1ad30ae9 {
+  margin-top: 30rpx;
+  background: #fff;
+  height: calc(100% - 840rpx);
+}
+.fixed-document.data-v-1ad30ae9 {
+  position: fixed;
+  bottom: 0;
+}
+.recommend-shop.data-v-1ad30ae9 {
+  margin-top: 30rpx;
+}
+

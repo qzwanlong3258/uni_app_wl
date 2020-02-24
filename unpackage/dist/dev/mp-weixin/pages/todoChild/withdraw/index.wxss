@@ -1,0 +1,50 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.withdraw-box.data-v-5df0f723 {
+  color: #666666;
+}
+.withdraw-box > view.data-v-5df0f723 {
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.withdraw-box > view .content.data-v-5df0f723 {
+      margin-top: 50rpx;
+}
+.withdraw-box .balance.data-v-5df0f723 {
+    background: #FAD64C;
+    height: 300rpx;
+    font-size: 28rpx;
+}
+.withdraw-box .balance .content.data-v-5df0f723 {
+      font-size: 80rpx;
+}
+.withdraw-box .withdraw .content.data-v-5df0f723 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.withdraw-box .withdraw .content .icon.data-v-5df0f723 {
+      width: 80rpx;
+      font-size: 50rpx;
+}
+.withdraw-box .withdraw .content input.data-v-5df0f723 {
+      width: calc(90% - 80rpx);
+      border-bottom: 1px solid #979797;
+}
+.withdraw-box .withdraw .option.data-v-5df0f723 {
+    font-size: 32rpx;
+    margin-left: 80rpx;
+}
+.withdraw-box .submit.data-v-5df0f723 {
+    margin: 30rpx;
+    height: 100rpx;
+    background: #FAD64C;
+    color: white;
+    font-size: 36rpx;
+    text-align: center;
+}
+

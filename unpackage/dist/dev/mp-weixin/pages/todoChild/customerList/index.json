@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "客户列表",
+  "usingComponents": {
+    "ljl-menu": "/components/LjlMenu/index",
+    "ljl-states": "/components/LjlStates",
+    "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor",
+    "null-data": "/components/NullData"
+  }
+}

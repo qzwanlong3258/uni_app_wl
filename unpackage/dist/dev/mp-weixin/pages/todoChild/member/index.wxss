@@ -1,0 +1,71 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.member-box.data-v-7c108a33 {
+  position: relative;
+}
+.member-box .background-image.data-v-7c108a33 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.member-box .main-button.data-v-7c108a33 {
+    width: 500rpx;
+    height: 200rpx;
+    position: absolute;
+    top: 58%;
+    left: 125rpx;
+}
+.member-box .rewardInfo.data-v-7c108a33 {
+    position: absolute;
+    top: 75%;
+    width: 100%;
+    height: 380rpx;
+    box-sizing: border-box;
+    padding: 30rpx 60rpx;
+}
+.member-box .rewardInfo > .title.data-v-7c108a33 {
+      font-size: 40rpx;
+      font-weight: 500;
+      color: yellow;
+      left: 80rpx;
+}
+.member-box .rewardInfo .list.data-v-7c108a33 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+}
+.member-box .rewardInfo .item.data-v-7c108a33 {
+      width: 50%;
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      color: yellow;
+}
+.member-box .rewardInfo .item .title.data-v-7c108a33 {
+        margin-top: 60rpx;
+        font-size: 32rpx;
+}
+.member-box .rewardInfo .item .content.data-v-7c108a33 {
+        margin-top: 20rpx;
+        font-size: 46rpx;
+        font-weight: bold;
+}
+

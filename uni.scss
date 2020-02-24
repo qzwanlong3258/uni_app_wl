@@ -1,0 +1,30 @@
+@import "./style/utils";
+
+/* Color
+--------------------------*/
+
+$color_primary: #FAD64C;
+$color_primary-light: #E8541E;
+$color_member: #00B578;
+$color_designer: #FF6010;
+$color_customer: #1677FF;
+$color_background: #F5F5F5;
+$color_background-secondary: #FFFFFF;
+$color_background-box: #F8F8F8;
+$color_border: #EEEEEE;
+$color_shadow: rgba(0,0,0,.1);
+$color_text-title: #000000;
+$color_text-regular: #333333;
+$color_text-secondary: #666666;
+$color_text-secondary-2: #999999;
+
+/* distance
+--------------------------*/
+
+$distance_page-inner-padding: 24rpx;
+$distance_box-inner-margin: 24rpx;
+
+/* radius
+--------------------------*/
+
+$radius_page-box: 15rpx;

@@ -1,0 +1,79 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.home-header.data-v-239ef831 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 96%;
+  margin-left: 2%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.home-header .city-section.data-v-239ef831 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    color: white;
+    font-size: 28rpx;
+    background: #FAD64C;
+    padding: 0 10rpx;
+    margin-top: 10rpx;
+}
+.home-header .city-section text.data-v-239ef831 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+.home-header .city-section ._i.data-v-239ef831 {
+      font-size: 1em;
+      margin-top: 4rpx;
+      margin-left: 10rpx;
+}
+.home-header .home-msg.data-v-239ef831 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    margin-left: 2%;
+    width: 77%;
+    background: #fff;
+}
+.home-header .home-msg ._i.data-v-239ef831 {
+      margin-left: 3%;
+}
+.home-header .home-msg input.data-v-239ef831 {
+      margin-left: 3%;
+}
+.home-header .search.data-v-239ef831 {
+    height: 100%;
+}
+.home-header .slecet-list.data-v-239ef831 {
+    width: 100%;
+    height: 420rpx;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    background: #fff;
+}
+.home-header .slecet-clonum.data-v-239ef831 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    line-height: 40px;
+}
+.home-header .select-value.data-v-239ef831 {
+    position: absolute;
+    left: 200rpx;
+}
+
