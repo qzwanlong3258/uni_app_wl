@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.home-msg.data-v-5a096d03 {
+.home-msg.data-v-1de5fb74 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -17,13 +17,13 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.home-msg ._i.data-v-5a096d03 {
+.home-msg ._i.data-v-1de5fb74 {
     margin-left: 3%;
 }
-.home-msg input.data-v-5a096d03 {
+.home-msg input.data-v-1de5fb74 {
     margin-left: 3%;
 }
-.list-box.data-v-5a096d03 {
+.list-box.data-v-1de5fb74 {
   width: 94%;
   background: #fff;
   border-radius: 24rpx;
@@ -35,7 +35,7 @@
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.content-list.data-v-5a096d03 {
+.content-list.data-v-1de5fb74 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -44,21 +44,21 @@
           flex-wrap: wrap;
   margin-bottom: 30rpx;
 }
-.content-list .content-clonum.data-v-5a096d03 {
+.content-list .content-clonum.data-v-1de5fb74 {
   width: 41%;
   min-height: 380rpx;
   margin-top: 22rpx;
   margin-left: 6%;
 }
-.content-clonum .shop-image.data-v-5a096d03 {
+.content-clonum .shop-image.data-v-1de5fb74 {
   width: 100%;
   height: 310rpx;
 }
-.shop-image image.data-v-5a096d03 {
+.shop-image image.data-v-1de5fb74 {
   width: 100%;
   height: 100%;
 }
-.content-clonum .shop-info.data-v-5a096d03 {
+.content-clonum .shop-info.data-v-1de5fb74 {
   margin-top: 16rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -67,7 +67,7 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.content-clonum .shop-info .go-detail.data-v-5a096d03 {
+.content-clonum .shop-info .go-detail.data-v-1de5fb74 {
     width: 120rpx;
     height: 40rpx;
     text-align: center;

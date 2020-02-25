@@ -1,1 +1,1 @@
-<view class="menu-item-box data-v-5e250220"><image class="icon data-v-5e250220" src="{{infor.icon}}" mode="aspectFit"></image><text class="title data-v-5e250220">{{infor.title}}</text></view>
+<view class="menu-item-box data-v-656b3ebd"><image class="icon data-v-656b3ebd" src="{{infor.icon}}" mode="aspectFit"></image><text class="title data-v-656b3ebd">{{infor.title}}</text></view>

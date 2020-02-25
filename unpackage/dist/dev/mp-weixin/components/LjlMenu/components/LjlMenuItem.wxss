@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.menu-item-box.data-v-5e250220 {
+.menu-item-box.data-v-656b3ebd {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -16,11 +16,11 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.menu-item-box .icon.data-v-5e250220 {
+.menu-item-box .icon.data-v-656b3ebd {
     width: 70rpx;
     height: 70rpx;
 }
-.menu-item-box .title.data-v-5e250220 {
+.menu-item-box .title.data-v-656b3ebd {
     display: block;
     color: #666666;
     font-size: 32rpx;

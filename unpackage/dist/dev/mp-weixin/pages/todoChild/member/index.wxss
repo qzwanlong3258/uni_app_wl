@@ -4,10 +4,10 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.member-box.data-v-7c108a33 {
+.member-box.data-v-2c331276 {
   position: relative;
 }
-.member-box .background-image.data-v-7c108a33 {
+.member-box .background-image.data-v-2c331276 {
     width: 100%;
     position: absolute;
     top: 0;
@@ -15,14 +15,14 @@
     right: 0;
     z-index: -1;
 }
-.member-box .main-button.data-v-7c108a33 {
+.member-box .main-button.data-v-2c331276 {
     width: 500rpx;
     height: 200rpx;
     position: absolute;
     top: 58%;
     left: 125rpx;
 }
-.member-box .rewardInfo.data-v-7c108a33 {
+.member-box .rewardInfo.data-v-2c331276 {
     position: absolute;
     top: 75%;
     width: 100%;
@@ -30,18 +30,18 @@
     box-sizing: border-box;
     padding: 30rpx 60rpx;
 }
-.member-box .rewardInfo > .title.data-v-7c108a33 {
+.member-box .rewardInfo > .title.data-v-2c331276 {
       font-size: 40rpx;
       font-weight: 500;
       color: yellow;
       left: 80rpx;
 }
-.member-box .rewardInfo .list.data-v-7c108a33 {
+.member-box .rewardInfo .list.data-v-2c331276 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
 }
-.member-box .rewardInfo .item.data-v-7c108a33 {
+.member-box .rewardInfo .item.data-v-2c331276 {
       width: 50%;
       height: 100%;
       display: -webkit-box;
@@ -59,11 +59,11 @@
               align-items: center;
       color: yellow;
 }
-.member-box .rewardInfo .item .title.data-v-7c108a33 {
+.member-box .rewardInfo .item .title.data-v-2c331276 {
         margin-top: 60rpx;
         font-size: 32rpx;
 }
-.member-box .rewardInfo .item .content.data-v-7c108a33 {
+.member-box .rewardInfo .item .content.data-v-2c331276 {
         margin-top: 20rpx;
         font-size: 46rpx;
         font-weight: bold;

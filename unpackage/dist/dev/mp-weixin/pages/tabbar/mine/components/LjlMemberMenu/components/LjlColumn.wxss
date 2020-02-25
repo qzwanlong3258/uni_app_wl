@@ -4,23 +4,23 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.column-box.data-v-c44fb398 {
+.column-box.data-v-6cf45f11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.column-box .icon.data-v-c44fb398 {
+.column-box .icon.data-v-6cf45f11 {
     width: 88rpx;
     height: 88rpx;
 }
-.column-box .content text.data-v-c44fb398 {
+.column-box .content text.data-v-6cf45f11 {
     display: block;
 }
-.column-box .content .key.data-v-c44fb398 {
+.column-box .content .key.data-v-6cf45f11 {
     color: #666666;
     font: 20rpx/28rpx verdana;
 }
-.column-box .content .value.data-v-c44fb398 {
+.column-box .content .value.data-v-6cf45f11 {
     font: 40rpx/56rpx verdana;
 }
 

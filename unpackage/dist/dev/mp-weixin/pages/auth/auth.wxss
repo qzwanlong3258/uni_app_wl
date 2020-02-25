@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.container.data-v-390ffc22 {
+.container.data-v-524642ff {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -15,20 +15,20 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.container .gxg-logo.data-v-390ffc22 {
+.container .gxg-logo.data-v-524642ff {
     position: absolute;
     margin-top: -150rpx;
     width: 160rpx;
     height: 160rpx;
 }
-.container .gxg-logo-nowx.data-v-390ffc22 {
+.container .gxg-logo-nowx.data-v-524642ff {
     position: absolute;
     top: 15%;
     width: 180rpx;
     height: 180rpx;
     margin: 0 auto;
 }
-.container .auth-login.data-v-390ffc22 {
+.container .auth-login.data-v-524642ff {
     position: absolute;
     width: 80%;
     height: 600rpx;
@@ -40,7 +40,7 @@
     -webkit-justify-content: center;
             justify-content: center;
 }
-.container .auth-login ._i.data-v-390ffc22 {
+.container .auth-login ._i.data-v-524642ff {
       font-size: 50rpx;
       line-height: 70rpx;
       display: inline-block;
@@ -50,23 +50,23 @@
       border-bottom-left-radius: 30rpx;
       text-align: center;
 }
-.container .auth-login input.data-v-390ffc22 {
+.container .auth-login input.data-v-524642ff {
       border-left: none;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       width: 85%;
 }
-.container .code-box.data-v-390ffc22 {
+.container .code-box.data-v-524642ff {
     margin-top: 140rpx;
     margin-bottom: 140rpx;
 }
-.container .code-box input.data-v-390ffc22 {
+.container .code-box input.data-v-524642ff {
       width: 55%;
       border-left: none;
       border-right: none;
       border-radius: 0;
 }
-.container .code-box .get-code.data-v-390ffc22 {
+.container .code-box .get-code.data-v-524642ff {
       width: 30%;
       height: 70rpx;
       line-height: 70rpx;
@@ -76,7 +76,7 @@
       background: #e8be2e;
       color: #fff;
 }
-.container .auth-btn.data-v-390ffc22 {
+.container .auth-btn.data-v-524642ff {
     position: absolute;
     background: #e8be2e;
     width: 550rpx;

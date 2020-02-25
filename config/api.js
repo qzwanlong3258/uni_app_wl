@@ -1,6 +1,6 @@
  // const baseUrl = 'http://192.168.5.17:1001';
  const baseUrl = 'http://192.168.3.25:1001';
-
+ // const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 const auth = `${baseUrl}/wx/user`;
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
 	CHECK_IN: `${baseUrl}/wx/user/signIn`,
 	
 	/** 城市 **/
-	LOAD_CITY: `${baseUrl}/comm/loadCite`,
+	LOAD_CITY: `${baseUrl}/city/loadCity`,
 	
 	/** 收货地址 **/
 	LOAD_ADDRESS: `${baseUrl}/wx/user/loadAddress`,

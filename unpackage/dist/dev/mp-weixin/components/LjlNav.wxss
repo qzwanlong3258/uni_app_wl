@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.nav-box.data-v-c1c84d68 {
+.nav-box.data-v-43dbdce9 {
   width: 100%;
   height: 250rpx;
   background: #FAD64C;
@@ -13,18 +13,18 @@
   display: flex;
   z-index: -1;
 }
-.nav-box .avatar.data-v-c1c84d68 {
+.nav-box .avatar.data-v-43dbdce9 {
     width: 112rpx;
     height: 112rpx;
     border-radius: 50%;
     margin: 28rpx 0 0 42rpx;
 }
-.nav-box .nick-name.data-v-c1c84d68 {
+.nav-box .nick-name.data-v-43dbdce9 {
     font: 48rpx/66rpx verdana;
     color: white;
     margin: 52rpx 0 0 26rpx;
 }
-.nav-box .member.data-v-c1c84d68 {
+.nav-box .member.data-v-43dbdce9 {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -35,10 +35,10 @@
     margin: 40rpx 0 0 25rpx;
     color: white;
 }
-.nav-box .member text + text.data-v-c1c84d68 {
+.nav-box .member text + text.data-v-43dbdce9 {
       margin-top: 10rpx;
 }
-.nav-box .check-in.data-v-c1c84d68 {
+.nav-box .check-in.data-v-43dbdce9 {
     width: 192rpx;
     height: 66rpx;
     background: #FFF566;
@@ -50,7 +50,7 @@
     font: 32rpx/66rpx verdana;
     font-weight: bold;
 }
-.nav-box .check-in-barrage.data-v-c1c84d68 {
+.nav-box .check-in-barrage.data-v-43dbdce9 {
     position: fixed;
     top: 0;
     left: 0;
@@ -72,28 +72,28 @@
     -webkit-align-items: center;
             align-items: center;
 }
-.nav-box .check-in-barrage .checkImg.data-v-c1c84d68 {
+.nav-box .check-in-barrage .checkImg.data-v-43dbdce9 {
       width: 550rpx;
       height: 400rpx;
       position: relative;
 }
-.nav-box .check-in-barrage .checkImg .img.data-v-c1c84d68 {
+.nav-box .check-in-barrage .checkImg .img.data-v-43dbdce9 {
         width: 100%;
         height: 100%;
 }
-.nav-box .check-in-barrage .checkImg .font.data-v-c1c84d68 {
+.nav-box .check-in-barrage .checkImg .font.data-v-43dbdce9 {
         position: absolute;
         top: 70%;
         left: 14%;
 }
-.nav-box .check-in-barrage .checkImg .font text.data-v-c1c84d68 {
+.nav-box .check-in-barrage .checkImg .font text.data-v-43dbdce9 {
           display: inline-block;
           color: #D63754;
           font-size: 36rpx;
           width: 50rpx;
           text-align: center;
 }
-.nav-box .check-in-barrage .cross.data-v-c1c84d68 {
+.nav-box .check-in-barrage .cross.data-v-43dbdce9 {
       margin-top: 100rpx;
       width: 100rpx;
       height: 100rpx;

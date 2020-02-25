@@ -4,19 +4,19 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.menu-box .header.data-v-2f5b2539 {
+.menu-box .header.data-v-08f1edfc {
   height: 60rpx;
   background: white;
   opacity: 0.45;
   position: relative;
 }
-.menu-box .header text.data-v-2f5b2539 {
+.menu-box .header text.data-v-08f1edfc {
     position: absolute;
     right: 14rpx;
     line-height: 60rpx;
     font-weight: bold;
 }
-.menu-box .content.data-v-2f5b2539 {
+.menu-box .content.data-v-08f1edfc {
   height: 130rpx;
   background: white;
   box-sizing: border-box;
@@ -25,7 +25,7 @@
   display: -webkit-flex;
   display: flex;
 }
-.menu-box .content .column.data-v-2f5b2539 {
+.menu-box .content .column.data-v-08f1edfc {
     width: 33%;
 }
 

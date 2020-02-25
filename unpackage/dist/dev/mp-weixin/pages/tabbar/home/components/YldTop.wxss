@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.home-header.data-v-239ef831 {
+.home-header.data-v-39022e8e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -13,7 +13,7 @@
   height: 60rpx;
   line-height: 60rpx;
 }
-.home-header .city-section.data-v-239ef831 {
+.home-header .city-section.data-v-39022e8e {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -26,17 +26,17 @@
     padding: 0 10rpx;
     margin-top: 10rpx;
 }
-.home-header .city-section text.data-v-239ef831 {
+.home-header .city-section text.data-v-39022e8e {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 }
-.home-header .city-section ._i.data-v-239ef831 {
+.home-header .city-section ._i.data-v-39022e8e {
       font-size: 1em;
       margin-top: 4rpx;
       margin-left: 10rpx;
 }
-.home-header .home-msg.data-v-239ef831 {
+.home-header .home-msg.data-v-39022e8e {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -46,16 +46,16 @@
     width: 77%;
     background: #fff;
 }
-.home-header .home-msg ._i.data-v-239ef831 {
+.home-header .home-msg ._i.data-v-39022e8e {
       margin-left: 3%;
 }
-.home-header .home-msg input.data-v-239ef831 {
+.home-header .home-msg input.data-v-39022e8e {
       margin-left: 3%;
 }
-.home-header .search.data-v-239ef831 {
+.home-header .search.data-v-39022e8e {
     height: 100%;
 }
-.home-header .slecet-list.data-v-239ef831 {
+.home-header .slecet-list.data-v-39022e8e {
     width: 100%;
     height: 420rpx;
     position: fixed;
@@ -63,7 +63,7 @@
     z-index: 99;
     background: #fff;
 }
-.home-header .slecet-clonum.data-v-239ef831 {
+.home-header .slecet-clonum.data-v-39022e8e {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -72,7 +72,7 @@
             justify-content: center;
     line-height: 40px;
 }
-.home-header .select-value.data-v-239ef831 {
+.home-header .select-value.data-v-39022e8e {
     position: absolute;
     left: 200rpx;
 }

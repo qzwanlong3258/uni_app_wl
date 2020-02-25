@@ -2,7 +2,7 @@
 	<view class="decoration_view-box page_view-all-inner-padding">
 		<view class="decoration_view-nav page_view-box">
 			<text class="decoration_text-row decoration_text-row-title">最高额度(元)</text>
-			<text class="decoration_text-row decoration_text-row-content">200.000.00</text>
+			<text class="decoration_text-row decoration_text-row-content">200.0000.00</text>
 			<text class="decoration_text-row-submit">激活额度</text>
 		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding">
@@ -29,7 +29,7 @@
 <script>
 	'use scrict';
 	import { COMPANY_LOGO } from '@/config/image.js';
-	import { DECORATION_APPLICATION } from '@/config/router.js';
+	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD} from '@/config/router.js';
 	
 	export default {
 		data() {
@@ -38,9 +38,9 @@
 					logo: COMPANY_LOGO
 				},
 				menus: [
-					{ icon: "iconxinshenqing-", title: "发起申请", href: DECORATION_APPLICATION },
-					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "进度查询" },
-					{ icon: "icongerencanbaoxinxichaxun", title: "申请记录" }
+					{ icon: "iconxinshenqing-", title: "发起申请", href: LOAN_APPLICATION },
+					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "进度查询" ,href: LOAN_SCHEDULE},
+					{ icon: "icongerencanbaoxinxichaxun", title: "申请记录" ,href: LOAN_RECORD}
 				]
 			}
 		},

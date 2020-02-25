@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.nav-box.data-v-2287b5b4 {
+.nav-box.data-v-041f5b83 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -13,7 +13,7 @@
   line-height: 50rpx;
   margin: 30rpx 0;
 }
-.nav-box .nav-clonum.data-v-2287b5b4 {
+.nav-box .nav-clonum.data-v-041f5b83 {
     width: 50%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -22,17 +22,17 @@
     -webkit-justify-content: center;
             justify-content: center;
 }
-.nav-box .nav-clonum ._i.data-v-2287b5b4 {
+.nav-box .nav-clonum ._i.data-v-041f5b83 {
       font-size: 50rpx;
       margin-right: 6rpx;
       color: #333;
 }
-.nav-box .nav-clonum text.data-v-2287b5b4 {
+.nav-box .nav-clonum text.data-v-041f5b83 {
       color: #333;
       font-size: 32rpx;
       max-width: 75%;
 }
-.nav-box .nav-clonum.data-v-2287b5b4:not(:last-child) {
+.nav-box .nav-clonum.data-v-041f5b83:not(:last-child) {
       border-right: 2rpx solid #ddd;
 }
 

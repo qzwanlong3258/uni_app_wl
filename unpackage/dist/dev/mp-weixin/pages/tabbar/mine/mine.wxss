@@ -4,20 +4,20 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.mine-box.data-v-1389f3fb {
+.mine-box.data-v-dd86ab04 {
   width: 100%;
 }
-.mine-box .menu.data-v-1389f3fb {
+.mine-box .menu.data-v-dd86ab04 {
     width: 700rpx;
     height: 300rpx;
     margin: 0 auto;
     -webkit-transform: translateY(-90rpx);
             transform: translateY(-90rpx);
 }
-.mine-box .menu .item + .item.data-v-1389f3fb {
+.mine-box .menu .item + .item.data-v-dd86ab04 {
       margin-top: 20rpx;
 }
-.mine-box .main-menu.data-v-1389f3fb {
+.mine-box .main-menu.data-v-dd86ab04 {
     width: 100%;
     background: white;
 }

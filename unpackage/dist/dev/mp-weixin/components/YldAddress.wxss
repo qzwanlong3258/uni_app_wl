@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.order-address.data-v-cc4bab8c {
+.order-address.data-v-11851757 {
   width: 100%;
   height: 150rpx;
   background: #fff;
@@ -20,26 +20,26 @@
   border: 1rpx solid #dcdcdc;
   border-radius: 10rpx;
 }
-.order-address .address-icon ._i.data-v-cc4bab8c {
+.order-address .address-icon ._i.data-v-11851757 {
   font-size: 55rpx;
   color: #666;
 }
-.order-address .user-info.data-v-cc4bab8c {
+.order-address .user-info.data-v-11851757 {
   line-height: 42rpx;
   width: 390rpx;
 }
-.order-address .user-info .base-info.data-v-cc4bab8c {
+.order-address .user-info .base-info.data-v-11851757 {
     font-size: 30rpx;
 }
-.order-address .user-info .base-info text.data-v-cc4bab8c {
+.order-address .user-info .base-info text.data-v-11851757 {
       margin-left: 22rpx;
 }
-.order-address .right-icon ._i.data-v-cc4bab8c {
+.order-address .right-icon ._i.data-v-11851757 {
   font-size: 53rpx;
   color: #666;
   position: relative;
 }
-.user-address.data-v-cc4bab8c {
+.user-address.data-v-11851757 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;

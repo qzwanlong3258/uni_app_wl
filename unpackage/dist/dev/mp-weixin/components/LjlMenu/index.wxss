@@ -4,18 +4,18 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.menu-box .title.data-v-28c76589 {
+.menu-box .title.data-v-04a6874c {
   font-size: 36rpx;
   color: #333333;
 }
-.menu-box .content.data-v-28c76589 {
+.menu-box .content.data-v-04a6874c {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.menu-box .item.data-v-28c76589 {
+.menu-box .item.data-v-04a6874c {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -27,7 +27,7 @@
           align-items: center;
   margin-top: 30rpx;
 }
-.menu-box.center.data-v-28c76589 {
+.menu-box.center.data-v-04a6874c {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -39,7 +39,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.menu-box.center .title.data-v-28c76589 {
+.menu-box.center .title.data-v-04a6874c {
     margin: 20rpx 0 35rpx;
 }
 

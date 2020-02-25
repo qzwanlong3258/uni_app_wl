@@ -1589,9 +1589,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 131:
-/*!******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/activity.js ***!
-  \******************************************************/
+/*!***************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2357,9 +2357,9 @@ function completeActivity(data) {
 /***/ }),
 
 /***/ 15:
-/*!***************************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/utils/regenerator-runtime/runtime.js ***!
-  \***************************************************************************/
+/*!************************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/regenerator-runtime/runtime.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3088,9 +3088,9 @@ function () {
 /***/ }),
 
 /***/ 154:
-/*!********************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/todoChild/customerList.js ***!
-  \********************************************************************/
+/*!*****************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3113,9 +3113,9 @@ function loadCustomer(data) {
 /***/ }),
 
 /***/ 16:
-/*!*******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/utils/storage.js ***!
-  \*******************************************************/
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/storage.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3234,9 +3234,9 @@ module.exports = {
 /***/ }),
 
 /***/ 17:
-/*!*******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/router.js ***!
-  \*******************************************************/
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/router.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3284,14 +3284,17 @@ module.exports = {
   POSTER: '/pages/todoChild/poster/index',
   // 家装分期
   DECORATION: '/pages/todoChild/decoration/index',
-  DECORATION_APPLICATION: '/pages/todoChild/decoration/application/index' };
+  LOAN_APPLICATION: '/pages/todoChild/decoration/application/index', //发起申请
+  LOAN_SCHEDULE: '/pages/todoChild/decoration/schedule/index', //进度查询
+  LOAN_RECORD: '/pages/todoChild/decoration/record/index' //申请记录
+};
 
 /***/ }),
 
 /***/ 18:
-/*!*****************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/http.js ***!
-  \*****************************************************/
+/*!**************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/http.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3421,16 +3424,16 @@ module.exports = {
 /***/ }),
 
 /***/ 19:
-/*!****************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/api.js ***!
-  \****************************************************/
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/api.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
  // const baseUrl = 'http://192.168.5.17:1001';
 var baseUrl = 'http://192.168.3.25:1001';
-
+// const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 var auth = "".concat(baseUrl, "/wx/user");
 
 module.exports = {
@@ -3462,7 +3465,7 @@ module.exports = {
   CHECK_IN: "".concat(baseUrl, "/wx/user/signIn"),
 
   /** 城市 **/
-  LOAD_CITY: "".concat(baseUrl, "/comm/loadCite"),
+  LOAD_CITY: "".concat(baseUrl, "/city/loadCity"),
 
   /** 收货地址 **/
   LOAD_ADDRESS: "".concat(baseUrl, "/wx/user/loadAddress"),
@@ -9559,9 +9562,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 23:
-/*!*****************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/store/index.js ***!
-  \*****************************************************/
+/*!**************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/index.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9586,9 +9589,9 @@ store;exports.default = _default;
 /***/ }),
 
 /***/ 235:
-/*!*************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/store/mutationTypes.js ***!
-  \*************************************************************/
+/*!**********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10554,9 +10557,9 @@ var index_esm = {
 /***/ }),
 
 /***/ 25:
-/*!*******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/store/getters.js ***!
-  \*******************************************************/
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/getters.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10570,9 +10573,9 @@ getters;exports.default = _default;
 /***/ }),
 
 /***/ 290:
-/*!*********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/tabbar/todo.js ***!
-  \*********************************************************/
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10628,9 +10631,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 32:
-/*!******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/image.js ***!
-  \******************************************************/
+/*!***************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/image.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10688,9 +10691,9 @@ module.exports = {
 /***/ }),
 
 /***/ 33:
-/*!*********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/tabbar/home.js ***!
-  \*********************************************************/
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/home.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10715,9 +10718,9 @@ function loadHomeCarousel(data) {
 /***/ }),
 
 /***/ 34:
-/*!**************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/city.js ***!
-  \**************************************************/
+/*!***********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/city.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10741,9 +10744,9 @@ function loadCity(data) {
 /***/ }),
 
 /***/ 375:
-/*!*************************************************************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
-  \*************************************************************************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11277,9 +11280,9 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 /***/ }),
 
 /***/ 376:
-/*!************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/wx.js ***!
-  \************************************************/
+/*!*********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11308,9 +11311,9 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 /***/ }),
 
 /***/ 4:
-/*!*************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/pages.json ***!
-  \*************************************************/
+/*!**********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11320,9 +11323,9 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 /***/ }),
 
 /***/ 43:
-/*!*******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/filter.js ***!
-  \*******************************************************/
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/filter.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11482,9 +11485,9 @@ function formatHomeRoute(value) {
 /***/ }),
 
 /***/ 44:
-/*!****************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/utils/util.js ***!
-  \****************************************************/
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/util.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11729,9 +11732,9 @@ module.exports = {
 /***/ }),
 
 /***/ 45:
-/*!***************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/order.js ***!
-  \***************************************************/
+/*!************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/order.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12727,9 +12730,9 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 /***/ }),
 
 /***/ 62:
-/*!********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/package.js ***!
-  \********************************************************/
+/*!*****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/package.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13043,9 +13046,9 @@ module.exports = {
 /***/ }),
 
 /***/ 63:
-/*!*******************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/config/common.js ***!
-  \*******************************************************/
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/common.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13066,9 +13069,9 @@ module.exports = {
 /***/ }),
 
 /***/ 64:
-/*!*****************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/address.js ***!
-  \*****************************************************/
+/*!**************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/address.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13127,21 +13130,21 @@ function deleteReceiveAddress(data) {
 /***/ }),
 
 /***/ 7:
-/*!******************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/pages.json?{"type":"style"} ***!
-  \******************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"style"} ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包" }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表" }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情" }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单" }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情" }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城" }, "pages/auth/auth": { "navigationBarTitleText": "授权" }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的" }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情" }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表" }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址" }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心" }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员" }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表" }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品" }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现" }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报" }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期" }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "application-input": "/pages/todoChild/decoration/application/components/ApplicationInput" } }, "/pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度" }, "/pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": {} }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 
 /***/ 73:
-/*!***************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/goods.js ***!
-  \***************************************************/
+/*!************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/goods.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13205,9 +13208,9 @@ function getGoodsConvert(data) {var
 /***/ }),
 
 /***/ 8:
-/*!*****************************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/pages.json?{"type":"stat"} ***!
-  \*****************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"stat"} ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13217,9 +13220,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 88:
-/*!***********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/pages/auth/wxAuth.js ***!
-  \***********************************************************/
+/*!********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages/auth/wxAuth.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13348,9 +13351,9 @@ wxAuth;exports.default = _default;
 /***/ }),
 
 /***/ 89:
-/*!*********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/utils/openLogin.js ***!
-  \*********************************************************/
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/openLogin.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13380,9 +13383,9 @@ module.exports = {
 /***/ }),
 
 /***/ 98:
-/*!*********************************************************!*\
-  !*** E:/Desktop/feike/feike_uni_app/api/tabbar/mine.js ***!
-  \*********************************************************/
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

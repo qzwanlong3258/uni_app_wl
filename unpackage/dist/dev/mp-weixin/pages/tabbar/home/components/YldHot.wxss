@@ -1,10 +1,10 @@
 
-.tip-title.data-v-ade6e1ae {
+.tip-title.data-v-832074f4 {
 	font-size: 40rpx;
 	font-weight: bold;
 	margin-left: 2%;
 }
-.scroll-tip.data-v-ade6e1ae {
+.scroll-tip.data-v-832074f4 {
 	width: 100%;
 	height: 80rpx;
 	background: #fff;
@@ -14,13 +14,13 @@
 	display: -webkit-flex;
 	display: flex;
 }
-.scroll-tip .header-msg-tip.data-v-ade6e1ae {
+.scroll-tip .header-msg-tip.data-v-832074f4 {
 	height: 70rpx;
 	position: absolute;
 	margin-left: 180rpx;
 	width: 570rpx;
 }
-.scroll-tip ._i.data-v-ade6e1ae {
+.scroll-tip ._i.data-v-832074f4 {
 	position: relative;
 	font-size: 40rpx;
 	left: 30rpx;

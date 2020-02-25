@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.states-box.data-v-449542e9 {
+.states-box.data-v-6979be2c {
   width: 100%;
   height: 90rpx;
   background: #f8f8f8;
@@ -17,13 +17,13 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.states-box text.data-v-449542e9 {
+.states-box text.data-v-6979be2c {
     text-align: center;
     font-size: 34rpx;
     color: #333333;
     line-height: 50rpx;
 }
-.states-box text.active.data-v-449542e9 {
+.states-box text.active.data-v-6979be2c {
     color: #FAD64C;
     border-bottom: 5rpx solid #FAD64C;
 }

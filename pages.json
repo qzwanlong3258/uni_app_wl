@@ -120,7 +120,19 @@
             "style" : {
 				"navigationBarTitleText": "家装申请"
 			}
-        }
+        },
+		{
+		    "path" : "pages/todoChild/decoration/schedule/index",
+		    "style" : {
+				"navigationBarTitleText": "贷款进度"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/decoration/record/index",
+		    "style" : {
+				"navigationBarTitleText": "申请记录"
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

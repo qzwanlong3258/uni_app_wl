@@ -19,7 +19,9 @@
     "pages/todoChild/withdraw/index",
     "pages/todoChild/poster/index",
     "pages/todoChild/decoration/index",
-    "pages/todoChild/decoration/application/index"
+    "pages/todoChild/decoration/application/index",
+    "pages/todoChild/decoration/schedule/index",
+    "pages/todoChild/decoration/record/index"
   ],
   "subPackages": [],
   "window": {

@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.canvas_box.data-v-85e0170e {
+.canvas_box.data-v-e7a7a554 {
   position: fixed;
   top: 0rpx;
   left: 0rpx;
@@ -22,12 +22,12 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
-.canvas_box canvas.data-v-85e0170e {
+.canvas_box canvas.data-v-e7a7a554 {
   -webkit-transform: translateY(-10%);
           transform: translateY(-10%);
   background-color: #fffffb;
 }
-.share_set.data-v-85e0170e {
+.share_set.data-v-e7a7a554 {
   position: fixed;
   left: 0rpx;
   right: 0rpx;
@@ -40,7 +40,7 @@
   -webkit-justify-content: center;
           justify-content: center;
 }
-.share_option.data-v-85e0170e {
+.share_option.data-v-e7a7a554 {
   width: 33%;
   height: 100%;
   display: -webkit-box;
@@ -57,16 +57,16 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.share_option > image.data-v-85e0170e {
+.share_option > image.data-v-e7a7a554 {
   width: 100rpx;
   height: 100rpx;
 }
-.share_option > text.data-v-85e0170e {
+.share_option > text.data-v-e7a7a554 {
   font-size: 24rpx;
   color: #fffffb;
   margin-top: 10rpx;
 }
-.under_button.data-v-85e0170e {
+.under_button.data-v-e7a7a554 {
   background-color: transparent;
   height: 100rpx;
   position: fixed;

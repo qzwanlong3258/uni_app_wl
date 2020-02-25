@@ -4,16 +4,16 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.shop-detail.data-v-1ad30ae9 {
+.shop-detail.data-v-64421e06 {
   margin-top: 30rpx;
   background: #fff;
   height: calc(100% - 840rpx);
 }
-.fixed-document.data-v-1ad30ae9 {
+.fixed-document.data-v-64421e06 {
   position: fixed;
   bottom: 0;
 }
-.recommend-shop.data-v-1ad30ae9 {
+.recommend-shop.data-v-64421e06 {
   margin-top: 30rpx;
 }
 

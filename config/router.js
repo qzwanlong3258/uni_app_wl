@@ -41,5 +41,8 @@ module.exports = {
 	POSTER: '/pages/todoChild/poster/index',
 	// 家装分期
 	DECORATION: '/pages/todoChild/decoration/index',
-	DECORATION_APPLICATION: '/pages/todoChild/decoration/application/index'
+	LOAN_APPLICATION: '/pages/todoChild/decoration/application/index',//发起申请
+	LOAN_SCHEDULE: '/pages/todoChild/decoration/schedule/index',//进度查询
+	LOAN_RECORD: '/pages/todoChild/decoration/record/index',//申请记录
+	
 }

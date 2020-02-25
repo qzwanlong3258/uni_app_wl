@@ -4,42 +4,42 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.withdraw-box.data-v-5df0f723 {
+.withdraw-box.data-v-e0db0ab4 {
   color: #666666;
 }
-.withdraw-box > view.data-v-5df0f723 {
+.withdraw-box > view.data-v-e0db0ab4 {
     box-sizing: border-box;
     padding: 30rpx;
 }
-.withdraw-box > view .content.data-v-5df0f723 {
+.withdraw-box > view .content.data-v-e0db0ab4 {
       margin-top: 50rpx;
 }
-.withdraw-box .balance.data-v-5df0f723 {
+.withdraw-box .balance.data-v-e0db0ab4 {
     background: #FAD64C;
     height: 300rpx;
     font-size: 28rpx;
 }
-.withdraw-box .balance .content.data-v-5df0f723 {
+.withdraw-box .balance .content.data-v-e0db0ab4 {
       font-size: 80rpx;
 }
-.withdraw-box .withdraw .content.data-v-5df0f723 {
+.withdraw-box .withdraw .content.data-v-e0db0ab4 {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
 }
-.withdraw-box .withdraw .content .icon.data-v-5df0f723 {
+.withdraw-box .withdraw .content .icon.data-v-e0db0ab4 {
       width: 80rpx;
       font-size: 50rpx;
 }
-.withdraw-box .withdraw .content input.data-v-5df0f723 {
+.withdraw-box .withdraw .content input.data-v-e0db0ab4 {
       width: calc(90% - 80rpx);
       border-bottom: 1px solid #979797;
 }
-.withdraw-box .withdraw .option.data-v-5df0f723 {
+.withdraw-box .withdraw .option.data-v-e0db0ab4 {
     font-size: 32rpx;
     margin-left: 80rpx;
 }
-.withdraw-box .submit.data-v-5df0f723 {
+.withdraw-box .submit.data-v-e0db0ab4 {
     margin: 30rpx;
     height: 100rpx;
     background: #FAD64C;

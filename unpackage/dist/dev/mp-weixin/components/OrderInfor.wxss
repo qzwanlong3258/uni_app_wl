@@ -4,7 +4,7 @@
 --------------------------*/
 /* radius
 --------------------------*/
-.clothe-box.data-v-d48fc6e6 {
+.clothe-box.data-v-0d6309aa {
   width: 94%;
   height: 330rpx;
   margin: 3% 24rpx;
@@ -18,7 +18,7 @@
           justify-content: space-around;
   background: #fff;
 }
-.clothe-box .box-left.data-v-d48fc6e6 {
+.clothe-box .box-left.data-v-0d6309aa {
     width: 26%;
     height: 238rpx;
     border-radius: 10rpx;
@@ -30,21 +30,21 @@
             justify-content: center;
     margin-left: 30rpx;
 }
-.clothe-box .box-left image.data-v-d48fc6e6 {
+.clothe-box .box-left image.data-v-0d6309aa {
       width: 100%;
       height: 100%;
       border-radius: 10rpx;
 }
-.clothe-box .box-right.data-v-d48fc6e6 {
+.clothe-box .box-right.data-v-0d6309aa {
     width: 58%;
 }
-.clothe-box .box-right .clothe-size.data-v-d48fc6e6 {
+.clothe-box .box-right .clothe-size.data-v-0d6309aa {
       margin-top: 24rpx;
 }
-.clothe-box .box-right .tip-font.data-v-d48fc6e6 {
+.clothe-box .box-right .tip-font.data-v-0d6309aa {
       line-height: 52rpx;
 }
-.clothe-box .box-right .count-box.data-v-d48fc6e6 {
+.clothe-box .box-right .count-box.data-v-0d6309aa {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -55,10 +55,10 @@
       color: #8f8fa7;
       margin-top: 20rpx;
 }
-.clothe-box .box-right .content-font.data-v-d48fc6e6 {
+.clothe-box .box-right .content-font.data-v-0d6309aa {
       color: #8f8fa7;
 }
-.clothe-box .box-right .right-bottom.data-v-d48fc6e6 {
+.clothe-box .box-right .right-bottom.data-v-0d6309aa {
       width: 132rpx;
       display: -webkit-box;
       display: -webkit-flex;
@@ -66,11 +66,11 @@
       -webkit-justify-content: space-around;
               justify-content: space-around;
 }
-.clothe-box .box-right .right-bottom ._i.data-v-d48fc6e6 {
+.clothe-box .box-right .right-bottom ._i.data-v-0d6309aa {
         font-size: 36rpx;
         color: #df365d;
 }
-.clothe-box .box-right .right-bottom text.data-v-d48fc6e6 {
+.clothe-box .box-right .right-bottom text.data-v-0d6309aa {
         font-size: 32rpx;
         line-height: 45rpx;
 }
