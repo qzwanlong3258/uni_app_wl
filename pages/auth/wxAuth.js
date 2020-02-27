@@ -42,8 +42,8 @@ const wxAuth = {
 			console.log('调用wx.login失败')
 		})
 		this.session_key = session_key;
+		console.log(session_key)
 	},
-
 	methods: {
 		getUserInfo: async function(e) {
 			if (!this.session_key) {
@@ -56,6 +56,7 @@ const wxAuth = {
 				encryptedData,
 				iv
 			} = e.detail
+			console.log(e.detail) 
 			//获取用户的微信信息
 			const {
 				openId,

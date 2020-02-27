@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "家装申请",
   "usingComponents": {
-    "application-input": "/pages/todoChild/decoration/application/components/ApplicationInput"
+    "w-picker": "/components/w-picker/w-picker",
+    "uni-popup": "/components/uni-popup/uni-popup"
   }
 }

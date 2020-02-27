@@ -1,1 +1,0 @@
-<view class="applicationInput_view-box"><text class="application_text-inner title">{{infor.title+":"}}</text><input class="application_text-inner content" placeholder="{{'请输入'+infor.title}}" data-event-opts="{{[['input',[['valueChange',['$event']]]]]}}" value="{{infor.content}}" bindinput="__e"/></view>

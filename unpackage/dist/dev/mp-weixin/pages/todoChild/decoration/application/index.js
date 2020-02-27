@@ -90,6 +90,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.agree = !_vm.agree
+    }
+  }
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -122,7 +127,144 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
- //
+/* WEBPACK VAR INJECTION */(function(uni) { //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -136,24 +278,165 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var ApplicationInput = function ApplicationInput() {return __webpack_require__.e(/*! import() | pages/todoChild/decoration/application/components/ApplicationInput */ "pages/todoChild/decoration/application/components/ApplicationInput").then(__webpack_require__.bind(null, /*! ./components/ApplicationInput.vue */ 379));};var _default =
+'use scrict';
+// import { ApplicationInput } from './components/ApplicationInput.vue';
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 393));};var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 404));};
 
-
+var _self;var _default =
 {
   data: function data() {
     return {
-      form: [
-      { title: "申请信息", list: [
-        { title: "额度", submitKey: "quota", type: "text" },
-        { title: "期限", submitKey: "term", type: "option" },
-        { title: "邀请人", submitKey: "invite", type: "text" },
-        { title: "面签城市", submitKey: "city", type: "option" }] }] };
+      // form: [
+      // 	{title: "申请信息", list: [
+      // 		{title: "额度", submitKey: "quota", type: "text"},
+      // 		{title: "期限", submitKey: "term", type: "option"},
+      // 		{title: "邀请人", submitKey: "invite", type: "text"},
+      // 		{title: "面签城市", submitKey: "city", type: "option"}
+      // 	]}
+      // ]
+      marriageItems: [
+      {
+        value: 'USA',
+        name: '已婚' },
+
+      {
+        value: 'CHN',
+        name: '未婚' }],
+
+
+      photoItems: [
+      {
+        value: 'USA',
+        name: '用户拍' },
+
+      {
+        value: 'CHN',
+        name: '非客拍' }],
+
+
+      workArray: ['中国', '美国', '巴西', '日本'],
+      workIndex: 0,
+      periodArray: ['中国', '美国', '巴西', '日本'],
+      periodIndex: 0,
+      dateArray: ['07:00-10:00', '10:00-13:00', '13:00-16:00', '16:00-19:00'],
+      dateIndex: 0,
+      marriageCurrent: 0,
+      photoCurrent: 0,
+      tempFilePaths: '',
+      huadongs: [
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
+      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' }],
+
+      agree: false,
+      disabledTime: [
+      {
+        start: '11:00',
+        end: '12:00' }],
+
+
+      value: '' };
+
+
 
 
 
   },
+  onLoad: function onLoad() {
+    _self = this;
+    _self.value = this.getTime();
+  },
+  methods: {
+    marriageRadioChange: function marriageRadioChange(evt) {
+      for (var i = 0; i < this.marriageItems.length; i++) {
+        if (this.marriageItems[i].value === evt.target.value) {
+          this.marriageCurrent = i;
+          break;
+        }
+      }
+    },
+    photoRadioChange: function photoRadioChange(evt) {
+      for (var i = 0; i < this.photoItems.length; i++) {
+        if (this.photoItems[i].value === evt.target.value) {
+          this.photoCurrent = i;
+          break;
+        }
+      }
+    },
+    workBindPickerChange: function workBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.workIndex = e.target.value;
+    },
+    periodBindPickerChange: function periodBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.periodIndex = e.target.value;
+    },
+    dateBindPickerChange: function dateBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.dateIndex = e.target.value;
+    },
+    // 选择照片
+    chooseimage: function chooseimage() {
+      var _this = this;
+      uni.chooseImage({
+        count: 9, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function success(res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          _self.tempFilePaths = res.tempFilePaths;
+
+        } });
+
+    },
+    selectedTime: function selectedTime(e) {
+      console.log(e);
+    },
+    show: function show() {
+      this.$refs.date.show();
+    },
+    onConfirm: function onConfirm(e) {
+      this.value = e.result;
+    },
+    getTime: function getTime() {
+
+      var date = new Date(),
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
+      minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+      second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      month >= 1 && month <= 9 ? month = "0" + month : "";
+      day >= 0 && day <= 9 ? day = "0" + day : "";
+      var timer = year + '-' + month + '-' + day;
+      return timer;
+    },
+    open: function open() {
+      this.$refs.popup.open();
+    },
+    cancel: function cancel() {
+      this.$refs.popup.close();
+    },
+    change: function change(e) {
+      console.log('是否打开:' + e.show);
+    },
+    submit: function submit() {
+      uni.navigateBack({
+        delta: 1 });
+
+
+    } },
+
   components: {
-    ApplicationInput: ApplicationInput } };exports.default = _default;
+    // ApplicationInput
+
+    wPicker: wPicker,
+    uniPopup: uniPopup } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
