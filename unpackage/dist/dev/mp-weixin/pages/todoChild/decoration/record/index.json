@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "申请记录",
-  "usingComponents": {}
+  "usingComponents": {
+    "null-data": "/components/NullData"
+  }
 }

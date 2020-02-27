@@ -39,8 +39,9 @@
 				},
 				menus: [
 					{ icon: "iconxinshenqing-", title: "发起申请", href: LOAN_APPLICATION },
-					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "进度查询" ,href: LOAN_SCHEDULE},
-					{ icon: "icongerencanbaoxinxichaxun", title: "申请记录" ,href: LOAN_RECORD}
+					
+					{ icon: "icongerencanbaoxinxichaxun", title: "借款记录" ,href: LOAN_RECORD},
+					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "查询进度" ,href: LOAN_SCHEDULE},
 				]
 			}
 		},

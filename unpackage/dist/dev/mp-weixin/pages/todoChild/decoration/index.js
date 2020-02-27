@@ -163,8 +163,9 @@ var _router = __webpack_require__(/*! @/config/router.js */ 17);var _default =
 
       menus: [
       { icon: "iconxinshenqing-", title: "发起申请", href: _router.LOAN_APPLICATION },
-      { icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "进度查询", href: _router.LOAN_SCHEDULE },
-      { icon: "icongerencanbaoxinxichaxun", title: "申请记录", href: _router.LOAN_RECORD }] };
+
+      { icon: "icongerencanbaoxinxichaxun", title: "借款记录", href: _router.LOAN_RECORD },
+      { icon: "iconshengyuyiliaofeijiesuanjiluchaxun", title: "查询进度", href: _router.LOAN_SCHEDULE }] };
 
 
   },
