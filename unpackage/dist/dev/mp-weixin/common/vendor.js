@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3286,7 +3286,8 @@ module.exports = {
   DECORATION: '/pages/todoChild/decoration/index',
   LOAN_APPLICATION: '/pages/todoChild/decoration/application/index', //发起申请
   LOAN_SCHEDULE: '/pages/todoChild/decoration/schedule/index', //进度查询
-  LOAN_RECORD: '/pages/todoChild/decoration/record/index' //申请记录
+  LOAN_RECORD: '/pages/todoChild/decoration/record/index', //申请记录
+  LOAN_RECORD_Detail: '/pages/todoChild/decoration/record/recordDetail/index' //申请记录
 };
 
 /***/ }),
@@ -8973,7 +8974,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8994,14 +8995,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9077,7 +9078,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10539,23 +10540,6 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 249:
-/*!**********************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var types = {};var _default =
-
-
-
-types;exports.default = _default;
-
-/***/ }),
-
 /***/ 25:
 /*!****************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/getters.js ***!
@@ -10569,6 +10553,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 getters;exports.default = _default;
+
+/***/ }),
+
+/***/ 259:
+/*!**********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var types = {};var _default =
+
+
+
+types;exports.default = _default;
 
 /***/ }),
 
@@ -10603,7 +10604,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 304:
+/***/ 314:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -10686,7 +10687,9 @@ module.exports = {
   POSTER_1: "".concat(staticUrl, "/todoChild/poster/1.jpg"),
   POSTER_2: "".concat(staticUrl, "/todoChild/poster/2.jpg"),
   POSTER_3: "".concat(staticUrl, "/todoChild/poster/3.jpg"),
-  POSTER_4: "".concat(staticUrl, "/todoChild/poster/4.jpg") };
+  POSTER_4: "".concat(staticUrl, "/todoChild/poster/4.jpg"),
+  // 打款成功
+  SUCCESSPAY: "".concat(staticUrl, "/todoChild/\u6253\u6B3E\u6210\u529F@2x.png") };
 
 /***/ }),
 
@@ -10743,7 +10746,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 389:
+/***/ 399:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -10751,7 +10754,7 @@ function loadCity(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 390);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 400);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -11279,7 +11282,19 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 390:
+/***/ 4:
+/*!**********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ 400:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -11310,7 +11325,7 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 
 /***/ }),
 
-/***/ 398:
+/***/ 408:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -11460,7 +11475,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 399:
+/***/ 409:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -12974,19 +12989,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 4:
-/*!**********************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-
-/***/ 400:
+/***/ 410:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -25539,7 +25542,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 401:
+/***/ 411:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -28015,7 +28018,7 @@ function deleteReceiveAddress(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包" }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表" }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情" }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单" }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情" }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城" }, "pages/auth/auth": { "navigationBarTitleText": "授权" }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的" }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情" }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表" }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址" }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心" }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员" }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表" }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品" }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现" }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报" }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期" }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请" }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度" }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包" }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表" }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情" }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单" }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情" }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城" }, "pages/auth/auth": { "navigationBarTitleText": "授权" }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的" }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情" }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表" }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址" }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心" }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员" }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表" }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品" }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现" }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报" }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期" }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请" }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度" }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 

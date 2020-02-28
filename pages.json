@@ -132,6 +132,12 @@
 		    "style" : {
 				"navigationBarTitleText": "申请记录"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/decoration/record/recordDetail/index",
+		    "style" : {
+				"navigationBarTitleText": "申请记录详情"
+			}
 		}
     ],
 	"globalStyle": {

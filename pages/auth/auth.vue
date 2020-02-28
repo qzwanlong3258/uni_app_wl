@@ -24,17 +24,17 @@
 
 <script>
 	// #ifdef MP-WEIXIN
-	import wxAuth from './wxAuth.js'
-	export default {
-		...wxAuth,
-	}
-	// #endif
-	// #ifndef MP-WEIXIN
-	import notWxAuth from './notWxAuth.js'
-	export default {
-		...notWxAuth
-	}
-	// #endif
+		import wxAuth from './wxAuth.js'
+		export default {
+			...wxAuth,
+		}
+		// #endif
+		// #ifndef MP-WEIXIN
+		import notWxAuth from './notWxAuth.js'
+		export default {
+			...notWxAuth
+		}
+		// #endif
 </script>
 
 <style lang="scss" scoped>

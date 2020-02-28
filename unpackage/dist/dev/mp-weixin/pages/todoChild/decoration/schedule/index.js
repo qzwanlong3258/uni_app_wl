@@ -137,29 +137,94 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 292));};var _default =
+'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));
 
+var _mine = __webpack_require__(/*! @/api/tabbar/mine.js */ 98);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 302));};var _default =
 
 {
   data: function data() {
     return {
       states: {
         index: 0,
-        list: [{ title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }] } };
+        list: [{ title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }] },
 
-
-  },
-  onLoad: function onLoad(options) {
+      userInfo: {} };
 
   },
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              this.userInfo = (0, _storage.getStorage)('userInfo');
+              console.log(this.userInfo);case 2:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}(),
+
   methods: {
     /**
               * 切换状态
               */
-    stateChange: function () {var _stateChange = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {var index;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:index = _ref.index;
+    stateChange: function () {var _stateChange = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(_ref) {var index;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:index = _ref.index;
                 this.states.index = index;
-                this["stateTo".concat(index)] && this["stateTo".concat(index)]();case 3:case "end":return _context.stop();}}}, _callee, this);}));function stateChange(_x) {return _stateChange.apply(this, arguments);}return stateChange;}() },
+                this["stateTo".concat(index)] && this["stateTo".concat(index)]();case 3:case "end":return _context2.stop();}}}, _callee2, this);}));function stateChange(_x) {return _stateChange.apply(this, arguments);}return stateChange;}() },
 
 
   components: {

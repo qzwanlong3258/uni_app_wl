@@ -46,5 +46,7 @@ module.exports = {
 	POSTER_1: `${staticUrl}/todoChild/poster/1.jpg`,
 	POSTER_2: `${staticUrl}/todoChild/poster/2.jpg`,
 	POSTER_3: `${staticUrl}/todoChild/poster/3.jpg`,
-	POSTER_4: `${staticUrl}/todoChild/poster/4.jpg`
+	POSTER_4: `${staticUrl}/todoChild/poster/4.jpg`,
+	// 打款成功
+	SUCCESSPAY: `${staticUrl}/todoChild/打款成功@2x.png`
 }

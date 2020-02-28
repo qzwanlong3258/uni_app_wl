@@ -11,6 +11,70 @@ background: rgba(242,246,249,1);}
 	overflow: hidden;
 	padding: 20rpx;
 }
+.scheduleCard-top{
+	padding-bottom: 10rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.scheduleCard-top-left{
+	-webkit-flex-basis: 120rpx;
+	        flex-basis: 120rpx;
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.scheduleCard-top-left image{
+	width: 140rpx;
+	height: 140rpx;
+	display: block;
+	margin-top: -10rpx;
+	margin-left: -10rpx;
+}
+.scheduleCard-top-mid{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.scheduleCard-top-right{
+	-webkit-flex-basis: 180rpx;
+	        flex-basis: 180rpx;
+}
+.scheduleCard-top-right-success{
+	padding-left: 54rpx;
+}
+.scheduleCard-top-right-success-circle{
+	width: 98rpx;
+	height: 98rpx;
+	border: 8rpx solid rgba(230,230,230,1);
+	border-radius: 50%;
+	line-height: 98rpx;
+	text-align: center;
+}
+.scheduleCard-bottom-top{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.scheduleCard-bottom-top view{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	padding: 20rpx 0 0 20rpx;
+	font-size: 28rpx;
+	color: #999999;
+}
+.scheduleCard-bottom-bottom{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.scheduleCard-bottom-bottom view{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
 
 
 

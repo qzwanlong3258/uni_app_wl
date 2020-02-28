@@ -1,0 +1,35 @@
+
+.recordDetail{
+		font-size: 32rpx;
+		background: rgba(242,246,249,1);
+}
+.recordDetailCard{
+		margin: 48rpx 15rpx;
+		height: 231rpx;
+		background: #FFFFFF;
+		border-radius: 20rpx;
+		box-shadow: 0 5rpx 10rpx 4rpx rgb(0,0,0,0.1);
+		overflow: hidden;
+		position: relative;
+}
+.recordDetailCard_image{
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+}
+.recordDetailCard-text{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		line-height: 231rpx;
+		text-align: center;
+		font-size: 50rpx;
+		color: #FFFFFF;
+}
+.q1{
+		height: 500rpx;
+		background: #409EFF;
+		overflow: hidden;
+}
+
