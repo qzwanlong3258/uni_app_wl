@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "推荐中心",
+  "usingComponents": {
+    "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity",
+    "ljl-states": "/components/LjlStates"
+  }
+}

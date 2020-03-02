@@ -1,5 +1,5 @@
  // const baseUrl = 'http://192.168.5.17:1001';
- const baseUrl = 'http://192.168.3.25:1001';
+ const baseUrl = 'http://192.168.3.37:1001';
  // const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 const auth = `${baseUrl}/wx/user`;
 

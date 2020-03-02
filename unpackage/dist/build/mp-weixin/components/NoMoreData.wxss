@@ -1,0 +1,1 @@
+.no-more-data-box{width:100%;height:50rpx;background-color:#666;text-align:center;overflow:hidden;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.no-more-data-box text{color:#fff;font-size:26rpx}@-webkit-keyframes no-data{80%{height:50rpx}to{height:0}}@keyframes no-data{80%{height:50rpx}to{height:0}}

@@ -116,6 +116,12 @@
 			}
         },
 		{
+		    "path" : "pages/todoChild/decoration/testonetest/index",
+		    "style" : {
+				"navigationBarTitleText": "测一测"
+			}
+		},
+		{
             "path" : "pages/todoChild/decoration/application/index",
             "style" : {
 				"navigationBarTitleText": "家装申请"

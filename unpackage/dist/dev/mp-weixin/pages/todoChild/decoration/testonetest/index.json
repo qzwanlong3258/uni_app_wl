@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "测一测",
+  "usingComponents": {
+    "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne"
+  }
+}

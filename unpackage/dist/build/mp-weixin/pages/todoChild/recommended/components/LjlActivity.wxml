@@ -1,0 +1,1 @@
+<view class="activity-box"><view class="left">{{infor.name}}</view><view class="right">{{"还差"+($root.m0-$root.m1)+"人,可获得"+infor.money+"积分"}}</view></view>

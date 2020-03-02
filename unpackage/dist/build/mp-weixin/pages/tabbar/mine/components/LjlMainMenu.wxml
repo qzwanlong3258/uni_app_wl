@@ -1,0 +1,1 @@
+<view class="main-menu-box data-v-c1bb8014"><image class="icon data-v-c1bb8014" src="{{infor.url}}"></image><text class="title data-v-c1bb8014">{{infor.title}}</text><image class="link data-v-c1bb8014" src="{{img.RIGHT}}"></image></view>

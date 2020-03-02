@@ -1,35 +1,171 @@
 
-.recordDetail{
-		font-size: 32rpx;
-		background: rgba(242,246,249,1);
+.recordDetail {
+	font-size: 32rpx;
+	background: rgba(242, 246, 249, 1);
 }
-.recordDetailCard{
-		margin: 48rpx 15rpx;
-		height: 231rpx;
-		background: #FFFFFF;
-		border-radius: 20rpx;
-		box-shadow: 0 5rpx 10rpx 4rpx rgb(0,0,0,0.1);
-		overflow: hidden;
-		position: relative;
+.recordDetailCard {
+	margin: 48rpx 15rpx;
+	height: 231rpx;
+	background: #ffffff;
+	border-radius: 20rpx;
+	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	overflow: hidden;
+	position: relative;
 }
-.recordDetailCard_image{
-		width: 100%;
-		height: 100%;
-		display: block;
-		position: absolute;
+.recordDetailCardBd {
+	margin: 48rpx 15rpx;
+	/* height: 231rpx; */
+	background: #ffffff;
+	border-radius: 20rpx;
+	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
 }
-.recordDetailCard-text{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		line-height: 231rpx;
-		text-align: center;
-		font-size: 50rpx;
-		color: #FFFFFF;
+.recordDetailCard_image {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
 }
-.q1{
-		height: 500rpx;
-		background: #409EFF;
-		overflow: hidden;
+.recordDetailCard-text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 231rpx;
+	text-align: center;
+	font-size: 50rpx;
+	color: #ffffff;
 }
+.recordDetailCard-hd {
+	height: 54rpx;
+	border-bottom: 2rpx solid #e6e6e6;
+	font-size: 28rpx;
+	color: #333333;
+	line-height: 54rpx;
+	font-weight: bold;
+	padding-left: 20rpx;
+}
+.recordDetailCard-bd-item {
+	height: 54rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.recordDetailCard-bd-item-left {
+	-webkit-flex-basis: 150rpx;
+	        flex-basis: 150rpx;
+	font-size: 27rpx;
+	color: #666666;
+	margin-left: 10rpx;
+}
+.recordDetailCard-bd-item-mid {
+	-webkit-box-flex: 40%;
+	-webkit-flex: 40%;
+	        flex: 40%;
+}
+.recordDetailCard-bd-item-right {
+	-webkit-box-flex: 60%;
+	-webkit-flex: 60%;
+	        flex: 60%;
+	font-size: 27rpx;
+	color: #666666;
+}
+.recordDetailCard-bd-text {
+	height: 54rpx;
+	font-size: 28rpx;
+	color: #333333;
+	line-height: 54rpx;
+	font-weight: bold;
+	padding-left: 20rpx;
+}
+.recordDetailCardBd-bd {
+	padding: 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.recordDetailCard-bd-left {
+	-webkit-flex-basis: 120rpx;
+	        flex-basis: 120rpx;
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.recordDetailCard-bd-left image {
+	width: 140rpx;
+	height: 140rpx;
+	display: block;
+	margin-top: -10rpx;
+	margin-left: -10rpx;
+}
+.recordDetailCard-bd-right {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	line-height: 80rpx;
+	padding: 20rpx;
+	font-size: 30rpx;
+	font-weight: 700;
+}
+.icondianhuaclass {
+	color: #1296db;
+}
+.application_ft {
+	height: 587rpx;
+	padding: 0 16rpx 0 16rpx;
+	background: rgba(255, 255, 255, 1);
+}
+.uni-input-style {
+	width: 100%;
+}
+.input_color {
+	color: #dbdbdb;
+}
+.iconclass {
+	position: absolute;
+	right: 0;
+}
+.scroll-view_H {
+	/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+	white-space: nowrap;
+	width: 100%;
+}
+.scroll-view-item_H {
+	display: inline-block;
+	width: 159rpx;
+	height: 195rpx;
+	text-align: center;
+	margin: 2% 1% 2% 1%;
+}
+.scroll-view-item_H_icon {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+.scroll-view-item_H view {
+	box-sizing: border-box;
+}
+.scroll-view-item_H view:nth-child(1) {
+	width: 100%;
+	height: 146rpx;
+	position: relative;
+	background: rgba(229, 229, 229, 1);
+	border-radius: 10rpx;
+}
+.scroll-view-item_H view:nth-child(1) image {
+	width: 100%;
+	height: 146rpx;
+	border-radius: 10rpx;
+	display: block;
+}
+.scroll-view-item_H view:nth-child(2) {
+	width: 100%;
+	height: 49rpx;
+}
+.recordDetailCard_ft-title{
+	color: #666666;
+	font-size: 26rpx;
+	padding: 10rpx;
+}
+
 
