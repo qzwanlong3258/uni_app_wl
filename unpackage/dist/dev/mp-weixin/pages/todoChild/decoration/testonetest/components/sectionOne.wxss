@@ -1,6 +1,23 @@
 
-sectionOne.data-v-8ec44e2a{
+.sectionOne.data-v-8ec44e2a{
 	font-size: 32rpx;
+	font-family: MicrosoftYaHei;
 	background: rgba(242,246,249,1);
+	height: 100%;
+	position: relative;
+}
+.sectionOne-box.data-v-8ec44e2a{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+.sectionOne-hd.data-v-8ec44e2a{
+	height: 80rpx;
+	margin: 103rpx 55rpx 63rpx;
+	background: #FFFFFF;
+	color: #000000;
+	font-size: 34rpx;
+	line-height: 80rpx;
+	padding-left: 20rpx;
 }
 

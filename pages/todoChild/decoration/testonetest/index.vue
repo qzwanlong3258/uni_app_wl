@@ -2,7 +2,7 @@
 	
 	
 	<view class="container container-fill">
-		<view class="scroll-fullpage" @touchstart="scrollTouchstart" @touchmove="scrollTouchmove" @touchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px">
+		<view class="scroll-fullpage" id='scrollTouch' @touchstart="scrollTouchstart" @touchmove="scrollTouchmove" @touchend="scrollTouchend" v-bind:style="{margintop: margintop+'px',transform: transform}">
 			<view :class="scrollindex==0?'active':''" style="height: 100%;">
 				
 				<sectionOne></sectionOne>
@@ -41,6 +41,7 @@
 	          endy:0, //结束的位置y
 	          critical: 100, //触发翻页的临界值
 	          margintop:0,  //滑动下拉距离
+			  transform:'translateY(-' + 0 + '%)'
 	    }
 	  },
 	  methods:{
@@ -62,9 +63,11 @@
 		      let d = this;
 		      if(d.endy-d.starty >100 && d.scrollindex>0){
 				  self_.scrollindex=d.scrollindex-1
+				  self_.transform = 'translateY(-' + self_.scrollindex*100 + '%)'
 		        
 		      }else if(d.endy-d.starty <-100 && d.scrollindex<this.totalnum-1){
 				   self_.scrollindex=d.scrollindex+1
+				   self_.transform = 'translateY(-' + self_.scrollindex*100 + '%)'
 		      }
 			  self_.starty=0
 			  self_.endy=0

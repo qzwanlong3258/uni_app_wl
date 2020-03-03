@@ -10558,7 +10558,7 @@ getters;exports.default = _default;
 
 /***/ }),
 
-/***/ 265:
+/***/ 269:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -10617,7 +10617,9 @@ module.exports = g;
  /**
                * 储存图片路径
                */
-var staticUrl = '/static/img';
+// const staticUrl = '/static/img'
+var staticUrl = 'http://47.104.232.184/images/demo';
+
 module.exports = {
   /** 授权 */
   COMPANY_LOGO: "".concat(staticUrl, "/companyLogo.png"),
@@ -10668,7 +10670,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 320:
+/***/ 324:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -10760,7 +10762,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 405:
+/***/ 409:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -10768,7 +10770,7 @@ function loadCity(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 406);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 410);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -11296,7 +11298,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 406:
+/***/ 410:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -11327,7 +11329,7 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 
 /***/ }),
 
-/***/ 414:
+/***/ 425:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -11477,7 +11479,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 415:
+/***/ 426:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -12991,7 +12993,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 416:
+/***/ 427:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -25544,7 +25546,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 417:
+/***/ 428:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
