@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3435,7 +3435,7 @@ module.exports = {
 
 "use strict";
  // const baseUrl = 'http://192.168.5.17:1001';
-var baseUrl = 'http://192.168.3.37:1001';
+var baseUrl = 'http://192.168.3.25:1001';
 // const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 var auth = "".concat(baseUrl, "/wx/user");
 
@@ -8976,7 +8976,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8997,14 +8997,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9080,7 +9080,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10617,8 +10617,8 @@ module.exports = g;
  /**
                * 储存图片路径
                */
-// const staticUrl = '/static/img'
-var staticUrl = 'http://47.104.232.184/images/demo';
+var staticUrl = '/static/img';
+// const staticUrl = 'http://47.104.232.184/images/demo'
 
 module.exports = {
   /** 授权 */
@@ -10666,7 +10666,25 @@ module.exports = {
   POSTER_3: "".concat(staticUrl, "/todoChild/poster/3.jpg"),
   POSTER_4: "".concat(staticUrl, "/todoChild/poster/4.jpg"),
   // 打款成功
-  SUCCESSPAY: "".concat(staticUrl, "/todoChild/\u6253\u6B3E\u6210\u529F@2x.png") };
+  SUCCESSPAY: "".concat(staticUrl, "/todoChild/\u6253\u6B3E\u6210\u529F@2x.png"),
+  // 测一测
+  ONEHOME: "".concat(staticUrl, "/todoChild/testonetest/\u4E00\u5BA4\u4E00\u5385@2x.png"),
+  TWOHOME: "".concat(staticUrl, "/todoChild/testonetest/\u6237\u578B (1)@2x.png"),
+  THREEHOME: "".concat(staticUrl, "/todoChild/testonetest/\u6237\u578B (3)@2x.png"),
+  OTHERHOME: "".concat(staticUrl, "/todoChild/testonetest/\u6237\u578B (2)@2x.png"),
+
+  TESTMEN: "".concat(staticUrl, "/todoChild/testonetest/\u7537\u5B69@2x.png"),
+  TESTWOMEN: "".concat(staticUrl, "/todoChild/testonetest/\u5973\u5B69@2x.png"),
+
+  INCOMEONE: "".concat(staticUrl, "/todoChild/testonetest/\u6536\u5165ONE.png"),
+  INCOMETWO: "".concat(staticUrl, "/todoChild/testonetest/\u6536\u5165TWO.png"),
+  INCOMETHREE: "".concat(staticUrl, "/todoChild/testonetest/\u6536\u5165THREE.png"),
+  INCOMEFOUR: "".concat(staticUrl, "/todoChild/testonetest/\u6536\u5165FOUR.png"),
+
+  BUSINESSMAN: "".concat(staticUrl, "/todoChild/testonetest/\u4E2A\u4F53\u5546\u6237@2x.png"),
+  SERVANTMAN: "".concat(staticUrl, "/todoChild/testonetest/\u516C\u52A1\u5458@2x.png"),
+  EMPLOYEE: "".concat(staticUrl, "/todoChild/testonetest/\u5458\u5DE5@2x.png"),
+  STAFF: "".concat(staticUrl, "/todoChild/testonetest/\u4E00\u822C\u5458\u5DE5@2x.png") };
 
 /***/ }),
 
@@ -28244,7 +28262,18 @@ wxAuth;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {function login() {var timeout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));
+
+
+
+
+var _common = __webpack_require__(/*! @/config/common.js */ 63);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var regeneratorRuntime = __webpack_require__(/*! ./regenerator-runtime/runtime.js */ 15);var _require = __webpack_require__(/*! ./storage.js */ 16),setStorage = _require.setStorage,getStorage = _require.getStorage;var _require2 = __webpack_require__(/*! ../config/http.js */ 18),request = _require2.request;var _require3 = __webpack_require__(/*! ../config/api.js */ 19),LOGIN_WECHAT_LOGIN = _require3.LOGIN_WECHAT_LOGIN,LOGIN_OPENID_REFRESH = _require3.LOGIN_OPENID_REFRESH;
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * 获取临时code
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * @param {超时} timeout
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
+function login() {var timeout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
   return new Promise(function (resolve, reject) {
     uni.login({
       timeout: timeout,
@@ -28262,8 +28291,47 @@ wxAuth;exports.default = _default;
   });
 }
 
+/**
+   * 获取openId
+   */function
+
+getOpenId() {return _getOpenId.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+                                                         * 更新token
+                                                         */function _getOpenId() {_getOpenId = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var code, _ref, openId;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return login();case 2:code = _context.sent;_context.next = 5;return request({ method: 'POST', url: "".concat(LOGIN_WECHAT_LOGIN, "?appId=").concat(_common.APP_ID, "&code=").concat(code), needToken: false, showLoading: false, showErrorModal: false }).catch(function () {console.log('调用wx.login失败');});case 5:_ref = _context.sent;openId = _ref.openId;setStorage('openId', openId);return _context.abrupt("return", openId);case 9:case "end":return _context.stop();}}}, _callee, this);}));return _getOpenId.apply(this, arguments);}function
+refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshToken() {_refreshToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var openId, _ref2, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+            openId = getStorage('openId') ? getStorage('openId') : getOpenId();_context2.next = 3;return (
+              request({
+                method: 'POST',
+                url: "".concat(LOGIN_OPENID_REFRESH, "?openId=").concat(openId),
+                needToken: false,
+                showLoading: false,
+                hideLoading: false,
+                showErrorModal: false,
+                errorText: 'openId刷新失败',
+                returnHeader: true }).
+              catch(function (err) {return console.log(err);}));case 3:_ref2 = _context2.sent;data = _ref2.data;
+            setStorage('tempToken', data.token);
+            setStorage('userInfo', data.UserInfo);case 7:case "end":return _context2.stop();}}}, _callee2, this);}));return _refreshToken.apply(this, arguments);}
+
+
 module.exports = {
-  login: login };
+  getOpenId: getOpenId,
+  refreshToken: refreshToken };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

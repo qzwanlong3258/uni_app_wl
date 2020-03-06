@@ -116,7 +116,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+var _image = __webpack_require__(/*! @/config/image.js */ 32);
+
+var _self;var _default =
+{
+
+  data: function data() {
+    return {
+      r2: '',
+      img1: _image.ONEHOME,
+      homeData: [
+      { img: _image.ONEHOME, name: "一居室", value: 'ONEHOME' },
+
+      { img: _image.TWOHOME, name: "二居室", value: 'TWOHOME' },
+      { img: _image.THREEHOME, name: "三居室", value: 'THREEHOME' },
+      { img: _image.OTHERHOME, name: "四居室及以上", value: 'OTHERHOME' }],
+
+      current: null };
+
+  },
+  methods: {
+    homeClick: function homeClick(e) {
+      // console.log(_self)
+      _self.current = e;
+    } },
+
+
+  created: function created() {
+    _self = this;
+
+  } };exports.default = _default;
 
 /***/ }),
 

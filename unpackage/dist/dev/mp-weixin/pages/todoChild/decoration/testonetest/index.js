@@ -153,16 +153,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var self_;var sectionOne = function sectionOne() {return __webpack_require__.e(/*! import() | pages/todoChild/decoration/testonetest/components/sectionOne */ "pages/todoChild/decoration/testonetest/components/sectionOne").then(__webpack_require__.bind(null, /*! ./components/sectionOne.vue */ 413));};var _default =
+var self_;var sectionOne = function sectionOne() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then(__webpack_require__.bind(null, /*! ./components/sectionOne */ 413));};var sectionTwo = function sectionTwo() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then(__webpack_require__.bind(null, /*! ./components/sectionTwo */ 521));};var sectionThree = function sectionThree() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then(__webpack_require__.bind(null, /*! ./components/sectionThree */ 528));};var sectionFour = function sectionFour() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then(__webpack_require__.bind(null, /*! ./components/sectionFour */ 535));};var sectionFive = function sectionFive() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then(__webpack_require__.bind(null, /*! ./components/sectionFive */ 542));};var sectionSix = function sectionSix() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then(__webpack_require__.bind(null, /*! ./components/sectionSix */ 549));};var _default =
+
+
+
+
+
 
 {
+  components: {
+    sectionOne: sectionOne,
+    sectionTwo: sectionTwo,
+    sectionThree: sectionThree,
+    sectionFour: sectionFour,
+    sectionFive: sectionFive,
+    sectionSix: sectionSix },
+
   data: function data() {
     return {
       scrollindex: 0, //当前页面的索引值
-      totalnum: 5, //总共页面数
+      totalnum: 6, //总共页面数
       starty: 0, //开始的位置x
       endy: 0, //结束的位置y
       critical: 100, //触发翻页的临界值
@@ -172,26 +184,32 @@ var self_;var sectionOne = function sectionOne() {return __webpack_require__.e(/
   },
   methods: {
     scrollTouchstart: function scrollTouchstart(e) {
-      console.log(e);
+
       var py = e.touches[0].pageY;
+      // console.log(py)
       self_.starty = py;
     },
     scrollTouchmove: function scrollTouchmove(e) {
       var py = e.touches[0].pageY;
+      // console.log(py)
       var d = this;
       self_.endy = py;
-
       if (py - d.starty < 100 && py - d.starty > -100) {
         self_.margintop = py - d.starty;
       }
     },
     scrollTouchend: function scrollTouchend(e) {
+
       var d = this;
+      // console.log(d.endy)
+      // console.log(d.starty)
+      // console.log(d.scrollindex)
+      // console.log(this.totalnum)
       if (d.endy - d.starty > 100 && d.scrollindex > 0) {
         self_.scrollindex = d.scrollindex - 1;
         self_.transform = 'translateY(-' + self_.scrollindex * 100 + '%)';
 
-      } else if (d.endy - d.starty < -100 && d.scrollindex < this.totalnum - 1) {
+      } else if (d.endy - d.starty < -100 && d.scrollindex < this.totalnum - 1 && d.endy !== 0) {
         self_.scrollindex = d.scrollindex + 1;
         self_.transform = 'translateY(-' + self_.scrollindex * 100 + '%)';
       }
@@ -200,9 +218,6 @@ var self_;var sectionOne = function sectionOne() {return __webpack_require__.e(/
       self_.margintop = 0;
     } },
 
-
-  components: {
-    sectionOne: sectionOne },
 
   onLoad: function onLoad() {
     self_ = this;

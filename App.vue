@@ -5,6 +5,7 @@ const { setStorage, getStorage } = require('./utils/storage.js');
 const { AUTH } = require('./config/router.js');
 const { request } = require('./config/http.js');
 const { LOGIN_TOKEN_REFRESH, LOGIN_OPENID_REFRESH } = require('./config/api.js');
+import { refreshToken } from  './utils/openLogin'
 
 export default {
 	globalData: {
@@ -65,50 +66,6 @@ export default {
 				}
 			});
 		},
-		handleLogin: async function() {
-			const isLogin = getStorage('isLogin');
-			if (isLogin) {
-				let tempToken = '';
-
-				//基于refreshToken的tempToken的刷新
-				const refreshToken = getStorage('refreshToken');
-				const res = await request({
-					method: 'POST',
-					url: `${LOGIN_TOKEN_REFRESH}?refreshToken=${refreshToken}`,
-					needToken: false,
-					showLoading: false,
-					hideLoading: false,
-					showErrorModal: false,
-					errorText: 'refreshToken刷新失败'
-				}).catch(err => console.log(err));
-				if (res) {
-					tempToken = res.token;
-				} else {
-					//基于openId的tempToken刷新
-					const { openId } = getStorage('userInfo');
-					const { data } = await request({
-						method: 'POST',
-						url: `${LOGIN_OPENID_REFRESH}?openId=${openId}`,
-						needToken: false,
-						showLoading: false,
-						hideLoading: false,
-						showErrorModal: false,
-						errorText: 'openId刷新失败',
-						returnHeader: true
-					}).catch(err => console.log(err));
-					tempToken = data.token;
-					setStorage('refreshToken', data.refreshToken);
-				}
-				setStorage('tempToken', tempToken);
-				this.switchRouter(this.$options.globalData.fm);
-			} else {
-				let pages = getCurrentPages();
-				if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-				uni.reLaunch({
-					url: AUTH
-				});
-			}
-		}
 	},
 	onLaunch: function(options) {
 		let globalData = this.$options.data;
@@ -125,7 +82,7 @@ export default {
 		this.getFrom(path, query);
 
 		// 处理token
-		this.handleLogin();
+		refreshToken();
 	},
 	onShow: function() {},
 	onHide: function() {}

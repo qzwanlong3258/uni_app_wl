@@ -1,8 +1,8 @@
 /**
  * 储存图片路径
  */
-// const staticUrl = '/static/img'
-const staticUrl = 'http://47.104.232.184/images/demo'
+const staticUrl = '/static/img'
+// const staticUrl = 'http://47.104.232.184/images/demo'
 
 module.exports = {
 	/** 授权 */
@@ -50,5 +50,24 @@ module.exports = {
 	POSTER_3: `${staticUrl}/todoChild/poster/3.jpg`,
 	POSTER_4: `${staticUrl}/todoChild/poster/4.jpg`,
 	// 打款成功
-	SUCCESSPAY: `${staticUrl}/todoChild/打款成功@2x.png`
+	SUCCESSPAY: `${staticUrl}/todoChild/打款成功@2x.png`,
+	// 测一测
+	ONEHOME: `${staticUrl}/todoChild/testonetest/一室一厅@2x.png`,
+	TWOHOME: `${staticUrl}/todoChild/testonetest/户型 (1)@2x.png`,
+	THREEHOME: `${staticUrl}/todoChild/testonetest/户型 (3)@2x.png`,
+	OTHERHOME: `${staticUrl}/todoChild/testonetest/户型 (2)@2x.png`,
+	
+	TESTMEN: `${staticUrl}/todoChild/testonetest/男孩@2x.png`,
+	TESTWOMEN: `${staticUrl}/todoChild/testonetest/女孩@2x.png`,
+	
+	INCOMEONE: `${staticUrl}/todoChild/testonetest/收入ONE.png`,
+	INCOMETWO: `${staticUrl}/todoChild/testonetest/收入TWO.png`,
+	INCOMETHREE: `${staticUrl}/todoChild/testonetest/收入THREE.png`,
+	INCOMEFOUR: `${staticUrl}/todoChild/testonetest/收入FOUR.png`,
+	
+	BUSINESSMAN: `${staticUrl}/todoChild/testonetest/个体商户@2x.png`,
+	SERVANTMAN: `${staticUrl}/todoChild/testonetest/公务员@2x.png`,
+	EMPLOYEE: `${staticUrl}/todoChild/testonetest/员工@2x.png`,
+	STAFF: `${staticUrl}/todoChild/testonetest/一般员工@2x.png`,
+	
 }

@@ -7,21 +7,20 @@
 				
 				<sectionOne></sectionOne>
 			</view>
-			<view :class="scrollindex==1?'active':''" style="background: #00CC66;height: 100%;">
-				<text class="section-maintitle">页面2</text>
-				<text class="section-subtitle">我的页面”2</text>
+			<view :class="scrollindex==1?'active':''" style="height: 100%;">
+				<sectionTwo></sectionTwo>
 			</view>
-			<view :class="scrollindex==2?'active':''" style="background: #33CCCC;height: 100%;">
-				<text class="section-maintitle">页面3</text>
-				<text class="section-subtitle">我的页面”3</text>
+			<view :class="scrollindex==2?'active':''" style="height: 100%;">
+				<sectionThree></sectionThree>
 			</view>
-			<view :class="scrollindex==3?'active':''" style="background: #6699FF;height: 100%;">
-				<text class="section-maintitle">页面4</text>
-				<text class="section-subtitle">我的页面”4</text>
+			<view :class="scrollindex==3?'active':''" style="height: 100%;">
+				<sectionFour></sectionFour>
 			</view>
-			<view :class="scrollindex==4?'active':''" style="background: #9966FF;height: 100%;">
-				<text class="section-maintitle">无缝对接双创服5</text>
-				<text class="section-subtitle">我的页面”5</text>
+			<view :class="scrollindex==4?'active':''" style="height: 100%;">
+				<sectionFive></sectionFive>
+			</view>
+			<view :class="scrollindex==5?'active':''" style="height: 100%;">
+				<sectionSix></sectionSix>
 			</view>
 		</view>
 	</view>
@@ -31,12 +30,25 @@
 <script>
 	"use strict"
 	var self_
-	import sectionOne from './components/sectionOne.vue';
+	import sectionOne from './components/sectionOne';
+	import sectionTwo from './components/sectionTwo';
+	import sectionThree from './components/sectionThree';
+	import sectionFour from './components/sectionFour';
+	import sectionFive from './components/sectionFive';
+	import sectionSix from './components/sectionSix';
 	export default {
+		components:{
+				  sectionOne,
+				  sectionTwo,
+				  sectionThree,
+				  sectionFour,
+				  sectionFive,
+				  sectionSix,
+		},
 	  data () {
 	    return {
 	       scrollindex:0,  //当前页面的索引值
-	          totalnum:5,  //总共页面数
+	          totalnum:6,  //总共页面数
 	          starty:0,  //开始的位置x
 	          endy:0, //结束的位置y
 	          critical: 100, //触发翻页的临界值
@@ -46,26 +58,32 @@
 	  },
 	  methods:{
 		  scrollTouchstart:function(e){
-			  console.log(e)
+			  
 		      let py = e.touches[0].pageY;
+			  // console.log(py)
 			  self_.starty = py
 		    },
 		    scrollTouchmove:function(e){
 		      let py = e.touches[0].pageY;
+			  // console.log(py)
 		      let d = this;
 			  self_.endy =py;
-		     
 		      if(py-d.starty<100 && py-d.starty>-100){   
 				  self_.margintop=py - d.starty
 		      }
 		    },
 		    scrollTouchend:function(e){
+				
 		      let d = this;
+			  // console.log(d.endy)
+			  // console.log(d.starty)
+			  // console.log(d.scrollindex)
+			  // console.log(this.totalnum)
 		      if(d.endy-d.starty >100 && d.scrollindex>0){
 				  self_.scrollindex=d.scrollindex-1
 				  self_.transform = 'translateY(-' + self_.scrollindex*100 + '%)'
 		        
-		      }else if(d.endy-d.starty <-100 && d.scrollindex<this.totalnum-1){
+		      }else if(d.endy-d.starty <-100 && d.scrollindex<this.totalnum-1 && d.endy!==0){
 				   self_.scrollindex=d.scrollindex+1
 				   self_.transform = 'translateY(-' + self_.scrollindex*100 + '%)'
 		      }
@@ -74,9 +92,6 @@
 			  self_.margintop=0
 		    },
 		 
-	  },
-	  components:{
-		  sectionOne
 	  },
 	  onLoad() {
 	  	self_=this

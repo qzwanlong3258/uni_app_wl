@@ -52,12 +52,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
-var regeneratorRuntime = __webpack_require__(/*! ./utils/regenerator-runtime/runtime.js */ 15);var _require =
-__webpack_require__(/*! ./utils/storage.js */ 16),setStorage = _require.setStorage,getStorage = _require.getStorage;var _require2 =
-__webpack_require__(/*! ./config/router.js */ 17),AUTH = _require2.AUTH;var _require3 =
-__webpack_require__(/*! ./config/http.js */ 18),request = _require3.request;var _require4 =
-__webpack_require__(/*! ./config/api.js */ 19),LOGIN_TOKEN_REFRESH = _require4.LOGIN_TOKEN_REFRESH,LOGIN_OPENID_REFRESH = _require4.LOGIN_OPENID_REFRESH;var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 89);var regeneratorRuntime = __webpack_require__(/*! ./utils/regenerator-runtime/runtime.js */ 15);var _require = __webpack_require__(/*! ./utils/storage.js */ 16),setStorage = _require.setStorage,getStorage = _require.getStorage;var _require2 = __webpack_require__(/*! ./config/router.js */ 17),AUTH = _require2.AUTH;var _require3 = __webpack_require__(/*! ./config/http.js */ 18),request = _require3.request;var _require4 = __webpack_require__(/*! ./config/api.js */ 19),LOGIN_TOKEN_REFRESH = _require4.LOGIN_TOKEN_REFRESH,LOGIN_OPENID_REFRESH = _require4.LOGIN_OPENID_REFRESH;var _default =
 
 {
   globalData: {
@@ -117,51 +118,7 @@ __webpack_require__(/*! ./config/api.js */ 19),LOGIN_TOKEN_REFRESH = _require4.L
 
         } });
 
-    },
-    handleLogin: function () {var _handleLogin = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var isLogin, tempToken, refreshToken, res, _getStorage, openId, _ref, data, pages;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                isLogin = getStorage('isLogin');if (!
-                isLogin) {_context.next = 22;break;}
-                tempToken = '';
-
-                //基于refreshToken的tempToken的刷新
-                refreshToken = getStorage('refreshToken');_context.next = 6;return (
-                  request({
-                    method: 'POST',
-                    url: "".concat(LOGIN_TOKEN_REFRESH, "?refreshToken=").concat(refreshToken),
-                    needToken: false,
-                    showLoading: false,
-                    hideLoading: false,
-                    showErrorModal: false,
-                    errorText: 'refreshToken刷新失败' }).
-                  catch(function (err) {return console.log(err);}));case 6:res = _context.sent;if (!
-                res) {_context.next = 11;break;}
-                tempToken = res.token;_context.next = 18;break;case 11:
-
-                //基于openId的tempToken刷新
-                _getStorage = getStorage('userInfo'), openId = _getStorage.openId;_context.next = 14;return (
-                  request({
-                    method: 'POST',
-                    url: "".concat(LOGIN_OPENID_REFRESH, "?openId=").concat(openId),
-                    needToken: false,
-                    showLoading: false,
-                    hideLoading: false,
-                    showErrorModal: false,
-                    errorText: 'openId刷新失败',
-                    returnHeader: true }).
-                  catch(function (err) {return console.log(err);}));case 14:_ref = _context.sent;data = _ref.data;
-                tempToken = data.token;
-                setStorage('refreshToken', data.refreshToken);case 18:
-
-                setStorage('tempToken', tempToken);
-                this.switchRouter(this.$options.globalData.fm);_context.next = 26;break;case 22:
-
-                pages = getCurrentPages();if (!(
-                pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0)) {_context.next = 25;break;}return _context.abrupt("return");case 25:
-                uni.reLaunch({
-                  url: AUTH });case 26:case "end":return _context.stop();}}}, _callee, this);}));function handleLogin() {return _handleLogin.apply(this, arguments);}return handleLogin;}() },
-
-
-
+    } },
 
   onLaunch: function onLaunch(options) {
     var globalData = this.$options.data;
@@ -178,7 +135,7 @@ __webpack_require__(/*! ./config/api.js */ 19),LOGIN_TOKEN_REFRESH = _require4.L
     this.getFrom(path, query);
 
     // 处理token
-    this.handleLogin();
+    (0, _openLogin.refreshToken)();
   },
   onShow: function onShow() {},
   onHide: function onHide() {} };exports.default = _default;
