@@ -41,11 +41,19 @@ module.exports = {
 	POSTER: '/pages/todoChild/poster/index',
 	// 家装分期
 	DECORATION: '/pages/todoChild/decoration/index',
+	DECORATION_PICTURE: '/pages/todoChild/decoration/decorationPicture/index',
 	
-	LOAN_TESTONETEST:'/pages/todoChild/decoration/testonetest/index',
+	LOAN_TESTONETEST:'/pages/todoChild/decoration/testonetest/index',//测一测
+	LOAN_TESTONETEST_SUBMIT:'/pages/todoChild/decoration/testonetest/testonetestsubmit/index',//测一测结果
+	
 	LOAN_APPLICATION: '/pages/todoChild/decoration/application/index',//发起申请
 	LOAN_SCHEDULE: '/pages/todoChild/decoration/schedule/index',//进度查询
 	LOAN_RECORD: '/pages/todoChild/decoration/record/index',//申请记录
 	LOAN_RECORD_Detail: '/pages/todoChild/decoration/record/recordDetail/index',//申请记录详情
+	
+	//约量房
+	MEASUREHOME: '/pages/todoChild/measureHome/index',
+	APPTMEASUREHOME:'/pages/todoChild/measureHome/ApptMeasureHome/index'//预约量房
+	
 	
 }

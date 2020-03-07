@@ -1,0 +1,64 @@
+
+.apptMeasureHome.data-v-d9771adc {
+	font-size: 32rpx;
+	color: #666666;
+	background: rgba(255, 255, 255, 1);
+	height: 1200rpx;
+	position: relative;
+}
+.apptMeasureHome_item.data-v-d9771adc {
+	height: 82rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	line-height: 82rpx;
+	border-bottom: 2rpx solid rgba(229, 229, 229, 1);
+}
+.appt_item_lable.data-v-d9771adc {
+	-webkit-flex-basis: 200rpx;
+	        flex-basis: 200rpx;
+	padding-left: 20rpx;
+}
+.appt_item_content.data-v-d9771adc {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.appt_item_content_appt.data-v-d9771adc{
+	position: relative;
+}
+.iconclass.data-v-d9771adc{
+	position: absolute;
+	right: 0;
+}
+.uni-input-style.data-v-d9771adc{
+	width: 100%;
+}
+.input_color.data-v-d9771adc {
+	color: #dbdbdb;
+}
+.apptMeasureHome_ft.data-v-d9771adc{
+	position: absolute;
+	left: 0;
+	bottom: 20rpx;
+	width: 100%;
+	height: 100rpx;
+}
+.btn.data-v-d9771adc{
+	height: 100rpx;
+	
+	text-align: center;
+	line-height: 100rpx;
+	border-radius: 5rpx;
+	background: #E8BE2E;
+	color: #FFFFFF;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+}
+

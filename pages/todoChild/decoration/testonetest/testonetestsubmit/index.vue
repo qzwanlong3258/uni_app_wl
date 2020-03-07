@@ -1,0 +1,79 @@
+<template>
+	<view class="testonetestsubmit">
+		<view class="testSuccess">
+			<view style="height: 115rpx;text-align: center;padding-top: 30rpx;">
+				<image :src="imgsuccess" mode="" style="width: 82rpx;
+		height:73rpx ;"></image>
+			</view>
+			<view style="height: 24rpx;margin-top: 20rpx;text-align: center;">
+				恭喜您已经通过初审，请完善申请信息！
+			</view>
+		</view>
+		<view class="testFail" :hidden='true'>
+			<view style="height: 115rpx;text-align: center;padding-top: 30rpx;">
+				<image :src="imgfail" mode="" style="width: 59rpx;
+		height:59rpx ;"></image>
+			</view>
+			<view style="height: 24rpx;margin-top: 20rpx;text-align: center;">
+				对不起，您暂不符合条件！
+			</view>
+		</view>
+		<view style="position: fixed;left: 0;bottom: 0;width: 100%;height: 140rpx;">
+			<view class="btn" style="margin-top: 20rpx;" @click="submit">
+				返回
+				
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+'use strict';
+import { TESTSUCCESS, TESTFAIL} from '@/config/image.js';
+import { DECORATION} from '@/config/router.js';
+export default {
+	data(){
+		return{
+			imgsuccess:TESTSUCCESS,
+			imgfail:TESTFAIL
+		}
+	},
+	methods:{
+		submit(){
+			uni.navigateTo({
+				url:DECORATION
+			})
+		}
+	},
+	async onLoad() {}
+};
+</script>
+
+<style scoped>
+	.testonetestsubmit{
+		font-size: 32rpx;
+		background: rgba(242, 246, 249, 1);
+		height: 100%;
+	}
+	.testSuccess{
+		margin: 30rpx;
+		background: #FFFFFF;
+		height: 226rpx;
+	}
+	.testFail{
+		margin: 30rpx;
+		background: #FFFFFF;
+		height: 226rpx;
+	}
+	
+	.btn{
+		margin:10rpx 20rpx 0 20rpx ;
+		border-radius: 40rpx;
+		background: #E8BE2E;
+		cursor:pointer;
+		height: 80rpx;
+		line-height: 80rpx;
+		text-align: center;
+		color: #FFFFFF;
+	}
+</style>

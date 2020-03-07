@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预约量房",
+  "usingComponents": {
+    "simple-address": "/components/simple-address-normal/simple-address"
+  }
+}

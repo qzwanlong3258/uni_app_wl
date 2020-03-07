@@ -33,12 +33,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/todoChild/decoration/testonetest/index",
-					"pathName": "pages/todoChild/decoration/testonetest/index",
+					"name": "pages/todoChild/decoration/decorationPicture/index",
+					"pathName": "pages/todoChild/decoration/decorationPicture/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/todoChild/measureHome/index",
+					"pathName": "pages/todoChild/measureHome/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/todoChild/measureHome/index",
+					"pathName": "pages/todoChild/measureHome/index",
 					"scene": null
 				}
 			]

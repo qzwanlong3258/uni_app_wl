@@ -70,4 +70,16 @@ module.exports = {
 	EMPLOYEE: `${staticUrl}/todoChild/testonetest/员工@2x.png`,
 	STAFF: `${staticUrl}/todoChild/testonetest/一般员工@2x.png`,
 	
+	HOMEONE: `${staticUrl}/todoChild/testonetest/homeone.png`,
+	HOMETWO: `${staticUrl}/todoChild/testonetest/hometwo.png`,
+	HOMETHREE: `${staticUrl}/todoChild/testonetest/homethree.png`,
+	HOMEFOUR: `${staticUrl}/todoChild/testonetest/homefour.png`,
+	
+	TESTSUCCESS: `${staticUrl}/todoChild/testonetest/完成@2x.png`,
+	TESTFAIL: `${staticUrl}/todoChild/testonetest/3.0-未完成@2x.png`,
+	
+	LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
+	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
+	
+	
 }

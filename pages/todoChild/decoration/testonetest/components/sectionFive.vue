@@ -1,10 +1,10 @@
 <template>
-	<view class="sectionTwo">
+	<view class="sectionFive">
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
-		<view class="sectionTwo-box">
-			<view class="sectionTwo-hd"> 02/06  您的性别和年龄？</view>
-			<!-- <view class="sectionTwo-bd" >
+		<view class="sectionFive-box">
+			<view class="sectionFive-hd">05/06  您申请的装修分期用于？</view>
+			<!-- <view class="sectionFive-bd" >
 				<view v-for="(item,index) in sexData" :key="index" @click="sexClick(index)">
 					<image :src="item.img" mode=""></image>
 					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
@@ -12,16 +12,16 @@
 				
 				
 				</view> -->
-			<view class="sectionTwo-ft">
+			<view class="sectionFive-ft">
 				<view v-for="(item,index) in ageData" :key="index" @click="ageClick(index)">
 					<label class="radio"><radio :value="item.value" :checked="index === agecurrent" />{{item.name}}</label>
 				</view>
 				</view>
-			<!-- <view class="sectionTwo-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
+			<!-- <view class="sectionFive-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
 				<view style="height: 80rpx;line-height: 80rpx;text-align: center;">
 					你所居住的城市是？
 				</view>
-				<view style="display: flex;" class="sectionTwo-ft-input">
+				<view style="display: flex;" class="sectionFive-ft-input">
 					<input type="text" placeholder="请选择省" placeholder-class="input_color">
 					<input type="text" placeholder="请选择市" placeholder-class="input_color">
 					<input type="text" placeholder="请选择区" placeholder-class="input_color">
@@ -49,10 +49,10 @@
 				// 	{ img: TESTWOMEN, name: "女" ,value:'TESTWOMEN'},
 				// ],
 				ageData:[
-					{  name: "35岁以下" ,value:'TESTMEN'},
-					{  name: "35-45岁" ,value:'TESTWOMEN'},
-					{  name: "45-55岁" ,value:'TESTMEN'},
-					{  name: "55岁以上" ,value:'TESTWOMEN'},
+					{  name: "购买建材" ,value:'TESTMEN'},
+					{  name: "装修公司结款" ,value:'TESTWOMEN'},
+					{  name: "购买家具" ,value:'TESTMEN'},
+					{  name: "其他" ,value:'TESTWOMEN'},
 				],
 				// current:null,
 				agecurrent:null
@@ -78,19 +78,19 @@
 	}
 </script>
 <style scoped>
-	.sectionTwo{
+	.sectionFive{
 		font-size: 32rpx;
 		font-family: MicrosoftYaHei;
 		background: rgba(242,246,249,1);
 		height: 100%;
 		position: relative;
 		}
-	.sectionTwo-box{
+	.sectionFive-box{
 		position: absolute;
 		height: 100%;
 		width: 100%;
 	}
-	.sectionTwo-hd{
+	.sectionFive-hd{
 		height: 80rpx;
 		margin: 103rpx 55rpx 63rpx;
 		background: #FFFFFF;
@@ -99,43 +99,43 @@
 		line-height: 80rpx;
 		padding-left: 20rpx;
 	}
-	.sectionTwo-bd{
+	.sectionFive-bd{
 		margin: 63rpx 100rpx;
 		height: 250rpx;
 		
 		display: flex;
 		flex-wrap: wrap;
 	}
-	.sectionTwo-bd view {
+	.sectionFive-bd view {
 		flex: 45%;
 		background: #FFFFFF;
 		height: 238rpx;
 		margin: 10rpx;
 	}
-	.sectionTwo-bd view image{
+	.sectionFive-bd view image{
 		width: 66rpx;
 		height: 66rpx;
 		display: block;
 		margin: 40rpx auto;
 	}
-	.sectionTwo-bd view label {
+	.sectionFive-bd view label {
 		width: 100%;
 		text-align: center;
 		font-size: 30rpx;
 		color: 000000;
 	}
-	.sectionTwo-bd view label radio {
+	.sectionFive-bd view label radio {
 		margin-left: 60rpx;
 		margin-right: 30rpx;
 	}
-	.sectionTwo-ft{
+	.sectionFive-ft{
 		margin: 63rpx 100rpx;
 		height: 400rpx;
 		
 		display: flex;
 		flex-wrap: wrap;
 	}
-	.sectionTwo-ft view {
+	.sectionFive-ft view {
 		flex: 45%;
 		background: #FFFFFF;
 		height: 200rpx;
@@ -143,26 +143,26 @@
 		line-height: 200rpx;
 	}
 	
-	.sectionTwo-ft view label {
+	.sectionFive-ft view label {
 		width: 100%;
 		text-align: center;
 		font-size: 30rpx;
 		color: 000000;
 	}
-	.sectionTwo-ft view label radio {
-		margin-left: 40rpx;
+	.sectionFive-ft view label radio {
+		margin-left: 20rpx;
 		margin-right: 10rpx;
 	}
 	/* .input_color {
 		color: #dbdbdb;
 	} */
-	/* .sectionTwo-ft-input input{
+	/* .sectionFive-ft-input input{
 		margin-left: 40rpx;
 		border: 2rpx solid #313131;
 		font-size: 22rpx;
 		text-align: center;
 	}
-	.sectionTwo-ft-input input:nth-child(3){
+	.sectionFive-ft-input input:nth-child(3){
 		margin-right: 40rpx;
 		
 	} */

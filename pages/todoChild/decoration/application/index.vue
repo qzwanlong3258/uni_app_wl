@@ -152,7 +152,8 @@
 'use scrict';
 // import { ApplicationInput } from './components/ApplicationInput.vue';
 import wPicker from "@/components/w-picker/w-picker.vue";
-import uniPopup from "@/components/uni-popup/uni-popup.vue"
+import uniPopup from "@/components/uni-popup/uni-popup.vue";
+import { DECORATION} from '@/config/router.js';
 var _self;
 export default {
 	data() {
@@ -296,9 +297,9 @@ export default {
 	    	console.log('是否打开:' + e.show)
 	    },
 		submit:function () {
-			uni.navigateBack({
-			    delta: 1
-			});
+			uni.navigateTo({
+				url:DECORATION
+			})
 			
 		}
 	},

@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _refundOrder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./refundOrder.vue?vue&type=script&lang=js& */ 105);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _refundOrder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _refundOrder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _refundOrder_vue_vue_type_style_index_0_id_25fa0114_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./refundOrder.vue?vue&type=style&index=0&id=25fa0114&lang=scss&scoped=true& */ 107);
-/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ 22);
+/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ 24);
 
 
 
@@ -155,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _package = __webpack_require__(/*! @/config/package.js */ 62); //
+var _package = __webpack_require__(/*! @/config/package.js */ 64); //
 //
 //
 //
@@ -186,7 +186,7 @@ var _package = __webpack_require__(/*! @/config/package.js */ 62); //
 //
 //
 //
-var OrderInfor = function OrderInfor() {return __webpack_require__.e(/*! import() | components/OrderInfor */ "components/OrderInfor").then(__webpack_require__.bind(null, /*! @/components/OrderInfor */ 257));};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
+var OrderInfor = function OrderInfor() {return __webpack_require__.e(/*! import() | components/OrderInfor */ "components/OrderInfor").then(__webpack_require__.bind(null, /*! @/components/OrderInfor */ 273));};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
         item.id && (imgId += item.id);
       });
       getAlterSale({ orderid: this.orderInformation.id, img: imgId }).then(function (res) {

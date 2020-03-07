@@ -1,0 +1,43 @@
+
+.measureHome.data-v-423b4d97{
+	height: 1870rpx;
+	width: 100%;
+}
+.measureHome image.data-v-423b4d97{
+	width: 100%;
+	height: 1700rpx;
+	display: block;
+}
+.btn.data-v-423b4d97{
+	height: 100rpx;
+	
+	background: #ffffff;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+}
+.scheduleBtn.data-v-423b4d97{
+	-webkit-box-flex: 48%;
+	-webkit-flex: 48%;
+	        flex: 48%;
+	margin: 10rpx;
+	background:rgba(232,190,46,0.15);
+	color: #E8BE2E;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+}
+.freeMeasureHomeBtn.data-v-423b4d97{
+	-webkit-box-flex: 48%;
+	-webkit-flex: 48%;
+	        flex: 48%;
+	margin: 10rpx;
+	background: #E8BE2E;
+	color: #ffffff;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+}
+

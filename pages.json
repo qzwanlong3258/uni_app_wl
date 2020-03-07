@@ -116,9 +116,21 @@
 			}
         },
 		{
+		    "path" : "pages/todoChild/decoration/decorationPicture/index",
+		    "style" : {
+				"navigationBarTitleText": "装修分期付，轻松就入住"
+			}
+		},
+		{
 		    "path" : "pages/todoChild/decoration/testonetest/index",
 		    "style" : {
-				"navigationBarTitleText": "测一测"
+				"navigationBarTitleText": "额度申请"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/decoration/testonetest/testonetestsubmit/index",
+		    "style" : {
+				"navigationBarTitleText": "额度申请"
 			}
 		},
 		{
@@ -143,6 +155,18 @@
 		    "path" : "pages/todoChild/decoration/record/recordDetail/index",
 		    "style" : {
 				"navigationBarTitleText": "申请记录详情"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/measureHome/index",
+		    "style" : {
+				"navigationBarTitleText": "约量房"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/measureHome/ApptMeasureHome/index",
+		    "style" : {
+				"navigationBarTitleText": "预约量房"
 			}
 		}
     ],

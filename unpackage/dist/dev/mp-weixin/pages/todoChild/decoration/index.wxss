@@ -36,15 +36,16 @@
   font-weight: bold;
 }
 .decoration_text-row-submit {
-  color: #FAD64C;
+  color: #000000;
   width: 250rpx;
   height: 50rpx;
   line-height: 50rpx;
   text-align: center;
-  background-color: white;
-  border-radius: 25rpx;
+  background-color: #F9D133;
+  border-radius: 10rpx;
   font-size: 24rpx;
   margin-top: 30rpx;
+  box-shadow: 0 4rpx 0 0 rgba(0, 0, 0, 0.15);
 }
 .decoration_view-menu, .decoration_view-platform {
   display: -webkit-box;

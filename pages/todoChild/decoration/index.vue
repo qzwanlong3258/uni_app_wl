@@ -1,9 +1,9 @@
 <template>
 	<view class="decoration_view-box page_view-all-inner-padding">
 		<view class="decoration_view-nav page_view-box">
-			<text class="decoration_text-row decoration_text-row-title">最高额度(元)</text>
-			<text class="decoration_text-row decoration_text-row-content">200.0000.00</text>
-			<text class="decoration_text-row-submit">激活额度</text>
+			<text class="decoration_text-row decoration_text-row-title">可用额度</text>
+			<text class="decoration_text-row decoration_text-row-content">——200.0000.00——</text>
+			<text class="decoration_text-row-submit" @click="testLinkTo">测一测额度</text>
 		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding">
 			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)">
@@ -29,7 +29,7 @@
 <script>
 	'use scrict';
 	import { COMPANY_LOGO } from '@/config/image.js';
-	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD} from '@/config/router.js';
+	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST} from '@/config/router.js';
 	
 	export default {
 		data() {
@@ -48,6 +48,9 @@
 		methods: {
 			linkToRoute(router) {
 				uni.navigateTo({ url: router });
+			},
+			testLinkTo() {
+				uni.navigateTo({ url: LOAN_TESTONETEST });
 			}
 		}
 	}
@@ -77,15 +80,16 @@
 		font-weight: bold;
 	}
 	.decoration_text-row-submit {
-		color: $color_primary;
+		color: #000000;
 		width: 250rpx;
 		height: 50rpx;
 		line-height: 50rpx;
 		text-align: center;
-		background-color: white;
-		border-radius: 25rpx;
+		background-color: #F9D133;
+		border-radius: 10rpx;
 		font-size: 24rpx;
 		margin-top: 30rpx;
+		box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15);
 	}
 	.decoration_view-menu, .decoration_view-platform {
 		display: flex;

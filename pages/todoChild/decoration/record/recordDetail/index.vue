@@ -1,6 +1,6 @@
 <template>
 	<view class="recordDetail">
-		<view class="recordDetailCard">
+		<view class="recordDetailCard" :hidden='true'>
 			<image class="recordDetailCard_image" :src="img" mode=""></image>
 			<view class="recordDetailCard-text">银行打款成功</view>
 		</view>

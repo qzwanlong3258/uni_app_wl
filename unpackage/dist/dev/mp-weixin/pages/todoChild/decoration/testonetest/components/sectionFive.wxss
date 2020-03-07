@@ -1,17 +1,17 @@
 
-.sectionTwo.data-v-68c77a06{
+.sectionFive.data-v-68c77a06{
 	font-size: 32rpx;
 	font-family: MicrosoftYaHei;
 	background: rgba(242,246,249,1);
 	height: 100%;
 	position: relative;
 }
-.sectionTwo-box.data-v-68c77a06{
+.sectionFive-box.data-v-68c77a06{
 	position: absolute;
 	height: 100%;
 	width: 100%;
 }
-.sectionTwo-hd.data-v-68c77a06{
+.sectionFive-hd.data-v-68c77a06{
 	height: 80rpx;
 	margin: 103rpx 55rpx 63rpx;
 	background: #FFFFFF;
@@ -20,7 +20,7 @@
 	line-height: 80rpx;
 	padding-left: 20rpx;
 }
-.sectionTwo-bd.data-v-68c77a06{
+.sectionFive-bd.data-v-68c77a06{
 	margin: 63rpx 100rpx;
 	height: 250rpx;
 	
@@ -32,7 +32,7 @@
 	-webkit-flex-wrap: wrap;
 	        flex-wrap: wrap;
 }
-.sectionTwo-bd view.data-v-68c77a06 {
+.sectionFive-bd view.data-v-68c77a06 {
 	-webkit-box-flex: 45%;
 	-webkit-flex: 45%;
 	        flex: 45%;
@@ -40,23 +40,23 @@
 	height: 238rpx;
 	margin: 10rpx;
 }
-.sectionTwo-bd view image.data-v-68c77a06{
+.sectionFive-bd view image.data-v-68c77a06{
 	width: 66rpx;
 	height: 66rpx;
 	display: block;
 	margin: 40rpx auto;
 }
-.sectionTwo-bd view label.data-v-68c77a06 {
+.sectionFive-bd view label.data-v-68c77a06 {
 	width: 100%;
 	text-align: center;
 	font-size: 30rpx;
 	color: 000000;
 }
-.sectionTwo-bd view label radio.data-v-68c77a06 {
+.sectionFive-bd view label radio.data-v-68c77a06 {
 	margin-left: 60rpx;
 	margin-right: 30rpx;
 }
-.sectionTwo-ft.data-v-68c77a06{
+.sectionFive-ft.data-v-68c77a06{
 	margin: 63rpx 100rpx;
 	height: 400rpx;
 	
@@ -68,7 +68,7 @@
 	-webkit-flex-wrap: wrap;
 	        flex-wrap: wrap;
 }
-.sectionTwo-ft view.data-v-68c77a06 {
+.sectionFive-ft view.data-v-68c77a06 {
 	-webkit-box-flex: 45%;
 	-webkit-flex: 45%;
 	        flex: 45%;
@@ -77,26 +77,26 @@
 	margin: 10rpx;
 	line-height: 200rpx;
 }
-.sectionTwo-ft view label.data-v-68c77a06 {
+.sectionFive-ft view label.data-v-68c77a06 {
 	width: 100%;
 	text-align: center;
 	font-size: 30rpx;
 	color: 000000;
 }
-.sectionTwo-ft view label radio.data-v-68c77a06 {
-	margin-left: 40rpx;
+.sectionFive-ft view label radio.data-v-68c77a06 {
+	margin-left: 20rpx;
 	margin-right: 10rpx;
 }
 /* .input_color {
 	color: #dbdbdb;
 } */
-/* .sectionTwo-ft-input input{
+/* .sectionFive-ft-input input{
 	margin-left: 40rpx;
 	border: 2rpx solid #313131;
 	font-size: 22rpx;
 	text-align: center;
 }
-.sectionTwo-ft-input input:nth-child(3){
+.sectionFive-ft-input input:nth-child(3){
 	margin-right: 40rpx;
 	
 } */

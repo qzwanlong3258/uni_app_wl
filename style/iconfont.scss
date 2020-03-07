@@ -8,12 +8,12 @@
 // }
 @font-face {
   font-family: 'iconfont';  /* project id 1611611 */
-  src: url('//at.alicdn.com/t/font_1611611_60e087wmr8s.eot');
-  src: url('//at.alicdn.com/t/font_1611611_60e087wmr8s.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1611611_60e087wmr8s.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1611611_60e087wmr8s.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1611611_60e087wmr8s.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1611611_60e087wmr8s.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.eot');
+  src: url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1611611_8vl0i0st2jn.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -46,6 +46,9 @@
 }
 .icondianhua:before {
   content: "\e614";
+}
+.icondizhi:before {
+  content: "\e681";
 }
 
 
