@@ -3,7 +3,7 @@
 		<image :src="img" mode=""></image>
 		<view style="height: 70rpx;background: #FFFFFF;"></view>
 		<view class="btn">
-			<view class="scheduleBtn">进度查询</view>
+			<view class="scheduleBtn" @click="queryProgressBtn">进度查询</view>
 			<view class="freeMeasureHomeBtn" @click="apptMeasureHomeBtn">免费量房</view>
 		</view>
 	</view>
@@ -12,7 +12,7 @@
 <script>
 'use strict';
 import { MEASUREHOME} from '@/config/image.js';
-import { APPTMEASUREHOME} from '@/config/router.js';
+import { APPTMEASUREHOME, QUERYPROGRESS} from '@/config/router.js';
 export default {
 	data() {
 		return{
@@ -20,11 +20,19 @@ export default {
 		}
 	},
 	methods:{
+		queryProgressBtn(){
+			
+			uni.navigateTo({
+				url:QUERYPROGRESS
+			})
+			
+		},
 		apptMeasureHomeBtn(){
 			uni.navigateTo({
 				url:APPTMEASUREHOME
 			})
-		},
+		}
+		
 			
 	},
 	async onLoad() {}

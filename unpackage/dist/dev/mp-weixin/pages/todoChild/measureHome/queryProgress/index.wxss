@@ -1,0 +1,58 @@
+
+.queryProgress {
+	font-size: 32rpx;
+	background: rgba(242, 246, 249, 1);
+}
+.queryProgressCard {
+	margin: 48rpx 15rpx;
+	height: 180rpx;
+	background: #ffffff;
+	border-radius: 20rpx;
+	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	overflow: hidden;
+	padding: 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.box-left {
+	-webkit-box-flex: 0.8;
+	-webkit-flex: 0.8;
+	        flex: 0.8;
+	width: 100%;
+	height: 100%;
+}
+.box-right {
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	        flex: 2;
+	padding-left: 30rpx;
+}
+.box-right-top {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.box-right-top-left {
+	-webkit-box-flex: 3;
+	-webkit-flex: 3;
+	        flex: 3;
+	line-height: 90rpx;
+}
+.box-right-top-right {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	background: #e8be2e;
+	color: #ffffff;
+	
+	font-size: 28rpx;
+	text-align: center;
+	height: 54rpx;
+	line-height: 54rpx;
+	margin-top: 30rpx;
+}
+.box-right-bottom{
+	line-height: 90rpx;
+}
+

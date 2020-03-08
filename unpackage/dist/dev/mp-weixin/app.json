@@ -27,7 +27,9 @@
     "pages/todoChild/decoration/record/index",
     "pages/todoChild/decoration/record/recordDetail/index",
     "pages/todoChild/measureHome/index",
-    "pages/todoChild/measureHome/ApptMeasureHome/index"
+    "pages/todoChild/measureHome/ApptMeasureHome/index",
+    "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index",
+    "pages/todoChild/measureHome/queryProgress/index"
   ],
   "subPackages": [],
   "window": {
@@ -40,7 +42,7 @@
     "borderStyle": "black",
     "backgroundColor": "#fff",
     "color": "#888888",
-    "selectedColor": "#FAD64C",
+    "selectedColor": "#313131",
     "list": [
       {
         "pagePath": "pages/tabbar/home/home",
@@ -49,10 +51,16 @@
         "text": "首页"
       },
       {
+        "pagePath": "pages/todoChild/decoration/index",
+        "iconPath": "static/img/tabbar/loan.png",
+        "selectedIconPath": "static/img/tabbar/selectedLoan.png",
+        "text": "装修分期"
+      },
+      {
         "pagePath": "pages/tabbar/todo/todo",
         "iconPath": "static/img/tabbar/shop.png",
         "selectedIconPath": "static/img/tabbar/selectedShop.png",
-        "text": "积分商城"
+        "text": "会员商城"
       },
       {
         "pagePath": "pages/tabbar/mine/mine",

@@ -168,6 +168,18 @@
 		    "style" : {
 				"navigationBarTitleText": "预约量房"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index",
+		    "style" : {
+				"navigationBarTitleText": "商户选择"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/measureHome/queryProgress/index",
+		    "style" : {
+				"navigationBarTitleText": "进度查询"
+			}
 		}
     ],
 	"globalStyle": {
@@ -180,19 +192,25 @@
 		"borderStyle": "black",
 		"backgroundColor": "#fff",
 		"color": "#888888",
-		"selectedColor": "#FAD64C",
+		"selectedColor": "#313131",
 		"list": [{
 				"pagePath": "pages/tabbar/home/home",
 				"iconPath": "static/img/tabbar/home.png",
 				"selectedIconPath": "static/img/tabbar/selectedHome.png",
 				"text": "首页"
 			},
+			{
+					"pagePath": "pages/todoChild/decoration/index",
+					"iconPath": "static/img/tabbar/loan.png",
+					"selectedIconPath": "static/img/tabbar/selectedLoan.png",
+					"text": "装修分期"
+				},
 
 			{
 				"pagePath": "pages/tabbar/todo/todo",
 				"iconPath": "static/img/tabbar/shop.png",
 				"selectedIconPath": "static/img/tabbar/selectedShop.png",
-				"text": "积分商城"
+				"text": "会员商城"
 			},
 			{
 				"pagePath": "pages/tabbar/mine/mine",

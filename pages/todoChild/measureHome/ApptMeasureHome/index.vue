@@ -43,7 +43,7 @@
 				<view class="appt_item_content"><input type="text" placeholder="手机号" placeholder-class="input_color" /></view>
 			</view>
 		<view class="apptMeasureHome_ft">
-			<view class="btn">提交</view>
+			<view class="btn" @click="toLinkChoose">提交</view>
 		</view>
 		<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address>
 	</view>
@@ -51,7 +51,7 @@
 
 <script>
 'use strict';
-import { LOAN_APPLICATION, LOAN_TESTONETEST} from '@/config/router.js';
+import { CHOOSEBUSSINESS} from '@/config/router.js';
 import simpleAddress from "@/components/simple-address-normal/simple-address.nvue"
 export default {
 	components: {
@@ -92,6 +92,11 @@ export default {
 		            console.log('picker发送选择改变，携带值为', e.target.value)
 		            this.apptIndex = e.target.value
 		        },
+		toLinkChoose(){
+			uni.navigateTo({
+				url:CHOOSEBUSSINESS
+			})
+		}
 	},
 	async onLoad() {}
 };

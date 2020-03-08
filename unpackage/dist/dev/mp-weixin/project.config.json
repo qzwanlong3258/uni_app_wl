@@ -33,19 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/todoChild/decoration/decorationPicture/index",
-					"pathName": "pages/todoChild/decoration/decorationPicture/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/todoChild/measureHome/index",
-					"pathName": "pages/todoChild/measureHome/index",
+					"name": "pages/todoChild/measureHome/queryProgress/index",
+					"pathName": "pages/todoChild/measureHome/queryProgress/index",
 					"query": "",
 					"scene": null
 				},

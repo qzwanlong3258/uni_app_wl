@@ -53,7 +53,9 @@ module.exports = {
 	
 	//约量房
 	MEASUREHOME: '/pages/todoChild/measureHome/index',
-	APPTMEASUREHOME:'/pages/todoChild/measureHome/ApptMeasureHome/index'//预约量房
+	APPTMEASUREHOME:'/pages/todoChild/measureHome/ApptMeasureHome/index',//预约量房
+	CHOOSEBUSSINESS:'/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index',//选择商户
+	QUERYPROGRESS:'/pages/todoChild/measureHome/queryProgress/index'//选择商户
 	
 	
 }

@@ -297,10 +297,10 @@ export default {
 	    	console.log('是否打开:' + e.show)
 	    },
 		submit:function () {
+			console.log(DECORATION)
 			uni.navigateTo({
 				url:DECORATION
 			})
-			
 		}
 	},
 	components: {
