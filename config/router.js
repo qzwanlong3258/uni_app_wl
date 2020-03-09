@@ -22,6 +22,8 @@ module.exports = {
 	ORDER_LIST: '/pages/todoChild/orderList/orderList', //兑换记录
 	// 个人中心
 	MINE: '/pages/tabbar/mine/mine',
+	//角色互换
+	SWAPROLE: '/pages/todoChild/swapRole/index',
 	// 收货地址
 	ADDRESS_INDEX: '/pages/todoChild/address/addressIndex/addressIndex',
 	ADDRESS_DETAIL: '/pages/todoChild/address/addressDetail/addressDetail',

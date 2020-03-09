@@ -50,6 +50,12 @@
 			}
 		},
 		{
+			"path": "pages/todoChild/swapRole/index",
+			"style": {
+				"navigationBarTitleText": "角色互换"
+			}
+		},
+		{
             "path" : "pages/todoChild/refundOrder/refundOrder",
             "style" : {
 				"navigationBarTitleText": "退单详情"

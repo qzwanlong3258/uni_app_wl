@@ -282,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 // import { ApplicationInput } from './components/ApplicationInput.vue';
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _router = __webpack_require__(/*! @/config/router.js */ 21);var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 501));};var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 512));};
+var _router = __webpack_require__(/*! @/config/router.js */ 21);var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ 503));};var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 514));};
 var _self;var _default =
 {
   data: function data() {
@@ -427,7 +427,7 @@ var _self;var _default =
     },
     submit: function submit() {
       console.log(_router.DECORATION);
-      uni.navigateTo({
+      uni.switchTab({
         url: _router.DECORATION });
 
     } },

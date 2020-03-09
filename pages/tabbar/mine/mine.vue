@@ -20,7 +20,7 @@ import LjlOrderMenu from '@/components/LjlOrderMenu';
 import LjlMainMenu from './components/LjlMainMenu.vue';
 import { setStorage, getStorage } from '@/utils/storage.js';
 import * as meImg from '@/config/image.js';
-import { RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST } from '@/config/router.js';
+import { RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE } from '@/config/router.js';
 import { toRoute } from '@/utils/util.js';
 import { getCheckIn, checkIn } from '@/api/tabbar/mine.js';
 
@@ -32,8 +32,8 @@ export default {
 				{ title: '推荐中心', url: meImg.ME_4, href: RECOMMENDED },
 				{ title: '积分商城', url: meImg.ME_5, href: SHOP },
 				{ title: '分销中心', url: meImg.ME_6, href: DISTRIBUTION },
-				{ title: '账户与安全', url: meImg.ME_7 },
-				{ title: '地址管理', url: meImg.ME_8, href: `${ADDRESS_INDEX}?operating=updateAddress` }
+				{ title: '角色互换', url: meImg.ME_7, href: SWAPROLE },
+				{ title: '地址管理', url: meImg.ME_8, href: `${ADDRESS_INDEX}?operating=updateAddress` },
 			],
 			orderStateList: [{state: 1},{state: 2},{state: 3},{state: 4},{state: 5}]
 		};

@@ -186,7 +186,7 @@ var _package = __webpack_require__(/*! @/config/package.js */ 64); //
 //
 //
 //
-var OrderInfor = function OrderInfor() {return __webpack_require__.e(/*! import() | components/OrderInfor */ "components/OrderInfor").then(__webpack_require__.bind(null, /*! @/components/OrderInfor */ 303));};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
+var OrderInfor = function OrderInfor() {return __webpack_require__.e(/*! import() | components/OrderInfor */ "components/OrderInfor").then(__webpack_require__.bind(null, /*! @/components/OrderInfor */ 305));};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
         item.id && (imgId += item.id);
       });
       getAlterSale({ orderid: this.orderInformation.id, img: imgId }).then(function (res) {

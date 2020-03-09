@@ -1,0 +1,52 @@
+
+.swapRole.data-v-27093985{
+	font-size: 32rpx;
+	color: #666666;
+	background: rgba(229, 229, 229, 1);
+	height: 1250rpx;
+}
+.swapRole-hd.data-v-27093985{
+	height: 300rpx;
+	text-align: center;
+}
+.iconclass.data-v-27093985{
+	font-size: 100rpx;
+	color: #bfbfbf;
+}
+.swapRole-bd.data-v-27093985{
+	font-size: 60rpx;
+	text-align: center;
+	color: #000000;
+}
+.box.data-v-27093985{
+	margin: 0 100rpx;
+	background: #FFFFFF;
+	border-radius: 5rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	height: 140rpx;
+}
+.box-left.data-v-27093985{
+	-webkit-flex-basis:150rpx ;
+	        flex-basis:150rpx ;
+	text-align: center;
+	line-height: 70rpx;
+}
+.box-right.data-v-27093985{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.box-right-static.data-v-27093985{
+	width: 120rpx;
+	height: 40rpx;
+	background:#7CFC00;
+	color: #00B578;
+	border-radius: 5rpx;
+	text-align: center;
+	font-size: 22rpx;
+	line-height: 40rpx;
+}
+
+

@@ -9533,6 +9533,8 @@ module.exports = {
   ORDER_LIST: '/pages/todoChild/orderList/orderList', //兑换记录
   // 个人中心
   MINE: '/pages/tabbar/mine/mine',
+  //角色互换
+  SWAPROLE: '/pages/todoChild/swapRole/index',
   // 收货地址
   ADDRESS_INDEX: '/pages/todoChild/address/addressIndex/addressIndex',
   ADDRESS_DETAIL: '/pages/todoChild/address/addressDetail/addressDetail',
@@ -10703,7 +10705,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 315:
+/***/ 317:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -10866,7 +10868,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 370:
+/***/ 372:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -11067,7 +11069,7 @@ function formatHomeRoute(value) {
 
 /***/ }),
 
-/***/ 455:
+/***/ 457:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -11075,7 +11077,7 @@ function formatHomeRoute(value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 456);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 458);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -11603,7 +11605,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 456:
+/***/ 458:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -12868,7 +12870,7 @@ main();
 
 /***/ }),
 
-/***/ 506:
+/***/ 508:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -13018,7 +13020,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 507:
+/***/ 509:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -14532,7 +14534,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 508:
+/***/ 510:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -27085,7 +27087,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 509:
+/***/ 511:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -27746,7 +27748,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 524:
+/***/ 526:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -27900,7 +27902,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 525:
+/***/ 527:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -29418,7 +29420,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 526:
+/***/ 528:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -41977,7 +41979,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 562:
+/***/ 564:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -42131,7 +42133,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 563:
+/***/ 565:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -43649,7 +43651,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 564:
+/***/ 566:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -56604,7 +56606,7 @@ function deleteReceiveAddress(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 

@@ -51,6 +51,7 @@
 
 <script>
 'use strict';
+var _self;
 import { CHOOSEBUSSINESS} from '@/config/router.js';
 import simpleAddress from "@/components/simple-address-normal/simple-address.nvue"
 export default {
@@ -98,7 +99,9 @@ export default {
 			})
 		}
 	},
-	async onLoad() {}
+	async onLoad() {
+		_self = this
+	}
 };
 </script>
 

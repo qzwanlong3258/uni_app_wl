@@ -298,7 +298,7 @@ export default {
 	    },
 		submit:function () {
 			console.log(DECORATION)
-			uni.navigateTo({
+			uni.switchTab({
 				url:DECORATION
 			})
 		}
