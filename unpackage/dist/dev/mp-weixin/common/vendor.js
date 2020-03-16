@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1622,7 +1622,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
 
 /***/ }),
 
-/***/ 131:
+/***/ 139:
 /*!***************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
   \***************************************************************/
@@ -2438,7 +2438,30 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 154:
+/***/ 16:
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/common.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var _require =
+__webpack_require__(/*! ../utils/storage.js */ 17),getStorage = _require.getStorage;
+/**
+                                                                  * 常用的变量(appId,appSecret,reg等)
+                                                                  */
+
+module.exports = {
+  APP_ID: 'wx7a78cb1fe088222c',
+  APP_SECRET: '28819d103b03e96501c04cf837d63777',
+
+  //上传上传图片路径
+  uploadImageUrl: "https://gxgbasic.gxggroup.cn:6303/ftp/upload?token=".concat(getStorage('tempToken')) };
+
+/***/ }),
+
+/***/ 162:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
   \*****************************************************************************/
@@ -2460,29 +2483,6 @@ function loadCustomer(data) {
     data: data });
 
 }
-
-/***/ }),
-
-/***/ 16:
-/*!****************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/config/common.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var _require =
-__webpack_require__(/*! ../utils/storage.js */ 17),getStorage = _require.getStorage;
-/**
-                                                                  * 常用的变量(appId,appSecret,reg等)
-                                                                  */
-
-module.exports = {
-  APP_ID: 'wx7a78cb1fe088222c',
-  APP_SECRET: '28819d103b03e96501c04cf837d63777',
-
-  //上传上传图片路径
-  uploadImageUrl: "https://gxgbasic.gxggroup.cn:6303/ftp/upload?token=".concat(getStorage('tempToken')) };
 
 /***/ }),
 
@@ -8952,7 +8952,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8973,14 +8973,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9056,7 +9056,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9535,9 +9535,14 @@ module.exports = {
   MINE: '/pages/tabbar/mine/mine',
   //角色互换
   SWAPROLE: '/pages/todoChild/swapRole/index',
+  //我的工作
+  MYWORK: '/pages/todoChild/myWork/index',
+  MYWORKDETAIL: '/pages/todoChild/myWork/myWorkDetail/index',
   // 收货地址
   ADDRESS_INDEX: '/pages/todoChild/address/addressIndex/addressIndex',
   ADDRESS_DETAIL: '/pages/todoChild/address/addressDetail/addressDetail',
+  //申请记录
+  APPTRECORD: '/pages/todoChild/apptRecord/index',
   // 推荐中心
   RECOMMENDED: '/pages/todoChild/recommended/index',
   // 分销中心
@@ -10705,7 +10710,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 317:
+/***/ 325:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -10868,7 +10873,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 372:
+/***/ 380:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -11069,7 +11074,254 @@ function formatHomeRoute(value) {
 
 /***/ }),
 
-/***/ 457:
+/***/ 46:
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/util.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var formatTime = function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+};
+
+var formatNumber = function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+};
+
+//时间戳转时间
+var time = function time(timestamp) {
+  timestamp = timestamp.toString().length < 13 ? timestamp * 1000 : timestamp;
+  var date = new Date(timestamp);
+  var Y = date.getFullYear() + '-';
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+  var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+  return Y + M + D + h + m + s;
+};
+
+// 字符串是否必填校验
+var checkRequestStr = function checkRequestStr(inputStr, fieldName) {
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// 验证手机号（精确）
+var checkPhone = function checkPhone(inputStr, fieldName) {
+  inputStr = inputStr.toString();
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '手机号不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    var regex = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/ig;
+    var result = regex.test(inputStr);
+    if (!result) {
+      var _info = fieldName ? '请输入正确' + fieldName : '请输入正确手机号';
+      uni.showToast({
+        title: _info,
+        icon: 'none',
+        mask: true,
+        duration: 2000 });
+
+      return false;
+    }
+    return true;
+  }
+};
+//验证身份证号
+var checkIdCardLength = function checkIdCardLength(inputStr, fieldName) {
+  inputStr = inputStr.toString();
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '身份证不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    if (inputStr.length != 18) {
+      var _info2 = fieldName ? '请输入正确' + fieldName : '请输入正确身份证号';
+      uni.showToast({
+        title: _info2,
+        icon: 'none',
+        mask: true,
+        duration: 2000 });
+
+      return false;
+    }
+    return true;
+  }
+};
+//平面内坐标旋转公式
+var anglePoint = function anglePoint() {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$ox = _ref.ox,ox = _ref$ox === void 0 ? 0 : _ref$ox,_ref$oy = _ref.oy,oy = _ref$oy === void 0 ? 0 : _ref$oy,_ref$ax = _ref.ax,ax = _ref$ax === void 0 ? 0 : _ref$ax,_ref$ay = _ref.ay,ay = _ref$ay === void 0 ? 0 : _ref$ay,_ref$angle = _ref.angle,angle = _ref$angle === void 0 ? 0 : _ref$angle;
+  var obj = {
+    c: 0,
+    d: 0 };
+
+  obj.c = parseInt(ox + (ax - ox) * Math.cos(angle) + (ay - oy) * Math.sin(angle));
+  obj.d = parseInt(oy + (ax - ox) * -Math.sin(angle) + (ay - oy) * Math.cos(angle));
+  return obj;
+};
+//获取字符串的长度
+var getBLen = function getBLen(str) {
+  if (str == null) return 0;
+  if (typeof str != "string") {
+    str += "";
+  }
+  return str.replace(/[^a-z]\d*/g, "01").length;
+};
+
+// /**
+//  * 获取页面
+//  */
+// const getPage = function({name,index}) {
+// 	let pages = getCurrentPages();
+// 	name&&(return pages.find(page => page.route == name));
+// 	index&&(return index==-1?pages[pages.length-1]:pages[index])
+// 	return ''
+// }
+
+
+//js 加法计算
+//调用：accAdd(arg1,arg2)
+//返回值：arg1加arg2的精确结果
+function accAdd(arg1, arg2) {
+  var r1, r2, m;
+  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
+  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
+  m = Math.pow(10, Math.max(r1, r2));
+  return ((arg1 * m + arg2 * m) / m).toFixed(2);
+}
+
+//js 减法计算
+//调用：Subtr(arg1,arg2)
+//返回值：arg1减arg2的精确结果
+function subtr(arg1, arg2) {
+  var r1, r2, m, n;
+  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
+  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
+  m = Math.pow(10, Math.max(r1, r2));
+  //last modify by deeka
+  //动态控制精度长度
+  n = r1 >= r2 ? r1 : r2;
+  return ((arg1 * m - arg2 * m) / m).toFixed(2);
+}
+
+//js 乘法函数
+//调用：accMul(arg1,arg2)
+//返回值：arg1乘以arg2的精确结果
+function accMul(arg1, arg2) {
+  var m = 0,s1 = arg1.toString(),s2 = arg2.toString();
+  try {m += s1.split(".")[1].length;} catch (e) {}
+  try {m += s2.split(".")[1].length;} catch (e) {}
+  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+/**
+   * 节流函数
+   */
+function waterTap(func, delay) {
+  if (!(typeof func === "function")) {
+    console.warn("func 参数必须是Function类型");
+    return function () {};
+  }
+  if (!(typeof delay === "number")) {
+    console.warn("delay 参数必须是Number类型");
+    return function () {};
+  }
+  var prev = Date.now();
+  return function () {
+    if (Date.now() - prev >= delay) {
+      func.call(this, arguments);
+      prev = Date.now();
+    }
+  };
+}
+
+/**
+   * 防抖函数
+   */
+function debounce(func, wait) {
+  if (!(typeof func === "function")) {
+    console.warn("func 参数必须是Function类型");
+    return function () {};
+  }
+  if (!(typeof wait === "number")) {
+    console.warn("wait 参数必须是Number类型");
+    return function () {};
+  }
+  var timeout = null;
+  return function () {
+    if (timeout !== null) clearTimeout(timeout);
+    timeout = setTimeout(func, wait);
+  };
+}
+
+/**
+   * 跳转路由
+   */
+function toRoute(route) {
+  var pages = getCurrentPages();
+  var pageIndex = pages.findIndex(function (item) {return item.route == route.substring(1);});
+  if (pageIndex != -1) {
+    uni.navigateBack({
+      delta: pages.length - pageIndex - 1 });
+
+  } else {
+    uni.navigateTo({ url: route, fail: function fail() {
+        uni.switchTab({ url: route });
+      } });
+  }
+}
+
+module.exports = {
+  formatTime: formatTime,
+  time: time,
+  checkRequestStr: checkRequestStr,
+  checkPhone: checkPhone,
+  checkIdCardLength: checkIdCardLength,
+  anglePoint: anglePoint,
+  getBLen: getBLen,
+  accAdd: accAdd,
+  subtr: subtr,
+  accMul: accMul,
+  waterTap: waterTap,
+  debounce: debounce,
+  toRoute: toRoute };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 465:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -11077,7 +11329,7 @@ function formatHomeRoute(value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 458);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 466);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -11605,7 +11857,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 458:
+/***/ 466:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -11633,253 +11885,6 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
               data: _objectSpread({
                 "access_token": accessToken },
               data) }));case 9:case "end":return _context.stop();}}}, _callee, this);}));return _getUnlimited.apply(this, arguments);}
-
-/***/ }),
-
-/***/ 46:
-/*!*************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/utils/util.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var formatTime = function formatTime(date) {
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hour = date.getHours();
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':');
-};
-
-var formatNumber = function formatNumber(n) {
-  n = n.toString();
-  return n[1] ? n : '0' + n;
-};
-
-//时间戳转时间
-var time = function time(timestamp) {
-  timestamp = timestamp.toString().length < 13 ? timestamp * 1000 : timestamp;
-  var date = new Date(timestamp);
-  var Y = date.getFullYear() + '-';
-  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-  var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
-  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-  var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-  return Y + M + D + h + m + s;
-};
-
-// 字符串是否必填校验
-var checkRequestStr = function checkRequestStr(inputStr, fieldName) {
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    return true;
-  }
-};
-
-// 验证手机号（精确）
-var checkPhone = function checkPhone(inputStr, fieldName) {
-  inputStr = inputStr.toString();
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '手机号不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    var regex = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/ig;
-    var result = regex.test(inputStr);
-    if (!result) {
-      var _info = fieldName ? '请输入正确' + fieldName : '请输入正确手机号';
-      uni.showToast({
-        title: _info,
-        icon: 'none',
-        mask: true,
-        duration: 2000 });
-
-      return false;
-    }
-    return true;
-  }
-};
-//验证身份证号
-var checkIdCardLength = function checkIdCardLength(inputStr, fieldName) {
-  inputStr = inputStr.toString();
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '身份证不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    if (inputStr.length != 18) {
-      var _info2 = fieldName ? '请输入正确' + fieldName : '请输入正确身份证号';
-      uni.showToast({
-        title: _info2,
-        icon: 'none',
-        mask: true,
-        duration: 2000 });
-
-      return false;
-    }
-    return true;
-  }
-};
-//平面内坐标旋转公式
-var anglePoint = function anglePoint() {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$ox = _ref.ox,ox = _ref$ox === void 0 ? 0 : _ref$ox,_ref$oy = _ref.oy,oy = _ref$oy === void 0 ? 0 : _ref$oy,_ref$ax = _ref.ax,ax = _ref$ax === void 0 ? 0 : _ref$ax,_ref$ay = _ref.ay,ay = _ref$ay === void 0 ? 0 : _ref$ay,_ref$angle = _ref.angle,angle = _ref$angle === void 0 ? 0 : _ref$angle;
-  var obj = {
-    c: 0,
-    d: 0 };
-
-  obj.c = parseInt(ox + (ax - ox) * Math.cos(angle) + (ay - oy) * Math.sin(angle));
-  obj.d = parseInt(oy + (ax - ox) * -Math.sin(angle) + (ay - oy) * Math.cos(angle));
-  return obj;
-};
-//获取字符串的长度
-var getBLen = function getBLen(str) {
-  if (str == null) return 0;
-  if (typeof str != "string") {
-    str += "";
-  }
-  return str.replace(/[^a-z]\d*/g, "01").length;
-};
-
-// /**
-//  * 获取页面
-//  */
-// const getPage = function({name,index}) {
-// 	let pages = getCurrentPages();
-// 	name&&(return pages.find(page => page.route == name));
-// 	index&&(return index==-1?pages[pages.length-1]:pages[index])
-// 	return ''
-// }
-
-
-//js 加法计算
-//调用：accAdd(arg1,arg2)
-//返回值：arg1加arg2的精确结果
-function accAdd(arg1, arg2) {
-  var r1, r2, m;
-  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
-  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
-  m = Math.pow(10, Math.max(r1, r2));
-  return ((arg1 * m + arg2 * m) / m).toFixed(2);
-}
-
-//js 减法计算
-//调用：Subtr(arg1,arg2)
-//返回值：arg1减arg2的精确结果
-function subtr(arg1, arg2) {
-  var r1, r2, m, n;
-  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
-  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
-  m = Math.pow(10, Math.max(r1, r2));
-  //last modify by deeka
-  //动态控制精度长度
-  n = r1 >= r2 ? r1 : r2;
-  return ((arg1 * m - arg2 * m) / m).toFixed(2);
-}
-
-//js 乘法函数
-//调用：accMul(arg1,arg2)
-//返回值：arg1乘以arg2的精确结果
-function accMul(arg1, arg2) {
-  var m = 0,s1 = arg1.toString(),s2 = arg2.toString();
-  try {m += s1.split(".")[1].length;} catch (e) {}
-  try {m += s2.split(".")[1].length;} catch (e) {}
-  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
-}
-
-/**
-   * 节流函数
-   */
-function waterTap(func, delay) {
-  if (!(typeof func === "function")) {
-    console.warn("func 参数必须是Function类型");
-    return function () {};
-  }
-  if (!(typeof delay === "number")) {
-    console.warn("delay 参数必须是Number类型");
-    return function () {};
-  }
-  var prev = Date.now();
-  return function () {
-    if (Date.now() - prev >= delay) {
-      func.call(this, arguments);
-      prev = Date.now();
-    }
-  };
-}
-
-/**
-   * 防抖函数
-   */
-function debounce(func, wait) {
-  if (!(typeof func === "function")) {
-    console.warn("func 参数必须是Function类型");
-    return function () {};
-  }
-  if (!(typeof wait === "number")) {
-    console.warn("wait 参数必须是Number类型");
-    return function () {};
-  }
-  var timeout = null;
-  return function () {
-    if (timeout !== null) clearTimeout(timeout);
-    timeout = setTimeout(func, wait);
-  };
-}
-
-/**
-   * 跳转路由
-   */
-function toRoute(route) {
-  var pages = getCurrentPages();
-  var pageIndex = pages.findIndex(function (item) {return item.route == route.substring(1);});
-  if (pageIndex != -1) {
-    uni.navigateBack({
-      delta: pages.length - pageIndex - 1 });
-
-  } else {
-    uni.navigateTo({ url: route, fail: function fail() {
-        uni.switchTab({ url: route });
-      } });
-  }
-}
-
-module.exports = {
-  formatTime: formatTime,
-  time: time,
-  checkRequestStr: checkRequestStr,
-  checkPhone: checkPhone,
-  checkIdCardLength: checkIdCardLength,
-  anglePoint: anglePoint,
-  getBLen: getBLen,
-  accAdd: accAdd,
-  subtr: subtr,
-  accMul: accMul,
-  waterTap: waterTap,
-  debounce: debounce,
-  toRoute: toRoute };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -12870,7 +12875,7 @@ main();
 
 /***/ }),
 
-/***/ 508:
+/***/ 516:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -13020,7 +13025,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 509:
+/***/ 517:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -14534,7 +14539,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 510:
+/***/ 518:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -27087,7 +27092,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 511:
+/***/ 519:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -27748,7 +27753,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 526:
+/***/ 534:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -27902,7 +27907,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 527:
+/***/ 535:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -29420,7 +29425,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 528:
+/***/ 536:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -41979,7 +41984,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 564:
+/***/ 572:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -42133,7 +42138,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 565:
+/***/ 573:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -43651,7 +43656,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 566:
+/***/ 574:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -56606,7 +56611,7 @@ function deleteReceiveAddress(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" } }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" } }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 

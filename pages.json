@@ -56,6 +56,24 @@
 			}
 		},
 		{
+			"path": "pages/todoChild/apptRecord/index",
+			"style": {
+				"navigationBarTitleText": "申请记录"
+			}
+		},
+		{
+			"path": "pages/todoChild/myWork/index",
+			"style": {
+				"navigationBarTitleText": "我的工作"
+			}
+		},
+		{
+			"path": "pages/todoChild/myWork/myWorkDetail/index",
+			"style": {
+				"navigationBarTitleText": "我的工作"
+			}
+		},
+		{
             "path" : "pages/todoChild/refundOrder/refundOrder",
             "style" : {
 				"navigationBarTitleText": "退单详情"

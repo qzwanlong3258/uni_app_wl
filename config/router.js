@@ -24,9 +24,14 @@ module.exports = {
 	MINE: '/pages/tabbar/mine/mine',
 	//角色互换
 	SWAPROLE: '/pages/todoChild/swapRole/index',
+	//我的工作
+	MYWORK:'/pages/todoChild/myWork/index',
+	MYWORKDETAIL:'/pages/todoChild/myWork/myWorkDetail/index',
 	// 收货地址
 	ADDRESS_INDEX: '/pages/todoChild/address/addressIndex/addressIndex',
 	ADDRESS_DETAIL: '/pages/todoChild/address/addressDetail/addressDetail',
+	//申请记录
+	APPTRECORD: '/pages/todoChild/apptRecord/index',
 	// 推荐中心
 	RECOMMENDED: '/pages/todoChild/recommended/index',
 	// 分销中心

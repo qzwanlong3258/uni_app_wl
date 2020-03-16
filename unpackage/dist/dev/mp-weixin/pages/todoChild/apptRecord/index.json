@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请记录",
+  "usingComponents": {
+    "ljl-states": "/pages/todoChild/apptRecord/components/changeStates"
+  }
+}

@@ -24,13 +24,38 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/todoChild/apptRecord/index",
+					"pathName": "pages/todoChild/apptRecord/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/todoChild/measureHome/ApptMeasureHome/index",
+					"pathName": "pages/todoChild/measureHome/ApptMeasureHome/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/todoChild/myWork/index",
+					"pathName": "pages/todoChild/myWork/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }
