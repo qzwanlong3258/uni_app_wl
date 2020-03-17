@@ -1,6 +1,6 @@
 <template>
 	<view class="decorationPicture">
-		<image :src="img" mode=""> </image>
+		<image :src="img" mode="widthFix"> </image>
 		<view class="btn-page">
 			<view class="btnone"  @click="submitTest">
 				
@@ -49,7 +49,7 @@ export default {
 	}
 	.decorationPicture image{
 		width: 100%;
-		height: 100%;
+		
 		display: block;
 		position: absolute;
 	}
@@ -67,7 +67,7 @@ export default {
 		border-radius: 45rpx;
 		position: absolute;
 		left: 130rpx;
-		top:420rpx;
+		top:490rpx;
 	}
 	.btntwo{
 		height: 83rpx;
@@ -77,6 +77,6 @@ export default {
 		border-radius: 45rpx;
 		position: absolute;
 		left: 30rpx;
-		top:935rpx;
+		top:1070rpx;
 	}
 </style>

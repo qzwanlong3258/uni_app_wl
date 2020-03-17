@@ -132,6 +132,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
@@ -140,19 +142,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
-var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}var YldTop = function YldTop() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then(__webpack_require__.bind(null, /*! ./components/YldTop.vue */ 285));};var SwiperImg = function SwiperImg() {return __webpack_require__.e(/*! import() | components/SwiperImg */ "components/SwiperImg").then(__webpack_require__.bind(null, /*! ../../../components/SwiperImg.vue */ 292));};var YldHot = function YldHot() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then(__webpack_require__.bind(null, /*! ./components/YldHot.vue */ 299));};var YldNav = function YldNav() {return Promise.all(/*! import() | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then(__webpack_require__.bind(null, /*! ./components/YldNav.vue */ 306));};var _default =
+var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}var YldTop = function YldTop() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then(__webpack_require__.bind(null, /*! ./components/YldTop.vue */ 325));};var SwiperImg = function SwiperImg() {return Promise.all(/*! import() | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then(__webpack_require__.bind(null, /*! ../../../components/SwiperImg.vue */ 332));};var YldHot = function YldHot() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then(__webpack_require__.bind(null, /*! ./components/YldHot.vue */ 339));};var YldNav = function YldNav() {return Promise.all(/*! import() | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then(__webpack_require__.bind(null, /*! ./components/YldNav.vue */ 346));};var _default =
 
 {
   data: function data() {
     return {
       todoNav: [],
-      imgList: [],
+      imgList: [{ 'img': _image.BANNER_ONE }, { 'img': _image.BANNER_TWO }, { 'img': _image.BANNER_THREE }, { 'img': _image.BANNER_FOUR }],
       tipList: ['非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20'],
       demoImg: _image.HOME_DEMO,
+      adimg: [_image.AD_ONE, _image.AD_TWO, _image.AD_THREE],
       citys: [] };
 
   },
   onLoad: function onLoad() {var _this = this;
+    console.log(this.imgList);
     home.loadHomeCarousel().then(function (res) {
       _this.imgList = res.list;
     });

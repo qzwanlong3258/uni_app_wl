@@ -1,7 +1,7 @@
 <template>
 	<view class="tip-box">
 		<view class='scroll-tip'>
-			<view class="tip-title"><text class="primary-theme-color">热</text>点</view>
+			<view class="tip-title"><image :src="img" mode="widthFix"></image></view>
 			<i class="iconfont iconlaba theme-color"></i>
 			<swiper class='header-msg-tip' :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			 circular :duration="duration" easing-function="default" vertical>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+	import { HEAT_POINT} from '@/config/image.js';
 	export default {
 		props: {
 			valueList: {
@@ -28,6 +29,7 @@
 				autoplay: true,
 				interval: 4000,
 				duration: 1000,
+				img:HEAT_POINT
 			}
 		}
 	}
@@ -39,11 +41,15 @@
 		font-weight: bold;
 		margin-left: 2%;
 	}
+	.tip-title image{
+		width: 40px;
+		
+	}
 	.scroll-tip {
 		width: 100%;
 		height: 80upx;
 		background: #fff;
-		border-bottom: 16upx solid rgb(223,54,93);
+		/* border-bottom: 16upx solid rgb(223,54,93); */
 		line-height: 100rpx;
 		display: flex;
 	}

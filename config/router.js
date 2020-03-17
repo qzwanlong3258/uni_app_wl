@@ -62,7 +62,12 @@ module.exports = {
 	MEASUREHOME: '/pages/todoChild/measureHome/index',
 	APPTMEASUREHOME:'/pages/todoChild/measureHome/ApptMeasureHome/index',//预约量房
 	CHOOSEBUSSINESS:'/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index',//选择商户
-	QUERYPROGRESS:'/pages/todoChild/measureHome/queryProgress/index'//选择商户
+	QUERYPROGRESS:'/pages/todoChild/measureHome/queryProgress/index',//选择商户
+	
+	//好店入驻
+	INSHOP:'/pages/todoChild/inShop/index',
+	UPLOAD:'/pages/todoChild/inShop/upload/index',//上传资料
+	INVITE:'/pages/todoChild/inShop/inviteShop/index'//邀请商户
 	
 	
 }

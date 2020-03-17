@@ -3,7 +3,7 @@
 		<swiper class="swiper" :style="{height:`${heightNum}rpx`}" :autoplay='autoplay' :circular='circular'  @change='changeDot'>
 			<swiper-item v-for="(item,index) in imgList" :key="index" @click="linkToPage(item.href)">
 				<view class="swiper-item">
-					<image :src="item.url"></image>
+					<image :src="item.img"></image>
 				</view>
 			</swiper-item>
 		</swiper>
@@ -14,11 +14,12 @@
 </template>
 
 <script>
+	import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR} from '@/config/image.js';
 	export default {
 		props: {
-			imgList: {
-				type: Array,
-			},
+			// imgList: {
+			// 	type: Array,
+			// },
 			heightNum: {
 				type: Number,
 				default: 662
@@ -32,6 +33,7 @@
 			return {
 				dotIndex: 0,
 				circular: true,
+				imgList: [{'img': BANNER_ONE},{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
 			};
 		},
 		methods: {

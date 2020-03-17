@@ -6,7 +6,7 @@
 }
 .decorationPicture image.data-v-3fb0ed2a{
 	width: 100%;
-	height: 100%;
+	
 	display: block;
 	position: absolute;
 }
@@ -24,7 +24,7 @@
 	border-radius: 45rpx;
 	position: absolute;
 	left: 130rpx;
-	top:420rpx;
+	top:490rpx;
 }
 .btntwo.data-v-3fb0ed2a{
 	height: 83rpx;
@@ -34,6 +34,6 @@
 	border-radius: 45rpx;
 	position: absolute;
 	left: 30rpx;
-	top:935rpx;
+	top:1070rpx;
 }
 

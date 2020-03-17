@@ -51,7 +51,8 @@
 			},
 			testLinkTo() {
 				uni.navigateTo({ url: LOAN_TESTONETEST });
-			}
+			},
+			
 		}
 	}
 </script>

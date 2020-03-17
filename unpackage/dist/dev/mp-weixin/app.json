@@ -33,7 +33,10 @@
     "pages/todoChild/measureHome/index",
     "pages/todoChild/measureHome/ApptMeasureHome/index",
     "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index",
-    "pages/todoChild/measureHome/queryProgress/index"
+    "pages/todoChild/measureHome/queryProgress/index",
+    "pages/todoChild/inShop/index",
+    "pages/todoChild/inShop/upload/index",
+    "pages/todoChild/inShop/inviteShop/index"
   ],
   "subPackages": [],
   "window": {

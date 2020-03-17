@@ -77,9 +77,29 @@ module.exports = {
 	
 	TESTSUCCESS: `${staticUrl}/todoChild/testonetest/完成@2x.png`,
 	TESTFAIL: `${staticUrl}/todoChild/testonetest/3.0-未完成@2x.png`,
-	
+	// 约量房
 	LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
 	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
+	// 上传
+	UPLOAD:`${staticUrl}/todoChild/上传@2x.png`,
+	//轮播图
+	BANNER_ONE:`${staticUrl}/banner/banner1@2x.png`,
+	BANNER_TWO:`${staticUrl}/banner/banner2@2x.png`,
+	BANNER_THREE:`${staticUrl}/banner/banner3@2x.png`,
+	BANNER_FOUR:`${staticUrl}/banner/banner4@2x.png`,
+	//热点
+	HEAT_POINT:`${staticUrl}/banner/redian.png`,
+	//导航图片
+	NAV_ONE:`${staticUrl}/banner/navone.png`,
+	NAV_TWO:`${staticUrl}/banner/navtwo.png`,
+	NAV_THREE:`${staticUrl}/banner/navthree.png`,
+	NAV_FOUR:`${staticUrl}/banner/navfour.png`,
+	//广告位
+	
+	AD_ONE:`${staticUrl}/banner/广告位1@2x.png`,
+	AD_TWO:`${staticUrl}/banner/广告位2@2x.png`,
+	AD_THREE:`${staticUrl}/banner/广告位3@2x.png`,
+	
 	
 	
 }

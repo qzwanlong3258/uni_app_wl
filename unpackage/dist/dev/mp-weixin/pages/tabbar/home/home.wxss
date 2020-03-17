@@ -9,8 +9,7 @@
 .swiper-img.data-v-93853c04 {
 }
 .bottom-show.data-v-93853c04 {
-	width: 100%;
-	margin-top: 45rpx;
+	margin: 25rpx 30rpx 0 25rpx ;
 }
 .bottom-show image.data-v-93853c04 {
 	width: 100%;

@@ -1,6 +1,6 @@
 <template>
 	<view class="measureHome">
-		<image :src="img" mode=""></image>
+		<image :src="img" mode="widthFix"></image>
 		<view style="height: 70rpx;background: #FFFFFF;"></view>
 		<view class="btn">
 			<view class="scheduleBtn" @click="queryProgressBtn">进度查询</view>
@@ -46,8 +46,7 @@ export default {
 	}
 	.measureHome image{
 		width: 100%;
-		height: 1700rpx;
-		display: block;
+		
 	}
 	.btn{
 		height: 100rpx;

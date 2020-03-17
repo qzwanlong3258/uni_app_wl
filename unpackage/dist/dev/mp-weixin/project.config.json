@@ -37,22 +37,22 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/todoChild/apptRecord/index",
-					"pathName": "pages/todoChild/apptRecord/index",
+					"name": "pages/todoChild/inShop/index",
+					"pathName": "pages/todoChild/inShop/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/todoChild/measureHome/ApptMeasureHome/index",
-					"pathName": "pages/todoChild/measureHome/ApptMeasureHome/index",
+					"name": "pages/todoChild/inShop/upload/index",
+					"pathName": "pages/todoChild/inShop/upload/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/todoChild/myWork/index",
-					"pathName": "pages/todoChild/myWork/index",
+					"name": "pages/todoChild/decoration/decorationPicture/index",
+					"pathName": "pages/todoChild/decoration/decorationPicture/index",
 					"scene": null
 				}
 			]

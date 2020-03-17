@@ -204,6 +204,24 @@
 		    "style" : {
 				"navigationBarTitleText": "进度查询"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/inShop/index",
+		    "style" : {
+				"navigationBarTitleText": "好店入驻"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/inShop/upload/index",
+		    "style" : {
+				"navigationBarTitleText": "上传资料"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/inShop/inviteShop/index",
+		    "style" : {
+				"navigationBarTitleText": "邀请商户"
+			}
 		}
     ],
 	"globalStyle": {
