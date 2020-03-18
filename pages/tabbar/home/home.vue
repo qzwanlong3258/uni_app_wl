@@ -3,7 +3,8 @@
 		<view class="home-top"><yld-top :citys="citys" @change="cityChange"></yld-top></view>
 		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="400"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
-		<yld-nav v-if="todoNav.length" :navList="todoNav"></yld-nav>
+		<!-- <yld-nav v-if="todoNav.length" :navList="todoNav"></yld-nav> -->
+		<yld-nav ></yld-nav>
 		<view class="bottom-show"><image :src="adimg[1]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view>

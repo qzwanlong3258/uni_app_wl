@@ -160,7 +160,7 @@
 		{
             "path" : "pages/todoChild/decoration/application/index",
             "style" : {
-				"navigationBarTitleText": "家装申请"
+				"navigationBarTitleText": "申请"
 			}
         },
 		{
@@ -221,6 +221,12 @@
 		    "path" : "pages/todoChild/inShop/inviteShop/index",
 		    "style" : {
 				"navigationBarTitleText": "邀请商户"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/recommendCenter/index",
+		    "style" : {
+				"navigationBarTitleText": "推荐中心"
 			}
 		}
     ],

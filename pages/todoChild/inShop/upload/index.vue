@@ -114,5 +114,6 @@ export default {
 		margin-right: 20rpx;
 		box-shadow: 0 2px rgba(0,0,0,0.1);
 		font-size: 14px;
+		letter-spacing: 2px;
 	}
 </style>

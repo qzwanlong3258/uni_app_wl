@@ -99,7 +99,34 @@ module.exports = {
 	AD_ONE:`${staticUrl}/banner/广告位1@2x.png`,
 	AD_TWO:`${staticUrl}/banner/广告位2@2x.png`,
 	AD_THREE:`${staticUrl}/banner/广告位3@2x.png`,
-	
+	//家装分期
+	BANK_PIC:`${staticUrl}/todoChild/decoration/bankmoney.png`,
+	BANK_LOGO:`${staticUrl}/todoChild/decoration/banklogo.png`,
+	// 银行
+	BANK_JH:`${staticUrl}/todoChild/decoration/建设银行@2x.png`,
+	BANK_BH:`${staticUrl}/todoChild/decoration/碧海银行@2x.png`,
+	BANK_BJ:`${staticUrl}/todoChild/decoration/北京银行@2x.png`,
+	// 贷款导航
+	BANK_APPT:`${staticUrl}/todoChild/decoration/appt.png`,
+	BANK_RECORD:`${staticUrl}/todoChild/decoration/record.png`,
+	BANK_LOOKFOR:`${staticUrl}/todoChild/decoration/lookfor.png`,
+	//申请贷款图标
+	APPT_TITLE_ONE:`${staticUrl}/todoChild/decoration/工单信息@2x.png`,
+	APPT_TITLE_TWO:`${staticUrl}/todoChild/decoration/贷款信息变更@2x.png`,
+	//我的图标
+	MINE_MONEY:`${staticUrl}/todoChild/mine/money.png`,
+	MINE_INTEGRAL:`${staticUrl}/todoChild/mine/integral.png`,
+	MINE_MEASURE:`${staticUrl}/todoChild/mine/mine_measure.png`,
+	MINE_LOAN:`${staticUrl}/todoChild/mine/mine_loan.png`,
+	//我的图标导航
+	MINE_RECOMMEND:`${staticUrl}/todoChild/mine/推荐@2x.png`,
+	MINE_INTEGRAL_LOGO:`${staticUrl}/todoChild/mine/积分@2x.png`,
+	MINE_SHARE_CENTER:`${staticUrl}/todoChild/mine/分销中心@2x.png`,
+	MINE_ADRESS:`${staticUrl}/todoChild/mine/地址@2x.png`,
+	//邀请有礼
+	RECOMMEND_POINT:`${staticUrl}/todoChild/recommend/积分@2x.png`,
+	RECOMMEND_COUPON:`${staticUrl}/todoChild/recommend/优惠券@2x.png`,
+	RECOMMEND_GIFT:`${staticUrl}/todoChild/recommend/gift.png`,
 	
 	
 }

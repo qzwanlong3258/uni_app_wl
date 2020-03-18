@@ -1,24 +1,111 @@
-/* Color
---------------------------*/
-/* distance
---------------------------*/
-/* radius
---------------------------*/
-.mine-box.data-v-dd86ab04 {
-  width: 100%;
+
+.mine.data-v-dd86ab04{
+	background: #FFFFFF;
+	height: 500px;
+	padding: 10px 0;
 }
-.mine-box .menu.data-v-dd86ab04 {
-    width: 700rpx;
-    height: 300rpx;
-    margin: 0 auto;
-    -webkit-transform: translateY(-90rpx);
-            transform: translateY(-90rpx);
+.mine-nav.data-v-dd86ab04{
+	background-color: #FCE77A;
+	height: 165px;
+	margin:0 10px;
 }
-.mine-box .menu .item + .item.data-v-dd86ab04 {
-      margin-top: 20rpx;
+.top.data-v-dd86ab04{
+	height: 120rpx;
+	padding: 10px 0 2px;
 }
-.mine-box .main-menu.data-v-dd86ab04 {
-    width: 100%;
-    background: white;
+.mine-nav-top.data-v-dd86ab04{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.mine-nav-top-img.data-v-dd86ab04{
+	width: 140rpx;
+	height: 140rpx;
+	display: block;
+	margin-top: -10rpx;
+	margin-left: -10rpx;
+}
+.btn-box.data-v-dd86ab04{
+	height: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 5px;
+}
+.btn.data-v-dd86ab04{
+	color: #000000;
+	text-align: center;
+	background-color: #F9D133;
+	border-radius: 10rpx;
+	font-size: 24rpx;
+	line-height: 20px;
+	box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15);
+}
+.mine-pic.data-v-dd86ab04{
+	height: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 10px;
+}
+.mine-pic image.data-v-dd86ab04{
+	width: 15px;
+}
+.mine-text.data-v-dd86ab04{
+	height: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 12px;
+	margin-top: 3px;
+}
+.schedule.data-v-dd86ab04{
+	height: 35px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	line-height: 35px;
+	border-bottom: 1px solid rgba(241,241,241,1);
+}
+.iconclass.data-v-dd86ab04{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.schedule_logo.data-v-dd86ab04{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 11px;
+	font-weight: Regular;
+	color: #333333;
+	padding: 10px 0;
+	border-bottom: 3px solid #F1F1F1;
+}
+.schedule_logo image.data-v-dd86ab04{
+	width: 30px;
+}
+.mine-link.data-v-dd86ab04{
+	height: 40px;
+	border-bottom: 1px solid rgba(241,241,241,1);
+	line-height: 40px;
+	position: relative;
+}
+.mine-link image.data-v-dd86ab04{
+	width: 10px;
+	margin-left: 15px;
+}
+.mine-link text.data-v-dd86ab04{
+	color: #333333;
+	font-weight:Regular ;
+	font-size: 10px;
+	margin-left: 10px;
+}
+.mine-link .iconclass.data-v-dd86ab04{
+	font-size: 15px;
+	color: #666666;
+	right: 10px;
 }
 

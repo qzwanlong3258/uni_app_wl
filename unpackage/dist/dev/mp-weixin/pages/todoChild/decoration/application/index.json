@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "家装申请",
+  "navigationBarTitleText": "申请",
   "usingComponents": {
     "w-picker": "/components/w-picker/w-picker",
     "uni-popup": "/components/uni-popup/uni-popup"

@@ -36,7 +36,8 @@
     "pages/todoChild/measureHome/queryProgress/index",
     "pages/todoChild/inShop/index",
     "pages/todoChild/inShop/upload/index",
-    "pages/todoChild/inShop/inviteShop/index"
+    "pages/todoChild/inShop/inviteShop/index",
+    "pages/todoChild/recommendCenter/index"
   ],
   "subPackages": [],
   "window": {

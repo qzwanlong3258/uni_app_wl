@@ -33,26 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/todoChild/inShop/index",
-					"pathName": "pages/todoChild/inShop/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/todoChild/inShop/upload/index",
-					"pathName": "pages/todoChild/inShop/upload/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/todoChild/decoration/decorationPicture/index",
-					"pathName": "pages/todoChild/decoration/decorationPicture/index",
+					"name": "pages/tabbar/mine/mine",
+					"pathName": "pages/tabbar/mine/mine",
 					"scene": null
 				}
 			]

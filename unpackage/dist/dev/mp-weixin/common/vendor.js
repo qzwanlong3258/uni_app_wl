@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2425,7 +2425,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 163:
+/***/ 162:
 /*!***************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
   \***************************************************************/
@@ -3313,7 +3313,7 @@ function () {
 
 /***/ }),
 
-/***/ 186:
+/***/ 185:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
   \*****************************************************************************/
@@ -8952,7 +8952,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8973,14 +8973,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9056,7 +9056,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9578,7 +9578,9 @@ module.exports = {
   //好店入驻
   INSHOP: '/pages/todoChild/inShop/index',
   UPLOAD: '/pages/todoChild/inShop/upload/index', //上传资料
-  INVITE: '/pages/todoChild/inShop/inviteShop/index' //邀请商户
+  INVITE: '/pages/todoChild/inShop/inviteShop/index', //邀请商户
+  //推荐中心
+  RECOMMENDCENTER: '/pages/todoChild/recommendCenter/index' //   
 };
 
 /***/ }),
@@ -10684,6 +10686,43 @@ getters;exports.default = _default;
 
 /***/ }),
 
+/***/ 274:
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.getCheckIn = getCheckIn;exports.checkIn = checkIn;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+
+function getCheckIn(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.GET_CHECK_IN,
+    data: data }).
+  then(function (res) {
+    return res.count > 0;
+  });
+}
+
+function checkIn(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.CHECK_IN,
+    data: data });
+
+}
+
+/***/ }),
+
 /***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -10823,7 +10862,35 @@ module.exports = {
 
   AD_ONE: "".concat(staticUrl, "/banner/\u5E7F\u544A\u4F4D1@2x.png"),
   AD_TWO: "".concat(staticUrl, "/banner/\u5E7F\u544A\u4F4D2@2x.png"),
-  AD_THREE: "".concat(staticUrl, "/banner/\u5E7F\u544A\u4F4D3@2x.png") };
+  AD_THREE: "".concat(staticUrl, "/banner/\u5E7F\u544A\u4F4D3@2x.png"),
+  //家装分期
+  BANK_PIC: "".concat(staticUrl, "/todoChild/decoration/bankmoney.png"),
+  BANK_LOGO: "".concat(staticUrl, "/todoChild/decoration/banklogo.png"),
+  // 银行
+  BANK_JH: "".concat(staticUrl, "/todoChild/decoration/\u5EFA\u8BBE\u94F6\u884C@2x.png"),
+  BANK_BH: "".concat(staticUrl, "/todoChild/decoration/\u78A7\u6D77\u94F6\u884C@2x.png"),
+  BANK_BJ: "".concat(staticUrl, "/todoChild/decoration/\u5317\u4EAC\u94F6\u884C@2x.png"),
+  // 贷款导航
+  BANK_APPT: "".concat(staticUrl, "/todoChild/decoration/appt.png"),
+  BANK_RECORD: "".concat(staticUrl, "/todoChild/decoration/record.png"),
+  BANK_LOOKFOR: "".concat(staticUrl, "/todoChild/decoration/lookfor.png"),
+  //申请贷款图标
+  APPT_TITLE_ONE: "".concat(staticUrl, "/todoChild/decoration/\u5DE5\u5355\u4FE1\u606F@2x.png"),
+  APPT_TITLE_TWO: "".concat(staticUrl, "/todoChild/decoration/\u8D37\u6B3E\u4FE1\u606F\u53D8\u66F4@2x.png"),
+  //我的图标
+  MINE_MONEY: "".concat(staticUrl, "/todoChild/mine/money.png"),
+  MINE_INTEGRAL: "".concat(staticUrl, "/todoChild/mine/integral.png"),
+  MINE_MEASURE: "".concat(staticUrl, "/todoChild/mine/mine_measure.png"),
+  MINE_LOAN: "".concat(staticUrl, "/todoChild/mine/mine_loan.png"),
+  //我的图标导航
+  MINE_RECOMMEND: "".concat(staticUrl, "/todoChild/mine/\u63A8\u8350@2x.png"),
+  MINE_INTEGRAL_LOGO: "".concat(staticUrl, "/todoChild/mine/\u79EF\u5206@2x.png"),
+  MINE_SHARE_CENTER: "".concat(staticUrl, "/todoChild/mine/\u5206\u9500\u4E2D\u5FC3@2x.png"),
+  MINE_ADRESS: "".concat(staticUrl, "/todoChild/mine/\u5730\u5740@2x.png"),
+  //邀请有礼
+  RECOMMEND_POINT: "".concat(staticUrl, "/todoChild/recommend/\u79EF\u5206@2x.png"),
+  RECOMMEND_COUPON: "".concat(staticUrl, "/todoChild/recommend/\u4F18\u60E0\u5238@2x.png"),
+  RECOMMEND_GIFT: "".concat(staticUrl, "/todoChild/recommend/gift.png") };
 
 /***/ }),
 
@@ -10880,7 +10947,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 365:
+/***/ 373:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -10909,7 +10976,7 @@ types;exports.default = _default;
 
 /***/ }),
 
-/***/ 420:
+/***/ 428:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -11095,7 +11162,7 @@ function formatHomeRoute(value) {
     case "装修分期":return _router.DECORATION_PICTURE;
     case "约量房":return _router.MEASUREHOME;
     case "好店入住":return _router.INSHOP;
-    case "邀请有礼":return _router.DECORATION;}
+    case "邀请有礼":return _router.RECOMMENDCENTER;}
 
 }
 
@@ -12335,7 +12402,7 @@ main();
 
 /***/ }),
 
-/***/ 519:
+/***/ 513:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -12343,7 +12410,7 @@ main();
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 520);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 514);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -12871,7 +12938,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 520:
+/***/ 514:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -12902,7 +12969,7 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 
 /***/ }),
 
-/***/ 570:
+/***/ 564:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -13052,7 +13119,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 571:
+/***/ 565:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -14566,7 +14633,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 572:
+/***/ 566:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -27119,7 +27186,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 573:
+/***/ 567:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -27780,7 +27847,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 588:
+/***/ 589:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -27934,7 +28001,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 589:
+/***/ 590:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -29452,7 +29519,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 590:
+/***/ 591:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -42022,7 +42089,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 
 /***/ }),
 
-/***/ 626:
+/***/ 620:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -42176,7 +42243,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 627:
+/***/ 621:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -43694,7 +43761,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 628:
+/***/ 622:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -56253,6 +56320,112 @@ areaData;exports.default = _default;
 
 /***/ }),
 
+/***/ 637:
+/*!*****************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/components/uni-icons/icons.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  'contact': "\uE100",
+  'person': "\uE101",
+  'personadd': "\uE102",
+  'contact-filled': "\uE130",
+  'person-filled': "\uE131",
+  'personadd-filled': "\uE132",
+  'phone': "\uE200",
+  'email': "\uE201",
+  'chatbubble': "\uE202",
+  'chatboxes': "\uE203",
+  'phone-filled': "\uE230",
+  'email-filled': "\uE231",
+  'chatbubble-filled': "\uE232",
+  'chatboxes-filled': "\uE233",
+  'weibo': "\uE260",
+  'weixin': "\uE261",
+  'pengyouquan': "\uE262",
+  'chat': "\uE263",
+  'qq': "\uE264",
+  'videocam': "\uE300",
+  'camera': "\uE301",
+  'mic': "\uE302",
+  'location': "\uE303",
+  'mic-filled': "\uE332",
+  'speech': "\uE332",
+  'location-filled': "\uE333",
+  'micoff': "\uE360",
+  'image': "\uE363",
+  'map': "\uE364",
+  'compose': "\uE400",
+  'trash': "\uE401",
+  'upload': "\uE402",
+  'download': "\uE403",
+  'close': "\uE404",
+  'redo': "\uE405",
+  'undo': "\uE406",
+  'refresh': "\uE407",
+  'star': "\uE408",
+  'plus': "\uE409",
+  'minus': "\uE410",
+  'circle': "\uE411",
+  'checkbox': "\uE411",
+  'close-filled': "\uE434",
+  'clear': "\uE434",
+  'refresh-filled': "\uE437",
+  'star-filled': "\uE438",
+  'plus-filled': "\uE439",
+  'minus-filled': "\uE440",
+  'circle-filled': "\uE441",
+  'checkbox-filled': "\uE442",
+  'closeempty': "\uE460",
+  'refreshempty': "\uE461",
+  'reload': "\uE462",
+  'starhalf': "\uE463",
+  'spinner': "\uE464",
+  'spinner-cycle': "\uE465",
+  'search': "\uE466",
+  'plusempty': "\uE468",
+  'forward': "\uE470",
+  'back': "\uE471",
+  'left-nav': "\uE471",
+  'checkmarkempty': "\uE472",
+  'home': "\uE500",
+  'navigate': "\uE501",
+  'gear': "\uE502",
+  'paperplane': "\uE503",
+  'info': "\uE504",
+  'help': "\uE505",
+  'locked': "\uE506",
+  'more': "\uE507",
+  'flag': "\uE508",
+  'home-filled': "\uE530",
+  'gear-filled': "\uE532",
+  'info-filled': "\uE534",
+  'help-filled': "\uE535",
+  'more-filled': "\uE537",
+  'settings': "\uE560",
+  'list': "\uE562",
+  'bars': "\uE563",
+  'loop': "\uE565",
+  'paperclip': "\uE567",
+  'eye': "\uE568",
+  'arrowup': "\uE580",
+  'arrowdown': "\uE581",
+  'arrowleft': "\uE582",
+  'arrowright': "\uE583",
+  'arrowthinup': "\uE584",
+  'arrowthindown': "\uE585",
+  'arrowthinleft': "\uE586",
+  'arrowthinright': "\uE587",
+  'pulldown': "\uE588",
+  'closefill': "\uE589",
+  'sound': "\uE590",
+  'scan': "\uE612" };exports.default = _default;
+
+/***/ }),
+
 /***/ 64:
 /*!*****************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/config/package.js ***!
@@ -56638,7 +56811,7 @@ function deleteReceiveAddress(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index", "ljl-order-menu": "/components/LjlOrderMenu/index", "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu" } }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" } }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" } }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "家装申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {} }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" } }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" } }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" } }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" } }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" } }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" } }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" } }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" } }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" } }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" } }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" } }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" } }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "家装分期", "usingComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" } }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "uni-steps": "/components/uni-steps/uni-steps", "ljl-states": "/components/LjlStates" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" } }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "预约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {} }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户", "usingComponents": {} }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 
@@ -56849,43 +57022,6 @@ var wxAuth = {
 
 wxAuth;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 98:
-/*!******************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getCheckIn = getCheckIn;exports.checkIn = checkIn;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-
-function getCheckIn(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.GET_CHECK_IN,
-    data: data }).
-  then(function (res) {
-    return res.count > 0;
-  });
-}
-
-function checkIn(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.CHECK_IN,
-    data: data });
-
-}
 
 /***/ })
 

@@ -1,181 +1,175 @@
 <template>
 	<view class="schedule">
 		<ljl-states :infor="states" @change="stateChange"  />
-		<view class="schedule-left" :hidden='states.index==1'><view class="scheduleCard" >
-			<view class="scheduleCard-top" style="height: 50%;border-bottom:4rpx solid #F0F0F0 ;">
-				<view class="scheduleCard-top-left">
-					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
+		<view class="schedule-left" :hidden='states.index==1'>
+			<view class="schedule-hd">
+				<view class="schedule-hd-left">
+					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
 				</view>
-				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+				<view class="schedule-hd-mid">
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
 				</view>
-				<view class="scheduleCard-top-right">
-					<view class="scheduleCard-top-right-success">
-						<view class="scheduleCard-top-right-success-circle">
-							20%
-						</view>
-					</view>
-					<view class="scheduleCard-top-right-fail">
-						
-					</view>
+				<view class="schedule-hd-right">
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">征信查询</view>
 				</view>
 			</view>
-			<view class="scheduleCard-bottom" style="height: 50%;">
-				<view class="scheduleCard-bottom-top" style="height: 50%;">
-					<view>贷款额</view>
-					<view>贷款日期</view>
-					<view>正在进行</view>
-				</view>
-				<view class="scheduleCard-bottom-bottom" style="height: 50%;">
-					<view style="font-size: 32rpx;color: #C4282B;">500000元</view>
-					<view style="font-size: 30rpx;color: #333333;">2019-08-25</view>
-					<view style="font-size: 30rpx;color: #333333;padding-left: 40rpx;">提交申请</view>
-				</view>
+			<view class="schedule-bd">
+				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">500000</text></view>
+				<view style="font-size: 29rpx;color:#999999">贷款日期: 2020-01-20</view>
 			</view>
-		</view></view>
-		<view class="schedule-right" :hidden='states.index==0'><view class="scheduleCard" >
-			<view class="scheduleCard-top" style="height: 50%;border-bottom:4rpx solid #F0F0F0 ;">
-				<view class="scheduleCard-top-left">
-					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="1"></uni-steps>
+			<view class="schedule-ft">
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
-				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
-				<view class="scheduleCard-top-right">
-					<!-- <view class="scheduleCard-top-right-success">
-						<view class="scheduleCard-top-right-success-circle">
-							20%
-						</view>
-					</view> -->
-					<view class="scheduleCard-top-right-fail">
-						<text style="color: #C4282B;">照片不清晰</text>
-						<icon class="iconfont iconfenxiang"></icon>
-					</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
-			</view>
-			<view class="scheduleCard-bottom" style="height: 50%;">
-				<view class="scheduleCard-bottom-top" style="height: 50%;">
-					<view>贷款额</view>
-					<view>贷款日期</view>
-					<view>正在进行</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
-				<view class="scheduleCard-bottom-bottom" style="height: 50%;">
-					<view style="font-size: 32rpx;color: #C4282B;">500000元</view>
-					<view style="font-size: 30rpx;color: #333333;">2019-08-25</view>
-					<view style="font-size: 30rpx;color: #333333;padding-left: 40rpx;">提交申请</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
 			</view>
 		</view>
+		<view class="schedule-left" :hidden='states.index==0'>
+			<view class="schedule-hd">
+				<view class="schedule-hd-left">
+					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
+				</view>
+				<view class="schedule-hd-mid">
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+				</view>
+				<view class="schedule-hd-right">
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">征信查询</view>
+				</view>
+			</view>
+			<view class="schedule-bd">
+				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">500000</text></view>
+				<view style="font-size: 29rpx;color:#999999">贷款日期: 2020-01-20</view>
+			</view>
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="1"></uni-steps>
+			<view class="schedule-ft">
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+			</view>
 		</view>
 		
 	</view>
 </template>
 
-
 <script>
-	'use scrict';
-	import LjlStates from '@/components/LjlStates';
-	import { getCheckIn, checkIn } from '@/api/tabbar/mine.js';
-	import { getStorage } from '@/utils/storage.js';
-	
-	export default {
-		data() {
-			return {
-				states: {
-					index: 0,
-					list: [ { title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }]
-				},
-				userInfo:{},
-			}
-		},
-		onLoad: async function() {
-			this.userInfo = getStorage('userInfo');
-			console.log(this.userInfo)
-		},
-		methods: {
-			/**
-			 * 切换状态
-			 */
-			stateChange: async function({ index }) {
-				this.states.index = index;
-				this[`stateTo${index}`] && this[`stateTo${index}`]();
-			}
-		},
-		components: {
-			LjlStates
+'use strict';
+import uniSteps from '@/components/uni-steps/uni-steps.vue';
+import LjlStates from '@/components/LjlStates';
+export default {
+	 components: {uniSteps,LjlStates
+	 },
+	data() {
+		return{
+			userInfo:{
+				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				nickName:'李三',
+				phone:13584115454
+			},
+			states: {
+				index: 0,
+				list: [ { title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }]
+			},
 		}
-	}
+	},
+	methods:{
+		/**
+		 * 切换状态
+		 */
+		stateChange: async function({ index }) {
+			this.states.index = index;
+			this[`stateTo${index}`] && this[`stateTo${index}`]();
+		}
+	},
+	async onLoad() {}
+};
 </script>
 
-<style>
+<style scoped>
+		
 	.schedule{
-	font-size: 32rpx;
-	background: rgba(242,246,249,1);}
-	
-	.scheduleCard{
-		margin: 48rpx 15rpx;
-		height: 231rpx;
 		background: #FFFFFF;
-		border-radius: 20rpx;
-		box-shadow: 0 5rpx 10rpx 4rpx rgb(0,0,0,0.1);
-		overflow: hidden;
-		padding: 20rpx;
+		height: 500px;
 	}
-	.scheduleCard-top{
-		padding-bottom: 10rpx;
+	.schedule-hd{
+		
 		display: flex;
+		padding: 10px 0;
+		margin: 0 10px ;
+		border-bottom: 1px solid rgba(241,241,241,1);;
 	}
-	.scheduleCard-top-left{
-		flex-basis: 120rpx;
-		width: 120rpx;
-		height: 120rpx;
+	.schedule-hd-left{
+		flex-basis: 100rpx;
+		width: 100rpx;
+		height: 100rpx;
 		border-radius: 50%;
 		overflow: hidden;
+		margin-left: 10px;
+		
 	}
-	.scheduleCard-top-left image{
-		width: 140rpx;
-		height: 140rpx;
+	.schedule-hd-left image{
+		width: 110rpx;
+		height: 110rpx;
 		display: block;
-		margin-top: -10rpx;
-		margin-left: -10rpx;
+		margin-top: -5rpx;
+		margin-left: -5rpx;
 	}
-	.scheduleCard-top-mid{
+	.schedule-hd-mid{
+		margin-left: 10px;
 		flex: 1;
 		
 	}
-	.scheduleCard-top-right{
+	.schedule-hd-right{
 		flex-basis: 180rpx;
+		margin-right: 10px;
 	}
-	.scheduleCard-top-right-success{
-		padding-left: 54rpx;
-		
+	.schedule-bd{
+		display: flex;
+		justify-content: space-between;
+		height: 40px;
+		line-height: 40px;
+		margin: 0 20px 20px;
 	}
-	.scheduleCard-top-right-success-circle{
-		width: 98rpx;
-		height: 98rpx;
-		border: 8rpx solid rgba(230,230,230,1);
-		border-radius: 50%;
-		line-height: 98rpx;
-		text-align: center;
-	}
-	.scheduleCard-bottom-top{
+	.schedule-ft{
 		display: flex;
 	}
-	.scheduleCard-bottom-top view{
-		flex: 1;
-		padding: 20rpx 0 0 20rpx;
-		font-size: 28rpx;
-		color: #999999;
-	}
-	.scheduleCard-bottom-bottom{
-		display: flex;
-	}
-	.scheduleCard-bottom-bottom view{
-		flex: 1;
-	}
-	
 	
 	
 </style>

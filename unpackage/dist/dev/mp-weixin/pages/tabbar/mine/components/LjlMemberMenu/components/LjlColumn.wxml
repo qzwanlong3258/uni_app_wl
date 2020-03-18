@@ -1,1 +1,0 @@
-<view class="column-box data-v-6cf45f11"><image class="icon data-v-6cf45f11" src="{{infor.url}}" mode="aspectFit"></image><view class="content data-v-6cf45f11"><text class="key data-v-6cf45f11">{{infor.key}}</text><text class="value data-v-6cf45f11">{{infor.value}}</text></view></view>

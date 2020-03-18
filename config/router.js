@@ -67,7 +67,9 @@ module.exports = {
 	//好店入驻
 	INSHOP:'/pages/todoChild/inShop/index',
 	UPLOAD:'/pages/todoChild/inShop/upload/index',//上传资料
-	INVITE:'/pages/todoChild/inShop/inviteShop/index'//邀请商户
+	INVITE:'/pages/todoChild/inShop/inviteShop/index',//邀请商户
+	//推荐中心
+	RECOMMENDCENTER:'/pages/todoChild/recommendCenter/index',//   
 	
 	
 }

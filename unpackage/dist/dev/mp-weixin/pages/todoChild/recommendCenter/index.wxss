@@ -1,0 +1,56 @@
+
+.recomCenter.data-v-6dbea9eb{
+	background: #FFFFFF;
+	height: 500px;
+	padding: 10px 0;
+}
+.recomCenter-nav.data-v-6dbea9eb{
+	background-color: #FCE77A;
+	height: 165px;
+	margin:0 10px;
+}
+.top.data-v-6dbea9eb{
+	height: 120rpx;
+	padding: 10px 0 2px;
+}
+.recomCenter-nav-top.data-v-6dbea9eb{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.recomCenter-nav-top-img.data-v-6dbea9eb{
+	width: 140rpx;
+	height: 140rpx;
+	display: block;
+	margin-top: -10rpx;
+	margin-left: -10rpx;
+}
+.btn-box.data-v-6dbea9eb{
+	height: 15px;
+	margin-top: 15px;
+}
+.btn.data-v-6dbea9eb{
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	width: 60px;
+	border: 1px solid #605800;
+	margin: 0 auto;
+	font-size: 10px;
+}
+.recomCenter-pic.data-v-6dbea9eb{
+	height: 30px;
+	
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+	font-size: 13px;
+	margin: 15px 0;
+}
+.recomCenter-pic image.data-v-6dbea9eb{
+	width: 20px;
+	margin-right: 5px;
+}
+

@@ -10,18 +10,23 @@
 		</view>
 	</view> -->
 	<view class="application">
+		<view class="title">
+			<view><image :src="img[0]" mode="widthFix"></image></view>
+			
+			<view style="margin-left: 10px;">基础信息</view>
+		</view>
 		<view class="application_hd">
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">贷款人姓名</view>
+				<view class="appli_hd_item_lable">姓名:</view>
 				<view class="appli_hd_item_content"><input type="text" placeholder="姓名" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">身份证号码</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="身份证" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_lable">身份证号码:</view>
+				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的身份证号码" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">联系电话</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="手机号" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_lable">联系电话:</view>
+				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的联系电话" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">婚姻状态</view>
@@ -43,24 +48,48 @@
 							<view class="uni-list-cell-db uni-input-style">
 								<picker @change="workBindPickerChange" :value="workIndex" :range="workArray" >
 									<view class="uni-input uni-input-style">{{ workArray[workIndex] }}</view>
+									<view class="iconfont  iconyou iconclass" ></view>
 								</picker>
 							</view>
 						</view>
 					</view>
-					<view class="iconfont  iconyou iconclass" ></view>
+					
 				</view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">月收入</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="月收入" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_lable">月收入:</view>
+				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的月收入" placeholder-class="input_color" /></view>
 			</view>
 		</view>
+		
+	
+	<view class="title">
+		<view><image :src="img[1]" mode="widthFix"></image></view>
+		
+		<view style="margin-left: 10px;">贷款信息</view>
+	</view>
 	<view class="application_bd">
 		<view class="application_hd_item">
-			<view class="appli_hd_item_lable">贷款金额</view>
-			<view class="appli_hd_item_content"><input type="text" placeholder="金额" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_lable">申请金额:</view>
+			<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的金额" placeholder-class="input_color" /></view>
 		</view>
 		<view class="application_hd_item">
+			<view class="appli_hd_item_lable">工作单位性质</view>
+			<view class="appli_hd_item_content appli_hd_item_content_work">
+				<view class="uni-list uni-input-style">
+					<view class="uni-list-cell uni-input-style">
+						<view class="uni-list-cell-db uni-input-style">
+							<picker @change="periodBindPickerChange" :value="periodIndex" :range="periodArray" >
+								<view class="uni-input uni-input-style">{{ periodArray[periodIndex] }}</view>
+								<view class="iconfont  iconyou iconclass" ></view>
+							</picker>
+						</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
@@ -74,9 +103,9 @@
 				</view>
 				<view class="iconfont  iconyou iconclass" ></view>
 			</view>
-		</view>
+		</view> -->
 	</view>
-	<view class="application_ft">
+	<!-- <view class="application_ft">
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">房屋照片采集</view>
 			<view class="appli_hd_item_content">
@@ -102,8 +131,8 @@
 				</view>
 			</view>
 		</view>
-		</view>
-		<scroll-view class="scroll-view_H" scroll-x="true">
+		</view> -->
+		<!-- <scroll-view class="scroll-view_H" scroll-x="true">
 							<view class="scroll-view-item_H" v-for="(huadong,index) in huadongs" :key="index">
 								
 								<view @click="chooseimage" class="scroll-view-item_H_img"><image :src="tempFilePaths" mode=""></image>
@@ -112,20 +141,19 @@
 								<view>{{huadong.name}}</view>
 								
 							</view>
-						</scroll-view>
+						</scroll-view> -->
 						
 		<view style="height: 20rpx;"></view>
-		<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view>
-		<view class="btn" style="margin-top: 20rpx;" @click="submit">
+		<!-- <view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view> -->
+		<view class="btn" style="margin-top: 70px;" @click="submit">
 			提交
-			
 		</view>
 		
 		<!-- <button style="margin:30rpx;" @click="chooseimage">获取图片</button>
 		<image :src="tempFilePaths" mode="aspecFill" style="width: 100%; height: 450rpx"/> -->
 		</view>
 		
-				<w-picker
+				<!-- <w-picker
 					mode="date" 
 					    startYear="2017" 
 					    
@@ -133,9 +161,9 @@
 					@confirm="onConfirm"
 					:disabledAfter="false"
 					ref="date"
-				></w-picker>
+				></w-picker> -->
 				<!-- <uni-popup ref="popup" type="center">底部弹出 Popup</uni-popup> -->
-				<uni-popup ref="popup" type="center" :mask-click="false" @change="change">
+				<!-- <uni-popup ref="popup" type="center" :mask-click="false" @change="change">
 					<view class="uni-tip">
 						<text class="uni-tip-title">用户告知书</text>
 						<text class="uni-tip-content">内容</text>
@@ -144,7 +172,7 @@
 							<text class="uni-tip-button" @click="cancel('tip')">确定</text>
 						</view>
 					</view>
-				</uni-popup>
+				</uni-popup> -->
 	</view>
 </template>
 
@@ -154,10 +182,12 @@
 import wPicker from "@/components/w-picker/w-picker.vue";
 import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
+import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
 var _self;
 export default {
 	data() {
 		return {
+			img:[APPT_TITLE_ONE,APPT_TITLE_TWO],
 			// form: [
 			// 	{title: "申请信息", list: [
 			// 		{title: "额度", submitKey: "quota", type: "text"},
@@ -312,7 +342,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	
 // .application_view-box {
 // 	font-size: 32rpx;
@@ -340,24 +370,45 @@ export default {
 // 	box-sizing: border-box;
 // 	padding-left: 30rpx;
 // }
+.title{
+	height: 35px;
+	// display: flex;
+	display: flex;
+	align-items: center;
+	border-bottom: 3px solid rgba(241,241,241,1);
+	
+	
+	
+}
+.title image{
+	width: 40rpx;
+	margin-left: 10px;
+	
+	
+}
+
+
 .application {
 	font-size: 32rpx;
 	color: #666666;
-	background: rgba(229, 229, 229, 1);
+	background: rgba(255, 255, 255, 1);
+	height: 500px;
+	
 }
 .application_hd {
-	height: 485rpx;
+	
 	padding: 0 16rpx 0 16rpx;
 	background: rgba(255, 255, 255, 1);
 }
 .application_hd_item {
-	height: 82rpx;
+	height: 35px;
 	display: flex;
-	line-height: 82rpx;
-	border-bottom: 2rpx solid rgba(229, 229, 229, 1);
+	line-height: 35px;
+	border-bottom: 3px solid rgba(241,241,241,1);;
 }
 .appli_hd_item_lable {
 	flex-basis: 200rpx;
+	color: #333333;
 }
 .appli_hd_item_content {
 	flex: 1;
@@ -370,7 +421,7 @@ export default {
 .application_bd {
 	height: 156rpx;
 	padding: 0 16rpx 2.5px 16rpx;
-	margin: 30rpx 0 30rpx 0;
+	
 	background: rgba(255, 255, 255, 1);
 }
 .application_ft {
@@ -387,6 +438,8 @@ export default {
 .iconclass{
 	position: absolute;
 	right: 0;
+	top: 0;
+	transform: rotate(90deg);
 }
 .scroll-view_H {
 		/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
@@ -428,14 +481,18 @@ export default {
 		height: 49rpx;
 	}
 	.btn{
-		margin:0 20rpx 0 20rpx ;
-		border-radius: 40rpx;
-		background: #E8BE2E;
-		cursor:pointer;
 		height: 80rpx;
-		line-height: 80rpx;
+		
 		text-align: center;
-		color: #FFFFFF;
+		line-height: 80rpx;
+		border-radius: 20px;
+		background: #FFE906;
+		color: #000000;
+		margin-left: 20rpx;
+		margin-right: 20rpx;
+		box-shadow: 0 2px rgba(0,0,0,0.1);
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 	/* 提示窗口 */
 	.uni-tip {
