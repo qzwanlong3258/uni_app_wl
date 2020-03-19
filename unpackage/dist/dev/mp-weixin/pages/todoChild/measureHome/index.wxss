@@ -1,21 +1,21 @@
 
 .measureHome.data-v-423b4d97{
-	height: 1870rpx;
+	height: 750px;
 	width: 100%;
+	background: #FFFFFF;
 }
 .measureHome image.data-v-423b4d97{
 	width: 100%;
 }
-.btn.data-v-423b4d97{
+/* .btn{
 	height: 100rpx;
 	
 	background: #ffffff;
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
 	padding-left: 20rpx;
 	padding-right: 20rpx;
-}
+	
+} */
 .scheduleBtn.data-v-423b4d97{
 	-webkit-box-flex: 48%;
 	-webkit-flex: 48%;
@@ -37,5 +37,28 @@
 	height: 80rpx;
 	line-height: 80rpx;
 	text-align: center;
+}
+.apptMeasureHome_ft.data-v-423b4d97{
+	/* position: absolute;
+	left: 0;
+	bottom: 20rpx; */
+	width: 100%;
+	height: 100rpx;
+	margin-top: 40px;
+}
+.btn.data-v-423b4d97{
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	border-radius: 20px;
+	background: #EEB862;
+	font-family:FZLTKHK;
+	font-weight:bold;
+	color:rgba(132,1,2,1);
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	font-size: 14px;
+	letter-spacing: 2px;
 }
 

@@ -490,7 +490,7 @@ export default {
 		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px rgba(0,0,0,0.1);
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 		font-size: 14px;
 		letter-spacing: 2px;
 	}

@@ -2,28 +2,29 @@
 	<view class="apptMeasureHome">
 		
 			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">姓名</view>
-				<view class="appt_item_content"><input type="text" placeholder="姓名" placeholder-class="input_color" /></view>
+				<view class="appt_item_lable">您的姓名:</view>
+				<view class="appt_item_content"><input type="text" placeholder="请输入您的姓名" placeholder-class="input_color" /></view>
 			</view>
 			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">房屋地址</view>
-				<view class="appt_item_content" @click="openAddres"><input type="text" v-model="pickerText" placeholder="房屋地址" placeholder-class="input_color" /> <icon style="margin-left: 150rpx;" class="iconfont icondizhi"></icon></view>
+				<view class="appt_item_lable">您的房屋地址:</view>
+				<view class="appt_item_content" @click="openAddres"><input type="text" v-model="pickerText" placeholder="请输入您的房屋地址" placeholder-class="input_color" /> <icon style="margin-left: 150rpx;" class="iconfont icondizhi"></icon></view>
+			</view>
+			<!-- <view class="apptMeasureHome_item">
+				<view class="appt_item_lable">您的详细地址:</view>
+				<view class="appt_item_content "><input type="text" placeholder="请输入您的详细地址" placeholder-class="input_color" /></view>
+			</view> -->
+			<view class="apptMeasureHome_item">
+				<view class="appt_item_lable">您的小区名称:</view>
+				<view class="appt_item_content"><input type="text" placeholder="请输入您的小区名称" placeholder-class="input_color" /></view>
 			</view>
 			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">详细地址</view>
-				<view class="appt_item_content "><input type="text" placeholder="详细地址" placeholder-class="input_color" /></view>
+				<view class="appt_item_lable">您的房屋面积:</view>
+				<view class="appt_item_content"><input type="text" placeholder="请输入您的房屋面积" placeholder-class="input_color" /></view>
 			</view>
 			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">小区名称</view>
-				<view class="appt_item_content"><input type="text" placeholder="小区名称" placeholder-class="input_color" /></view>
-			</view>
-			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">房屋面积</view>
-				<view class="appt_item_content"><input type="text" placeholder="房屋面积" placeholder-class="input_color" /></view>
-			</view>
-			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">装修预算</view>
-				<view class="appt_item_content" @click="apptBindPickerChange">
+				<view class="appt_item_lable">您的装修预算:</view>
+				<view class="appt_item_content"><input type="text" placeholder="请输入您的房屋面积" placeholder-class="input_color" /></view>
+				<!-- <view class="appt_item_content" @click="apptBindPickerChange">
 					<view class="appt_item_content appt_item_content_appt">
 						<view class="uni-list uni-input-style" >
 							<view class="uni-list-cell uni-input-style" >
@@ -36,14 +37,14 @@
 						</view>
 						<view class="iconfont  iconyou iconclass" ></view>
 					</view>
-				</view>
+				</view> -->
 			</view>
 			<view class="apptMeasureHome_item">
-				<view class="appt_item_lable">联系方式</view>
-				<view class="appt_item_content"><input type="text" placeholder="手机号" placeholder-class="input_color" /></view>
+				<view class="appt_item_lable">您的联系方式:</view>
+				<view class="appt_item_content"><input type="text" placeholder="请输入您的手机号" placeholder-class="input_color" /></view>
 			</view>
 		<view class="apptMeasureHome_ft">
-			<view class="btn" @click="toLinkChoose">提交</view>
+			<view class="btn" @click="toLinkChoose">提交信息</view>
 		</view>
 		<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address>
 	</view>
@@ -51,8 +52,7 @@
 
 <script>
 'use strict';
-var _self;
-import { CHOOSEBUSSINESS} from '@/config/router.js';
+import { CHOOSEBUSSINESS ,APPT_MEASUREHOME_SUCCESS} from '@/config/router.js';
 import simpleAddress from "@/components/simple-address-normal/simple-address.nvue"
 export default {
 	components: {
@@ -95,13 +95,11 @@ export default {
 		        },
 		toLinkChoose(){
 			uni.navigateTo({
-				url:CHOOSEBUSSINESS
+				url:APPT_MEASUREHOME_SUCCESS
 			})
 		}
 	},
-	async onLoad() {
-		_self = this
-	}
+	async onLoad() {}
 };
 </script>
 
@@ -112,17 +110,22 @@ export default {
 		background: rgba(255, 255, 255, 1);
 		height: 1200rpx;
 		position: relative;
+		padding: 0 10px;
 	}
 	
 	.apptMeasureHome_item {
-		height: 82rpx;
+		height: 100rpx;
 		display: flex;
-		line-height: 82rpx;
-		border-bottom: 2rpx solid rgba(229, 229, 229, 1);
+		line-height: 100rpx;
+		border-bottom: 2rpx solid rgba(241,241,241,1);
 	}
 	.appt_item_lable {
 		flex-basis: 200rpx;
 		padding-left: 20rpx;
+		color: #424242;
+		font-weight: 400;
+		font-family:Microsoft YaHei;
+		
 	}
 	.appt_item_content {
 		flex: 1;
@@ -143,22 +146,26 @@ export default {
 		color: #dbdbdb;
 	}
 	.apptMeasureHome_ft{
-		position: absolute;
+		/* position: absolute;
 		left: 0;
-		bottom: 20rpx;
+		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
+		margin-top: 190px;
 		
 	}
 	.btn{
-		height: 100rpx;
+		height: 80rpx;
 		
 		text-align: center;
-		line-height: 100rpx;
-		border-radius: 5rpx;
-		background: #E8BE2E;
+		line-height: 80rpx;
+		border-radius: 20px;
+		background: #840102;
 		color: #FFFFFF;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 </style>

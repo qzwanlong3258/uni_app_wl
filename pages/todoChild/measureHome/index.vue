@@ -1,10 +1,9 @@
 <template>
 	<view class="measureHome">
 		<image :src="img" mode="widthFix"></image>
-		<view style="height: 70rpx;background: #FFFFFF;"></view>
-		<view class="btn">
-			<view class="scheduleBtn" @click="queryProgressBtn">进度查询</view>
-			<view class="freeMeasureHomeBtn" @click="apptMeasureHomeBtn">免费量房</view>
+		
+		<view class="apptMeasureHome_ft">
+			<view class="btn" @click="apptMeasureHomeBtn">提交审核</view>
 		</view>
 	</view>
 </template>
@@ -41,14 +40,15 @@ export default {
 
 <style scoped>
 	.measureHome{
-		height: 1870rpx;
+		height: 750px;
 		width: 100%;
+		background: #FFFFFF;
 	}
 	.measureHome image{
 		width: 100%;
 		
 	}
-	.btn{
+	/* .btn{
 		height: 100rpx;
 		
 		background: #ffffff;
@@ -56,7 +56,7 @@ export default {
 		padding-left: 20rpx;
 		padding-right: 20rpx;
 		
-	}
+	} */
 	.scheduleBtn{
 		flex: 48%;
 		margin: 10rpx;
@@ -74,5 +74,29 @@ export default {
 		height: 80rpx;
 		line-height: 80rpx;
 		text-align: center;
+	}
+	.apptMeasureHome_ft{
+		/* position: absolute;
+		left: 0;
+		bottom: 20rpx; */
+		width: 100%;
+		height: 100rpx;
+		margin-top: 40px;
+		
+	}
+	.btn{
+		height: 80rpx;
+		text-align: center;
+		line-height: 80rpx;
+		border-radius: 20px;
+		background: #EEB862;
+		font-family:FZLTKHK;
+		font-weight:bold;
+		color:rgba(132,1,2,1);
+		margin-left: 20rpx;
+		margin-right: 20rpx;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 </style>

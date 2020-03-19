@@ -154,7 +154,7 @@ __webpack_require__.r(__webpack_exports__);
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _router = __webpack_require__(/*! @/config/router.js */ 21);var NullData = function NullData() {return Promise.all(/*! import() | components/NullData */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/NullData")]).then(__webpack_require__.bind(null, /*! @/components/NullData.vue */ 390));};var _default =
+var _router = __webpack_require__(/*! @/config/router.js */ 21);var NullData = function NullData() {return Promise.all(/*! import() | components/NullData */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/NullData")]).then(__webpack_require__.bind(null, /*! @/components/NullData.vue */ 398));};var _default =
 {
   data: function data() {
     return {

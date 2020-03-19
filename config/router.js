@@ -46,6 +46,8 @@ module.exports = {
 	WITHDRAW: '/pages/todoChild/withdraw/index',
 	// 专属海报
 	POSTER: '/pages/todoChild/poster/index',
+	//开通会员
+	OPENMEMBER:'/pages/todoChild/openMember/index',
 	// 家装分期
 	DECORATION: '/pages/todoChild/decoration/index',
 	DECORATION_PICTURE: '/pages/todoChild/decoration/decorationPicture/index',
@@ -62,7 +64,8 @@ module.exports = {
 	MEASUREHOME: '/pages/todoChild/measureHome/index',
 	APPTMEASUREHOME:'/pages/todoChild/measureHome/ApptMeasureHome/index',//预约量房
 	CHOOSEBUSSINESS:'/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index',//选择商户
-	QUERYPROGRESS:'/pages/todoChild/measureHome/queryProgress/index',//选择商户
+	QUERYPROGRESS:'/pages/todoChild/measureHome/queryProgress/index',//约量房进度
+	APPT_MEASUREHOME_SUCCESS:'/pages/todoChild/measureHome/ApptMeasureHome/success/index',//预约量房成功
 	
 	//好店入驻
 	INSHOP:'/pages/todoChild/inShop/index',

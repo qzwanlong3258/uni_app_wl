@@ -80,6 +80,7 @@ module.exports = {
 	// 约量房
 	LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
 	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
+	MEASUREHOME_SUCCESS: `${staticUrl}/todoChild/约量房成功@2x.png`,
 	// 上传
 	UPLOAD:`${staticUrl}/todoChild/上传@2x.png`,
 	//轮播图
@@ -127,6 +128,14 @@ module.exports = {
 	RECOMMEND_POINT:`${staticUrl}/todoChild/recommend/积分@2x.png`,
 	RECOMMEND_COUPON:`${staticUrl}/todoChild/recommend/优惠券@2x.png`,
 	RECOMMEND_GIFT:`${staticUrl}/todoChild/recommend/gift.png`,
-	
+	//会员权益图标
+	MEMBER_ONE:`${staticUrl}/todoChild/mine/组 2@2x.png`,
+	MEMBER_TWO:`${staticUrl}/todoChild/mine/组 2@2x (1).png`,
+	MEMBER_THREE:`${staticUrl}/todoChild/mine/组 2@2x (2).png`,
+	MEMBER_FOUR:`${staticUrl}/todoChild/mine/组 2@2x (3).png`,
+	MEMBER_FIVE:`${staticUrl}/todoChild/mine/组 2@2x (4).png`,
+	MEMBER_SIX:`${staticUrl}/todoChild/mine/组 2@2x (5).png`,
+	MEMBER_SEVEN:`${staticUrl}/todoChild/mine/组 2@2x (6).png`,
+	MEMBER_EIGHT:`${staticUrl}/todoChild/mine/组 2@2x (7).png`,
 	
 }

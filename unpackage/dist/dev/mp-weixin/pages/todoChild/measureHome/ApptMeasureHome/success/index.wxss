@@ -1,0 +1,71 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.success.data-v-70f4e786 {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+.black.data-v-70f4e786 {
+  background: black;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.box.data-v-70f4e786 {
+  height: 220px;
+  background: #ffffff;
+  width: 270px;
+  padding: 30px 20px 0 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.box image.data-v-70f4e786 {
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+}
+.text-successs.data-v-70f4e786 {
+  font-family: FZLTKHK;
+  font-weight: bold;
+  color: #840202;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+.text.data-v-70f4e786 {
+  color: #A2A2A2;
+  text-align: center;
+  font-size: 12px;
+  margin: 5px;
+}
+.apptMeasureHome_ft.data-v-70f4e786 {
+  /* position: absolute;
+		left: 0;
+		bottom: 20rpx; */
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20px;
+}
+.btn.data-v-70f4e786 {
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 20px;
+  background: #840202;
+  color: #FFFFFF;
+  margin-left: 60px;
+  margin-right: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+

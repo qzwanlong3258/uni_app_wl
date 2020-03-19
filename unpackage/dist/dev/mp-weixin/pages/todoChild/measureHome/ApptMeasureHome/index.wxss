@@ -5,19 +5,23 @@
 	background: rgba(255, 255, 255, 1);
 	height: 1200rpx;
 	position: relative;
+	padding: 0 10px;
 }
 .apptMeasureHome_item.data-v-d9771adc {
-	height: 82rpx;
+	height: 100rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	line-height: 82rpx;
-	border-bottom: 2rpx solid rgba(229, 229, 229, 1);
+	line-height: 100rpx;
+	border-bottom: 2rpx solid rgba(241,241,241,1);
 }
 .appt_item_lable.data-v-d9771adc {
 	-webkit-flex-basis: 200rpx;
 	        flex-basis: 200rpx;
 	padding-left: 20rpx;
+	color: #424242;
+	font-weight: 400;
+	font-family:Microsoft YaHei;
 }
 .appt_item_content.data-v-d9771adc {
 	-webkit-box-flex: 1;
@@ -44,21 +48,25 @@
 	color: #dbdbdb;
 }
 .apptMeasureHome_ft.data-v-d9771adc{
-	position: absolute;
+	/* position: absolute;
 	left: 0;
-	bottom: 20rpx;
+	bottom: 20rpx; */
 	width: 100%;
 	height: 100rpx;
+	margin-top: 190px;
 }
 .btn.data-v-d9771adc{
-	height: 100rpx;
+	height: 80rpx;
 	
 	text-align: center;
-	line-height: 100rpx;
-	border-radius: 5rpx;
-	background: #E8BE2E;
+	line-height: 80rpx;
+	border-radius: 20px;
+	background: #840102;
 	color: #FFFFFF;
 	margin-left: 20rpx;
 	margin-right: 20rpx;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	font-size: 14px;
+	letter-spacing: 2px;
 }
 

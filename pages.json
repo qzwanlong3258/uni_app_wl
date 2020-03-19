@@ -44,6 +44,12 @@
 			}
 		},
 		{
+			"path": "pages/todoChild/openMember/index",
+			"style": {
+				"navigationBarTitleText": "开通会员"
+			}
+		},
+		{
 			"path": "pages/tabbar/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的"
@@ -190,7 +196,13 @@
 		{
 		    "path" : "pages/todoChild/measureHome/ApptMeasureHome/index",
 		    "style" : {
-				"navigationBarTitleText": "预约量房"
+				"navigationBarTitleText": "约量房"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/measureHome/ApptMeasureHome/success/index",
+		    "style" : {
+				"navigationBarTitleText": "约量房"
 			}
 		},
 		{

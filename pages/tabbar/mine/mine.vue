@@ -11,7 +11,7 @@
 				<view style="flex: 1;"></view>
 				<view style="flex: 1;" class="btn">签到日历</view>
 				<view style="flex: 1;font-size: 10px;text-align: center;line-height: 20px;margin: 0 10px;"> 签到有礼</view>
-				<view style="flex: 1;" class="btn">黄金会员</view>
+				<view style="flex: 1;" class="btn" @click="linkToMember">黄金会员</view>
 				<view style="flex: 1;"></view>
 			</view>
 			<view class="mine-pic">
@@ -61,6 +61,7 @@
 <script>
 'use strict';
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS} from '@/config/image.js';
+import {OPENMEMBER} from '@/config/router.js'
 export default {
 	data() {
 		return{
@@ -74,7 +75,13 @@ export default {
 			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS]
 		}
 	},
-	methods:{},
+	methods:{
+		linkToMember(){
+			uni.navigateTo({
+				url:OPENMEMBER
+			})
+		}
+	},
 	async onLoad() {}
 };
 </script>
