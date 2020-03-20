@@ -1,0 +1,48 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.box.data-v-dc1451d6 {
+  height: 70px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.box-left.data-v-dc1451d6 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.box-right.data-v-dc1451d6 {
+  -webkit-box-flex: 2.5;
+  -webkit-flex: 2.5;
+          flex: 2.5;
+  text-align: center;
+  line-height: 70px;
+}
+.box-left.data-v-dc1451d6 {
+  margin: 10px 20px 10px 20px;
+}
+.box-left image.data-v-dc1451d6 {
+  width: 15px;
+  margin: 5px auto;
+  display: block;
+}
+.box-left .text.data-v-dc1451d6 {
+  font-size: 11px;
+  text-align: center;
+  font-family: FZLanTingKanHei-R-GBK;
+}
+.box-right.data-v-dc1451d6 {
+  font-size: 12px;
+  text-align: left;
+  margin-left: 10px;
+}
+.box-right image.data-v-dc1451d6 {
+  width: 30px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+

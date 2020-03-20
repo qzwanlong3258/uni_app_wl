@@ -1,0 +1,55 @@
+
+.inviteGift.data-v-6c751c75{
+	position: relative;
+	background: #FFFFFF;
+	height: 510px;
+}
+.inviteGift-hd.data-v-6c751c75{
+	width: 100%;
+	display: block;
+}
+.inviteGift-hd-friend.data-v-6c751c75{
+	width: 150px;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	top: 160px;
+}
+.text.data-v-6c751c75{
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #F1F1F1;
+}
+.pic.data-v-6c751c75{
+	margin: 10px 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.pic image.data-v-6c751c75{
+	width: 115px;
+}
+.apptMeasureHome_ft.data-v-6c751c75{
+	/* position: absolute;
+	left: 0;
+	bottom: 20rpx; */
+	width: 100%;
+	height: 100rpx;
+	margin-top: 30px;
+}
+.btn.data-v-6c751c75{
+	height: 80rpx;
+	
+	text-align: center;
+	line-height: 80rpx;
+	border-radius: 20px;
+	background: #FFE906;
+	color: #000000;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+

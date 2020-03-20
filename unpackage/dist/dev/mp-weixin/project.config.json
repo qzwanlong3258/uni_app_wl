@@ -33,19 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/todoChild/measureHome/index",
-					"pathName": "pages/todoChild/measureHome/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/todoChild/measureHome/ApptMeasureHome/success/index",
-					"pathName": "pages/todoChild/measureHome/ApptMeasureHome/success/index",
+					"name": "pages/todoChild/calender/index",
+					"pathName": "pages/todoChild/calender/index",
 					"query": "",
 					"scene": null
 				},
@@ -58,8 +51,8 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/todoChild/openMember/index",
-					"pathName": "pages/todoChild/openMember/index",
+					"name": "pages/todoChild/recommended/index",
+					"pathName": "pages/todoChild/recommended/index",
 					"scene": null
 				}
 			]

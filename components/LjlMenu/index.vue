@@ -1,6 +1,10 @@
 <template>
 	<view class="menu-box" :class="infor.center">
-		<text class="title">{{infor.title}}</text>
+		<view style="border-bottom: 1px solid rgba(241,241,241,1);
+			height: 30px;">
+			<image :src='infor.img' mode="widthFix" style="width: 15px;margin-left: 10px;vertical-align: middle;"></image> <text class="title">{{infor.title}}</text>
+			</view>
+		
 		<view class="content">
 			<view class="item" v-for="(item,index) in infor.list" :key="index" :style="{width: infor.list.length > 3 ? '25%' : '33%'}" @click="linkToRoute({route:item.href,index})">
 				<ljl-menu-item :infor="item" />
@@ -12,6 +16,7 @@
 <script>
 	'use scrict';
 	import LjlMenuItem from './components/LjlMenuItem.vue';
+	
 	
 	export default {
 		props: {
@@ -46,11 +51,17 @@
 	.menu-box {
 		.title {
 			font-size: 36rpx;
+			
 			color: #333333;
+			margin-left: 10px;
+			vertical-align: middle;
+			
 		}
 		.content {
 			display: flex;
 			flex-wrap: wrap;
+			border-bottom: 3px solid rgba(241,241,241,1);
+			padding: 10px 0;
 		}
 		.item {
 			display: flex;

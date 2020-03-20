@@ -17,8 +17,8 @@
           align-items: center;
 }
 .menu-item-box .icon.data-v-656b3ebd {
-    width: 70rpx;
-    height: 70rpx;
+    width: 60rpx;
+    height: 60rpx;
 }
 .menu-item-box .title.data-v-656b3ebd {
     display: block;

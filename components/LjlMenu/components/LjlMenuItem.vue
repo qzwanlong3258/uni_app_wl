@@ -26,8 +26,8 @@
 		flex-direction: column;
 		align-items: center;
 		.icon {
-			width: 70rpx;
-			height: 70rpx;
+			width: 60rpx;
+			height: 60rpx;
 		}
 		.title {
 			display: block;

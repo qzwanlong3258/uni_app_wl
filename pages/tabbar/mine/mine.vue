@@ -9,9 +9,9 @@
 			<view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view>
 			<view class="btn-box"> 
 				<view style="flex: 1;"></view>
-				<view style="flex: 1;" class="btn">签到日历</view>
+				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到日历</view>
 				<view style="flex: 1;font-size: 10px;text-align: center;line-height: 20px;margin: 0 10px;"> 签到有礼</view>
-				<view style="flex: 1;" class="btn" @click="linkToMember">黄金会员</view>
+				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
 				<view style="flex: 1;"></view>
 			</view>
 			<view class="mine-pic">
@@ -27,42 +27,56 @@
 		<view class="schedule">
 			<view style="flex: 1;color: #333333;font-size: 13px;text-align: center;font-weight: Regular;">我的申请记录</view>
 			<view style="flex: 1;"></view>
-			<view style="flex: 1;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;">查看我的申请记录 <view class="iconfont  iconyou iconclass" ></view></view>
+			<view style="flex: 1;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;" @click="tolinkrecord(0)">查看我的申请记录 <view class="iconfont  iconyou iconclass" ></view></view>
 		</view>
 		<view class="schedule_logo">
-			<view style="flex: 1;justify-content: center;">
+			<view style="flex: 1;justify-content: center;" @click="tolinkrecord(0)"> 
 				<view style="text-align: center;"><image :src='imgMeaLoan[0]' mode="widthFix"></image></view>
 				<view style="text-align: center;">约量房</view>
 			</view>
-			<view style="flex: 1;justify-content: center;">
+			<view style="flex: 1;justify-content: center;" @click="tolinkrecord(1)">
 				<view style="text-align: center;"><image :src='imgMeaLoan[1]' mode="widthFix"></image></view>
 				<view style="text-align: center;">装修分期</view>
 			</view>
 		</view>
-		<view class="mine-link">
+		<view class="mine-link" @click="linkToUrl('推荐中心')">
 			<image :src="imgNav[0]" mode="widthFix"></image><text >推荐中心</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link">
-			<image :src="imgNav[1]" mode="widthFix"></image><text>推荐中心</text>
+		<view class="mine-link"  @click="linkToshop()">
+			<image :src="imgNav[1]" mode="widthFix"></image><text>积分商城</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link">
-			<image :src="imgNav[2]" mode="widthFix"></image><text>推荐中心</text>
+		<view class="mine-link"  @click="linkToUrl('分销中心')">
+			<image :src="imgNav[2]" mode="widthFix"></image><text>分销中心</text>
 			<view class="iconfont  iconyou iconclass" ></view><view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link">
-			<image :src="imgNav[3]" mode="widthFix"></image><text>推荐中心</text>
+		<view class="mine-link"  @click="linkToUrl('地址管理')">
+			<image :src="imgNav[3]" mode="widthFix"></image><text>地址管理</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
+		<view class="mine-link"  @click="linkToUrl('角色切换')">
+			<image :src="imgNav[3]" mode="widthFix"></image><text>角色切换</text>
+			<view class="iconfont  iconyou iconclass" ></view>
+		</view>
+		<view class="mine-link"  @click="linkToWork()">
+			<image :src="imgNav[3]" mode="widthFix"></image><text>我的工作</text>
+			<view class="iconfont  iconyou iconclass" ></view>
+		</view>
+		
 	</view>
 </template>
 
 <script>
 'use strict';
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS} from '@/config/image.js';
-import {OPENMEMBER} from '@/config/router.js'
+import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER} from '@/config/router.js';
+
 export default {
+	components:{
+		
+		
+	},
 	data() {
 		return{
 			userInfo:{
@@ -72,17 +86,47 @@ export default {
 			},
 			img:[MINE_MONEY,MINE_INTEGRAL],
 			imgMeaLoan:[MINE_MEASURE,MINE_LOAN],
-			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS]
+			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS],
+			
+			
 		}
 	},
 	methods:{
-		linkToMember(){
+		tolinkrecord(e){
 			uni.navigateTo({
-				url:OPENMEMBER
+				url:`${APPTRECORD}?num=${e}`
+			})
+		},
+		linkChoose(value){
+			switch(value) {
+				case "签到日历": return CALENDER;
+				case "黄金会员": return OPENMEMBER;
+				case "推荐中心": return RECOMMENDCENTER;
+				case "分销中心": return DISTRIBUTION;
+				case "地址管理": return `${ADDRESS_INDEX}?operating=updateAddress`;
+				case "角色切换": return SWAPROLE;
+			}
+		},
+		linkToUrl(e){
+			uni.navigateTo({
+				url:this.linkChoose(e)
+			})
+		},
+		linkToshop(){
+			uni.switchTab({
+				url:SHOP
+			})
+		},
+		linkToWork(){
+			uni.navigateTo({
+				url:MYWORK
 			})
 		}
+		
 	},
-	async onLoad() {}
+	async onLoad() {
+		this.getData(this.toYear+"-"+this.toMonth);
+	}
 };
 </script>
 
@@ -173,14 +217,16 @@ export default {
 		position: relative;
 	}
 	.mine-link image{
-		width: 10px;
+		width: 15px;
 		margin-left: 15px;
+		vertical-align: middle;
 	}
 	.mine-link text{
 		color: #333333;
 		font-weight:Regular ;
-		font-size: 10px;
+		font-size: 12px;
 		margin-left: 10px;
+		vertical-align: middle;
 	}
 	.mine-link .iconclass{
 		font-size: 15px;

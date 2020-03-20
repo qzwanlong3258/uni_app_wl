@@ -73,6 +73,9 @@ module.exports = {
 	INVITE:'/pages/todoChild/inShop/inviteShop/index',//邀请商户
 	//推荐中心
 	RECOMMENDCENTER:'/pages/todoChild/recommendCenter/index',//   
-	
+	//邀请有礼
+	INVITEGIFT:'/pages/todoChild/inviteGift/index',
+	//日历
+	CALENDER:'/pages/todoChild/calender/index',
 	
 }

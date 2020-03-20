@@ -21,8 +21,9 @@
 					</view>
 				</view>
 			</view>
-			<view style="margin: 10px;">
+			<view style="margin: 10px; position: relative;">
 				<image :src="img[2]" mode="widthFix" style="width: 100%;"></image>
+				<image :src="img[3]" mode="widthFix" style="width: 250px;position: absolute;left: 50%;transform: translateX(-50%);top:230px" @click="linktoRecommend"></image>
 			</view>
 			
 		</view>
@@ -31,7 +32,8 @@
 
 <script>
 'use strict';
-import {RECOMMEND_POINT,RECOMMEND_COUPON, RECOMMEND_GIFT} from '@/config/image.js';
+import {RECOMMEND_POINT,RECOMMEND_COUPON, RECOMMEND_GIFT, RECOMMEND_INVITE} from '@/config/image.js';
+import {RECOMMENDED} from '@/config/router.js';
 export default {
 	data() {
 		return{
@@ -40,10 +42,16 @@ export default {
 				nickName:'李三',
 				phone:'广东 深圳'
 			},
-			img:[RECOMMEND_POINT,RECOMMEND_COUPON,RECOMMEND_GIFT]
+			img:[RECOMMEND_POINT,RECOMMEND_COUPON,RECOMMEND_GIFT,RECOMMEND_INVITE]
 		}
 	},
-	methods:{},
+	methods:{
+		linktoRecommend(){
+			uni.navigateTo({
+				url:RECOMMENDED
+			})
+		}
+	},
 	async onLoad() {}
 };
 </script>

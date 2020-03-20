@@ -3,26 +3,26 @@
 		<view class="swapRole-hd"> <icon class="iconfont iconjiaoseqiehuan iconclass"></icon></view>
 		<view class="swapRole-bd"> 轻触以切换角色</view>
 		<view style="height: 50rpx;border-bottom:2rpx solid #bfbfbf ;margin: 0 250rpx 100rpx;"></view>
-		<view class="box" style="margin-bottom: 10rpx;">
+		<view class="box" style="margin-bottom: 20rpx;">
 			<view class="box-left">
 				
-				<icon class=" iconfont iconperson" style="font-size: 80rpx;margin-top: 30rpx;"></icon>
+				<icon class=" iconfont iconperson" style="font-size: 80rpx;margin-top: 30rpx;color: #F39813;"></icon>
 			</view>
 			<view class="box-right">
-				<view style="height: 50%;">用户</view>
+				<view style="height: 50%;line-height: 70rpx;font-size: 12px;font-weight: 700;">用户</view>
 				<view style="height: 50%;">
-					<view class="box-right-static">当前使用</view>
+					<view class="box-right-static">当前角色</view>
 				</view>
 			</view>
 		</view>
 		<view class="box">
 			<view class="box-left ">
-				<icon class="iconfont iconsheyingshi" style="font-size: 80rpx;color: #efb336;margin-top: 30rpx;"></icon>
+				<icon class="iconfont iconsheyingshi" style="font-size: 80rpx;color: #41C2C2;margin-top: 30rpx;"></icon>
 			</view>
 			<view class="box-right">
-				<view style="height: 50%; line-height: 70rpx;">拍照员</view>
+				<view style="height: 50%; line-height: 70rpx;font-size: 12px;font-weight: 700;">拍照员</view>
 				<view style="height: 50%;">
-					<view class="box-right-static" >当前使用</view>
+					<view class="box-right-static" >当前角色</view>
 				</view>
 			</view>
 		</view>
@@ -47,7 +47,7 @@ export default {
 	.swapRole{
 		font-size: 32rpx;
 		color: #666666;
-		background: rgba(229, 229, 229, 1);
+		background: rgba(232,232,231,0.1);
 		height: 1250rpx;
 	}
 	.swapRole-hd{
@@ -67,7 +67,7 @@ export default {
 	.box{
 		margin: 0 100rpx;
 		background: #FFFFFF;
-		border-radius: 5rpx;
+		border-radius: 15rpx;
 		display: flex;
 		height: 140rpx;
 	}
@@ -83,8 +83,8 @@ export default {
 	.box-right-static{
 		width: 120rpx;
 		height: 40rpx;
-		background:#7CFC00;
-		color: #00B578;
+		background:rgba(7,193,96,0.1);
+		color:#06E570;
 		border-radius: 5rpx;
 		text-align: center;
 		font-size: 22rpx;

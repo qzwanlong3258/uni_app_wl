@@ -39,6 +39,18 @@ module.exports = {
 	INVITE_DESIGNER: `${staticUrl}/todoChild/邀请@2x(1).png`,
 	INVITE_CLIENT: `${staticUrl}/todoChild/邀请@2x.png`,
 	DISTRIBUTION_MENU_HEOM: `${staticUrl}/todoChild/distribution/system-loadingc@2x.png`,
+	//分销中心新图
+	DIR_TITLE_ONE:`${staticUrl}/todoChild/distribution/业绩@2x.png`,
+	DIR_TITLE_TWO:`${staticUrl}/todoChild/distribution/工具@2x.png`,
+	DIR_NAV_ONE:`${staticUrl}/todoChild/distribution/海报.png`,
+	DIR_NAV_TWO:`${staticUrl}/todoChild/distribution/商品.png`,
+	DIR_NAV_THREE:`${staticUrl}/todoChild/distribution/会员.png`,
+	DIR_NAV_FOUR:`${staticUrl}/todoChild/distribution/设计师.png`,
+	DIR_NAV_FIVE:`${staticUrl}/todoChild/distribution/客户.png`,
+	DIR_NAV_SIX:`${staticUrl}/todoChild/distribution/首页.png`,
+	DIR_VIP:`${staticUrl}/todoChild/distribution/vip.png`,
+	DIR_RESGITER:`${staticUrl}/todoChild/distribution/shejishi.png`,
+	DIR_KEHU:`${staticUrl}/todoChild/distribution/kehu.png`,
 	// 推荐会员
 	RECOMMENDED_MEMBER: `${staticUrl}/todoChild/member/推荐好友.png`,
 	INVITE_NOW: `${staticUrl}/todoChild/member/立即邀请.png`,
@@ -124,10 +136,15 @@ module.exports = {
 	MINE_INTEGRAL_LOGO:`${staticUrl}/todoChild/mine/积分@2x.png`,
 	MINE_SHARE_CENTER:`${staticUrl}/todoChild/mine/分销中心@2x.png`,
 	MINE_ADRESS:`${staticUrl}/todoChild/mine/地址@2x.png`,
-	//邀请有礼
+	//推荐中心
 	RECOMMEND_POINT:`${staticUrl}/todoChild/recommend/积分@2x.png`,
 	RECOMMEND_COUPON:`${staticUrl}/todoChild/recommend/优惠券@2x.png`,
 	RECOMMEND_GIFT:`${staticUrl}/todoChild/recommend/gift.png`,
+	RECOMMEND_INVITE:`${staticUrl}/todoChild/recommend/yaoqing.png`,
+	RECOMMEND_DESIGNER:`${staticUrl}/todoChild/recommend/shejishi.png`,
+	RECOMMEND_VIP:`${staticUrl}/todoChild/recommend/vip.png`,
+	RECOMMEND_CLIENT:`${staticUrl}/todoChild/recommend/kehu.png`,
+	RECOMMEND_OVER:`${staticUrl}/todoChild/recommend/已结束@2x.png`,
 	//会员权益图标
 	MEMBER_ONE:`${staticUrl}/todoChild/mine/组 2@2x.png`,
 	MEMBER_TWO:`${staticUrl}/todoChild/mine/组 2@2x (1).png`,
@@ -137,5 +154,13 @@ module.exports = {
 	MEMBER_SIX:`${staticUrl}/todoChild/mine/组 2@2x (5).png`,
 	MEMBER_SEVEN:`${staticUrl}/todoChild/mine/组 2@2x (6).png`,
 	MEMBER_EIGHT:`${staticUrl}/todoChild/mine/组 2@2x (7).png`,
-	
+	//邀请有礼
+	INVITE_GIFT:`${staticUrl}/todoChild/invitegift/invitegift.png`,
+	INVITE_FRIEND:`${staticUrl}/todoChild/invitegift/friend.png`,
+	INVITE_POINT_ONE:`${staticUrl}/todoChild/invitegift/10.png`,
+	INVITE_POINT_TWO:`${staticUrl}/todoChild/invitegift/50.png`,
+	INVITE_POINT_THREE:`${staticUrl}/todoChild/invitegift/500.png`,
+	//签到
+	SIGNIN:`${staticUrl}/todoChild/calender/签到@2x.png`,
+	SIGNIN_IMAGE:`${staticUrl}/todoChild/calender/时间@2x.png`,
 }

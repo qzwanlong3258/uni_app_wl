@@ -94,14 +94,16 @@
 	position: relative;
 }
 .mine-link image.data-v-dd86ab04{
-	width: 10px;
+	width: 15px;
 	margin-left: 15px;
+	vertical-align: middle;
 }
 .mine-link text.data-v-dd86ab04{
 	color: #333333;
 	font-weight:Regular ;
-	font-size: 10px;
+	font-size: 12px;
 	margin-left: 10px;
+	vertical-align: middle;
 }
 .mine-link .iconclass.data-v-dd86ab04{
 	font-size: 15px;

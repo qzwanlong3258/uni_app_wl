@@ -10,7 +10,7 @@
 						<view class="box-right-top-right">已预约</view>
 					</view>
 					<view class="box-right-bottom" style="height: 50%;">
-						预约时间：2020年3月15日
+						预约时间：2020年3月14日
 					</view>
 				</view>
 			</view>
@@ -24,7 +24,7 @@
 					<view class="box-right-top-right">已预约</view>
 				</view>
 				<view class="box-right-bottom" style="height: 50%;">
-					预约时间：2020年3月15日
+					预约时间：2020年3月16日
 				</view>
 			</view>
 		</view>
@@ -34,6 +34,7 @@
 
 <script>
 'use strict';
+var _self;
 import LjlStates from './components/changeStates';
 export default {
 	components:{
@@ -45,6 +46,7 @@ export default {
 				index: 0,
 				list: [ { title: '约量房', nullContent: "暂无客户" }, { title: '装修分期', nullContent: "暂无设计师" }]
 			},
+			num:''
 		};
 	},
 	methods: {
@@ -53,7 +55,15 @@ export default {
 			this[`stateTo${index}`] && this[`stateTo${index}`]();
 		}
 	},
-	async onLoad() {}
+	onLoad(options) {
+		_self = this
+		console.log(options)
+		this.states.index = Number(options.num)
+		
+	}
+	
+	
+	
 };
 </script>
 

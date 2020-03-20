@@ -39,7 +39,9 @@
     "pages/todoChild/inShop/index",
     "pages/todoChild/inShop/upload/index",
     "pages/todoChild/inShop/inviteShop/index",
-    "pages/todoChild/recommendCenter/index"
+    "pages/todoChild/recommendCenter/index",
+    "pages/todoChild/inviteGift/index",
+    "pages/todoChild/calender/index"
   ],
   "subPackages": [],
   "window": {

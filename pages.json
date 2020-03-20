@@ -240,6 +240,18 @@
 		    "style" : {
 				"navigationBarTitleText": "推荐中心"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/inviteGift/index",
+		    "style" : {
+				"navigationBarTitleText": "邀请有礼"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/calender/index",
+		    "style" : {
+				"navigationBarTitleText": "签到"
+			}
 		}
     ],
 	"globalStyle": {

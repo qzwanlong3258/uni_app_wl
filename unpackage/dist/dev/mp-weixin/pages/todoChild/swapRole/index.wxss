@@ -2,7 +2,7 @@
 .swapRole.data-v-27093985{
 	font-size: 32rpx;
 	color: #666666;
-	background: rgba(229, 229, 229, 1);
+	background: rgba(232,232,231,0.1);
 	height: 1250rpx;
 }
 .swapRole-hd.data-v-27093985{
@@ -21,7 +21,7 @@
 .box.data-v-27093985{
 	margin: 0 100rpx;
 	background: #FFFFFF;
-	border-radius: 5rpx;
+	border-radius: 15rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -41,8 +41,8 @@
 .box-right-static.data-v-27093985{
 	width: 120rpx;
 	height: 40rpx;
-	background:#7CFC00;
-	color: #00B578;
+	background:rgba(7,193,96,0.1);
+	color:#06E570;
 	border-radius: 5rpx;
 	text-align: center;
 	font-size: 22rpx;
