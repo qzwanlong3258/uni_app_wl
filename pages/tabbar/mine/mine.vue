@@ -133,7 +133,9 @@ export default {
 <style scoped>
 	.mine{
 		background: #FFFFFF;
-		height: 500px;
+		position: absolute;
+		height: 100%;
+		width: 100%;
 		padding: 10px 0;
 	}
 	.mine-nav{

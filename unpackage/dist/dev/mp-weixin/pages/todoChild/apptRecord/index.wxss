@@ -1,45 +1,50 @@
 
-.queryProgress {
-	font-size: 32rpx;
-	background: rgba(242, 246, 249, 1);
+page {
+background-color: rgba(245,245,245,1);
 }
-.queryProgressCard {
+
+
+.queryProgress.data-v-0a99bb80 {
+	font-size: 32rpx;
+	/* background: rgba(242, 246, 249, 1); */
+}
+.queryProgressCard.data-v-0a99bb80 {
 	margin: 48rpx 15rpx;
 	height: 180rpx;
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 	overflow: hidden;
 	padding: 20rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.box-left {
+.box-left.data-v-0a99bb80 {
 	-webkit-box-flex: 0.8;
 	-webkit-flex: 0.8;
 	        flex: 0.8;
 	width: 100%;
 	height: 100%;
 }
-.box-right {
+.box-right.data-v-0a99bb80 {
 	-webkit-box-flex: 2;
 	-webkit-flex: 2;
 	        flex: 2;
 	padding-left: 30rpx;
 }
-.box-right-top {
+.box-right-top.data-v-0a99bb80 {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.box-right-top-left {
+.box-right-top-left.data-v-0a99bb80 {
 	-webkit-box-flex: 3;
 	-webkit-flex: 3;
 	        flex: 3;
 	line-height: 90rpx;
 }
-.box-right-top-right {
+.box-right-top-right.data-v-0a99bb80 {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;
@@ -52,7 +57,7 @@
 	line-height: 54rpx;
 	margin-top: 30rpx;
 }
-.box-right-bottom{
+.box-right-bottom.data-v-0a99bb80{
 	line-height: 90rpx;
 }
 

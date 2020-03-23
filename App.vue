@@ -5,7 +5,7 @@ const { setStorage, getStorage } = require('./utils/storage.js');
 const { AUTH } = require('./config/router.js');
 const { request } = require('./config/http.js');
 const { LOGIN_TOKEN_REFRESH, LOGIN_OPENID_REFRESH } = require('./config/api.js');
-import { refreshToken } from  './utils/openLogin'
+import { refreshToken, getOpenId } from  './utils/openLogin'
 
 export default {
 	globalData: {
@@ -67,7 +67,7 @@ export default {
 			});
 		},
 	},
-	onLaunch: function(options) {
+	onLaunch:  function(options) {
 		let globalData = this.$options.data;
 		if (!getStorage('sysInfo', true)) {
 			const sysInfo = wx.getSystemInfoSync();
@@ -82,6 +82,7 @@ export default {
 		this.getFrom(path, query);
 
 		// 处理token
+		
 		refreshToken();
 	},
 	onShow: function() {},

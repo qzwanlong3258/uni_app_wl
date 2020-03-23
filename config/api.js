@@ -12,7 +12,7 @@ module.exports = {
 	LOGIN_NOWECAHT_LOGIN: `${baseUrl}/user/createToken`,
 	LOGIN_WECHAT_LOGIN: `${auth}/getSessionkey`,
 	LOGIN_TOKEN_REFRESH: `${auth}/refresh`,
-	LOGIN_OPENID_REFRESH: `${auth}/refreshOpenId`,
+	LOGIN_OPENID_REFRESH: `${auth}/register`,
 	LOGIN_WECHAT_GET_USERINFO: `${auth}/getUserInfo`,
 	SEND_VERIFICATION_CODE: `${baseUrl}/user/loadCode`,
 	LOGIN_APP_REGISTER_LOGIN: `${auth}/register`,

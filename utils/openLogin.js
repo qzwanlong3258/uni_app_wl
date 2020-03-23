@@ -33,7 +33,9 @@ function login(timeout = 1000) {
 
 async function getOpenId() {
   const code = await login()
-  const { openId } = await request({
+  // console.log(code,APP_ID)
+  // return;
+  const { data } = await request({
     method: 'POST',
     url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
     needToken: false,
@@ -42,27 +44,68 @@ async function getOpenId() {
   }).catch(() => {
     console.log('调用wx.login失败')
   })
-  setStorage('openId', openId)
-  return openId
+  setStorage('openId', data.openid)
+  console.log(data.openid)
+  return data.openid
 }
 
 /**
  * 更新token
  */
 async function refreshToken() {
-  const openId = getStorage('openId') ? getStorage('openId') : getOpenId()
-  const { data } = await request({
-    method: 'POST',
-    url: `${LOGIN_OPENID_REFRESH}?openId=${openId}`,
-    needToken: false,
-    showLoading: false,
-    hideLoading: false,
-    showErrorModal: false,
-    errorText: 'openId刷新失败',
-    returnHeader: true
-  }).catch(err => console.log(err))
-	setStorage('tempToken', data.token)
-	setStorage('userInfo',data.UserInfo)
+  // const openId = getStorage('openId') ? getStorage('openId') : getOpenId()
+ if ( getStorage('openId')){
+	  // console.log(eee)
+	 let e ={}
+	 e.openid =getStorage('openId')
+	 const { data } = await request({
+	   method: 'POST',
+	   url: `${LOGIN_OPENID_REFRESH}`,
+	   needToken: false,
+	   showLoading: false,
+	   hideLoading: false,
+	   showErrorModal: false,
+	   errorText: 'openId刷新失败',
+	   returnHeader: true,
+	 	data:e
+	 }).catch(err => console.log(err))
+	 	setStorage('tempToken', data.token)
+	 	setStorage('userInfo',data.UserInfo)
+ } else {
+	 // console.log(12)
+	 const code = await login()
+	 // console.log(code,APP_ID)
+	 // return;
+	 var c = await request({
+	   method: 'POST',
+	   url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
+	   needToken: false,
+	   showLoading: false,
+	   showErrorModal: false
+	 }).catch(() => {
+	   console.log('调用wx.login失败')
+	 })
+	 // console.log(c)
+	 setStorage('openId', c.openid)
+	 let e ={}
+	 e.openid =getStorage('openId')
+	 // console.log(e)
+	 var b = await request({
+	   method: 'POST',
+	   url: `${LOGIN_OPENID_REFRESH}`,
+	   needToken: false,
+	   showLoading: false,
+	   hideLoading: false,
+	   showErrorModal: false,
+	   errorText: 'openId刷新失败',
+	   returnHeader: true,
+	   data:e
+	 }).catch(err => console.log(err))
+	  console.log(b)
+	 	setStorage('tempToken', b.data.token)
+	 	setStorage('userInfo',b.data.UserInfo)
+ }
+ 
 }
 
 module.exports = {

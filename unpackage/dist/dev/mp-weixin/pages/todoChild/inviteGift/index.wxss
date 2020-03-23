@@ -1,4 +1,9 @@
 
+page {
+background-color: #FFFFFF;
+}
+
+
 .inviteGift.data-v-6c751c75{
 	position: relative;
 	background: #FFFFFF;

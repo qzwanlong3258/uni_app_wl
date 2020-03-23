@@ -27,7 +27,11 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+	page {
+	background-color: #FFFFFF;
+	}
+</style>
 <style scoped>
 	.inviteGift{
 		position: relative;

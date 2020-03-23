@@ -27,7 +27,7 @@
 				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 12px;margin-right: 5px;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agree" @click="agreeClick()" /></label>
 			</view>
 		</view>
-		<view style="color: #333333;font-size: 13px;text-align: left;height: 45px;line-height: 45px;margin-left: 10px;">黄金会员的八大权益</view>
+		<view style="color: #333333;font-size: 13px;text-align: left;height: 45px;line-height: 45px;margin-left: 10px;margin-bottom: 10px;">黄金会员的八大权益</view>
 		<view class="box">
 			<view class="box_item" v-for="(item,index) in datalist" :key='index'>
 				<image :src="item.img" mode="widthFix"></image>
@@ -140,12 +140,14 @@ export default {
 <style scoped>
 	.recomCenter{
 		background: #FFFFFF;
-		height: 500px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 		padding: 10px 0;
 	}
 	.recomCenter-nav{
 		background-color: #FCE77A;
-		height: 165px;
+		height: 180px;
 		margin:0 10px;
 	}
 	.top{
@@ -172,9 +174,9 @@ export default {
 		
 	}
 	.schedule{
-		height: 35px;
+		height: 45px;
 		display: flex;
-		line-height: 35px;
+		line-height: 45px;
 		border-bottom: 3px solid rgba(247,247,247,1);
 	}
 	.seclect{
@@ -184,13 +186,14 @@ export default {
 		border-bottom: 3px solid rgba(247,247,247,1);
 	}
 	.box{
-		height: 120px;
+		height: 160px;
 		display: flex;
 		flex-wrap: wrap;
 	}
 	.box .box_item {
 		flex: 25%;
 		height: 60px;
+		margin-top: 10px;
 	}
 	.box_item image{
 		width:20px;
@@ -203,7 +206,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 20px;
+		margin-top: 50px;
 		
 	}
 	.btn{

@@ -80,7 +80,6 @@ export default {
 		};
 	},
 	methods: {
-		
 		linkToWithdraw() {
 			uni.navigateTo({
 				url: WITHDRAW
@@ -94,7 +93,11 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style lang="scss" scoped>
 .distribution-box {
 	background: #FFFFFF;

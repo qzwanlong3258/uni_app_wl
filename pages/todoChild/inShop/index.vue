@@ -75,11 +75,15 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+	page {
+	background-color: #FFFFFF;
+	}
+</style>
 <style scoped>
 	.inShop{
 		height: 500px;
-		background: #FFFFFF;
+		
 		padding-top: 20px;
 	}
 	.inShop-hd{

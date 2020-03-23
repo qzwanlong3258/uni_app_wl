@@ -66,18 +66,22 @@ export default {
 	
 };
 </script>
-
 <style>
+page {
+background-color: rgba(245,245,245,1);;
+}
+</style>
+<style scoped>
 .queryProgress {
 	font-size: 32rpx;
-	background: rgba(242, 246, 249, 1);
+	/* background: rgba(242, 246, 249, 1); */
 }
 .queryProgressCard {
 	margin: 48rpx 15rpx;
 	height: 180rpx;
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 	overflow: hidden;
 	padding: 20rpx;
 	display: flex;

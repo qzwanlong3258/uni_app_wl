@@ -371,7 +371,7 @@ export default {
 // 	padding-left: 30rpx;
 // }
 .title{
-	height: 35px;
+	height: 45px;
 	// display: flex;
 	display: flex;
 	align-items: center;
@@ -392,7 +392,9 @@ export default {
 	font-size: 32rpx;
 	color: #666666;
 	background: rgba(255, 255, 255, 1);
-	height: 500px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	
 }
 .application_hd {
@@ -401,9 +403,9 @@ export default {
 	background: rgba(255, 255, 255, 1);
 }
 .application_hd_item {
-	height: 35px;
+	height: 45px;
 	display: flex;
-	line-height: 35px;
+	line-height: 45px;
 	border-bottom: 3px solid rgba(241,241,241,1);;
 }
 .appli_hd_item_lable {

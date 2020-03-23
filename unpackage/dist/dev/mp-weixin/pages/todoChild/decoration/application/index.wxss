@@ -6,7 +6,7 @@
 /* radius
 --------------------------*/
 .title.data-v-71b650e6 {
-  height: 35px;
+  height: 45px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -23,18 +23,20 @@
   font-size: 32rpx;
   color: #666666;
   background: white;
-  height: 500px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .application_hd.data-v-71b650e6 {
   padding: 0 16rpx 0 16rpx;
   background: white;
 }
 .application_hd_item.data-v-71b650e6 {
-  height: 35px;
+  height: 45px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  line-height: 35px;
+  line-height: 45px;
   border-bottom: 3px solid #f1f1f1;
 }
 .appli_hd_item_lable.data-v-71b650e6 {

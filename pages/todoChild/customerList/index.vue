@@ -1,13 +1,36 @@
 <template>
 	<view class="customer-list-box">
 		<ljl-states :infor="states" @change="stateChange" />
-		<template v-if="list.length">
-			<ljl-customer-infor v-for="(item, index) in list" :key="index" :infor="item" />
-		</template>
-		<template v-else>
+		<!-- <template v-if="list.length"> -->
+			<!-- <ljl-customer-infor v-for="(item, index) in list" :key="index" :infor="item" /> -->
+			<view class="scheduleCard" >
+				<view class="scheduleCard-top" style="height: 35%;border-bottom:4rpx solid #F0F0F0 ;">
+					<view class="scheduleCard-top-left">
+						<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
+					</view>
+					<view class="scheduleCard-top-mid">
+						<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;">{{userInfo.nickName}}</view>
+						<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+					</view>
+					<view class="scheduleCard-top-right">
+						贡献积分100
+						<view class="iconfont iconyou iconclass"></view>
+					</view>
+				</view>
+				<view class="scheduleCard-mid">
+					<view style="flex: 50%;">奖励积分: 10</view>
+					<view style="flex: 50%;">奖励时间: 2020-01-20</view>
+					<view style="flex: 50%;">支付单数: 1</view>
+					<view style="flex: 50%;">交易金额: 202，000</view>
+					<view style="flex: 50%;">奖励积分: 100</view>
+					<view style="flex: 50%;">最新交易时间: 2020-01-20</view>
+				</view>
+			</view>
+		<!-- </template> -->
+		<!-- <template v-else>
 			<null-data :content="states.list[states.index].nullContent" />
 			<view class="page_view-bottomMenu"><ljl-menu :infor="menu" /></view>
-		</template>
+		</template> -->
 	</view>
 </template>
 
@@ -24,6 +47,11 @@ import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER } from '@/config/r
 export default {
 	data() {
 		return {
+			userInfo:{
+				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				nickName:'李三',
+				phone:13584115454
+			},
 			list: [],
 			buffer: [],
 			states: {
@@ -104,5 +132,66 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+	.scheduleCard{
+		// margin: 0 15rpx 48rpx;
+		height: 346rpx;
+		// border-radius: 20rpx;
+		// box-shadow: 0 5rpx 10rpx 4rpx rgb(0,0,0,0.1);
+		// overflow: hidden;
+		padding: 20rpx;
+	}
+	.scheduleCard-top{
+		padding-bottom: 10rpx;
+		display: flex;
+		margin: 0 10px;
+		border-bottom: 1px solid rgba(241,241,241,1);;
+	}
+	.scheduleCard-top-left{
+		flex-basis: 120rpx;
+		width: 120rpx;
+		height: 120rpx;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+	.scheduleCard-top-left image{
+		width: 140rpx;
+		height: 140rpx;
+		display: block;
+		margin-top: -10rpx;
+		margin-left: -10rpx;
+	}
+	.scheduleCard-top-mid{
+		flex: 1;
+		vertical-align: middle;
+		
+	}
+	.scheduleCard-top-right{
+		flex-basis: 220rpx;
+		text-align: center;
+		position: relative;
+		font-size: 29rpx;
+		color: #666666;
+		line-height: 140rpx;
+	}
+	.iconclass{
+		color: #999999;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		transform: rotate(90deg);
+	}
+	.scheduleCard-mid{
+		display: flex;
+		flex-wrap: wrap;
+		color: #666666;
+		font-size: 10px;
+		text-align: left;
+		padding: 0 10px 15px 10px;
+		border-bottom: 3px solid rgba(241,241,241,1);
+	}
+	.scheduleCard-mid view{
+		margin: 5px 0;
+	}
 
 </style>

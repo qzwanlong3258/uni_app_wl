@@ -1,7 +1,7 @@
 <template>
 	<view class="inShop">
 		<image class="inShop-hd" :src="imglogo"></image>
-		<view style="color: #333333;font-size: 14px;text-align: center;margin-bottom: 20px;border-bottom: 1px solid #F1F1F1;">欢迎入驻非客有家</view>
+		<view style="color: #333333;font-size: 14px;text-align: center;padding-bottom: 20px;border-bottom: 1px solid #F1F1F1;">欢迎入驻非客有家</view>
 		<view class="title">
 			<image :src="imgupload" ></image>
 			<text style="color: #333333;font-size: 13px;">上传资料</text>
@@ -40,7 +40,11 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
 	.inShop{
 		height: 500px;
@@ -70,7 +74,7 @@ export default {
 		margin-left: 10px;
 	}
 	.sectionFive-ft{
-		margin: 63rpx 100rpx;
+		margin: 80rpx 100rpx;
 		height: 400rpx;
 		
 		display: flex;
@@ -80,7 +84,7 @@ export default {
 		flex: 39%;
 		background: #F1F1F1;
 		height: 120rpx;
-		margin: 30rpx;
+		margin: 20rpx;
 		line-height: 120rpx;
 		padding: 30rpx 0;
 		position: relative;
@@ -99,7 +103,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 80px;
+		margin-top: 120px;
 		
 	}
 	.btn{
@@ -112,7 +116,7 @@ export default {
 		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px rgba(0,0,0,0.1);
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 		font-size: 14px;
 		letter-spacing: 2px;
 	}

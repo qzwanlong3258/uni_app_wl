@@ -76,7 +76,9 @@
 <style lang="scss" scoped>
 	.decoration_view-box-box{
 		background: #FFFFFF;
-		height:500px
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 	.decoration_view-nav {
 		display: flex;
@@ -86,7 +88,7 @@
 		background-color: #FCE77A;
 		padding: 20rpx;
 		position: relative;
-		height: 120px;
+		height: 160px;
 		color: #000000;
 		margin: 0 10px;
 	}

@@ -121,12 +121,18 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
 		
 	.schedule{
-		background: #FFFFFF;
-		height: 500px;
+		/* background: #FFFFFF;
+		position: absolute;
+		width: 100%;
+		height: 100%; */
 	}
 	.schedule-hd{
 		

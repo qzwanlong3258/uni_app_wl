@@ -1,8 +1,8 @@
 /**
  * 储存图片路径
  */
-const staticUrl = '/static/img'
-// const staticUrl = 'http://47.104.232.184/images/demo'
+//const staticUrl = '/static/img'
+ const staticUrl = 'http://47.104.232.184/static/img'
 
 module.exports = {
 	/** 授权 */

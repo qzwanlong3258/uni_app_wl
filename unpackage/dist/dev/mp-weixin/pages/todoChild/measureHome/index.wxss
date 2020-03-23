@@ -1,8 +1,12 @@
 
+page {
+background-color: #FFFFFF;
+}
+
+
 .measureHome.data-v-423b4d97{
 	height: 750px;
 	width: 100%;
-	background: #FFFFFF;
 }
 .measureHome image.data-v-423b4d97{
 	width: 100%;

@@ -37,12 +37,16 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+page {
+background-color: #FFFFFF;
+}
+</style>
 <style scoped>
 	.measureHome{
 		height: 750px;
 		width: 100%;
-		background: #FFFFFF;
+		
 	}
 	.measureHome image{
 		width: 100%;

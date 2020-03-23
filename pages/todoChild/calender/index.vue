@@ -1,5 +1,7 @@
 <template>
-	<view>
+	<view style="position: absolute;
+		width: 100%;
+		height: 100%;background: #FFFFFF;">
 		<view class="hd">
 			<view class="hd-circle">
 				<image :src="img" mode="widthFix"></image>

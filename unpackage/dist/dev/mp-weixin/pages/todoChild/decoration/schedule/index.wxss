@@ -1,7 +1,14 @@
 
-.schedule.data-v-0c1d85e0{
+page{
 	background: #FFFFFF;
-	height: 500px;
+}
+
+
+.schedule.data-v-0c1d85e0{
+	/* background: #FFFFFF;
+	position: absolute;
+	width: 100%;
+	height: 100%; */
 }
 .schedule-hd.data-v-0c1d85e0{
 	

@@ -36,7 +36,7 @@ export default {
 	height: 180rpx;
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	box-shadow: 0 2px 1px  #999999;
 	overflow: hidden;
 	padding: 20rpx;
 	display: flex;

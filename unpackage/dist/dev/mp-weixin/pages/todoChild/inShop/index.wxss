@@ -1,7 +1,12 @@
 
+page {
+background-color: #FFFFFF;
+}
+
+
 .inShop.data-v-cf55d752{
 	height: 500px;
-	background: #FFFFFF;
+	
 	padding-top: 20px;
 }
 .inShop-hd.data-v-cf55d752{

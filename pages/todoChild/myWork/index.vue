@@ -63,11 +63,15 @@ export default {
 	async onLoad() {}
 };
 </script>
-
-<style scoped>
-	.myWork{
+<style>
+	page{
 		background: rgba(242,246,249,1);
 	}
+</style>
+<style scoped>
+	/* .myWork{
+		background: rgba(242,246,249,1);
+	} */
 	.myWork-hd{
 		height: 28px;
 		margin: 7.5px 7.5px 6px 7.5px;
@@ -87,7 +91,7 @@ export default {
 		height: 180rpx;
 		background: #ffffff;
 		border-radius: 20rpx;
-		box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+		box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 		overflow: hidden;
 		padding: 20rpx;
 		
