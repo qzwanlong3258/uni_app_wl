@@ -13,6 +13,7 @@ function login(timeout = 1000) {
   return new Promise((resolve, reject) => {
     uni.login({
       timeout,
+	  provider: 'weixin',
       success: function(res) {
         if (res.code) {
           resolve(res.code)
@@ -73,15 +74,15 @@ async function refreshToken() {
 	 	setStorage('userInfo',data.UserInfo)
  } else {
 	 // console.log(12)
-	 const code = await login()
-	 // console.log(code,APP_ID)
-	 // return;
+	 let d={}
+	 d.code = await login()
 	 var c = await request({
 	   method: 'POST',
-	   url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
+	   url: `${LOGIN_WECHAT_LOGIN}`,
 	   needToken: false,
 	   showLoading: false,
-	   showErrorModal: false
+	   showErrorModal: false,
+	   data:d
 	 }).catch(() => {
 	   console.log('调用wx.login失败')
 	 })

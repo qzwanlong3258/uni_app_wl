@@ -5,33 +5,33 @@
 			<view class="recordDetailCard-text">银行打款成功</view>
 		</view>
 		<view class="recordDetailCardBd">
-			<view class="recordDetailCard-hd">订单详情</view>
+			<view class="recordDetailCard-hd">申请订单详情</view>
 			<view class="recordDetailCard-bd">
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款金额</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">￥10000.00</view>
+					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">￥{{orderList.loanMoney|num}}</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款期限</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right" style="color: #333333;">12期</view>
+					<view class="recordDetailCard-bd-item-right" style="color: #333333;">{{orderList.term}}期</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
-					<view class="recordDetailCard-bd-item-left">利息</view>
+					<view class="recordDetailCard-bd-item-left">利率</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">免息</view>
+					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">0.6%</view>
 				</view>
-				<view class="recordDetailCard-bd-item">
+				<!-- <view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">产品类型</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">合作产品</view>
-				</view>
-				<view class="recordDetailCard-bd-item">
+				</view> -->
+				<!-- <view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">放款机构</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">中国建设银行（西丽支行）</view>
-				</view>
+				</view> -->
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款单号</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
@@ -40,12 +40,12 @@
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">订单时间</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right">2019-01-02 15:00</view>
+					<view class="recordDetailCard-bd-item-right">{{orderList.lastTime|time}}</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">进度</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right">待面签</view>
+					<view class="recordDetailCard-bd-item-right">{{orderList.state|arry}}</view>
 				</view>
 			</view>
 		</view>
@@ -122,12 +122,15 @@
 import { SUCCESSPAY } from '@/config/image.js';
 import { getCheckIn, checkIn } from '@/api/tabbar/mine.js';
 import { getStorage } from '@/utils/storage.js';
+import { loanListDetail } from '@/api/todoChild/loan.js'
 
 var _self;
 
 export default {
 	data() {
 		return {
+			orderList:[],
+			periodList:[],
 			img: SUCCESSPAY,
 			latitude: 22.686206,
 			longitude: 114.230672,
@@ -148,6 +151,7 @@ export default {
 					iconPath: '../../../static/location.png'
 				}
 			],
+			
 			userInfo: {},
 			
 			tempFilePaths: '',
@@ -161,6 +165,33 @@ export default {
 			],
 			
 		};
+	},
+	filters:{
+		num(val){
+			return Number(val).toFixed(2)
+		},
+		arry(val){
+			let b=["待预审" ,"预审通过（待面签）","预审没过", "面签通过", "面签未通过"]
+			let e=Number(val) - 1
+			return b[e]
+		},
+		time(val){
+			var time = new Date(val);
+			    
+			      function timeAdd0(str) {
+			        if (str < 10) {
+			          str = '0' + str;
+			        }
+			        return str
+			      }
+			      var y = time.getFullYear();
+			      var m = time.getMonth() + 1;
+			      var d = time.getDate();
+			      var h = time.getHours();
+			      var mm = time.getMinutes();
+			      var s = time.getSeconds();
+			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) + ' ' + timeAdd0(h) + ':' + timeAdd0(mm) + ':' + timeAdd0(s);
+		}
 	},
 	methods: {
 		
@@ -179,11 +210,15 @@ export default {
 		},
 		
 	},
-	onLoad: async function() {
+	onLoad: async function(options) {
 		this.userInfo = getStorage('userInfo');
 		console.log(this.userInfo);
-
 		_self = this;
+		console.log(options)
+		let v = await loanListDetail({orderid:options.id})
+		console.log(v)
+		_self.orderList =v.order[0]
+		_self.periodList =v.period[0]
 		
 	},
 	components: {

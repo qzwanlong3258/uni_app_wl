@@ -18,15 +18,15 @@
 		<view class="application_hd">
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">姓名:</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="姓名" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" placeholder="姓名" v-model="dataList.loanerName" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">身份证号码:</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的身份证号码" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" v-model="dataList.idCard"  maxlength="18" placeholder="请输入你的身份证号码" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">联系电话:</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的联系电话" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" v-model="dataList.phone"  maxlength="11"  placeholder="请输入你的联系电话" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">婚姻状态</view>
@@ -58,7 +58,7 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">月收入:</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的月收入" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" v-model="dataList.familyMonthIncome" placeholder="请输入你的月收入" placeholder-class="input_color" /></view>
 			</view>
 		</view>
 		
@@ -71,16 +71,16 @@
 	<view class="application_bd">
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请金额:</view>
-			<view class="appli_hd_item_content"><input type="text" placeholder="请输入你的金额" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content"><input type="number" v-model="dataList.loanMoney"  placeholder="请输入你的金额" placeholder-class="input_color" /></view>
 		</view>
 		<view class="application_hd_item">
-			<view class="appli_hd_item_lable">工作单位性质</view>
+			<view class="appli_hd_item_lable">申请周期</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
 					<view class="uni-list-cell uni-input-style">
 						<view class="uni-list-cell-db uni-input-style">
 							<picker @change="periodBindPickerChange" :value="periodIndex" :range="periodArray" >
-								<view class="uni-input uni-input-style">{{ periodArray[periodIndex] }}</view>
+								<view class="uni-input uni-input-style">{{ periodArray[periodIndex]+'期' }}</view>
 								<view class="iconfont  iconyou iconclass" ></view>
 							</picker>
 						</view>
@@ -183,10 +183,13 @@ import wPicker from "@/components/w-picker/w-picker.vue";
 import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
 import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
+
+import { loanAppt } from '@/api/todoChild/loan.js'
 var _self;
 export default {
 	data() {
 		return {
+			dataList:{},
 			img:[APPT_TITLE_ONE,APPT_TITLE_TWO],
 			// form: [
 			// 	{title: "申请信息", list: [
@@ -198,11 +201,11 @@ export default {
 			// ]
 			marriageItems: [
 				{
-					value: 'USA',
+					value: '已婚',
 					name: '已婚'
 				},
 				{
-					value: 'CHN',
+					value: '未婚',
 					name: '未婚'
 				}
 			],
@@ -216,9 +219,9 @@ export default {
 					name: '非客拍'
 				}
 			],
-			workArray: ['中国', '美国', '巴西', '日本'],
+			workArray: ['公务员事业单位', '白领', '一般职员', '个体户', '企业法人', '自由职业', '其他'],
 			workIndex: 0,
-			periodArray: ['中国', '美国', '巴西', '日本'],
+			periodArray: [12, 24, 36, 60, 120],
 			periodIndex: 0,
 			dateArray: ['07:00-10:00', '10:00-13:00', '13:00-16:00', '16:00-19:00'],
 			dateIndex: 0,
@@ -250,12 +253,18 @@ export default {
 	onLoad:function(){
 		_self = this
 		_self.value=this.getTime()
+		_self.dataList.marryStatus = 0
+		_self.dataList.workunit = 0
+		_self.dataList.term = this.periodArray[0]
+		_self.dataList.latitude=22.686206,
+		_self.dataList.longitude=114.230672
 	},
 	methods: {
 		marriageRadioChange: function(evt) {
 			for (let i = 0; i < this.marriageItems.length; i++) {
 				if (this.marriageItems[i].value === evt.target.value) {
 					this.marriageCurrent = i;
+					_self.dataList.marryStatus = i
 					break;
 				}
 			}
@@ -271,10 +280,12 @@ export default {
 		workBindPickerChange: function(e) {
 		            console.log('picker发送选择改变，携带值为', e.target.value)
 		            this.workIndex = e.target.value
+					_self.dataList.workunit = e.target.value
 		        },
 		periodBindPickerChange: function(e){
 			console.log('picker发送选择改变，携带值为', e.target.value)
 			this.periodIndex = e.target.value
+			_self.dataList.term = this.periodArray[e.target.value]
 		},
 		dateBindPickerChange: function(e){
 			console.log('picker发送选择改变，携带值为', e.target.value)
@@ -326,11 +337,23 @@ export default {
 	    change(e) {
 	    	console.log('是否打开:' + e.show)
 	    },
-		submit:function () {
+		submit: function () {
 			console.log(DECORATION)
-			uni.switchTab({
-				url:DECORATION
+			loanAppt(this.dataList).then( res=>{
+				 uni.showToast({
+								title: "提交成功",
+								icon: 'success',
+								duration: 2000,
+							});
+							setTimeout(function(){
+											uni.switchTab({
+												url:DECORATION
+											})
+										},2000)
+				
+							
 			})
+			
 		}
 	},
 	components: {

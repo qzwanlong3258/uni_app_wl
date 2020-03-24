@@ -54,5 +54,11 @@ module.exports = {
 	COMPLETE_ACTIVITY: `${baseUrl}/wx/user/completeActivity`,
 	
 	/** 客户 **/
-	LOAD_CUSTOMER: `${baseUrl}/wx/user/loadUserList`
+	LOAD_CUSTOMER: `${baseUrl}/wx/user/loadUserList`,
+	
+	/** 贷款分期申请 **/
+	LOAN_APPT:`${baseUrl}/wx/login/apply`,
+	LOAN_LIST:`${baseUrl}/wx/user/shcedule`,
+	LOAN_LIST_DETAIL:`${baseUrl}/wx/login/loadOrderPhaseInfo`
+	
 }

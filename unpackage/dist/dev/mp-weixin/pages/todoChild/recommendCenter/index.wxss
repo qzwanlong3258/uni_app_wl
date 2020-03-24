@@ -1,13 +1,16 @@
 
-.recomCenter.data-v-6dbea9eb{
+page{
 	background: #FFFFFF;
-	height: 500px;
+}
+
+
+.recomCenter.data-v-6dbea9eb{
 	padding: 10px 0;
 }
 .recomCenter-nav.data-v-6dbea9eb{
 	background-color: #FCE77A;
-	height: 165px;
-	margin:0 10px;
+	height: 210px;
+	margin:0 10px ;
 }
 .top.data-v-6dbea9eb{
 	height: 120rpx;
