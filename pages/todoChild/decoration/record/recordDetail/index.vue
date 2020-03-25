@@ -17,28 +17,28 @@
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right" style="color: #333333;">{{orderList.term}}期</view>
 				</view>
-				<view class="recordDetailCard-bd-item">
+				<!-- <view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">利率</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">0.6%</view>
-				</view>
+				</view> -->
 				<!-- <view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">产品类型</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">合作产品</view>
 				</view> -->
-				<!-- <view class="recordDetailCard-bd-item">
+				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">放款机构</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right">中国建设银行（西丽支行）</view>
-				</view> -->
+					<view class="recordDetailCard-bd-item-right">{{orderList.bankId|bank}}</view>
+				</view>
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款单号</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">20190102001</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
-					<view class="recordDetailCard-bd-item-left">订单时间</view>
+					<view class="recordDetailCard-bd-item-left">申请时间</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">{{orderList.lastTime|time}}</view>
 				</view>
@@ -53,48 +53,48 @@
 			<view class="recordDetailCard-hd">银行信息</view>
 			<view class="recordDetailCard-bd">
 				<map style="width: 94%; height: 150px;margin-left:3%" scale="20" :latitude="latitude" :longitude="longitude" :markers="covers"></map>
-				<view class="recordDetailCard-bd-text" style="margin: 20rpx 0;">中国建设银行（深圳西丽支行）</view>
-				<view class="recordDetailCard-bd-text" style="padding-bottom: 40rpx; font-weight: 400;">深圳市南山区西丽电子世界1楼102号</view>
+				<view class="recordDetailCard-bd-text" style="margin: 20rpx 0;">{{bankData.name}}</view>
+				<view class="recordDetailCard-bd-text" style="padding-bottom: 40rpx; font-weight: 400;">{{bankData.address}}</view>
 			</view>
 		</view>
-		<view class="recordDetailCardBd">
+		<view class="recordDetailCardBd" v-if="faceMemberData.nickName">
 			<view class="recordDetailCard-hd">面签员信息</view>
 			<view class="recordDetailCard-bd recordDetailCardBd-bd">
 				<view class="recordDetailCard-bd-left">
-				   <image :src="userInfo.avatarUrl" class="recordDetailCard-bd-left-img" mode="aspectFill">
+				   <image :src="faceMemberData.avatarUrl" class="recordDetailCard-bd-left-img" mode="aspectFill">
 			   </view>
-				<view class="recordDetailCard-bd-right">{{ userInfo.nickName }}</view>
+				<view class="recordDetailCard-bd-right">{{ faceMemberData.nickName }}</view>
 			</view>
 			<view class="recordDetailCard-bd-item">
 				<view class="recordDetailCard-bd-item-left">面签时间</view>
 				<view class="recordDetailCard-bd-item-mid"></view>
-				<view class="recordDetailCard-bd-item-right">2019-01-03 09:00</view>
+				<view class="recordDetailCard-bd-item-right">{{ faceMemberData.lastTime|time }}</view>
 			</view>
 			<view class="recordDetailCardBd-ft" style="text-align: center;padding: 10rpx;">
-				<icon class="iconfont icondianhua icondianhuaclass"></icon>
+				<icon class="iconfont icondianhua icondianhuaclass" @click="phone(faceMemberData.phone)"></icon>
 				<text style="font-size: 26rpx;margin-left: 10rpx;">致电面签员</text>
 			</view>
 		</view>
-		<view class="recordDetailCardBd">
+		<view class="recordDetailCardBd" v-if="periodList.length !==0">
 			<view class="recordDetailCard-hd">放款管理</view>
-			<view class="recordDetailCard_ft">
+			<view class="recordDetailCard_ft" v-for='(item,index) in periodList' :key='index'>
 				<view class="recordDetailCard_ft-title">
-					初始照片
+					{{item.list[0].name}}
 				</view>
 				<scroll-view class="scroll-view_H" scroll-x="true">
-					<view class="scroll-view-item_H" v-for="(huadong, index) in huadongs" :key="index">
-						<view @click="chooseimage" class="scroll-view-item_H_img">
-							<image :src="tempFilePaths" mode=""></image>
-							<view class="iconfont  iconpaizhao scroll-view-item_H_icon" :hidden="tempFilePaths != ''"></view>
+					<view class="scroll-view-item_H" v-for="(value, ind) in item.list" :key="ind">
+						<view class="scroll-view-item_H_img">
+							<image :src="value.photo" mode=""></image>
+							<view class="iconfont  iconpaizhao scroll-view-item_H_icon" :hidden="value.photo != ''"></view>
 						</view>
-						<view>{{ huadong.name }}</view>
+						<view>{{ value.locationName }}</view>
 					</view>
 				</scroll-view>
 
 				
 				
 			</view>
-			<view class="recordDetailCard_ft">
+			<!-- <view class="recordDetailCard_ft">
 				<view class="recordDetailCard_ft-title">
 					水电期
 				</view>
@@ -107,10 +107,7 @@
 						<view>{{ huadong.name }}</view>
 					</view>
 				</scroll-view>
-			
-				
-				
-			</view>
+			</view> -->
 		</view>
 		
 		<button type="primary" @click="btn"></button>
@@ -119,10 +116,14 @@
 
 <script>
 'use scrict';
-import { SUCCESSPAY } from '@/config/image.js';
+import { SUCCESSPAY ,COMPANY_LOGO } from '@/config/image.js';
 import { getCheckIn, checkIn } from '@/api/tabbar/mine.js';
 import { getStorage } from '@/utils/storage.js';
-import { loanListDetail } from '@/api/todoChild/loan.js'
+import { loanListDetail, loanBank, loanFaceMember, loanPeriod } from '@/api/todoChild/loan.js';
+
+import {
+		makePhoneCall
+	} from '@/config/package.js';
 
 var _self;
 
@@ -131,16 +132,19 @@ export default {
 		return {
 			orderList:[],
 			periodList:[],
+			bankData:{},
+			faceMemberData:{},
 			img: SUCCESSPAY,
-			latitude: 22.686206,
-			longitude: 114.230672,
+			imglogo:COMPANY_LOGO,
+			latitude: 34.199315,
+			longitude: 108.881563,
 			covers: [
 				{
 					id: 1,
-					latitude: 22.686206,
-					longitude: 114.230672,
+					latitude: 34.199315,
+					longitude: 108.881563,
 					label: {
-						content: '爱智慧有限公司',
+						content: '渤海银行',
 						color: '#ddd',
 						borderRadius: 12,
 						bgColor: '#000',
@@ -175,7 +179,15 @@ export default {
 			let e=Number(val) - 1
 			return b[e]
 		},
+		bank(val){
+			let b=["渤海银行"]
+			let e=Number(val) - 1
+			return b[e]
+		},
 		time(val){
+			if(!val){
+				return ''
+			}
 			var time = new Date(val);
 			    
 			      function timeAdd0(str) {
@@ -194,6 +206,11 @@ export default {
 		}
 	},
 	methods: {
+		phone(e){
+			makePhoneCall({
+				phone: e
+			})
+		},
 		
 		// 选择照片
 		chooseimage: function() {
@@ -211,14 +228,37 @@ export default {
 		
 	},
 	onLoad: async function(options) {
+		options.id ='4'
 		this.userInfo = getStorage('userInfo');
 		console.log(this.userInfo);
 		_self = this;
 		console.log(options)
+		// 获取订单信息
 		let v = await loanListDetail({orderid:options.id})
 		console.log(v)
-		_self.orderList =v.order[0]
-		_self.periodList =v.period[0]
+		if(v.period.length){
+			for(let i =0;i<v.period.length;i++){
+				_self.periodList.push(await loanPeriod({uuid:v.period[i].uuid}))
+			}
+		}
+		console.log(_self.periodList)
+		
+		// 获取银行信息
+		let r = await loanBank({orderid:options.id})
+		_self.bankData=r.list[0]
+		if(r.list[0].name = "渤海银行"){
+			_self.latitude=34.199315
+			_self.longitude=108.881563
+			
+			_self.covers[0].latitude=34.199315
+			_self.covers[0].longitude=108.881563
+			_self.covers[0].label.content = "渤海银行"
+		}
+		console.log(r)
+		// 获取面签员
+		let f =await loanFaceMember({orderid:options.id})
+		_self.faceMemberData =f.list[0]
+		console.log(f)
 		
 	},
 	components: {
@@ -227,11 +267,15 @@ export default {
 	}
 };
 </script>
-
 <style>
+	page{
+		background: rgba(242, 246, 249, 1);
+	}
+</style>
+<style scoped>
 .recordDetail {
 	font-size: 32rpx;
-	background: rgba(242, 246, 249, 1);
+	
 }
 .recordDetailCard {
 	margin: 48rpx 15rpx;
@@ -247,7 +291,7 @@ export default {
 	/* height: 231rpx; */
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 }
 .recordDetailCard_image {
 	width: 100%;

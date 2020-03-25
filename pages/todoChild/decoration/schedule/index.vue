@@ -1,7 +1,7 @@
 <template>
 	<view class="schedule">
 		<ljl-states :infor="states" @change="stateChange"  />
-		<view class="schedule-left" :hidden='states.index==1'>
+		<view class="schedule-left" :hidden='states.index==1' v-for="(item,index) in dataList" :key="index">
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
 					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
@@ -16,10 +16,10 @@
 				</view>
 			</view>
 			<view class="schedule-bd">
-				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">500000</text></view>
-				<view style="font-size: 29rpx;color:#999999">贷款日期: 2020-01-20</view>
+				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="1"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="item.state|state"></uni-steps>
 			<view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -43,7 +43,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="schedule-left" :hidden='states.index==0'>
+		<view class="schedule-left" :hidden='states.index==0' v-for="(item,index) in failDataList" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
 					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
@@ -58,10 +58,10 @@
 				</view>
 			</view>
 			<view class="schedule-bd">
-				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">500000</text></view>
-				<view style="font-size: 29rpx;color:#999999">贷款日期: 2020-01-20</view>
+				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="1"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="item.state|state"></uni-steps>
 			<view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -91,22 +91,60 @@
 
 <script>
 'use strict';
+var _self;
 import uniSteps from '@/components/uni-steps/uni-steps.vue';
 import LjlStates from '@/components/LjlStates';
+import { loanList } from '@/api/todoChild/loan.js';
+import { getStorage } from '@/utils/storage.js';
 export default {
 	 components: {uniSteps,LjlStates
 	 },
 	data() {
 		return{
+			dataList:[],
+			failDataList:[],
 			userInfo:{
-				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
-				nickName:'李三',
-				phone:13584115454
 			},
 			states: {
 				index: 0,
 				list: [ { title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }]
 			},
+		}
+	},
+	filters:{
+		state(val){
+			if(val=='1'){
+				return 0
+			}
+			if(val=='2'){
+				return 2
+			}
+			if(val=='3'){
+				return 2
+			}
+			if(val=='4'){
+				return 4
+			}
+		},
+		time(val){
+			if(!val){
+				return ''
+			}
+			var time = new Date(val);
+			    
+			      function timeAdd0(str) {
+			        if (str < 10) {
+			          str = '0' + str;
+			        }
+			        return str
+			      }
+			      var y = time.getFullYear();
+			      var m = time.getMonth() + 1;
+			      var d = time.getDate();
+			      var h = time.getHours();
+			      var mm = time.getMinutes();
+			      var s = time.getSeconds();
+			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
 		}
 	},
 	methods:{
@@ -118,7 +156,30 @@ export default {
 			this[`stateTo${index}`] && this[`stateTo${index}`]();
 		}
 	},
-	async onLoad() {}
+	async onLoad() {
+		
+		_self = this;
+		_self.userInfo = getStorage('userInfo');
+		console.log(this.userInfo);
+		
+		 let v = await loanList({status:1})
+		 console.log(v)
+		 _self.dataList.push(...v.list)
+		 let a = await loanList({status:2})
+		 console.log(a)
+		 _self.dataList.push(...a.list)
+		 let b = await loanList({status:4})
+		 console.log(b)
+		 _self.dataList.push(...b.list)
+		 let c = await loanList({status:3})
+		 console.log(c)
+		 _self.failDataList.push(...c.list)
+		 let d = await loanList({status:5})
+		 console.log(d)
+		 _self.failDataList.push(...d.list)
+		  console.log(_self.dataList)
+		 
+	}
 };
 </script>
 <style>

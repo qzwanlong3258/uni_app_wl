@@ -6,6 +6,13 @@
 	height: 100%;
 	position: relative;
 }
+.nextclass.data-v-e9d3263a{
+	position: absolute;
+	left: calc(50% - 10px);
+	bottom: 10px;
+	-webkit-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
 .sectionThree-box.data-v-e9d3263a{
 	position: absolute;
 	height: 100%;

@@ -22,7 +22,7 @@
 				
 			</view> -->
 		</view>
-		
+		<view class="iconfont iconnexts nextclass" ></view> 
 	</view>
 </template>
 
@@ -70,6 +70,13 @@
 		height: 100%;
 		position: relative;
 		}
+	.nextclass{
+		position: absolute;
+		left: calc(50% - 10px);
+		bottom: 10px;
+		transform: rotate(-90deg);
+		
+	}
 	.sectionThree-box{
 		position: absolute;
 		height: 100%;

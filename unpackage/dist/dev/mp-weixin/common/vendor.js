@@ -9523,7 +9523,10 @@ module.exports = {
   /** 贷款分期申请 **/
   LOAN_APPT: "".concat(baseUrl, "/wx/login/apply"),
   LOAN_LIST: "".concat(baseUrl, "/wx/user/shcedule"),
-  LOAN_LIST_DETAIL: "".concat(baseUrl, "/wx/login/loadOrderPhaseInfo") };
+  LOAN_LIST_DETAIL: "".concat(baseUrl, "/wx/login/loadOrderPhaseInfo"),
+  LOAN_BANK: "".concat(baseUrl, "/wx/login/loadBankInfo"),
+  LOAN_FACE_MEMBER: "".concat(baseUrl, "/wx/login/loadOrderVisa"),
+  LOAN_PERIOD: "".concat(baseUrl, "/wx/login/loadOrderPhaseImg") };
 
 /***/ }),
 
@@ -10727,6 +10730,205 @@ var index_esm = {
 
 /***/ }),
 
+/***/ 268:
+/*!*********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/loan.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.loanAppt = loanAppt;exports.loanList = loanList;exports.loanListDetail = loanListDetail;exports.loanBank = loanBank;exports.loanFaceMember = loanFaceMember;exports.loanPeriod = loanPeriod;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);var _require =
+
+
+__webpack_require__(/*! ./storage.js */ 269),getStorage = _require.getStorage;
+
+function loanAppt(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "POST",
+    url: "".concat(_api.LOAN_APPT),
+    data: data });
+
+}
+
+function loanList(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "GET",
+    url: "".concat(_api.LOAN_LIST),
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+function loanListDetail(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "GET",
+    url: "".concat(_api.LOAN_LIST_DETAIL),
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+function loanBank(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "GET",
+    url: "".concat(_api.LOAN_BANK),
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+function loanFaceMember(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "GET",
+    url: "".concat(_api.LOAN_FACE_MEMBER),
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+function loanPeriod(data) {
+  // let token=getStorage('tempToken')
+  return (0, _http.request)({
+    method: "GET",
+    url: "".concat(_api.LOAN_PERIOD),
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+/***/ }),
+
+/***/ 269:
+/*!************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/storage.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) { /**
+               * 对uni.setStorage()和uni.setStorageSync()的封装
+               * @param {string} key - 本地缓存中的指定的key
+               * @param {string|Object} data - 需要存储的内容
+               * @param {boolean} isSync - 是否同步设置缓存
+               * @return {void|Promise} 
+               */
+function setStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var isSync = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  if (isSync) {
+    return uni.setStorageSync(key, data);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.setStorage({
+        key: key,
+        data: data,
+        success: function success() {
+          resolve();
+        },
+        fail: function fail(res) {
+          reject();
+        } });
+
+    });
+  }
+}
+
+/**
+   * 对uni.getStorage()和uni.getStorageSync()的封装
+   * @param {string} key - 本地缓存中指定的key
+   * @param {boolean} isSync - 是否同步获取缓存 
+   * @return {string|Promise}
+   */
+function getStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (isSync) {
+    return uni.getStorageSync(key);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.getStorage({
+        key: key,
+        success: function success(res) {resolve(res.data);},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+
+/**
+   * 对uni.removeStorage()和uni.removeStorageSync()的封装
+   * @param {string} key - 本地缓存中指定的key
+   * @param {boolean} isSync - 是否同步移除指定的缓存
+   * @return {void|Promise} 
+   */
+function removeStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (isSync) {
+    return uni.removeStorageSync(key);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.removeStorage({
+        key: key,
+        success: function success() {resolve();},
+        fail: function fail(res) {reject();} });
+
+    });
+  }
+}
+
+/**
+   * 对uni.clearStorage()和uni.clearStorageSync()的封装
+   * @param {boolean} isSync - 是否同步清除缓存
+   * @return {void|Promise} 
+   */
+function clearStorage() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  if (isSync) {
+    uni.clearStorageSync();
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.clearStorage({
+        success: function success() {resolve();},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+/**
+   * 对uni.getStorageInfo()和uni.getStorageInfoSync()的封装
+   * @param {boolean} isSync - 是否同步获取缓存的信息
+   * @return {Object|Promise} 
+   */
+function getStorageInfo() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  if (isSync) {
+    return uni.getStorageInfoSync();
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.getStorageInfo({
+        success: function success(res) {resolve(res);},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+module.exports = {
+  setStorage: setStorage,
+  getStorage: getStorage,
+  removeStorage: removeStorage,
+  clearStorage: clearStorage,
+  getStorageInfo: getStorageInfo };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 27:
 /*!****************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/getters.js ***!
@@ -10743,7 +10945,7 @@ getters;exports.default = _default;
 
 /***/ }),
 
-/***/ 294:
+/***/ 296:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
   \******************************************************************/
@@ -11052,7 +11254,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 433:
+/***/ 437:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -11581,7 +11783,7 @@ function updateOrder(data) {
 
 /***/ }),
 
-/***/ 488:
+/***/ 492:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -12495,7 +12697,7 @@ main();
 
 /***/ }),
 
-/***/ 573:
+/***/ 577:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -12503,7 +12705,7 @@ main();
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 574);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 578);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -13031,7 +13233,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 574:
+/***/ 578:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -13073,7 +13275,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 
 /***/ }),
 
-/***/ 624:
+/***/ 628:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -13223,7 +13425,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 625:
+/***/ 629:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -14737,7 +14939,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 626:
+/***/ 630:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -27290,7 +27492,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 627:
+/***/ 631:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -28267,7 +28469,68 @@ module.exports = {
 
 /***/ }),
 
-/***/ 649:
+/***/ 65:
+/*!**************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/address.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.loadAddress = loadAddress;exports.addReceiveAddress = addReceiveAddress;exports.updateReceiveAddress = updateReceiveAddress;exports.deleteReceiveAddress = deleteReceiveAddress;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+
+
+
+// 获取收货地址列表
+function loadAddress(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.LOAD_ADDRESS,
+    data: data }).
+  then(function (res) {
+    res.list.length && (res.list[0].default = true);
+    return res;
+  });
+}
+
+// 添加收货地址
+function addReceiveAddress(data) {
+  return (0, _http.request)({
+    method: "POST",
+    url: _api.ADD_ADDRESS,
+    data: data });
+
+}
+
+// 更新收货地址
+function updateReceiveAddress(data) {
+  data.default && Number(data.default);
+  return (0, _http.request)({
+    method: "POST",
+    url: _api.UPDATE_ADDRESS,
+    data: data });
+
+}
+
+// 删除收货地址
+function deleteReceiveAddress(data) {
+  return (0, _http.request)({
+    method: "POST",
+    url: _api.DELETE_ADDRESS,
+    data: data });
+
+}
+
+/***/ }),
+
+/***/ 653:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -28421,68 +28684,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 65:
-/*!**************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/address.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.loadAddress = loadAddress;exports.addReceiveAddress = addReceiveAddress;exports.updateReceiveAddress = updateReceiveAddress;exports.deleteReceiveAddress = deleteReceiveAddress;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-
-
-
-// 获取收货地址列表
-function loadAddress(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.LOAD_ADDRESS,
-    data: data }).
-  then(function (res) {
-    res.list.length && (res.list[0].default = true);
-    return res;
-  });
-}
-
-// 添加收货地址
-function addReceiveAddress(data) {
-  return (0, _http.request)({
-    method: "POST",
-    url: _api.ADD_ADDRESS,
-    data: data });
-
-}
-
-// 更新收货地址
-function updateReceiveAddress(data) {
-  data.default && Number(data.default);
-  return (0, _http.request)({
-    method: "POST",
-    url: _api.UPDATE_ADDRESS,
-    data: data });
-
-}
-
-// 删除收货地址
-function deleteReceiveAddress(data) {
-  return (0, _http.request)({
-    method: "POST",
-    url: _api.DELETE_ADDRESS,
-    data: data });
-
-}
-
-/***/ }),
-
-/***/ 650:
+/***/ 654:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -30000,7 +30202,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 651:
+/***/ 655:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -42559,7 +42761,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 687:
+/***/ 691:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -42713,7 +42915,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 688:
+/***/ 692:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -44231,7 +44433,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 689:
+/***/ 693:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -56802,7 +57004,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 704:
+/***/ 708:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/uni-icons/icons.js ***!
   \*****************************************************************************/
@@ -56983,175 +57185,6 @@ function getGoodsConvert(data) {var
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "" };exports.default = _default;
-
-/***/ }),
-
-/***/ 800:
-/*!*********************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/loan.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.loanAppt = loanAppt;exports.loanList = loanList;exports.loanListDetail = loanListDetail;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);var _require =
-
-
-__webpack_require__(/*! ./storage.js */ 801),getStorage = _require.getStorage;
-
-function loanAppt(data) {
-  // let token=getStorage('tempToken')
-  return (0, _http.request)({
-    method: "POST",
-    url: "".concat(_api.LOAN_APPT),
-    data: data });
-
-}
-
-function loanList(data) {
-  // let token=getStorage('tempToken')
-  return (0, _http.request)({
-    method: "GET",
-    url: "".concat(_api.LOAN_LIST),
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-function loanListDetail(data) {
-  // let token=getStorage('tempToken')
-  return (0, _http.request)({
-    method: "GET",
-    url: "".concat(_api.LOAN_LIST_DETAIL),
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-
-/***/ }),
-
-/***/ 801:
-/*!************************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/storage.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) { /**
-               * 对uni.setStorage()和uni.setStorageSync()的封装
-               * @param {string} key - 本地缓存中的指定的key
-               * @param {string|Object} data - 需要存储的内容
-               * @param {boolean} isSync - 是否同步设置缓存
-               * @return {void|Promise} 
-               */
-function setStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var isSync = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  if (isSync) {
-    return uni.setStorageSync(key, data);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.setStorage({
-        key: key,
-        data: data,
-        success: function success() {
-          resolve();
-        },
-        fail: function fail(res) {
-          reject();
-        } });
-
-    });
-  }
-}
-
-/**
-   * 对uni.getStorage()和uni.getStorageSync()的封装
-   * @param {string} key - 本地缓存中指定的key
-   * @param {boolean} isSync - 是否同步获取缓存 
-   * @return {string|Promise}
-   */
-function getStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  if (isSync) {
-    return uni.getStorageSync(key);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.getStorage({
-        key: key,
-        success: function success(res) {resolve(res.data);},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-
-/**
-   * 对uni.removeStorage()和uni.removeStorageSync()的封装
-   * @param {string} key - 本地缓存中指定的key
-   * @param {boolean} isSync - 是否同步移除指定的缓存
-   * @return {void|Promise} 
-   */
-function removeStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  if (isSync) {
-    return uni.removeStorageSync(key);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.removeStorage({
-        key: key,
-        success: function success() {resolve();},
-        fail: function fail(res) {reject();} });
-
-    });
-  }
-}
-
-/**
-   * 对uni.clearStorage()和uni.clearStorageSync()的封装
-   * @param {boolean} isSync - 是否同步清除缓存
-   * @return {void|Promise} 
-   */
-function clearStorage() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-  if (isSync) {
-    uni.clearStorageSync();
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.clearStorage({
-        success: function success() {resolve();},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-/**
-   * 对uni.getStorageInfo()和uni.getStorageInfoSync()的封装
-   * @param {boolean} isSync - 是否同步获取缓存的信息
-   * @return {Object|Promise} 
-   */
-function getStorageInfo() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-  if (isSync) {
-    return uni.getStorageInfoSync();
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.getStorageInfo({
-        success: function success(res) {resolve(res);},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-module.exports = {
-  setStorage: setStorage,
-  getStorage: getStorage,
-  removeStorage: removeStorage,
-  clearStorage: clearStorage,
-  getStorageInfo: getStorageInfo };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

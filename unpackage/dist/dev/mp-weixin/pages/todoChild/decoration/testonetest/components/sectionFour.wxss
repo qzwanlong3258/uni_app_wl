@@ -6,6 +6,13 @@
 	height: 100%;
 	position: relative;
 }
+.nextclass.data-v-0803ff71{
+	position: absolute;
+	left: calc(50% - 10px);
+	bottom: 10px;
+	-webkit-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
 .sectionFour-box.data-v-0803ff71{
 	position: absolute;
 	height: 100%;

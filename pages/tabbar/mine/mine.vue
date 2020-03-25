@@ -71,18 +71,17 @@
 'use strict';
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS} from '@/config/image.js';
 import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER} from '@/config/router.js';
-
+import { getStorage } from '@/utils/storage.js';
+var _self;
 export default {
-	components:{
-		
-		
+	components:{	
 	},
 	data() {
 		return{
 			userInfo:{
-				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
-				nickName:'李三',
-				phone:'广东 深圳'
+				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				// nickName:'李三',
+				// phone:'广东 深圳'
 			},
 			img:[MINE_MONEY,MINE_INTEGRAL],
 			imgMeaLoan:[MINE_MEASURE,MINE_LOAN],
@@ -125,6 +124,8 @@ export default {
 		
 	},
 	async onLoad() {
+		_self =this;
+		_self.userInfo = getStorage('userInfo');
 		this.getData(this.toYear+"-"+this.toMonth);
 	}
 };

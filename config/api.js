@@ -59,6 +59,9 @@ module.exports = {
 	/** 贷款分期申请 **/
 	LOAN_APPT:`${baseUrl}/wx/login/apply`,
 	LOAN_LIST:`${baseUrl}/wx/user/shcedule`,
-	LOAN_LIST_DETAIL:`${baseUrl}/wx/login/loadOrderPhaseInfo`
+	LOAN_LIST_DETAIL:`${baseUrl}/wx/login/loadOrderPhaseInfo`,
+	LOAN_BANK:`${baseUrl}/wx/login/loadBankInfo`,
+	LOAN_FACE_MEMBER:`${baseUrl}/wx/login/loadOrderVisa`,
+	LOAN_PERIOD:`${baseUrl}/wx/login/loadOrderPhaseImg`
 	
 }

@@ -16,8 +16,6 @@
 				<view v-for="(item,index) in ageData" :key="index" @click="ageClick(index)">
 					<label class="radio"><radio :value="item.value" :checked="index === agecurrent" />{{item.name}}</label>
 				</view>
-				
-				
 				</view>
 			<!-- <view class="sectionTwo-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
 				<view style="height: 80rpx;line-height: 80rpx;text-align: center;">
@@ -30,6 +28,7 @@
 				</view>
 				
 			</view> -->
+			<view class="iconfont iconnexts nextclass" ></view> 
 		</view>
 		
 	</view>
@@ -91,6 +90,13 @@
 		position: absolute;
 		height: 100%;
 		width: 100%;
+	}
+	.nextclass{
+		position: absolute;
+		left: calc(50% - 10px);
+		bottom: 10px;
+		transform: rotate(-90deg);
+		
 	}
 	.sectionTwo-hd{
 		height: 80rpx;

@@ -46,7 +46,13 @@ export default {
 		_self =this
 		 let v = await loanList({status:1})
 		 console.log(v)
-		 _self.dataList =v.list
+		 _self.dataList.push(...v.list)
+		 let a = await loanList({status:2})
+		 console.log(a)
+		 _self.dataList.push(...a.list)
+		 let b = await loanList({status:4})
+		 console.log(b)
+		 _self.dataList.push(...b.list)
 	},
 	methods: {
 		linkRecordDetail(e) {
@@ -66,18 +72,22 @@ export default {
 	}
 };
 </script>
-
 <style>
+	page{
+		background: rgba(242, 246, 249, 1);
+	}
+</style>
+<style scoped>
 .record {
 	font-size: 32rpx;
-	background: rgba(242, 246, 249, 1);
+	
 }
 .recordCard {
 	margin: 48rpx 15rpx;
 	height: 231rpx;
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 5rpx 10rpx 4rpx rgb(0, 0, 0, 0.1);
+	box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 	overflow: hidden;
 }
 .recordCard-hd {
