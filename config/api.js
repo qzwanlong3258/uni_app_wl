@@ -62,6 +62,8 @@ module.exports = {
 	LOAN_LIST_DETAIL:`${baseUrl}/wx/login/loadOrderPhaseInfo`,
 	LOAN_BANK:`${baseUrl}/wx/login/loadBankInfo`,
 	LOAN_FACE_MEMBER:`${baseUrl}/wx/login/loadOrderVisa`,
-	LOAN_PERIOD:`${baseUrl}/wx/login/loadOrderPhaseImg`
+	LOAN_PERIOD:`${baseUrl}/wx/login/loadOrderPhaseImg`,
 	
+	/** 我的工作—面签 **/
+	MYWORK_FACE:`${baseUrl}/wx/login/loadOrderVisaList`,
 }

@@ -44,15 +44,17 @@ export default {
 	},
 	async onLoad (options){
 		_self =this
+		let p =[]
 		 let v = await loanList({status:1})
 		 console.log(v)
-		 _self.dataList.push(...v.list)
+		 p.push(...v.list)
 		 let a = await loanList({status:2})
 		 console.log(a)
-		 _self.dataList.push(...a.list)
+		 p.push(...a.list)
 		 let b = await loanList({status:4})
 		 console.log(b)
-		 _self.dataList.push(...b.list)
+		 p.push(...b.list)
+		 _self.dataList =p
 	},
 	methods: {
 		linkRecordDetail(e) {

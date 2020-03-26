@@ -6,26 +6,26 @@
 		</view>
 		<ljl-states :infor="states" @change="stateChange"  />
 		<view class="box-left" :hidden='states.index==1'>
-			<view class="myWork-Card" @click="linkToDetail()">
+			<view class="myWork-Card" @click="linkToDetail" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
 				<view class="myWork-Card-hd">
-					<view class="Card-hd-left">水晶之城</view>
-					<view class="Card-hd-mid">刘**</view>
-					<view class="Card-hd-right">2019.07.01</view>
+					<view class="Card-hd-left">{{item.loanerName}}</view>
+					<view class="Card-hd-mid"></view>
+					<view class="Card-hd-right">{{item.lastTime|time}}</view>
 				</view>
 				<view class="myWork-Card-bottom">
-					龙岗区横岗街道荷坳地铁站旁水晶之城36栋503
+					{{item.address}}
 				</view>
 			</view>
 		</view>
 		<view class="box-left" :hidden='states.index==0'>
 			<view class="myWork-Card">
-				<view class="myWork-Card-hd" @click="linkToDetail()">
-					<view class="Card-hd-left">水晶之城</view>
-					<view class="Card-hd-mid">刘**</view>
-					<view class="Card-hd-right">2019.07.01</view>
+				<view class="myWork-Card-hd" @click="linkToDetail()" v-for="(item,index) in dataListCom" :key="index">
+					<view class="Card-hd-left">{{item.loanerName}}</view>
+					<view class="Card-hd-mid"></view>
+					<view class="Card-hd-right">{{item.lastTime|time}}</view>
 				</view>
 				<view class="myWork-Card-bottom">
-					龙岗区横岗街道荷坳地铁站旁水晶之城36栋503
+					{{item.address}}
 				</view>
 			</view>
 		</view>
@@ -35,18 +35,44 @@
 
 <script>
 'use strict';
+var _self;
 import LjlStates from './components/changeStates';
 import { MYWORKDETAIL} from '@/config/router.js';
+import { myWorkFace } from '@/api/myWork.js'
 export default {
 	components:{
 		LjlStates
 	},
 	data() {
 		return{
+			dataList:[],
+			dataListCom:[],
 			states: {
 				index: 0,
 				list: [ { title: '进行中', nullContent: "暂无客户" }, { title: '已完成', nullContent: "暂无设计师" }]
 			},
+		}
+	},
+	filters:{
+		time(val){
+			if(!val){
+				return ''
+			}
+			var time = new Date(val);
+			    
+			      function timeAdd0(str) {
+			        if (str < 10) {
+			          str = '0' + str;
+			        }
+			        return str
+			      }
+			      var y = time.getFullYear();
+			      var m = time.getMonth() + 1;
+			      var d = time.getDate();
+			      var h = time.getHours();
+			      var mm = time.getMinutes();
+			      var s = time.getSeconds();
+			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
 		}
 	},
 	methods:{
@@ -54,13 +80,31 @@ export default {
 			this.states.index = index;
 			this[`stateTo${index}`] && this[`stateTo${index}`]();
 		},
-		linkToDetail(){
+		linkToDetail(e){
 			uni.navigateTo({
-				url:MYWORKDETAIL
+				url: `${MYWORKDETAIL}?id=${e.currentTarget.dataset.id}`,
 			})
 		}
 	},
-	async onLoad() {}
+	async onLoad() {
+		_self = this
+		let p=[]
+		let b = await myWorkFace({state:1})
+		console.log(b)
+		p.push(...b.list)
+		// let c = await myWorkFace({state:2})
+		// console.log(c)
+		// p.push(...c.list)
+		_self.dataList =p
+		let o=[]
+		let e = await myWorkFace({state:2})
+		console.log(e)
+		o.push(...e.list)
+		let f = await myWorkFace({state:3})
+		console.log(f)
+		o.push(...f.list)
+		_self.dataListCom = o
+	}
 };
 </script>
 <style>

@@ -27,17 +27,17 @@
 					<view>产品类型</view>
 				</view>
 				<view class="scheduleCard-bottom-bottom" style="height: 50%;">
-					<view style="font-size: 32rpx;color: #C4282B;">500000元</view>
-					<view style="font-size: 30rpx;color: #333333;">2019-08-25</view>
+					<view style="font-size: 32rpx;color: #C4282B;">{{orderList.loanMoney|num}}元</view>
+					<view style="font-size: 30rpx;color: #333333;">{{orderList.lastTime|time}}</view>
 					<view style="font-size: 30rpx;color: #333333;padding-left: 40rpx;">合作产品</view>
 				</view>
 			</view>
 			<view class="scheduleCard-bottom" style="height: 30%;">
-				<view class="scheduleCard-bottom-top" style="height: 50%;color: #333333;font-size: 14px;">
+				<!-- <view class="scheduleCard-bottom-top" style="height: 50%;color: #333333;font-size: 14px;">
 					水晶之城 
-				</view>
+				</view> -->
 				<view class="scheduleCard-bottom-bottom" style="height: 50%;color: #666666;font-size: 12px;">
-					龙岗区横岗街道荷坳地铁站旁水晶之城36栋503
+					{{orderList.address}}
 				</view>
 			</view>
 		</view>
@@ -142,15 +142,18 @@
 
 <script>
 'use strict';
-
+var _self;
+import { loanListDetail } from '@/api/todoChild/loan.js';
+import { getStorage } from '@/utils/storage.js';
 export default {
 	data() {
 		return{
 			userInfo:{
-				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
-				nickName:'李三',
-				phone:13584115454
+				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				// nickName:'李三',
+				// phone:13584115454
 			},
+			orderList:[],
 			successItems: [
 				{
 					value: 'USA',
@@ -174,6 +177,34 @@ export default {
 								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
 								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
 								],
+		}
+	},
+	filters:{
+		num(val){
+			if(!val){
+				return ''
+			}
+			return Number(val).toFixed(2)
+		},
+		time(val){
+			if(!val){
+				return ''
+			}
+			var time = new Date(val);
+			    
+			      function timeAdd0(str) {
+			        if (str < 10) {
+			          str = '0' + str;
+			        }
+			        return str
+			      }
+			      var y = time.getFullYear();
+			      var m = time.getMonth() + 1;
+			      var d = time.getDate();
+			      var h = time.getHours();
+			      var mm = time.getMinutes();
+			      var s = time.getSeconds();
+			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) + ' ' + timeAdd0(h) + ':' + timeAdd0(mm) + ':' + timeAdd0(s);
 		}
 	},
 	methods:{
@@ -204,8 +235,13 @@ export default {
 		    })
 		  },
 	},
-	async onLoad() {
-		
+	async onLoad(options) {
+		this.userInfo = getStorage('userInfo');
+		console.log(this.userInfo);
+		_self = this
+		let v = await loanListDetail({orderid:options.id})
+		console.log(v)
+		_self.orderList = v.order[0]
 	}
 };
 </script>

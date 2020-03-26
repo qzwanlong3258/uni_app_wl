@@ -10,12 +10,12 @@
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款金额</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;">￥{{orderList.loanMoney|num}}</view>
+					<view class="recordDetailCard-bd-item-right" style="color:#E02F17;"><text v-if="orderList.loanMoney">￥</text>{{orderList.loanMoney|num}}</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款期限</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right" style="color: #333333;">{{orderList.term}}期</view>
+					<view class="recordDetailCard-bd-item-right" style="color: #333333;"><text v-if='orderList.term'>{{orderList.term?orderList.term:''}} 期</text> </view>
 				</view>
 				<!-- <view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">利率</view>
@@ -27,10 +27,10 @@
 					<view class="recordDetailCard-bd-item-mid"></view>
 					<view class="recordDetailCard-bd-item-right">合作产品</view>
 				</view> -->
-				<view class="recordDetailCard-bd-item">
+				<view class="recordDetailCard-bd-item" v-if='bankData.name'>
 					<view class="recordDetailCard-bd-item-left">放款机构</view>
 					<view class="recordDetailCard-bd-item-mid"></view>
-					<view class="recordDetailCard-bd-item-right">{{orderList.bankId|bank}}</view>
+					<view class="recordDetailCard-bd-item-right">{{bankData.name}}</view>
 				</view>
 				<view class="recordDetailCard-bd-item">
 					<view class="recordDetailCard-bd-item-left">借款单号</view>
@@ -49,7 +49,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="recordDetailCardBd">
+		<view class="recordDetailCardBd" v-if="bankData.name">
 			<view class="recordDetailCard-hd">银行信息</view>
 			<view class="recordDetailCard-bd">
 				<map style="width: 94%; height: 150px;margin-left:3%" scale="20" :latitude="latitude" :longitude="longitude" :markers="covers"></map>
@@ -172,6 +172,9 @@ export default {
 	},
 	filters:{
 		num(val){
+			if(!val){
+				return ''
+			}
 			return Number(val).toFixed(2)
 		},
 		arry(val){
@@ -228,7 +231,7 @@ export default {
 		
 	},
 	onLoad: async function(options) {
-		options.id ='4'
+		
 		this.userInfo = getStorage('userInfo');
 		console.log(this.userInfo);
 		_self = this;
@@ -236,6 +239,7 @@ export default {
 		// 获取订单信息
 		let v = await loanListDetail({orderid:options.id})
 		console.log(v)
+		_self.orderList = v.order[0]
 		if(v.period.length){
 			for(let i =0;i<v.period.length;i++){
 				_self.periodList.push(await loanPeriod({uuid:v.period[i].uuid}))

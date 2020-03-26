@@ -1,3 +1,8 @@
+
+page{
+	background: rgba(255, 255, 255, 1);
+}
+
 @charset "UTF-8";
 /* Color
 --------------------------*/
@@ -20,12 +25,8 @@
   margin-left: 10px;
 }
 .application.data-v-71b650e6 {
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #666666;
-  background: white;
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 .application_hd.data-v-71b650e6 {
   padding: 0 16rpx 0 16rpx;

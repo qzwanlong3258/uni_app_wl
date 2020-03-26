@@ -29,7 +29,7 @@
 				<view class="appli_hd_item_content"><input type="number" v-model="dataList.phone"  maxlength="11"  placeholder="请输入你的联系电话" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">婚姻状态</view>
+				<view class="appli_hd_item_lable">婚姻状态:</view>
 				<view class="appli_hd_item_content">
 					<radio-group @change="marriageRadioChange">
 						<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in marriageItems" :key="item.value">
@@ -41,7 +41,7 @@
 				</view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">工作单位性质</view>
+				<view class="appli_hd_item_lable">工作单位性质:</view>
 				<view class="appli_hd_item_content appli_hd_item_content_work">
 					<view class="uni-list uni-input-style">
 						<view class="uni-list-cell uni-input-style">
@@ -66,7 +66,7 @@
 	<view class="title">
 		<view><image :src="img[1]" mode="widthFix"></image></view>
 		
-		<view style="margin-left: 10px;">贷款信息</view>
+		<view style="margin-left: 10px;">贷款信息:</view>
 	</view>
 	<view class="application_bd">
 		<view class="application_hd_item">
@@ -74,7 +74,7 @@
 			<view class="appli_hd_item_content"><input type="number" v-model="dataList.loanMoney"  placeholder="请输入你的金额" placeholder-class="input_color" /></view>
 		</view>
 		<view class="application_hd_item">
-			<view class="appli_hd_item_lable">申请周期</view>
+			<view class="appli_hd_item_lable">申请周期:</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
 					<view class="uni-list-cell uni-input-style">
@@ -86,8 +86,16 @@
 						</view>
 					</view>
 				</view>
-				
 			</view>
+		</view>
+		<view class="application_hd_item">
+			<view class="appli_hd_item_lable">所在地区:</view>
+			<view class="appli_hd_item_content" @click="openAddres"><input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /></view>
+			<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onOpenConfirm" themeColor='#007AFF'></simple-address>
+		</view>
+		<view class="application_hd_item">
+			<view class="appli_hd_item_lable">详细地址:</view>
+			<view class="appli_hd_item_content"><input type="number" v-model="adressDetail"  placeholder="请输入你的详细地址" placeholder-class="input_color" /></view>
 		</view>
 		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
@@ -145,14 +153,13 @@
 						
 		<view style="height: 20rpx;"></view>
 		<!-- <view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view> -->
-		<view class="btn" style="margin-top: 70px;" @click="submit">
+		<view class="btn" style="margin-top: 120px;margin-bottom: 20px;" @click="submit">
 			提交
 		</view>
 		
 		<!-- <button style="margin:30rpx;" @click="chooseimage">获取图片</button>
 		<image :src="tempFilePaths" mode="aspecFill" style="width: 100%; height: 450rpx"/> -->
 		</view>
-		
 				<!-- <w-picker
 					mode="date" 
 					    startYear="2017" 
@@ -173,6 +180,7 @@
 						</view>
 					</view>
 				</uni-popup> -->
+				
 	</view>
 </template>
 
@@ -183,6 +191,7 @@ import wPicker from "@/components/w-picker/w-picker.vue";
 import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
 import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
+import simpleAddress from "@/components/simple-address-normal/simple-address.nvue"
 
 import { loanAppt } from '@/api/todoChild/loan.js'
 var _self;
@@ -243,7 +252,10 @@ export default {
 				                    end: '12:00'
 				                }
 				            ],
-				value: ''
+				value: '',
+				cityPickerValueDefault: [0, 0, 1],
+				                pickerText: '北京市 市辖区 西城区',
+								adressDetail:''
 			
 			
 			
@@ -339,6 +351,7 @@ export default {
 	    },
 		submit: function () {
 			console.log(DECORATION)
+			_self.dataList.address=this.pickerText+ ' '+this.adressDetail
 			loanAppt(this.dataList).then( res=>{
 				 uni.showToast({
 								title: "提交成功",
@@ -354,17 +367,33 @@ export default {
 							
 			})
 			
-		}
+		},
+		openAddres() {
+			
+		                this.$refs.simpleAddress.open();
+		            },
+		            onOpenConfirm(e) {
+						
+						var b=e.label.split('-')
+						// console.log(e)
+						
+		                this.pickerText = b[0]+' '+ b[1]+' '+b[2]
+		            },
 	},
 	components: {
 		// ApplicationInput
 		
 		wPicker,
-		uniPopup
+		uniPopup,
+		simpleAddress
 	}
 };
 </script>
-
+<style>
+	page{
+		background: rgba(255, 255, 255, 1);
+	}
+</style>
 <style lang="scss" scoped>
 	
 // .application_view-box {
@@ -412,12 +441,10 @@ export default {
 
 
 .application {
-	font-size: 32rpx;
+	font-size: 30rpx;
 	color: #666666;
-	background: rgba(255, 255, 255, 1);
-	position: absolute;
-	width: 100%;
-	height: 100%;
+	
+	
 	
 }
 .application_hd {

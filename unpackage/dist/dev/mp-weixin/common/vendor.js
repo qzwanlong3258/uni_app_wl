@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8973,7 +8973,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8994,14 +8994,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9077,7 +9077,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9526,7 +9526,10 @@ module.exports = {
   LOAN_LIST_DETAIL: "".concat(baseUrl, "/wx/login/loadOrderPhaseInfo"),
   LOAN_BANK: "".concat(baseUrl, "/wx/login/loadBankInfo"),
   LOAN_FACE_MEMBER: "".concat(baseUrl, "/wx/login/loadOrderVisa"),
-  LOAN_PERIOD: "".concat(baseUrl, "/wx/login/loadOrderPhaseImg") };
+  LOAN_PERIOD: "".concat(baseUrl, "/wx/login/loadOrderPhaseImg"),
+
+  /** 我的工作—面签 **/
+  MYWORK_FACE: "".concat(baseUrl, "/wx/login/loadOrderVisaList") };
 
 /***/ }),
 
@@ -10945,7 +10948,7 @@ getters;exports.default = _default;
 
 /***/ }),
 
-/***/ 296:
+/***/ 298:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
   \******************************************************************/
@@ -11254,7 +11257,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 437:
+/***/ 441:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -11783,7 +11786,7 @@ function updateOrder(data) {
 
 /***/ }),
 
-/***/ 492:
+/***/ 496:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
   \******************************************************************/
@@ -12697,7 +12700,7 @@ main();
 
 /***/ }),
 
-/***/ 577:
+/***/ 581:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -12705,7 +12708,7 @@ main();
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 578);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 582);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -13233,7 +13236,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 578:
+/***/ 582:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -13275,7 +13278,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 
 /***/ }),
 
-/***/ 628:
+/***/ 632:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -13425,7 +13428,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 629:
+/***/ 633:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -14939,7 +14942,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 630:
+/***/ 634:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -27492,7 +27495,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 631:
+/***/ 635:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -28530,7 +28533,7 @@ function deleteReceiveAddress(data) {
 
 /***/ }),
 
-/***/ 653:
+/***/ 657:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -28684,7 +28687,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 654:
+/***/ 658:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -30202,7 +30205,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 655:
+/***/ 659:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -42761,7 +42764,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 691:
+/***/ 695:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -42915,7 +42918,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 692:
+/***/ 696:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -44433,7 +44436,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 693:
+/***/ 697:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -57004,7 +57007,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 708:
+/***/ 712:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/uni-icons/icons.js ***!
   \*****************************************************************************/
@@ -57185,6 +57188,34 @@ function getGoodsConvert(data) {var
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "" };exports.default = _default;
+
+/***/ }),
+
+/***/ 814:
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/myWork.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.myWorkFace = myWorkFace;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+//加载积分商品
+function myWorkFace(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.MYWORK_FACE,
+    showSuccessToast: true,
+    data: data });
+
+}
 
 /***/ }),
 

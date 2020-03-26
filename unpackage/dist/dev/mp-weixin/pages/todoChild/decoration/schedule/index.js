@@ -254,7 +254,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 268);
-var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance");}function _iterableToArray(iter) {if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;}}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var uniSteps = function uniSteps() {return __webpack_require__.e(/*! import() | components/uni-steps/uni-steps */ "components/uni-steps/uni-steps").then(__webpack_require__.bind(null, /*! @/components/uni-steps/uni-steps.vue */ 641));};var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 480));};var _default =
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance");}function _iterableToArray(iter) {if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;}}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var uniSteps = function uniSteps() {return __webpack_require__.e(/*! import() | components/uni-steps/uni-steps */ "components/uni-steps/uni-steps").then(__webpack_require__.bind(null, /*! @/components/uni-steps/uni-steps.vue */ 645));};var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 484));};var _default =
 {
   components: { uniSteps: uniSteps, LjlStates: LjlStates },
 
@@ -283,6 +283,9 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
       }
       if (val == '4') {
         return 4;
+      }
+      if (val == '5') {
+        return 3;
       }
     },
     time: function time(val) {
@@ -315,28 +318,33 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
                 this["stateTo".concat(index)] && this["stateTo".concat(index)]();case 3:case "end":return _context.stop();}}}, _callee, this);}));function stateChange(_x) {return _stateChange.apply(this, arguments);}return stateChange;}() },
 
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _self$dataList, _self$dataList2, _self$dataList3, _self$failDataList, _self$failDataList2;var v, a, b, c, d;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var p, v, a, b, o, c, d;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
 
               _self = this;
               _self.userInfo = (0, _storage.getStorage)('userInfo');
-              console.log(this.userInfo);_context2.next = 5;return (
+              console.log(this.userInfo);
 
-                (0, _loan.loanList)({ status: 1 }));case 5:v = _context2.sent;
+              p = [];_context2.next = 6;return (
+                (0, _loan.loanList)({ status: 1 }));case 6:v = _context2.sent;
               console.log(v);
-              (_self$dataList = _self.dataList).push.apply(_self$dataList, _toConsumableArray(v.list));_context2.next = 10;return (
-                (0, _loan.loanList)({ status: 2 }));case 10:a = _context2.sent;
+              p.push.apply(p, _toConsumableArray(v.list));_context2.next = 11;return (
+                (0, _loan.loanList)({ status: 2 }));case 11:a = _context2.sent;
               console.log(a);
-              (_self$dataList2 = _self.dataList).push.apply(_self$dataList2, _toConsumableArray(a.list));_context2.next = 15;return (
-                (0, _loan.loanList)({ status: 4 }));case 15:b = _context2.sent;
+              p.push.apply(p, _toConsumableArray(a.list));_context2.next = 16;return (
+                (0, _loan.loanList)({ status: 4 }));case 16:b = _context2.sent;
               console.log(b);
-              (_self$dataList3 = _self.dataList).push.apply(_self$dataList3, _toConsumableArray(b.list));_context2.next = 20;return (
-                (0, _loan.loanList)({ status: 3 }));case 20:c = _context2.sent;
+              p.push.apply(p, _toConsumableArray(b.list));
+              _self.dataList = p;
+
+              o = [];_context2.next = 23;return (
+                (0, _loan.loanList)({ status: 3 }));case 23:c = _context2.sent;
               console.log(c);
-              (_self$failDataList = _self.failDataList).push.apply(_self$failDataList, _toConsumableArray(c.list));_context2.next = 25;return (
-                (0, _loan.loanList)({ status: 5 }));case 25:d = _context2.sent;
+              o.push.apply(o, _toConsumableArray(c.list));_context2.next = 28;return (
+                (0, _loan.loanList)({ status: 5 }));case 28:d = _context2.sent;
               console.log(d);
-              (_self$failDataList2 = _self.failDataList).push.apply(_self$failDataList2, _toConsumableArray(d.list));
-              console.log(_self.dataList);case 29:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+              o.push.apply(o, _toConsumableArray(d.list));
+              console.log(_self.dataList);
+              _self.failDataList = o;case 33:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 
 /***/ }),
 

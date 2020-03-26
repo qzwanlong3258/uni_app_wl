@@ -19,7 +19,7 @@
 				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
 				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="item.state|state"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]"  :active="item.state|state"></uni-steps>
 			<view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -61,7 +61,7 @@
 				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
 				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :active="item.state|state"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
 			<view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -125,6 +125,9 @@ export default {
 			if(val=='4'){
 				return 4
 			}
+			if(val=='5'){
+				return 3
+			}
 		},
 		time(val){
 			if(!val){
@@ -162,22 +165,27 @@ export default {
 		_self.userInfo = getStorage('userInfo');
 		console.log(this.userInfo);
 		
+		let p =[]
 		 let v = await loanList({status:1})
 		 console.log(v)
-		 _self.dataList.push(...v.list)
+		 p.push(...v.list)
 		 let a = await loanList({status:2})
 		 console.log(a)
-		 _self.dataList.push(...a.list)
+		 p.push(...a.list)
 		 let b = await loanList({status:4})
 		 console.log(b)
-		 _self.dataList.push(...b.list)
+		 p.push(...b.list)
+		 _self.dataList =p
+		
+		 let o =[]
 		 let c = await loanList({status:3})
 		 console.log(c)
-		 _self.failDataList.push(...c.list)
+		 o.push(...c.list)
 		 let d = await loanList({status:5})
 		 console.log(d)
-		 _self.failDataList.push(...d.list)
+		 o.push(...d.list)
 		  console.log(_self.dataList)
+		  _self.failDataList =o
 		 
 	}
 };
