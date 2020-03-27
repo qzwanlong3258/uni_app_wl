@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "我的工作",
-  "usingComponents": {}
+  "usingComponents": {
+    "camera": "/pages/todoChild/myWork/myWorkDetail/components/camera/camera"
+  }
 }

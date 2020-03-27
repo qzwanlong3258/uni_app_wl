@@ -1,5 +1,8 @@
 <template>
-	<view class="myWork-Detail">
+	<view >
+		
+	
+	<view class="myWork-Detail" :hidden='hidden'>
 		<view class="scheduleCard" >
 			<view class="scheduleCard-top" style="height: 35%;border-bottom:4rpx solid #F0F0F0 ;">
 				<view class="scheduleCard-top-left">
@@ -100,7 +103,7 @@
 		<scroll-view class="scroll-view_H" scroll-x="true">
 							<view class="scroll-view-item_H" v-for="(huadong,index) in huadongs" :key="index">
 								
-								<view @click="chooseimage" class="scroll-view-item_H_img"><image :src="tempFilePaths" mode=""></image>
+								<view @click="chooseimage"  :data-id="index" class="scroll-view-item_H_img"><image :src="tempFilePaths" mode=""></image>
 								<view class="iconfont  iconpaizhao scroll-view-item_H_icon"  :hidden="tempFilePaths!=''"></view>
 								</view>
 								<view>{{huadong.name}}</view>
@@ -138,16 +141,23 @@
 			<view class="btn" @click="toLinkChoose">提交</view>
 		</view>
 	</view>
+	<camera :hidden="!hidden" ref="camera" @refreshDataList="getDataList"></camera>
+	</view>
 </template>
 
 <script>
 'use strict';
 var _self;
 import { loanListDetail } from '@/api/todoChild/loan.js';
+import camera from './components/camera/camera.vue';
 import { getStorage } from '@/utils/storage.js';
 export default {
+	components:{
+		camera
+	},
 	data() {
 		return{
+			hidden:false,
 			userInfo:{
 				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
 				// nickName:'李三',
@@ -221,18 +231,24 @@ export default {
 		            this.workIndex = e.target.value
 		        },
 		// 选择照片
-		chooseimage: function () {
-		    var _this = this;
-		    uni.chooseImage({
-		      count: 9, // 默认9
-		      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-		      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-		      success: function (res) {
-		        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-				_self.tempFilePaths = res.tempFilePaths
+		chooseimage: function (e) {
+			this.hidden = true
+			        this.$nextTick(() => {
+			          this.$refs.camera.init(e.currentTarget.dataset.id)
+			        })
+			
+			
+		  //   var _this = this;
+		  //   uni.chooseImage({
+		  //     count: 9, // 默认9
+		  //     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+		  //     sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+		  //     success: function (res) {
+		  //       // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+				// _self.tempFilePaths = res.tempFilePaths
 				
-		      }
-		    })
+		  //     }
+		  //   })
 		  },
 	},
 	async onLoad(options) {
@@ -245,11 +261,15 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background:#FFFFFF;
+	}
+</style>
 <style scoped>
 	.myWork-Detail{
-		background: #FFFFFF;
-		height: 1200px;
+		/* background: #FFFFFF;
+		height: 1200px; */
 		padding-top: 20px;
 	}
 	.scheduleCard{

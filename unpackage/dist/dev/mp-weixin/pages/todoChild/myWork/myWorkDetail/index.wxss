@@ -1,7 +1,12 @@
 
+page{
+	background:#FFFFFF;
+}
+
+
 .myWork-Detail.data-v-191deafa{
-	background: #FFFFFF;
-	height: 1200px;
+	/* background: #FFFFFF;
+	height: 1200px; */
 	padding-top: 20px;
 }
 .scheduleCard.data-v-191deafa{
