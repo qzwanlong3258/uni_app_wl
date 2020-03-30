@@ -66,4 +66,7 @@ module.exports = {
 	
 	/** 我的工作—面签 **/
 	MYWORK_FACE:`${baseUrl}/wx/login/loadOrderVisaList`,
+	
+	/** 上传照片 **/
+	UPLOAD:`${baseUrl}/ftp/upload`
 }

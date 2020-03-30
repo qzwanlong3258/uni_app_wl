@@ -77,5 +77,7 @@ module.exports = {
 	INVITEGIFT:'/pages/todoChild/inviteGift/index',
 	//日历
 	CALENDER:'/pages/todoChild/calender/index',
+	//拍照
+	CAMERA:`/pages/todoChild/camera/index` 
 	
 }

@@ -45,34 +45,37 @@ page{
 	        flex: 1;
 }
 .scheduleCard-top-right.data-v-191deafa{
-	-webkit-flex-basis: 180rpx;
-	        flex-basis: 180rpx;
+	-webkit-flex-basis: 400rpx;
+	        flex-basis: 400rpx;
 }
 .scheduleCard-top-right-success.data-v-191deafa{
-	padding-left: 104rpx;
-	padding-top: 20rpx;
+	
+	/* padding-top: 20rpx; */
 }
 .scheduleCard-top-right-success-circle.data-v-191deafa{
-	width: 68rpx;
-	height: 68rpx;
+	width: 40rpx;
+	height: 40rpx;
 	
 	border-radius: 50%;
-	line-height: 68rpx;
+	line-height: 40rpx;
 	text-align: center;
-	background: #439EFF;
+	background: #FFFFFF;
+	border: 1px solid #333333;
+	overflow: hidden;
 }
 .scheduleCard-bottom-top.data-v-191deafa{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
+	padding: 5px 0;
 }
 .scheduleCard-bottom-top view.data-v-191deafa{
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;
-	padding: 20rpx 0 0 20rpx;
-	font-size: 28rpx;
-	color: #999999;
+	text-align: center;
+	font-size: 14px;
+	color: #333333;
 }
 .scheduleCard-bottom-bottom.data-v-191deafa{
 	display: -webkit-box;
@@ -83,18 +86,23 @@ page{
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;
+	text-align: center;
+	font-size: 14px;
+	color: #333333;
 }
 .iconclass.data-v-191deafa{
-	color: #FFFFFF;
+	color: #333333;
+	font-size: 12px;
+	margin-top: -10px;
 }
 .title.data-v-191deafa{
-	height:14px;
-	font-size:13px;
+	height:30px;
+	font-size:16px;
 	
 	font-weight:600;
 	color:rgba(51,51,51,1);
 	margin: 10px 0 10px 10px;
-	line-height: 14px;
+	line-height: 30px;
 	letter-spacing:1px;
 }
 .seclect.data-v-191deafa{
@@ -187,36 +195,41 @@ page{
 .scroll-view-item_H.data-v-191deafa {
 		display: inline-block;
 		width: 159rpx;
-		height: 195rpx;
+		height: 220rpx;
 		text-align: center;
 		margin: 2%  1% 2% 1%;
 }
 .scroll-view-item_H_icon.data-v-191deafa{
 		position: absolute; 
-		top: 50%;
+		width: 100%;
+		top: 30%;
 		-webkit-transform: translateY(-50%);
 		        transform: translateY(-50%);
 		color: #CCCCCC;
 }
 .scroll-view-item_H view.data-v-191deafa{
-		box-sizing: border-box;
+		/* box-sizing: border-box; */
 }
-.scroll-view-item_H view.data-v-191deafa:nth-child(1){
+.scroll-view-item_H .photo_box.data-v-191deafa{
 		width: 100%;
 		height: 146rpx;
 		position: relative;
-		background: rgba(229, 229, 229, 1);
-		border-radius: 10rpx;
+		background: rgba(241,241,241);
 }
-.scroll-view-item_H view:nth-child(1) image.data-v-191deafa{
+.scroll-view-item_H .photo_box image.data-v-191deafa{
 		width: 100%;
 		height: 146rpx;
-		border-radius: 10rpx;
+		
 		display: block;
 }
-.scroll-view-item_H view.data-v-191deafa:nth-child(2){
-		width: 100%;
-		height: 49rpx;
+.scroll-view-item_H  .photo_bottom.data-v-191deafa{
+		height: 30px;
+		margin: 5px 0 0 0;
+		border: 1px solid rgba(229, 229, 229, 1);
+		background: #FFFFFF;
+		width:100%;
+		position: relative;
+		line-height: 30px;
 }
 .title-small.data-v-191deafa{
 		height:14px;
@@ -234,16 +247,20 @@ page{
 	bottom: 20rpx; */
 	width: 100%;
 	height: 100rpx;
+	margin-top: 30px;
 }
 .btn.data-v-191deafa{
-	height: 100rpx;
+	height: 80rpx;
 	
 	text-align: center;
-	line-height: 100rpx;
-	border-radius: 5rpx;
-	background: #E8BE2E;
-	color: #FFFFFF;
+	line-height: 80rpx;
+	border-radius: 20px;
+	background: #FFE906;
+	color: #000000;
 	margin-left: 20rpx;
 	margin-right: 20rpx;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	font-size: 14px;
+	letter-spacing: 2px;
 }
 

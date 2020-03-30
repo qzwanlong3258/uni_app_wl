@@ -1,50 +1,50 @@
 <template>
-	<view >
+	
 		
 	
-	<view class="myWork-Detail" :hidden='hidden'>
-		<view class="scheduleCard" >
-			<view class="scheduleCard-top" style="height: 35%;border-bottom:4rpx solid #F0F0F0 ;">
-				<view class="scheduleCard-top-left">
+	<view class="myWork-Detail" >
+		
+			<view class="scheduleCard-top" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 20px;">
+				<view class="scheduleCard-top-left" >
 					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
 				</view>
 				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;">{{userInfo.nickName}}</view>
-					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;;color:#999999">电话：{{userInfo.phone}}</view>
-				</view>
-				<view class="scheduleCard-top-right">
-					<view class="scheduleCard-top-right-success">
-						<view class="scheduleCard-top-right-success-circle">
+					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{userInfo.nickName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
 							<icon class="iconfont icondianhua iconclass"></icon>
-						</view>
+						</view></view>
+					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;">面签银行：{{userInfo.phone}}</view>
+				</view>
+				<!-- <view class="scheduleCard-top-right">
+					<view class="scheduleCard-top-right-success">
+						
 					</view>
 					<view class="scheduleCard-top-right-fail">
 						
 					</view>
-				</view>
+				</view> -->
 			</view>
-			<view class="scheduleCard-bottom" style="height: 35%;">
-				<view class="scheduleCard-bottom-top" style="height: 50%;">
+			<view class="scheduleCard-bottom" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 5px 0;">
+				<view class="scheduleCard-bottom-top" style="height: 50%;color: #666666;">
 					<view>申请额度</view>
 					<view>申请日期</view>
 					<view>产品类型</view>
 				</view>
 				<view class="scheduleCard-bottom-bottom" style="height: 50%;">
-					<view style="font-size: 32rpx;color: #C4282B;">{{orderList.loanMoney|num}}元</view>
-					<view style="font-size: 30rpx;color: #333333;">{{orderList.lastTime|time}}</view>
-					<view style="font-size: 30rpx;color: #333333;padding-left: 40rpx;">合作产品</view>
+					<view >{{orderList.loanMoney|num}}元</view>
+					<view >{{orderList.lastTime|time}}</view>
+					<view >银行产品</view>
 				</view>
 			</view>
-			<view class="scheduleCard-bottom" style="height: 30%;">
+			<view class="scheduleCard-bottom" style="height: 50px;line-height: 50px;font-size: 15px;color: #666666;padding-left: 30px;border-bottom:6rpx solid #F0F0F0 ;">
 				<!-- <view class="scheduleCard-bottom-top" style="height: 50%;color: #333333;font-size: 14px;">
 					水晶之城 
 				</view> -->
-				<view class="scheduleCard-bottom-bottom" style="height: 50%;color: #666666;font-size: 12px;">
+				<!-- <view class="scheduleCard-bottom-bottom" style="height: 50%;color: #666666;font-size: 12px;"> -->
 					{{orderList.address}}
-				</view>
+				<!-- </view> -->
 			</view>
-		</view>
-		<view class="title">
+		
+		<!-- <view class="title">
 			贷款结果
 		</view>
 		<view class="seclect">
@@ -69,7 +69,7 @@
 			<view class="seclect-item">失败原因</view>
 			<view class="seclect-content"> <input type="text" class="content-input"></view>
 			<view class="seclect-right"></view>
-		</view>
+		</view> -->
 		<view class="title">
 			施工阶段
 		</view>
@@ -89,28 +89,45 @@
 					</view>
 					
 			</view>
-			<view class="work-mid">
-				<input type="text" v-model="inputvalue" placeholder="比率" class="work-mid-input"> <text style="margin-top: 3px;">%</text>
+			<view class="work-mid" style="position: relative;">
+				<input type="text" v-model="inputvalue" placeholder="比率" class="work-mid-input" > <text style="margin-top: 3px;">% </text></input>
+				
 			</view>
 			<view class="work-right">
-				<icon class="iconfont iconjian" style="margin-left: 5px;"></icon>
-				<icon class="iconfont iconjia" style="margin-left: 5px;"></icon>
+				<icon class="iconfont iconjian" style="margin-left: 10px;"></icon>
+				<icon class="iconfont iconjia" style="margin-left: 10px;"></icon>
 			</view>
 		</view>
+		<view style="height: 25px;border-bottom:6rpx solid #F0F0F0 ;"></view>
 		<view class="title">
-			初始照片
+			现场照片
 		</view>
 		<scroll-view class="scroll-view_H" scroll-x="true">
-							<view class="scroll-view-item_H" v-for="(huadong,index) in huadongs" :key="index">
+							<view class="scroll-view-item_H" v-for="(item,index) in datawork" :key="index">
 								
-								<view @click="chooseimage"  :data-id="index" class="scroll-view-item_H_img"><image :src="tempFilePaths" mode=""></image>
-								<view class="iconfont  iconpaizhao scroll-view-item_H_icon"  :hidden="tempFilePaths!=''"></view>
+								<view @click="chooseimage" :data-id="item.workIndex" class="photo_box"  ><image :src="item.img" mode=""></image>
+								<view class="iconfont  iconjia scroll-view-item_H_icon"  :hidden="item.img!=''"></view>
+								<view style="position: absolute;top: 50%;color: #000000;text-align: center;font-size: 12px;width: 100%;"> 上传照片</view>
 								</view>
-								<view>{{huadong.name}}</view>
+								<view class="photo_bottom" >
+									
+									
+										<view class="uni-list uni-input-style">
+											<view class="uni-list-cell uni-input-style">
+												<view class="uni-list-cell-db uni-input-style">
+													<picker @change="workBindPickerChange($event,index)" :value="item.workIndex" :range="item.workArray" >
+														<view class="uni-input uni-input-style">{{ item.workArray[item.workIndex] }}</view>
+														<view class="iconfont  iconyou  iconyouclass" style="right: 0;" ></view>
+													</picker>
+												</view>
+											</view>
+										</view>
+										
+								</view>
 								
 							</view>
 						</scroll-view>
-		<view class="title">
+		<!-- <view class="title">
 			签合同
 		</view>
 		<scroll-view class="scroll-view_H" scroll-x="true">
@@ -136,25 +153,25 @@
 								<view>{{huadong.name}}</view>
 								
 							</view>
-						</scroll-view>
+						</scroll-view> -->
 		<view class="apptMeasureHome_ft">
 			<view class="btn" @click="toLinkChoose">提交</view>
 		</view>
 	</view>
-	<camera :hidden="!hidden" ref="camera" @refreshDataList="getDataList"></camera>
-	</view>
+	
 </template>
 
 <script>
 'use strict';
 var _self;
 import { loanListDetail } from '@/api/todoChild/loan.js';
-import camera from './components/camera/camera.vue';
+// import camera from './components/camera/camera.vue';
 import { getStorage } from '@/utils/storage.js';
+import { CAMERA} from '@/config/router.js';
 export default {
-	components:{
-		camera
-	},
+	// components:{
+	// 	camera
+	// },
 	data() {
 		return{
 			hidden:false,
@@ -163,7 +180,11 @@ export default {
 				// nickName:'李三',
 				// phone:13584115454
 			},
-			orderList:[],
+			orderList:{
+				loanMoney:300,
+				lastTime:1585568923,
+				address:'dqwadcqd'
+			},
 			successItems: [
 				{
 					value: 'USA',
@@ -179,13 +200,13 @@ export default {
 			workIndex: 0,
 			inputvalue:40,
 			tempFilePaths:'',
-			huadongs:[
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
-								{img:'tempFilePaths',name:'舟舟',info:'xxxxxxxx'},
+			datawork:[
+								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],workIndex: 0,},
+								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],workIndex: 0,},
+								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字'],workIndex: 0,},
+								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字'],workIndex: 0,},
+								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],workIndex: 0,},
+								
 								],
 		}
 	},
@@ -214,7 +235,7 @@ export default {
 			      var h = time.getHours();
 			      var mm = time.getMinutes();
 			      var s = time.getSeconds();
-			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) + ' ' + timeAdd0(h) + ':' + timeAdd0(mm) + ':' + timeAdd0(s);
+			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
 		}
 	},
 	methods:{
@@ -226,16 +247,24 @@ export default {
 				}
 			}
 		},
-		workBindPickerChange: function(e) {
+		workBindPickerChange: function(e ,v) {
 		            console.log('picker发送选择改变，携带值为', e.target.value)
-		            this.workIndex = e.target.value
+					console.log(e)
+		            this.datawork[v].workIndex = e.target.value
 		        },
 		// 选择照片
 		chooseimage: function (e) {
-			this.hidden = true
-			        this.$nextTick(() => {
-			          this.$refs.camera.init(e.currentTarget.dataset.id)
-			        })
+			let a='face'
+			uni.navigateTo({
+				
+				url: `${CAMERA}?num=${e.currentTarget.dataset.id}&role=${a}`,
+			})
+			
+			// this.hidden = true
+			//         this.$nextTick(() => {
+			//           this.$refs.camera.init(e.currentTarget.dataset.id)
+			//         })
+			
 			
 			
 		  //   var _this = this;
@@ -304,48 +333,56 @@ export default {
 		
 	}
 	.scheduleCard-top-right{
-		flex-basis: 180rpx;
+		flex-basis: 400rpx;
 	}
 	.scheduleCard-top-right-success{
-		padding-left: 104rpx;
-		padding-top: 20rpx;
+		
+		/* padding-top: 20rpx; */
 		
 	}
 	.scheduleCard-top-right-success-circle{
-		width: 68rpx;
-		height: 68rpx;
+		width: 40rpx;
+		height: 40rpx;
 		
 		border-radius: 50%;
-		line-height: 68rpx;
+		line-height: 40rpx;
 		text-align: center;
-		background: #439EFF;
+		background: #FFFFFF;
+		border: 1px solid #333333;
+		overflow: hidden;
 	}
 	.scheduleCard-bottom-top{
 		display: flex;
+		padding: 5px 0;
 	}
 	.scheduleCard-bottom-top view{
 		flex: 1;
-		padding: 20rpx 0 0 20rpx;
-		font-size: 28rpx;
-		color: #999999;
+		text-align: center;
+		font-size: 14px;
+		color: #333333;
 	}
 	.scheduleCard-bottom-bottom{
 		display: flex;
 	}
 	.scheduleCard-bottom-bottom view{
 		flex: 1;
+		text-align: center;
+		font-size: 14px;
+		color: #333333;
 	}
 	.iconclass{
-		color: #FFFFFF;
+		color: #333333;
+		font-size: 12px;
+		margin-top: -10px;
 	}
 	.title{
-		height:14px;
-		font-size:13px;
+		height:30px;
+		font-size:16px;
 		
 		font-weight:600;
 		color:rgba(51,51,51,1);
 		margin: 10px 0 10px 10px;
-		line-height: 14px;
+		line-height: 30px;
 		letter-spacing:1px;
 		
 	}
@@ -375,6 +412,8 @@ export default {
 	.work{
 		height: 30px;
 		display: flex;
+		
+		
 	}
 	
 	.work-left{
@@ -419,37 +458,43 @@ export default {
 		.scroll-view-item_H {
 			display: inline-block;
 			width: 159rpx;
-			height: 195rpx;
+			height: 220rpx;
 			text-align: center;
 			margin: 2%  1% 2% 1%;
 		}
 		
 		.scroll-view-item_H_icon{
 			position: absolute; 
-			top: 50%;
+			width: 100%;
+			top: 30%;
 			transform: translateY(-50%);
 			color: #CCCCCC;
 			
 		}
 		.scroll-view-item_H view{
-			box-sizing: border-box;
+			/* box-sizing: border-box; */
 		}
-		.scroll-view-item_H view:nth-child(1){
+		.scroll-view-item_H .photo_box{
 			width: 100%;
 			height: 146rpx;
 			position: relative;
-			background: rgba(229, 229, 229, 1);
-			border-radius: 10rpx;
+			background: rgba(241,241,241);
+			
 		}
-		.scroll-view-item_H view:nth-child(1) image{
+		.scroll-view-item_H .photo_box image{
 			width: 100%;
 			height: 146rpx;
-			border-radius: 10rpx;
+			
 			display: block;
 		}
-		.scroll-view-item_H view:nth-child(2){
-			width: 100%;
-			height: 49rpx;
+		.scroll-view-item_H  .photo_bottom{
+			height: 30px;
+			margin: 5px 0 0 0;
+			border: 1px solid rgba(229, 229, 229, 1);
+			background: #FFFFFF;
+			width:100%;
+			position: relative;
+			line-height: 30px;
 		}
 	    .title-small{
 			height:14px;
@@ -467,17 +512,21 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
+		margin-top: 30px;
 		
 	}
 	.btn{
-		height: 100rpx;
+		height: 80rpx;
 		
 		text-align: center;
-		line-height: 100rpx;
-		border-radius: 5rpx;
-		background: #E8BE2E;
-		color: #FFFFFF;
+		line-height: 80rpx;
+		border-radius: 20px;
+		background: #FFE906;
+		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 </style>

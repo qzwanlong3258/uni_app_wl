@@ -185,7 +185,7 @@ var _image = __webpack_require__(/*! @/config/image.js */ 34); //
 //
 //
 //
-var modelCalendar = function modelCalendar() {return __webpack_require__.e(/*! import() | components/Calendar */ "components/Calendar").then(__webpack_require__.bind(null, /*! @/components/Calendar.vue */ 683));};var _default = { data: function data() {return { toYear: parseInt(new Date().getFullYear()), //本日
+var modelCalendar = function modelCalendar() {return __webpack_require__.e(/*! import() | components/Calendar */ "components/Calendar").then(__webpack_require__.bind(null, /*! @/components/Calendar.vue */ 682));};var _default = { data: function data() {return { toYear: parseInt(new Date().getFullYear()), //本日
       toMonth: parseInt(new Date().getMonth() + 1), //本月
       sumCount: 0, signData: [], img: _image.SIGNIN };}, components: { modelCalendar: modelCalendar }, created: function created() {//获取当前用户当前任务的签到状态  			
     this.getData(this.toYear + "-" + this.toMonth);}, methods: { clickbtn: function clickbtn() {this.$refs.calender.clickSignUp(parseInt(new Date().getDate()), 1);}, clickRegister: function clickRegister(day) {//console.log("在模版页签到了", day);

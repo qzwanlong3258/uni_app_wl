@@ -142,7 +142,7 @@
 		{
             "path" : "pages/todoChild/decoration/index",
             "style" : {
-				"navigationBarTitleText": "家装分期"
+				"navigationBarTitleText": "装修分期"
 			}
         },
 		{
@@ -251,6 +251,12 @@
 		    "path" : "pages/todoChild/calender/index",
 		    "style" : {
 				"navigationBarTitleText": "签到"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/camera/index",
+		    "style" : {
+				"navigationBarTitleText": "拍照"
 			}
 		}
     ],

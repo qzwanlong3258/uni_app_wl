@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _activity = __webpack_require__(/*! @/api/activity.js */ 179);
-var _image = __webpack_require__(/*! @/config/image.js */ 34);var LjlActivity = function LjlActivity() {return __webpack_require__.e(/*! import() | pages/todoChild/recommended/components/LjlActivity */ "pages/todoChild/recommended/components/LjlActivity").then(__webpack_require__.bind(null, /*! ./components/LjlActivity.vue */ 541));};var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 489));};var _default =
+var _image = __webpack_require__(/*! @/config/image.js */ 34);var LjlActivity = function LjlActivity() {return __webpack_require__.e(/*! import() | pages/todoChild/recommended/components/LjlActivity */ "pages/todoChild/recommended/components/LjlActivity").then(__webpack_require__.bind(null, /*! ./components/LjlActivity.vue */ 540));};var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 497));};var _default =
 
 {
   data: function data() {

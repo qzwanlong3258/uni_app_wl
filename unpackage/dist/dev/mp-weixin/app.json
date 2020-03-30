@@ -41,7 +41,8 @@
     "pages/todoChild/inShop/inviteShop/index",
     "pages/todoChild/recommendCenter/index",
     "pages/todoChild/inviteGift/index",
-    "pages/todoChild/calender/index"
+    "pages/todoChild/calender/index",
+    "pages/todoChild/camera/index"
   ],
   "subPackages": [],
   "window": {

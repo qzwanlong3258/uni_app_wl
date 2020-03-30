@@ -1,7 +1,9 @@
 <template>
-	<view style="width: 100%;height: 700px;position: relative;">
-		<canvas class='canvas' :style="{width:`${canvasWidth}px`,height:`${canvasHeight}px`}" canvas-id="firstCanvas"></canvas>
-		<camera device-position="back" flash="off" frame-size="large" @click="error" style="width: 100%; height: 75%;"></camera>
+	<view style="height: 2000px;">
+		<!-- <canvas class='canvas' :style="{width:`${canvasWidth}px`,height:`${canvasHeight}px`}" canvas-id="firstCanvas"></canvas> -->
+		
+		<view class="wrapper"><canvas style="height: 100%;width: 100%;backgroundColor: #FFFFFF" canvas-id="firstCanvas"></canvas></view>
+		<camera device-position="back" flash="off" frame-size="large" @click="error" style="width: 100%; height: 300px;"></camera>
 		<image v-if="pathList.length" @click="previewList" class="phone-list" :src="pathList[pathList.length-1]" />
 		<button class="take-phone-btn" @click="checkAuth"><i class='iconfont iconpaizhao'></i></button>
 	</view>
@@ -20,6 +22,10 @@
 		feikeError: 'http://47.104.232.184/images/feike.mp3',
 		success: 'http://47.104.232.184/images/success.mp3',
 	}
+	import {
+		UPLOAD
+	} from '@/config/api.js';
+	import { formatTime } from '@/utils/util.js';
 	var _self;
 	export default {
 		data() {
@@ -56,6 +62,7 @@
 				isLoading: false,
 				address: '',
 				pathList: [],
+				cover: 'https://s2.ax1x.com/2019/10/08/ufSasU.jpg'
 			}
 		},
 		mounted() {
@@ -88,6 +95,111 @@
 			})
 		},
 		methods: {
+			qrR(e) {
+				let that = this;
+				// this.qr_path = path;
+				let system_info = uni.getSystemInfoSync();
+				let ctx = uni.createCanvasContext('firstCanvas');
+				// uni.getImageInfo({
+				// 	src: e,
+				// 	success:(res) => {
+				// 		console.log(res.path);
+				// 		ctx.drawImage(res.path, 0, 0, 375, uni.upx2px(1020));
+				// 		let linearGrad = ctx.createLinearGradient(0, 0, 800, 0);
+				// 		linearGrad.addColorStop('0.25', '#8b00d2');
+				// 		linearGrad.addColorStop('0.5', '#003fb3');
+				// 		linearGrad.addColorStop('0.75', '#ff3ef0');
+				// 		ctx.fillStyle = '#FFFFFF';
+				// 		ctx.fillRect(uni.upx2px(500), uni.upx2px(790), uni.upx2px(200), uni.upx2px(210));
+				// 		ctx.drawImage(path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
+				// 		ctx.font = '13px Arial';
+				// 		ctx.fillStyle = '#000';
+				// 		ctx.fillText(this.address, uni.upx2px(508), uni.upx2px(990));
+				// 		ctx.font = '13px Arial';
+				// 		ctx.fillStyle = '#000';
+				// 		ctx.fillText(formatTime(new Date()), uni.upx2px(508), uni.upx2px(990));
+				// 		ctx.draw(false, () => {
+				// 			uni.canvasToTempFilePath({
+				// 				x: 0,
+				// 				y: 0,
+				// 				width: 375,
+				// 				height: uni.upx2px(1020),
+				// 				destWidth: 375,
+				// 				destHeight: uni.upx2px(1020),
+				// 				canvasId: 'firstCanvas',
+				// 				success: function(res) {
+				// 					console.log(res)
+				// 					uni.saveImageToPhotosAlbum({
+				// 						filePath: res.tempFilePath,
+				// 						success: function() {
+				// 							console.log('save success');
+				// 						}
+				// 					});
+				// 				},
+				// 				fail(e) {
+				// 					console.log(e);
+				// 					uni.showToast({
+				// 						title: '生成海报失败',
+				// 						icon: 'none'
+				// 					});
+				// 				}
+				// 			});
+				// 		});
+				// 	},
+				// 	fail(error) {
+				// 		console.log(error);
+				// 	}
+				// });
+			 uni.getImageInfo({
+			 	src: that.cover,
+			 	success(res) {
+			 		console.log(res.path);
+			 		ctx.drawImage(res.path, 0, 0, 375, uni.upx2px(1020));
+			 		let linearGrad = ctx.createLinearGradient(0, 0, 800, 0);
+			 		linearGrad.addColorStop('0.25', '#8b00d2');
+			 		linearGrad.addColorStop('0.5', '#003fb3');
+			 		linearGrad.addColorStop('0.75', '#ff3ef0');
+			 		ctx.fillStyle = '#FFFFFF';
+			 		ctx.fillRect(uni.upx2px(500), uni.upx2px(790), uni.upx2px(200), uni.upx2px(210));
+			 		ctx.drawImage(res.path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
+			 		ctx.font = '13px Arial';
+			 		ctx.fillStyle = '#000';
+			 		ctx.fillText('长按保存二维码', uni.upx2px(508), uni.upx2px(990));
+			 		ctx.draw(false, () => {
+			 			uni.canvasToTempFilePath({
+			 				x: 0,
+			 				y: 0,
+			 				width: 375,
+			 				height: uni.upx2px(1020),
+			 				destWidth: 375,
+			 				destHeight: uni.upx2px(1020),
+			 				canvasId: 'firstCanvas',
+			 				success: function(res) {
+								console.log(res)
+			 					uni.saveImageToPhotosAlbum({
+			 						filePath: res.tempFilePath,
+			 						success: function() {
+			 							console.log('save success');
+			 						}
+			 					});
+			 				},
+			 				fail(e) {
+			 					console.log(e);
+			 					uni.showToast({
+			 						title: '生成海报失败',
+			 						icon: 'none'
+			 					});
+			 				}
+			 			});
+			 		});
+			 	},
+				fail(error) {
+						console.log(error);
+					}
+				});
+			 
+			 
+			},
 			init(e){
 				uni.getSetting({
 					success: (res) => {
@@ -128,12 +240,13 @@
 				// 	this.onShow()
 				// }
 			},
+			
 			async takePhoto() {
 				if (!this.isLoading) {
-					uni.showLoading({
-						title: '照片上传中'
-					})
-					_self.isLoading =true
+					// uni.showLoading({
+					// 	title: '照片上传中'
+					// })
+					// _self.isLoading =true
 					// this.setData({
 					// 	isLoading: true
 					// })
@@ -143,56 +256,23 @@
 						quality: 'high',
 						success: async (res) => {
 							console.log(res)
-							await watermarkPhone({
-								canvasId: 'firstCanvas',
-								src: res.tempImagePath,
-								str: this.address,
-								successfn: async (path) => {
-									let arr = this.pathList
-									arr.push(path)
-									console.log(1111)
-									console.log(arr)
-									_self.pathList=arr
-									// this.setData({
-									// 	pathList: arr
-									// })
-									console.log(1221)
-									console.log(this.pathList)
-									uni.hideLoading()
-									console.log(133)
-									// this.$emit('refreshDataList',res.tempImagePath,)
-									// await uni.uploadFile({
-									//   header: {
-									//     "Content-Type": "multipart/form-data"
-									//   },
-									//   url: 'http://47.104.232.184:8800/file/upload?token=66',
-									//   filePath: path,
-									//   name: 'file',
-									//   success: (result) => {
-									//     console.log(result)
-									//     this.setData({
-									//       currentVideoIndex: this.currentVideoIndex + 1
-									//     })
-									//     uni.hideLoading()
-									//     if (this.currentVideoIndex < this.needLocation.length) {
-									//       uni.playBackgroundAudio({
-									//         dataUrl: this.needLocation[this.currentVideoIndex].video,
-									//       })
-									//       this.setData({
-									//         isLoading: false
-									//       })
-									//     } else {
-									//       uni.playBackgroundAudio({
-									//         dataUrl: viodeUrl.success,
-									//         success: () => {
-									//           console.log('拍照完成，跳回前一页')
-									//         }
-									//       })
-									//     }
-									//   }
-									// })
-								}
-							})
+							
+							uni.uploadFile({
+							                            // 需要上传的地址
+							                            url:UPLOAD,
+							                            // filePath  需要上传的文件
+							                            filePath: res.tempImagePath,
+							                            name: 'file',
+							                            success: async (res1) =>{
+							                               console.log(res1)
+															let w=JSON.parse(res1.data)
+															
+															this.qrR(w.data)
+															
+							                            }
+							                        });
+						
+							
 						}
 					})
 				}
@@ -251,6 +331,13 @@
 
 <style>
 	/* pages/loan/Camera/camera.wxss */
+	.wrapper {
+		height: 1020rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50upx;
+	}
 	.bg-color {
 		background: #000;
 	}

@@ -137,6 +137,22 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -289,11 +305,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 143);
 
-var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var camera = function camera() {return Promise.all(/*! import() | pages/todoChild/myWork/myWorkDetail/components/camera/camera */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/myWork/myWorkDetail/components/camera/camera")]).then(__webpack_require__.bind(null, /*! ./components/camera/camera.vue */ 525));};var _default =
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var _default =
 {
-  components: {
-    camera: camera },
-
+  // components:{
+  // 	camera
+  // },
   data: function data() {
     return {
       hidden: false,
@@ -302,7 +319,11 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
         // nickName:'李三',
         // phone:13584115454
       },
-      orderList: [],
+      orderList: {
+        loanMoney: 300,
+        lastTime: 1585568923,
+        address: 'dqwadcqd' },
+
       successItems: [
       {
         value: 'USA',
@@ -318,13 +339,13 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
       workIndex: 0,
       inputvalue: 40,
       tempFilePaths: '',
-      huadongs: [
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' },
-      { img: 'tempFilePaths', name: '舟舟', info: 'xxxxxxxx' }] };
+      datawork: [
+      { img: '', workArray: ['客厅', '餐厅', '厨房', '卫生间', '卧室', '合同', '签字'], workIndex: 0 },
+      { img: '', workArray: ['客厅', '餐厅', '厨房', '卫生间', '卧室', '合同', '签字'], workIndex: 0 },
+      { img: '', workArray: ['客厅', '餐厅', '厨房', '卫生间', '卧室', '合同', '签字'], workIndex: 0 },
+      { img: '', workArray: ['客厅', '餐厅', '厨房', '卫生间', '卧室', '合同', '签字'], workIndex: 0 },
+      { img: '', workArray: ['客厅', '餐厅', '厨房', '卫生间', '卧室', '合同', '签字'], workIndex: 0 }] };
+
 
 
   },
@@ -353,7 +374,7 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
       var h = time.getHours();
       var mm = time.getMinutes();
       var s = time.getSeconds();
-      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) + ' ' + timeAdd0(h) + ':' + timeAdd0(mm) + ':' + timeAdd0(s);
+      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d);
     } },
 
   methods: {
@@ -365,16 +386,24 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
         }
       }
     },
-    workBindPickerChange: function workBindPickerChange(e) {
+    workBindPickerChange: function workBindPickerChange(e, v) {
       console.log('picker发送选择改变，携带值为', e.target.value);
-      this.workIndex = e.target.value;
+      console.log(e);
+      this.datawork[v].workIndex = e.target.value;
     },
     // 选择照片
-    chooseimage: function chooseimage(e) {var _this = this;
-      this.hidden = true;
-      this.$nextTick(function () {
-        _this.$refs.camera.init(e.currentTarget.dataset.id);
-      });
+    chooseimage: function chooseimage(e) {
+      var a = 'face';
+      uni.navigateTo({
+
+        url: "".concat(_router.CAMERA, "?num=").concat(e.currentTarget.dataset.id, "&role=").concat(a) });
+
+
+      // this.hidden = true
+      //         this.$nextTick(() => {
+      //           this.$refs.camera.init(e.currentTarget.dataset.id)
+      //         })
+
 
 
       //   var _this = this;
@@ -397,6 +426,7 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
                 (0, _loan.loanListDetail)({ orderid: options.id }));case 5:v = _context.sent;
               console.log(v);
               _self.orderList = v.order[0];case 8:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
