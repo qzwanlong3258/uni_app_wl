@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拍照任务",
+  "usingComponents": {
+    "ljl-states": "/pages/todoChild/myWorkPhoto/components/changeStates"
+  }
+}

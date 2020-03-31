@@ -60,7 +60,11 @@
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		<view class="mine-link"  @click="linkToWork()">
-			<image :src="imgNav[3]" mode="widthFix"></image><text>我的工作</text>
+			<image :src="imgNav[3]" mode="widthFix"></image><text>面签任务</text>
+			<view class="iconfont  iconyou iconclass" ></view>
+		</view>
+		<view class="mine-link"  @click="linkToPhoto()">
+			<image :src="imgNav[3]" mode="widthFix"></image><text>拍照任务</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		
@@ -70,7 +74,7 @@
 <script>
 'use strict';
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS} from '@/config/image.js';
-import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER} from '@/config/router.js';
+import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
 var _self;
 export default {
@@ -119,6 +123,11 @@ export default {
 		linkToWork(){
 			uni.navigateTo({
 				url:MYWORK
+			})
+		},
+		linkToPhoto(){
+			uni.navigateTo({
+				url:MYWORK_PHOTO
 			})
 		}
 		

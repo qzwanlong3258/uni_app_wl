@@ -1,5 +1,5 @@
 <template>
-	<scroll-view scroll-y class="container">
+	<scroll-view scroll-y class="container" style="background: #FFFFFF;">
 		<view class="home-top"><yld-top :citys="citys" @change="cityChange"></yld-top></view>
 		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="400"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
@@ -58,7 +58,11 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
 .home-top {
 	position: absolute;

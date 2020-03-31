@@ -6,13 +6,13 @@
 		
 			<view class="scheduleCard-top" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 20px;">
 				<view class="scheduleCard-top-left" >
-					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
+					<image :src="orderList.did?orderList.did:imglogo" class="scheduleCard-top-left-img" mode="aspectFill">
 				</view>
 				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{userInfo.nickName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
+					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{orderList.loanerName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
 							<icon class="iconfont icondianhua iconclass"></icon>
 						</view></view>
-					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;">面签银行：{{userInfo.phone}}</view>
+					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;">面签银行：{{bankData.name}}</view>
 				</view>
 				<!-- <view class="scheduleCard-top-right">
 					<view class="scheduleCard-top-right-success">
@@ -73,15 +73,15 @@
 		<view class="title">
 			施工阶段
 		</view>
-		<view class="work">
+		<view class="work" v-for="(item,index) in dataList.phase" :key='index'>
 			<view class="work-left">
 				
 				
 					<view class="uni-list uni-input-style">
 						<view class="uni-list-cell uni-input-style">
 							<view class="uni-list-cell-db uni-input-style">
-								<picker @change="workBindPickerChange" :value="workIndex" :range="workArray" >
-									<view class="uni-input uni-input-style">{{ workArray[workIndex] }}</view>
+								<picker @change="workOpenBindPickerChange($event,index)" :value="Number(item.phaseid)-1" :range="item.workArray" >
+									<view class="uni-input uni-input-style">{{ item.workArray[Number(item.phaseid)-1] }}</view>
 									<view class="iconfont  iconyou  iconyouclass"  ></view>
 								</picker>
 							</view>
@@ -90,12 +90,12 @@
 					
 			</view>
 			<view class="work-mid" style="position: relative;">
-				<input type="text" v-model="inputvalue" placeholder="比率" class="work-mid-input" > <text style="margin-top: 3px;">% </text></input>
+				<input type="number" v-model="item.percent" placeholder="比率" class="work-mid-input"  > <text style="margin-top: 3px;">% </text></input>
 				
 			</view>
 			<view class="work-right">
-				<icon class="iconfont iconjian" style="margin-left: 10px;"></icon>
-				<icon class="iconfont iconjia" style="margin-left: 10px;"></icon>
+				<icon class="iconfont iconjian" style="margin-left: 10px;" @click="cutPhase(index)"></icon>
+				<icon class="iconfont iconjia" style="margin-left: 10px;" v-if="index==0" @click="addPhase"></icon>
 			</view>
 		</view>
 		<view style="height: 25px;border-bottom:6rpx solid #F0F0F0 ;"></view>
@@ -103,11 +103,11 @@
 			现场照片
 		</view>
 		<scroll-view class="scroll-view_H" scroll-x="true">
-							<view class="scroll-view-item_H" v-for="(item,index) in datawork" :key="index">
+							<view class="scroll-view-item_H" v-for="(item,index) in dataList.phaseImg" :key="index">
 								
-								<view @click="chooseimage" :data-id="item.workIndex" class="photo_box"  ><image :src="item.img" mode=""></image>
+								<view @click="chooseimage($event,item.img,index)" :data-id="Number(item.potid) -1" class="photo_box"  ><image @click="previewImage(item.img)" :src="item.img" mode=""></image>
 								<view class="iconfont  iconjia scroll-view-item_H_icon"  :hidden="item.img!=''"></view>
-								<view style="position: absolute;top: 50%;color: #000000;text-align: center;font-size: 12px;width: 100%;"> 上传照片</view>
+								<view :hidden="item.img!=''" style="position: absolute;top: 50%;color: #000000;text-align: center;font-size: 12px;width: 100%;"> 上传照片</view>
 								</view>
 								<view class="photo_bottom" >
 									
@@ -115,8 +115,8 @@
 										<view class="uni-list uni-input-style">
 											<view class="uni-list-cell uni-input-style">
 												<view class="uni-list-cell-db uni-input-style">
-													<picker @change="workBindPickerChange($event,index)" :value="item.workIndex" :range="item.workArray" >
-														<view class="uni-input uni-input-style">{{ item.workArray[item.workIndex] }}</view>
+													<picker @change="workBindPickerChange($event,index)" :value="Number(item.potid) -1 " :range="item.workArray" >
+														<view class="uni-input uni-input-style">{{ item.workArray[Number(item.potid) -1] }}</view>
 														<view class="iconfont  iconyou  iconyouclass" style="right: 0;" ></view>
 													</picker>
 												</view>
@@ -155,7 +155,7 @@
 							</view>
 						</scroll-view> -->
 		<view class="apptMeasureHome_ft">
-			<view class="btn" @click="toLinkChoose">提交</view>
+			<view class="btn" @click="sumbit">提交</view>
 		</view>
 	</view>
 	
@@ -164,10 +164,14 @@
 <script>
 'use strict';
 var _self;
-import { loanListDetail } from '@/api/todoChild/loan.js';
+import { loanListDetail , faceSumbit , loanBank} from '@/api/todoChild/loan.js';
 // import camera from './components/camera/camera.vue';
 import { getStorage } from '@/utils/storage.js';
-import { CAMERA} from '@/config/router.js';
+import { CAMERA, MINE} from '@/config/router.js';
+import { COMPANY_LOGO} from '@/config/image.js';
+import {
+		UPLOAD
+	} from '@/config/api.js';
 export default {
 	// components:{
 	// 	camera
@@ -175,16 +179,21 @@ export default {
 	data() {
 		return{
 			hidden:false,
+			count:false,
 			userInfo:{
 				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
 				// nickName:'李三',
 				// phone:13584115454
 			},
+			imgphoto:'',
+			imglogo:COMPANY_LOGO,
+			num:'',
 			orderList:{
 				loanMoney:300,
 				lastTime:1585568923,
 				address:'dqwadcqd'
 			},
+			bankData:{},
 			successItems: [
 				{
 					value: 'USA',
@@ -196,7 +205,7 @@ export default {
 				}
 			],
 			successCurrent: 0,
-			workArray: ['中国', '美国', '巴西', '日本'],
+			workArray: ['水电阶段', '瓦工阶段', '木工阶段', '完工阶段'],
 			workIndex: 0,
 			inputvalue:40,
 			tempFilePaths:'',
@@ -208,6 +217,19 @@ export default {
 								{img:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],workIndex: 0,},
 								
 								],
+			dataList:{
+				orderid:'',
+				phase:[{workArray: ['水电阶段', '瓦工阶段', '木工阶段', '完工阶段'],
+			phaseid: 1,percent:''}],
+			    phaseImg:[
+								{img:'',photo:'', workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],potid: 1,latitude:'',longitude:''},
+								{img:'',photo:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],potid: 1,latitude:'',longitude:''},
+								{img:'',photo:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字'],potid: 1,latitude:'',longitude:''},
+								{img:'',photo:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字'],potid: 1,latitude:'',longitude:''},
+								{img:'',photo:'',workArray: ['客厅','餐厅','厨房', '卫生间','卧室', '合同', '签字' ],potid: 1,latitude:'',longitude:''},
+								
+								],
+			}
 		}
 	},
 	filters:{
@@ -239,6 +261,47 @@ export default {
 		}
 	},
 	methods:{
+		//提交
+		sumbit(){
+			console.log(this.dataList)
+			faceSumbit(this.dataList).then(res=>{
+				uni.showToast({
+												title: "提交成功",
+												icon: 'success',
+												duration: 2000,
+											});
+											setTimeout(function(){
+															uni.switchTab({
+																url:MINE
+															})
+														},2000)
+			})
+		},
+		// 减少
+		cutPhase(e){
+			if(e == 0){
+				return;
+			} else {
+				uni.showModal({
+				    title: '提示',
+				    content: '是否确定删除该阶段？',
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+							_self.dataList.phase.splice(e, 1)
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
+			}
+			
+		},
+		// 增加
+		addPhase(){
+			_self.dataList.phase.push({workArray: ['水电阶段', '瓦工阶段', '木工阶段', '完工阶段'],
+			phaseid: 1,})
+		},
 		successRadioChange: function(evt) {
 			for (let i = 0; i < this.successItems.length; i++) {
 				if (this.successItems[i].value === evt.target.value) {
@@ -250,14 +313,23 @@ export default {
 		workBindPickerChange: function(e ,v) {
 		            console.log('picker发送选择改变，携带值为', e.target.value)
 					console.log(e)
-		            this.datawork[v].workIndex = e.target.value
+		            this.dataList.phaseImg[v].potid = Number(e.target.value)+1
+		        },
+		workOpenBindPickerChange: function(e , v) {
+		            console.log('picker发送选择改变，携带值为', e.target.value)
+					console.log(e)
+		            this.dataList.phase[v].phaseid =Number(e.target.value)+1
 		        },
 		// 选择照片
-		chooseimage: function (e) {
+		chooseimage: function (e,v,k) {
+			if(v!=''){
+				return;
+			}
 			let a='face'
+			console.log(k)
 			uni.navigateTo({
 				
-				url: `${CAMERA}?num=${e.currentTarget.dataset.id}&role=${a}`,
+				url: `${CAMERA}?num=${e.currentTarget.dataset.id}&role=${a}&index=${k}`,
 			})
 			
 			// this.hidden = true
@@ -279,6 +351,16 @@ export default {
 		  //     }
 		  //   })
 		  },
+		  previewImage(image) {
+			  _self.count = true
+		  				var imgArr = [];
+		  				imgArr.push(image);
+		  				//预览图片
+		  				uni.previewImage({
+		  					urls: imgArr,
+		  					current: imgArr[0]
+		  				});
+		  			},
 	},
 	async onLoad(options) {
 		this.userInfo = getStorage('userInfo');
@@ -287,7 +369,50 @@ export default {
 		let v = await loanListDetail({orderid:options.id})
 		console.log(v)
 		_self.orderList = v.order[0]
-	}
+		// 获取银行信息
+		let r = await loanBank({orderid:options.id})
+		_self.bankData=r.list[0]
+		_self.dataList.orderid=options.id
+	},
+	async onShow(){
+		   if(this.count){
+			   _self.count = false;
+			   return;
+		   }
+	       let pages = getCurrentPages();
+	       let currPage = pages[pages.length-1];
+	
+	       if (currPage.data.imgphoto == ''){
+	//             this.getHopeJob();
+	        }else {
+		console.log(currPage.data.imgphoto)
+		console.log(currPage.data.num)
+	            this.imgphoto = currPage.data.imgphoto
+	_self.dataList.phaseImg[currPage.data.num].img = currPage.data.imgphoto
+	_self.dataList.phaseImg[currPage.data.num].latitude = currPage.data.latitude 
+	_self.dataList.phaseImg[currPage.data.num].longitude = currPage.data.longitude
+	_self.num = currPage.data.num
+	            await uni.uploadFile({
+	                                        // 需要上传的地址
+	                                        url:UPLOAD,
+	                                        // filePath  需要上传的文件
+	                                        filePath: currPage.data.imgphoto,
+	                                        name: 'file',
+	                                        success: async (res1) =>{
+	                                           console.log(res1)
+	            								let w=JSON.parse(res1.data)
+												console.log(_self.dataList)
+												// let pages = getCurrentPages();
+												// let currPage = pages[pages.length-1];
+												console.log(this.num)
+												 _self.dataList.phaseImg[this.num].photo = w.data
+												 
+												},
+												})
+	        }
+	
+	 },
+	
 };
 </script>
 <style>
@@ -412,6 +537,7 @@ export default {
 	.work{
 		height: 30px;
 		display: flex;
+		margin-bottom: 5px;
 		
 		
 	}

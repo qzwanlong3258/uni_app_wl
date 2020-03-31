@@ -13,6 +13,8 @@
     "pages/todoChild/apptRecord/index",
     "pages/todoChild/myWork/index",
     "pages/todoChild/myWork/myWorkDetail/index",
+    "pages/todoChild/myWorkPhoto/index",
+    "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index",
     "pages/todoChild/refundOrder/refundOrder",
     "pages/todoChild/address/addressIndex/addressIndex",
     "pages/todoChild/address/addressDetail/addressDetail",
@@ -42,7 +44,8 @@
     "pages/todoChild/recommendCenter/index",
     "pages/todoChild/inviteGift/index",
     "pages/todoChild/calender/index",
-    "pages/todoChild/camera/index"
+    "pages/todoChild/camera/index",
+    "pages/todoChild/bankDetail/index"
   ],
   "subPackages": [],
   "window": {

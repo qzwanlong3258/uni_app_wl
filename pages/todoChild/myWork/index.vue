@@ -1,9 +1,9 @@
 <template>
 	<view class="myWork">
-		<view class="myWork-hd">
+		<!-- <view class="myWork-hd">
 			<input type="text" style="position: absolute;width: 100%;height: 100%;">
 			<icon class="iconfont iconsousuo  iconclass"></icon> <text style="font-size: 12px;color:#999999 ;margin-left: 2px;">搜索</text>
-		</view>
+		</view> -->
 		<ljl-states :infor="states" @change="stateChange"  />
 		<view class="box-left" :hidden='states.index==1'>
 			<view class="myWork-Card" @click="linkToDetail" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
@@ -75,6 +75,7 @@ export default {
 			      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
 		}
 	},
+	
 	methods:{
 		stateChange: async function({ index }) {
 			this.states.index = index;
@@ -84,7 +85,7 @@ export default {
 			uni.navigateTo({
 				url: `${MYWORKDETAIL}?id=${e.currentTarget.dataset.id}`,
 			})
-		}
+		},
 	},
 	async onLoad() {
 		_self = this
@@ -105,7 +106,8 @@ export default {
 		o.push(...f.list)
 		_self.dataListCom = o
 	}
-};
+
+ }
 </script>
 <style>
 	page{

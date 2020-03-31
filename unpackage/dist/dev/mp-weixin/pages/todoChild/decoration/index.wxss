@@ -42,20 +42,20 @@
   font-size: 32rpx;
 }
 .decoration_text-row-content.data-v-49c3948c {
-  font-size: 42rpx;
-  font-weight: bold;
+  font-size: 70rpx;
+  font-weight: 2500;
+  color: #776A6D;
 }
 .decoration_text-row-submit.data-v-49c3948c {
-  color: #000000;
+  color: #FFFFFF;
   width: 250rpx;
   height: 50rpx;
   line-height: 50rpx;
   text-align: center;
-  background-color: #F9D133;
+  background-color: #33364C;
   border-radius: 10rpx;
   font-size: 24rpx;
   margin-top: 30rpx;
-  box-shadow: 0 4rpx 0 0 rgba(0, 0, 0, 0.15);
 }
 .decoration_view-menu.data-v-49c3948c, .decoration_view-platform.data-v-49c3948c {
   display: -webkit-box;

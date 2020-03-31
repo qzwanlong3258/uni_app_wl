@@ -27,6 +27,9 @@ module.exports = {
 	//我的工作
 	MYWORK:'/pages/todoChild/myWork/index',
 	MYWORKDETAIL:'/pages/todoChild/myWork/myWorkDetail/index',
+	//拍照任务
+	MYWORK_PHOTO:'/pages/todoChild/myWorkPhoto/index',
+	MYWORK_PHOTO_DETAIL:'/pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index',
 	// 收货地址
 	ADDRESS_INDEX: '/pages/todoChild/address/addressIndex/addressIndex',
 	ADDRESS_DETAIL: '/pages/todoChild/address/addressDetail/addressDetail',
@@ -78,6 +81,8 @@ module.exports = {
 	//日历
 	CALENDER:'/pages/todoChild/calender/index',
 	//拍照
-	CAMERA:`/pages/todoChild/camera/index` 
+	CAMERA:`/pages/todoChild/camera/index` ,
+	//银行详情
+	BANK_DETAIL:`/pages/todoChild/bankDetail/index`
 	
 }

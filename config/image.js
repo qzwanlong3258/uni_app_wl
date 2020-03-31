@@ -1,8 +1,8 @@
 /**
  * 储存图片路径
  */
-//const staticUrl = '/static/img'
- const staticUrl = 'http://47.104.232.184/static/img'
+const staticUrl = '/static/img'
+ // const staticUrl = 'http://47.104.232.184/static/img'
 
 module.exports = {
 	/** 授权 */
@@ -119,6 +119,10 @@ module.exports = {
 	BANK_JH:`${staticUrl}/todoChild/decoration/建设银行@2x.png`,
 	BANK_BH:`${staticUrl}/todoChild/decoration/碧海银行@2x.png`,
 	BANK_BJ:`${staticUrl}/todoChild/decoration/北京银行@2x.png`,
+	//银行详情
+	BANK_JH_DETAIL:`${staticUrl}/todoChild/decoration/jianshe.png`,
+	BANK_BH_DETAIL:`${staticUrl}/todoChild/decoration/bohai.png`,
+	BANK_BJ_DETAIL:`${staticUrl}/todoChild/decoration/beijing.png`,
 	// 贷款导航
 	BANK_APPT:`${staticUrl}/todoChild/decoration/appt.png`,
 	BANK_RECORD:`${staticUrl}/todoChild/decoration/record.png`,

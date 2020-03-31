@@ -67,7 +67,7 @@
 				line-height: 120upx;
 				text-align: center;
 				i {
-					font-size: 70upx;
+					font-size: 50upx;
 					color: #e8be2e;
 				}
 			}

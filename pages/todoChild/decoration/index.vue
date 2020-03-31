@@ -2,10 +2,10 @@
 	<view class="decoration_view-box-box ">
 		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">可用额度</text>
-			<text class=" decoration_text-row-content">——200.0000.00——</text>
+			<text class=" decoration_text-row-content"> <text style="font-size: 60rpx; color:#999999 ;">—</text>200.0000.00<text style="font-size:60rpx; color:#999999 ;">—</text></text>
 			<text class="decoration_text-row-submit" @click="testLinkTo">测一测额度</text>
-			<image :src="bank_pic" mode="widthFix" class="bank_pic"></image>
-			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image>
+			<!-- <image :src="bank_pic" mode="widthFix" class="bank_pic"></image>
+			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image> -->
 		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding" style="margin-top: 20px;">
 			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)">
@@ -28,13 +28,13 @@
 			<image class="page_image-plan" src="http://fa.aitech.xin/images/aboutUs.png" mode="widthFix" />
 		</view> -->
 		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px ;margin-top: 20px;">
-			<image class="page_image-plan" :src="bank[0]" mode="widthFix" />
+			<image @click="linkToBank(0)" class="page_image-plan" :src="bank[0]" mode="widthFix" />
 		</view>
 		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px  ;">
-			<image class="page_image-plan" :src="bank[1]" mode="widthFix" />
+			<image @click="linkToBank(1)" class="page_image-plan" :src="bank[1]" mode="widthFix" />
 		</view>
 		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin:  10px ;">
-			<image class="page_image-plan" :src="bank[2]" mode="widthFix" />
+			<image @click="linkToBank(2)" class="page_image-plan" :src="bank[2]" mode="widthFix" />
 		</view>
 	</view>
 </template>
@@ -42,7 +42,7 @@
 <script>
 	'use scrict';
 	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR} from '@/config/image.js';
-	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST} from '@/config/router.js';
+	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL} from '@/config/router.js';
 	
 	export default {
 		data() {
@@ -68,6 +68,9 @@
 			testLinkTo() {
 				uni.navigateTo({ url: LOAN_TESTONETEST });
 			},
+			linkToBank(e){
+				uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			}
 			
 		}
 	}
@@ -103,20 +106,21 @@
 		font-size: 32rpx;
 	}
 	.decoration_text-row-content {
-		font-size: 42rpx;
-		font-weight: bold;
+		font-size: 70rpx;
+		font-weight: 2500;
+		color: #776A6D;
 	}
 	.decoration_text-row-submit {
-		color: #000000;
+		color: #FFFFFF;
 		width: 250rpx;
 		height: 50rpx;
 		line-height: 50rpx;
 		text-align: center;
-		background-color: #F9D133;
+		background-color: #33364C;
 		border-radius: 10rpx;
 		font-size: 24rpx;
 		margin-top: 30rpx;
-		box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15);
+		// box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15);
 	}
 	.decoration_view-menu, .decoration_view-platform {
 		display: flex;

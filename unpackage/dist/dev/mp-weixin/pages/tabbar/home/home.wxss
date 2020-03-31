@@ -1,4 +1,9 @@
 
+page{
+	background: #FFFFFF;
+}
+
+
 .home-top.data-v-93853c04 {
 	position: absolute;
 	top: 0;

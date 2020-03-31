@@ -25,7 +25,7 @@
       text-align: center;
 }
 .nav-list .nav-clomun .show-icon ._i.data-v-37e50148 {
-        font-size: 70rpx;
+        font-size: 50rpx;
         color: #e8be2e;
 }
 .nav-list .nav-clomun .nav-name.data-v-37e50148 {

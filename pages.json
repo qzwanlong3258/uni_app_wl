@@ -80,6 +80,18 @@
 			}
 		},
 		{
+			"path": "pages/todoChild/myWorkPhoto/index",
+			"style": {
+				"navigationBarTitleText": "拍照任务"
+			}
+		},
+		{
+			"path": "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index",
+			"style": {
+				"navigationBarTitleText": "拍照任务"
+			}
+		},
+		{
             "path" : "pages/todoChild/refundOrder/refundOrder",
             "style" : {
 				"navigationBarTitleText": "退单详情"
@@ -257,6 +269,12 @@
 		    "path" : "pages/todoChild/camera/index",
 		    "style" : {
 				"navigationBarTitleText": "拍照"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/bankDetail/index",
+		    "style" : {
+				"navigationBarTitleText": "银行详情"
 			}
 		}
     ],

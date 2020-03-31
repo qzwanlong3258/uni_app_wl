@@ -19,6 +19,15 @@
 	import {
 		UPLOAD
 	} from '@/config/api.js';
+	import {
+		getDistance
+	} from '@/utils/util.js'
+	var QQMapWX = require('@/utils/qqmap-wx-jssdk.js')
+	import { formatTime } from '@/utils/util.js'
+	const viodeUrl = {
+		feikeError: 'http://47.104.232.184/images/feike.mp3',
+		success: 'http://47.104.232.184/images/success.mp3',
+	}
 	var _self;
 	export default {
 		name: 'canvas-drawer',
@@ -86,9 +95,20 @@
 						})
 					} else {
 						if(options.role =='face'){
+							var pages = getCurrentPages();
+							var currPage = pages[pages.length - 1]; //当前页面
+							var prevPage = pages[pages.length - 2]; //上一个页面
+							//直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+							prevPage.setData({
+							        num:Number(options.index)
+							       
+							})
+							
+							console.log(Number(options.index))
 							uni.playBackgroundAudio({
 								dataUrl: this.needLocation[Number(options.num)].video,
 							})
+							
 						} else{
 							this.checkLocation()
 						}
@@ -101,8 +121,12 @@
 		},
 		methods: {
 			async qrR() {
+				this.checkLocation()
 				const photo = uni.createCameraContext()
 				console.log(photo)
+				uni.showLoading({
+					title: '照片上传中'
+				})
 				await photo.takePhoto({
 					quality: 'high',
 					success: async (res) => {
@@ -136,11 +160,11 @@
 																// ctx.fillRect(uni.upx2px(500), uni.upx2px(790), uni.upx2px(200), uni.upx2px(210));
 																// ctx.drawImage(path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
 																ctx.font = '13px Arial';
-																ctx.fillStyle = '#000';
-																ctx.fillText('长按保存二维码', uni.upx2px(508), uni.upx2px(990));
+																ctx.fillStyle = '#fff';
+																ctx.fillText(this.address, uni.upx2px(380), uni.upx2px(1000));
 																ctx.font = '13px Arial';
-																ctx.fillStyle = '#000';
-																ctx.fillText('二维码', uni.upx2px(444), uni.upx2px(888));
+																ctx.fillStyle = '#fff';
+																ctx.fillText(formatTime(new Date()), uni.upx2px(380), uni.upx2px(970));
 																ctx.draw(false, () => {
 																	uni.canvasToTempFilePath({
 																		x: 0,
@@ -153,6 +177,33 @@
 																		success: async (res)=> {
 																			console.log(res)
 																			_self.imgphoto=res.tempFilePath
+																			var pages = getCurrentPages();
+																			var currPage = pages[pages.length - 1]; //当前页面
+																			var prevPage = pages[pages.length - 2]; //上一个页面
+																			//直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+																			prevPage.setData({
+																			        imgphoto:res.tempFilePath,
+																			       
+																			})
+																			setTimeout(function(){
+																				uni.hideLoading()
+																				uni.showToast({
+																				
+																				title: '成功',
+																				icon:'success',
+																																					
+																				duration: 2000
+																				
+																				});
+																			}, 100);
+																			
+																			
+																			
+																			 uni.navigateBack();
+																			
+																			// uni.navigateBack({
+																			//     delta: 1
+																			// });
 																			// await uni.uploadFile({
 																			//                             // 需要上传的地址
 																			//                             url:UPLOAD,
@@ -237,6 +288,15 @@
 										_self.address=addressRes.result.formatted_addresses.recommend
 										_self.latitude =res.latitude
 										_self.longitude =res.longitude
+										var pages = getCurrentPages();
+										var currPage = pages[pages.length - 1]; //当前页面
+										var prevPage = pages[pages.length - 2]; //上一个页面
+										//直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+										prevPage.setData({
+										        latitude:res.latitude,
+										        longitude:res.longitude
+										       
+										})
 										
 									
 									// let dis = getDistance({

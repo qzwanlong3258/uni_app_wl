@@ -1,0 +1,30 @@
+/* Color
+--------------------------*/
+/* distance
+--------------------------*/
+/* radius
+--------------------------*/
+.states-box.data-v-ef31d5b0 {
+  width: 100%;
+  height: 90rpx;
+  background: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.states-box text.data-v-ef31d5b0 {
+    text-align: center;
+    font-size: 34rpx;
+    color: #333333;
+    line-height: 50rpx;
+}
+.states-box text.active.data-v-ef31d5b0 {
+    color: #FAD64C;
+    border-bottom: 5rpx solid #FAD64C;
+}
+

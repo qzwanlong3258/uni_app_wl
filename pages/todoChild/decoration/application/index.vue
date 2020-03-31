@@ -191,7 +191,8 @@ import wPicker from "@/components/w-picker/w-picker.vue";
 import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
 import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
-import simpleAddress from "@/components/simple-address-normal/simple-address.nvue"
+import simpleAddress from "@/components/simple-address-normal/simple-address.nvue";
+import { getStorage } from '@/utils/storage.js';
 
 import { loanAppt } from '@/api/todoChild/loan.js'
 var _self;
@@ -269,7 +270,9 @@ export default {
 		_self.dataList.workunit = 0
 		_self.dataList.term = this.periodArray[0]
 		_self.dataList.latitude=22.686206,
-		_self.dataList.longitude=114.230672
+		_self.dataList.longitude=114.230672,
+		_self.dataList.cid =getStorage('userInfo').avatarUrl;
+		
 	},
 	methods: {
 		marriageRadioChange: function(evt) {

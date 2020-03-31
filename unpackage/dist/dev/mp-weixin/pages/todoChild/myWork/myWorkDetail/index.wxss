@@ -141,6 +141,7 @@ page{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
+	margin-bottom: 5px;
 }
 .work-left.data-v-191deafa{
 	-webkit-box-flex: 1;

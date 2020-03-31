@@ -2,7 +2,8 @@
 	<view class="tip-box">
 		<view class='scroll-tip'>
 			<view class="tip-title"><image :src="img" mode="widthFix"></image></view>
-			<i class="iconfont iconlaba theme-color"></i>
+			<!-- <i class="iconfont iconlaba theme-color"></i> -->
+			<view style="width: 1px;height: 15px;background: #000000;margin-top: 17px;margin-left: 5px;"></view>
 			<swiper class='header-msg-tip' :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			 circular :duration="duration" easing-function="default" vertical>
 				<block v-for="(item,index) in valueList" :key="index">
@@ -39,17 +40,20 @@
 	.tip-title {
 		font-size: 40upx;
 		font-weight: bold;
-		margin-left: 2%;
+		margin-left: 5%;
+		
+		margin-bottom: 15px;
+		
 	}
 	.tip-title image{
-		width: 40px;
+		width: 60px;
 		
 	}
 	.scroll-tip {
 		width: 100%;
 		height: 80upx;
 		background: #fff;
-		/* border-bottom: 16upx solid rgb(223,54,93); */
+		border-bottom: 16upx solid rgba(241,241,241,1);
 		line-height: 100rpx;
 		display: flex;
 	}
