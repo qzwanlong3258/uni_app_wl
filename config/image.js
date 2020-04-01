@@ -7,6 +7,8 @@ const staticUrl = '/static/img'
 module.exports = {
 	/** 授权 */
 	COMPANY_LOGO: `${staticUrl}/companyLogo.png`,
+	/** 用户头像 */
+	TOUXIANG_LOGO: `${staticUrl}/touxianglogo.png`,
 	// 首页底部图片
 	HOME_DEMO:`${staticUrl}/demo.png`,
 	// 空数据

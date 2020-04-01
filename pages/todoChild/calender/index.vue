@@ -5,10 +5,11 @@
 		<view class="hd">
 			<view class="hd-circle">
 				<image :src="img" mode="widthFix"></image>
-				<view style="text-align: center;font-size: 11px;color: #B75727;margin-top: 5px;">今日已签</view>
+				<view style="text-align: center;font-size: 11px;color: #B75727;margin-top: 5px;" v-if="show">今日已签</view>
+				<view style="text-align: center;font-size: 11px;color: #B75727;margin-top: 5px;" v-if="!show">请签到</view>
 				<!-- <view style="text-align: center;font-size: 11px;color: #B75727;">未签到</view> -->
 			</view>
-			<view class="btn" @click="clickbtn">立即签到</view>
+			<button class="btn" @click="clickbtn" :disabled="show">立即签到</button>
 			<view style="font-size: 12px;color: #FFFFFF;text-align: center;margin: 20px 0;"> 本月已签到{{signData.length}}天,总共签到{{sumCount}}天,继续加油！</view>
 		</view>
 		<model-calendar ref="calender"
@@ -32,6 +33,8 @@
 <script>
 	import {SIGNIN, SIGNIN_IMAGE} from '@/config/image.js'
 	import modelCalendar from '@/components/Calendar.vue';
+	import { checkIn, calender ,getCheckIn } from '@/api/tabbar/mine.js';
+	var _self;
 
 	export default {
 		data() {
@@ -40,19 +43,61 @@
 				toMonth: parseInt(new Date().getMonth() + 1), //本月
 				sumCount: 0,
 				signData: [],
-				img:SIGNIN
+				img:SIGNIN,
+				show:false
 			};
 		},
 		components: {
 			modelCalendar
 		},
-		created() {
+		async onLoad() {
 			//获取当前用户当前任务的签到状态  			
-			this.getData(this.toYear+"-"+this.toMonth);
+			// this.getData(this.toYear+"-"+this.toMonth);
+			_self=this
+			this.getData(this.getTime());
+			let e = await getCheckIn()
+			_self.show=e
+			console.log(e)
 		},
 		methods: {
-			clickbtn() {
+			getTime:function(){
+			
+			var date = new Date(),
+			year = date.getFullYear(),
+			month = date.getMonth() + 1,
+			day = date.getDate(),
+			hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
+			minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+			second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			month >= 1 && month <= 9 ? (month = "0" + month) : "";
+			day >= 0 && day <= 9 ? (day = "0" + day) : "";
+			var timer = year + '-' + month ;
+			return timer;
+			},
+			// time(val){
+			// 	var time = new Date(val);
+				    
+			// 	      function timeAdd0(str) {
+			// 	        if (str < 10) {
+			// 	          str = '0' + str;
+			// 	        }
+			// 	        return str
+			// 	      }
+			// 	      var y = time.getFullYear();
+			// 	      var m = time.getMonth() + 1;
+			// 	      var d = time.getDate();
+			// 	      var h = time.getHours();
+			// 	      var mm = time.getMinutes();
+			// 	      var s = time.getSeconds();
+			// 	      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
+			// },
+			
+			async clickbtn() {
 				this.$refs.calender.clickSignUp(parseInt(new Date().getDate()),1)
+				checkIn()
+				this.getData(this.getTime())
+				let e = await getCheckIn()
+				_self.show=e
 			},
 			clickRegister(day) {
 				//console.log("在模版页签到了", day);
@@ -73,24 +118,38 @@
 			//当模板的时候可以直接引入，然后触发子组件事件到父界面去控制数据
 
 			//获取当前用户该任务的签到数组
-			getData(val) {
-				let y=val.split('-')[0];
-				let m=val.split('-')[1];
+			async getData(e) {
+				let c = await calender({date:e})
+				console.log(c)
+				let y=e.split('-')[0];
+				let m=e.split('-')[1];
 				//this.$http.postHttp("Comment/GetRecord", {//可以通过后台接口去获取你的打卡数据
 				// 	Year: y,
 				// 	Month: m,
 				// }, (res) => {
 				//console.log(res);
-				this.sumCount = 88; //res.SumCount		
-				if (y == this.toYear && m == this.toMonth) {
-					let num=["02","03","06","08","12","15"],newSign=[],today=new Date().getDate();
-					
-					for(let i=0;i<6;i++){
-						if(parseInt(num[i])>today){
-							break;
-						}
-						newSign.push(y+"-"+m+"-"+num[i])
+				// this.sumCount = 88; //res.SumCount	
+				this.sumCount = c.count
+				if (y == this.toYear && m.slice(1,2) == this.toMonth) {
+					// let num=["02","03","06","08","12","15"],
+					let num = c.list.map(item=>{
+						return  item.createTime.slice(0,10)
+					})
+					console.log(num)
+					let newSign=[],
+					today=new Date().getDate();
+					for(let i=0;i<num.length;i++){
+						// if(parseInt(num[i])>today){
+						// 	break;
+						// }
+						newSign.push(num[i])
 					}
+					// for(let i=0;i<6;i++){
+					// 	if(parseInt(num[i])>today){
+					// 		break;
+					// 	}
+					// 	newSign.push(y+"-"+m+"-"+num[i])
+					// }
 					this.signData = newSign;
 				} else {
 				 	this.signData = [];

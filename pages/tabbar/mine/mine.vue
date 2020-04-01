@@ -6,28 +6,34 @@
 					<image :src="userInfo.avatarUrl" class="mine-nav-top-img" mode="aspectFill">
 				</view>
 			</view>
-			<view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view>
+			<!-- <view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view> -->
 			<view class="btn-box"> 
-				<view style="flex: 1;"></view>
+				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到日历</view>
-				<view style="flex: 1;font-size: 10px;text-align: center;line-height: 20px;margin: 0 10px;"> 签到有礼</view>
+				<view style="flex: 0.8;font-size: 14px;text-align: center;margin: 0 10px;"> 
+				 <view style="height: 50%;line-height: 19px;">签到有礼</view> 
+				 <view style="text-align: center;color: #D3B86C;font-size: 8px;height: 50%;line-height: 17px;">WELCOME</view>
+				</view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
-				<view style="flex: 1;"></view>
+				<view style="flex: 0.1;"></view>
 			</view>
-			<view class="mine-pic">
+			<!-- <view class="mine-pic">
 				<view style="flex: 1;text-align: center;"><image :src="img[0]" mode="widthFix" ></image></view>
 				<view style="flex: 1;text-align: center;"><image :src="img[1]" mode="widthFix"></image></view>
-			</view>
+			</view> -->
 			<view class="mine-text">
-				<view style="flex: 1;text-align: center;">余额(元) | 99</view>
-				<view style="flex: 1;text-align: center;">积分 | 200</view>
+				<view style="flex: 0.1;"></view>
+				<view style="flex: 1;text-align: center;">余额(元) | 0</view>
+				<view style="flex: 0.8;"></view>
+				<view style="flex: 1;text-align: center;">积分 | 0</view>
+				<view style="flex: 0.1;"></view>
 			</view>
 			
 		</view>
 		<view class="schedule">
 			<view style="flex: 1;color: #333333;font-size: 13px;text-align: center;font-weight: Regular;">我的申请记录</view>
 			<view style="flex: 1;"></view>
-			<view style="flex: 1;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;" @click="tolinkrecord(0)">查看我的申请记录 <view class="iconfont  iconyou iconclass" ></view></view>
+			<view style="flex: 1;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;" ><view class="iconfont  iconyou iconclass" ></view></view>
 		</view>
 		<view class="schedule_logo">
 			<view style="flex: 1;justify-content: center;" @click="tolinkrecord(0)"> 
@@ -55,15 +61,15 @@
 			<image :src="imgNav[3]" mode="widthFix"></image><text>地址管理</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link"  @click="linkToUrl('角色切换')">
+		<view class="mine-link"  @click="linkToUrl('角色切换')" v-if="role">
 			<image :src="imgNav[3]" mode="widthFix"></image><text>角色切换</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link"  @click="linkToWork()">
+		<view class="mine-link"  @click="linkToWork()" v-if="index === 1">
 			<image :src="imgNav[3]" mode="widthFix"></image><text>面签任务</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
-		<view class="mine-link"  @click="linkToPhoto()">
+		<view class="mine-link"  @click="linkToPhoto()" v-if="index === 2">
 			<image :src="imgNav[3]" mode="widthFix"></image><text>拍照任务</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
@@ -90,7 +96,8 @@ export default {
 			img:[MINE_MONEY,MINE_INTEGRAL],
 			imgMeaLoan:[MINE_MEASURE,MINE_LOAN],
 			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS],
-			
+			index:'',
+			role:''
 			
 		}
 	},
@@ -130,12 +137,19 @@ export default {
 				url:MYWORK_PHOTO
 			})
 		}
-		
 	},
 	async onLoad() {
 		_self =this;
 		_self.userInfo = getStorage('userInfo');
-		this.getData(this.toYear+"-"+this.toMonth);
+		// this.getData(this.toYear+"-"+this.toMonth);
+		_self.index =getStorage('index')
+		_self.role =getStorage('userInfo').role[0]
+		console.log(_self.role)
+	},
+	onShow() {
+		_self.userInfo = getStorage('userInfo');
+		_self.index =getStorage('index')
+		_self.role =getStorage('userInfo').role[0]
 	}
 };
 </script>
@@ -163,6 +177,9 @@ export default {
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 0 auto;
+		border: 6rpx solid #F7B414;
+		padding: 5px;
+		background: #FFFFFF;
 	}
 	.mine-nav-top-img{
 		width: 140rpx;
@@ -172,18 +189,18 @@ export default {
 		margin-left: -10rpx;
 	}
 	.btn-box{
-		height: 20px;
+		height: 35px;
 		display: flex;
-		margin-top: 5px;
+		margin-top: 20px;
 	}
 	.btn{
-		color: #000000;
+		color: #FFFFFF;
 		text-align: center;
-		background-color: #F9D133;
+		background-color: #FAB310;
 		border-radius: 10rpx;
-		font-size: 24rpx;
-		line-height: 20px;
-		box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15);
+		font-size: 26rpx;
+		line-height: 35px;
+		/* box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15); */
 	}
 	.mine-pic{
 		height: 20px;
@@ -196,8 +213,8 @@ export default {
 	.mine-text{
 		height: 20px;
 		display: flex;
-		font-size: 12px;
-		margin-top: 3px;
+		font-size: 13px;
+		margin-top: 10px;
 	}
 	.schedule{
 		height: 35px;

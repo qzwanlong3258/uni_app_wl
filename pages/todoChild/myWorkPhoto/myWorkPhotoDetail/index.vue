@@ -6,14 +6,17 @@
 		
 			<view class="scheduleCard-top" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 20px;">
 				<view class="scheduleCard-top-left" >
-					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
+					<image :src="imglogo" class="scheduleCard-top-left-img" mode="aspectFill" >
+						<!-- <image v-if='!orderList.did' :src="imglogo" class="scheduleCard-top-left-img" mode="aspectFill"> </image> -->
 				</view>
 				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{userInfo.nickName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
+					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{orderList.loanerName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
 							<icon class="iconfont icondianhua iconclass"></icon>
 						</view></view>
-					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;">面签银行：{{userInfo.phone}}</view>
+					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;"></view>
 				</view>
+				<view class="iconfont iconpaizhao icondianhuaclass" @click="linkToCamera" ></view>
+				
 				<!-- <view class="scheduleCard-top-right">
 					<view class="scheduleCard-top-right-success">
 						
@@ -25,12 +28,12 @@
 			</view>
 			<view class="scheduleCard-bottom" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 5px 0;">
 				<view class="scheduleCard-bottom-top" style="height: 50%;color: #666666;">
-					<view>申请额度</view>
+					<view>拍照阶段</view>
 					<view>申请日期</view>
 					<view>产品类型</view>
 				</view>
 				<view class="scheduleCard-bottom-bottom" style="height: 50%;">
-					<view >{{orderList.loanMoney|num}}元</view>
+					<view >{{orderList.name}}</view>
 					<view >{{orderList.lastTime|time}}</view>
 					<view >银行产品</view>
 				</view>
@@ -70,7 +73,7 @@
 			<view class="seclect-content"> <input type="text" class="content-input"></view>
 			<view class="seclect-right"></view>
 		</view> -->
-		<view class="title">
+		<!-- <view class="title">
 			施工阶段
 		</view>
 		<view class="work" v-for="(item,index) in dataList.phase" :key='index'>
@@ -126,7 +129,7 @@
 								</view>
 								
 							</view>
-						</scroll-view>
+						</scroll-view> -->
 		<!-- <view class="title">
 			签合同
 		</view>
@@ -154,9 +157,9 @@
 								
 							</view>
 						</scroll-view> -->
-		<view class="apptMeasureHome_ft">
+		<!-- <view class="apptMeasureHome_ft">
 			<view class="btn" @click="sumbit">提交</view>
-		</view>
+		</view> -->
 	</view>
 	
 </template>
@@ -164,10 +167,12 @@
 <script>
 'use strict';
 var _self;
-import { loanListDetail , faceSumbit } from '@/api/todoChild/loan.js';
+import { loanListDetail , faceSumbit , loanBank} from '@/api/todoChild/loan.js';
 // import camera from './components/camera/camera.vue';
 import { getStorage } from '@/utils/storage.js';
 import { CAMERA, MINE} from '@/config/router.js';
+import { TOUXIANG_LOGO} from '@/config/image.js';
+import { myWorkPhotoLocation } from '@/api/myWork.js'
 import {
 		UPLOAD
 	} from '@/config/api.js';
@@ -177,6 +182,9 @@ export default {
 	// },
 	data() {
 		return{
+			location:[],
+			latitude:'',
+			longitude:'',
 			hidden:false,
 			count:false,
 			userInfo:{
@@ -185,12 +193,14 @@ export default {
 				// phone:13584115454
 			},
 			imgphoto:'',
+			imglogo:TOUXIANG_LOGO,
 			num:'',
 			orderList:{
 				loanMoney:300,
 				lastTime:1585568923,
 				address:'dqwadcqd'
 			},
+			bankData:{},
 			successItems: [
 				{
 					value: 'USA',
@@ -258,6 +268,17 @@ export default {
 		}
 	},
 	methods:{
+		linkToCamera(){
+			let a='photo'
+			let c=JSON.stringify(this.location)
+			uni.navigateTo({
+				
+				url: `${CAMERA}?role=${a}&location=${c}&latitude=${this.latitude}&longitude=${this.longitude}&uuid=${this.uuid}`,
+			})
+		},
+		
+		
+		
 		//提交
 		sumbit(){
 			console.log(this.dataList)
@@ -360,13 +381,28 @@ export default {
 		  			},
 	},
 	async onLoad(options) {
-		this.userInfo = getStorage('userInfo');
-		console.log(this.userInfo);
+		// this.userInfo = getStorage('userInfo');
+		// console.log(this.userInfo);
 		_self = this
-		let v = await loanListDetail({orderid:options.id})
-		console.log(v)
-		_self.orderList = v.order[0]
-		_self.dataList.orderid=options.id
+		// let v = await loanListDetail({orderid:options.id})
+		// console.log(v)
+		_self.orderList = JSON.parse(decodeURIComponent(options.list)) 
+		// console.log(_self.orderList)
+		// console.log(options.list)
+		let e= await myWorkPhotoLocation( {uuid:_self.orderList.pid})
+		console.log(e)
+		_self.location = e.list.map(item=>{
+			return item.locationId - 1
+		})
+		_self.latitude=e.list[0].latitude
+		_self.longitude=e.list[0].longitude
+		_self.uuid =_self.orderList.pid
+		
+		
+		// 获取银行信息
+		// let r = await loanBank({orderid:options.id})
+		// _self.bankData=r.list[0]
+		// _self.dataList.orderid=options.id
 	},
 	async onShow(){
 		   if(this.count){
@@ -432,6 +468,7 @@ export default {
 	.scheduleCard-top{
 		padding-bottom: 10rpx;
 		display: flex;
+		position: relative;
 	}
 	.scheduleCard-top-left{
 		flex-basis: 120rpx;
@@ -493,6 +530,12 @@ export default {
 		color: #333333;
 		font-size: 12px;
 		margin-top: -10px;
+	}
+	.icondianhuaclass{
+		color: #1677FF;
+		font-size: 25px;
+		margin-right: 10px;
+		margin-top: 7px;
 	}
 	.title{
 		height:30px;

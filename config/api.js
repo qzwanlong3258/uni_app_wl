@@ -30,6 +30,7 @@ module.exports = {
 	/** 我的 **/
 	GET_CHECK_IN: `${baseUrl}/wx/user/isSignIn`,
 	CHECK_IN: `${baseUrl}/wx/user/signIn`,
+	CALENDER:`${baseUrl}/wx/user/loadRegistration`,
 	
 	/** 城市 **/
 	LOAD_CITY: `${baseUrl}/city/loadCity`,
@@ -68,7 +69,13 @@ module.exports = {
 	MYWORK_FACE:`${baseUrl}/wx/login/loadOrderVisaList`,
 	FACE_SUBMIT:`${baseUrl}/wx/login/submitVisa`,
 	
-	MYWORKPHOTO:`${baseUrl}/wx/login/loadPictures`,
+	
 	/** 上传照片 **/
-	UPLOAD:`${baseUrl}/ftp/upload`
+	UPLOAD:`${baseUrl}/ftp/upload`,
+	
+	/** 我的工作—拍照 **/
+	MYWORKPHOTO:`${baseUrl}/wx/login/loadPictures`,
+	MYWORKPHOTO_LOCATION:`${baseUrl}/wx/login/loadPicturesDetail`,
+	PHOTO_SUMBIT:`${baseUrl}/wx/login/submitPictures`
+	
 }

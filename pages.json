@@ -4,7 +4,12 @@
 		{
 			"path": "pages/tabbar/home/home",
 			"style": {
-				"navigationBarTitleText": "非客钱包"
+				"navigationBarTitleText": "非客钱包",
+				"navigationStyle":"custom",
+				"app-plus":{
+				"titleView":false
+				}
+				
 			}
 		},
 		{

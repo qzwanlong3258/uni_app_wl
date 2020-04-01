@@ -209,7 +209,13 @@
 				this.cur_month = newMonth;
 
 				this.SignUp = []; //先清空
-				this.$emit('dateChange', this.cur_year+"-"+this.cur_month); //传给调用模板页面去拿新数据				
+				function timeAdd0(str) {
+				  if (str < 10) {
+				    str = '0' + str;
+				  }
+				  return str
+				}
+				this.$emit('dateChange', this.cur_year+"-"+timeAdd0(this.cur_month)); //传给调用模板页面去拿新数据				
 			},
 
 			clickSignUp(date, type) { //0补签，1当日签到		

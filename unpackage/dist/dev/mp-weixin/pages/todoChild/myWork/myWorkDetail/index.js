@@ -324,6 +324,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
@@ -349,7 +350,7 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequi
         // phone:13584115454
       },
       imgphoto: '',
-      imglogo: _image.COMPANY_LOGO,
+      imglogo: _image.TOUXIANG_LOGO,
       num: '',
       orderList: {
         loanMoney: 300,

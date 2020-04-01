@@ -11,27 +11,27 @@
 			<ljl-activity :infor="item" />
 		</view> -->
 		<view class="schedule-left" :hidden='states.index==1'>
-			<view class="box" @click="linkToRoute">
+			<button class="box" open-type="share" @click="linkToRoute" style="background: #FFFFFF;">
 				<view class="box-left" style="background: #EBCD9B;">
 					<image :src='img[0]' mode="widthFix"></image>
 					<view class="text" style="color: #825203;">推荐会员</view>
 				</view>
 				<view class="box-right">还差一人，可获得10积分</view>
-			</view>
-			<view class="box" @click="linkToRoute">
+			</button>
+			<button class="box" open-type="share" @click="linkToRoute" style="background: #FFFFFF;">
 				<view class="box-left" style="background: #EB9B9B;">
 					<image :src='img[1]' mode="widthFix"></image>
-					<view class="text" style="color: #860A0A;">推荐会员</view>
+					<view class="text" style="color: #860A0A;">推荐设计师</view>
 				</view>
 				<view class="box-right">还差一人，可获得10积分</view>
-			</view>
-			<view class="box" @click="linkToRoute">
+			</button>
+			<button class="box" open-type="share" @click="linkToRoute" style="background: #FFFFFF;">
 				<view class="box-left" style="background: #9BD2EB;">
 					<image :src='img[2]' mode="widthFix"></image>
-					<view class="text" style="color: #07587C;">推荐会员</view>
+					<view class="text" style="color: #07587C;">推荐客户</view>
 				</view>
-				<view class="box-right">还差一人，可获得10积分</view>
-			</view>
+				<view class="box-right">还差一人，可获得500积分</view>
+			</button>
 		</view>
 		<view class="schedule-right" :hidden='states.index==0'>
 			<view class="box">
@@ -44,16 +44,16 @@
 			<view class="box">
 				<view class="box-left" style="background: #EB9B9B;">
 					<image :src='img[1]' mode="widthFix"></image>
-					<view class="text" style="color: #860A0A;">推荐会员</view>
+					<view class="text" style="color: #860A0A;">推荐设计师</view>
 				</view>
 				<view class="box-right"><text>还差一人，可获得10积分</text> <image :src="img[3]" mode="widthFix"></image></view>
 			</view>
 			<view class="box">
 				<view class="box-left" style="background: #9BD2EB;">
 					<image :src='img[2]' mode="widthFix"></image>
-					<view class="text" style="color: #07587C;">推荐会员</view>
+					<view class="text" style="color: #07587C;">推荐客户</view>
 				</view>
-				<view class="box-right"><text>还差一人，可获得10积分</text> <image :src="img[3]" mode="widthFix"></image></view>
+				<view class="box-right"><text>还差一人，可获得500积分</text> <image :src="img[3]" mode="widthFix"></image></view>
 			</view>
 		</view>
 	</view>
@@ -83,17 +83,23 @@ export default {
 		};
 	},
 	onLoad() {
-		// this.loadListForActivity();
+		this.loadListForActivity();
 	},
 	methods: {
+		onShareAppMessage(res) {
+		      return {
+		        title: '邀请有礼',
+		        path: 'pages/todoChild/recommended/index'
+		      }
+		    },
 		/**
 		 * 加载活动列表
 		 */
-		// loadListForActivity() {
-		// 	loadActivity().then(res => {
-		// 		this.activityList = res.list;
-		// 	});
-		// },
+		loadListForActivity() {
+			loadActivity().then(res => {
+				this.activityList = res.list;
+			});
+		},
 
 		/**
 		 * 切换状态
@@ -106,9 +112,9 @@ export default {
 		 * 链接到路由
 		 */
 		linkToRoute(item) {
-			uni.navigateTo({
-				url: RECOMMENDED_MEMBER
-			});
+			// uni.navigateTo({
+			// 	url: RECOMMENDED_MEMBER
+			// });
 		}
 	},
 	components: {
@@ -117,11 +123,17 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style lang="scss" scoped>
 	.box{
 		height: 70px;
 		display: flex;
+		background: #FFFFFF;
+		
 	}
 	.box-left{
 		flex: 1;

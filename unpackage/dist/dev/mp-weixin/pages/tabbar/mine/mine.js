@@ -195,6 +195,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
@@ -213,8 +219,9 @@ var _self;var _default =
       },
       img: [_image.MINE_MONEY, _image.MINE_INTEGRAL],
       imgMeaLoan: [_image.MINE_MEASURE, _image.MINE_LOAN],
-      imgNav: [_image.MINE_RECOMMEND, _image.MINE_INTEGRAL_LOGO, _image.MINE_SHARE_CENTER, _image.MINE_ADRESS] };
-
+      imgNav: [_image.MINE_RECOMMEND, _image.MINE_INTEGRAL_LOGO, _image.MINE_SHARE_CENTER, _image.MINE_ADRESS],
+      index: '',
+      role: '' };
 
 
   },
@@ -255,11 +262,19 @@ var _self;var _default =
 
     } },
 
-
   onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               _self = this;
               _self.userInfo = (0, _storage.getStorage)('userInfo');
-              this.getData(this.toYear + "-" + this.toMonth);case 3:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+              // this.getData(this.toYear+"-"+this.toMonth);
+              _self.index = (0, _storage.getStorage)('index');
+              _self.role = (0, _storage.getStorage)('userInfo').role[0];
+              console.log(_self.role);case 5:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}(),
+
+  onShow: function onShow() {
+    _self.userInfo = (0, _storage.getStorage)('userInfo');
+    _self.index = (0, _storage.getStorage)('index');
+    _self.role = (0, _storage.getStorage)('userInfo').role[0];
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

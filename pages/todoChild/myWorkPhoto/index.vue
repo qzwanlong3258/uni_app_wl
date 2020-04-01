@@ -6,7 +6,7 @@
 		</view> -->
 		<ljl-states :infor="states" @change="stateChange"  />
 		<view class="box-left" :hidden='states.index==1'>
-			<view class="myWork-Card" @click="linkToDetail" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
+			<view class="myWork-Card" @click="linkToDetail($event,item)" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
 				<view class="myWork-Card-hd">
 					<view class="Card-hd-left">{{item.loanerName}}</view>
 					<view class="Card-hd-mid"></view>
@@ -19,7 +19,7 @@
 		</view>
 		<view class="box-left" :hidden='states.index==0'>
 			<view class="myWork-Card">
-				<view class="myWork-Card-hd" @click="linkToDetail()" v-for="(item,index) in dataListCom" :key="index">
+				<view class="myWork-Card-hd" @click="linkToDetail($event,item)" v-for="(item,index) in dataListCom" :key="index">
 					<view class="Card-hd-left">{{item.loanerName}}</view>
 					<view class="Card-hd-mid"></view>
 					<view class="Card-hd-right">{{item.lastTime|time}}</view>
@@ -37,7 +37,7 @@
 'use strict';
 var _self;
 import LjlStates from './components/changeStates';
-import { MYWORKDETAIL} from '@/config/router.js';
+import { MYWORK_PHOTO_DETAIL} from '@/config/router.js';
 import { myWorkPhoto } from '@/api/myWork.js'
 export default {
 	components:{
@@ -81,9 +81,10 @@ export default {
 			this.states.index = index;
 			this[`stateTo${index}`] && this[`stateTo${index}`]();
 		},
-		linkToDetail(e){
+		linkToDetail(e,v){
+			let c=JSON.stringify(v)
 			uni.navigateTo({
-				url: `${MYWORKDETAIL}?id=${e.currentTarget.dataset.id}`,
+				url: `${MYWORK_PHOTO_DETAIL}?id=${e.currentTarget.dataset.id}&list=${c}`,
 			})
 		},
 	},

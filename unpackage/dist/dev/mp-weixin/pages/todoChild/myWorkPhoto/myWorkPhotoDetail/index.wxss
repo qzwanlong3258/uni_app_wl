@@ -23,6 +23,7 @@ page{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
+	position: relative;
 }
 .scheduleCard-top-left.data-v-2ee66cf4{
 	-webkit-flex-basis: 120rpx;
@@ -94,6 +95,12 @@ page{
 	color: #333333;
 	font-size: 12px;
 	margin-top: -10px;
+}
+.icondianhuaclass.data-v-2ee66cf4{
+	color: #1677FF;
+	font-size: 25px;
+	margin-right: 10px;
+	margin-top: 7px;
 }
 .title.data-v-2ee66cf4{
 	height:30px;

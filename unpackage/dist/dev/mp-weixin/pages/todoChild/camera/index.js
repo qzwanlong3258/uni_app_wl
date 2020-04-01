@@ -140,18 +140,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
 var _api = __webpack_require__(/*! @/config/api.js */ 20);
 
 
-var _util = __webpack_require__(/*! @/utils/util.js */ 48);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _util = __webpack_require__(/*! @/utils/util.js */ 48);
 
 
-var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 434);
 
-var viodeUrl = {
-  feikeError: 'http://47.104.232.184/images/feike.mp3',
-  success: 'http://47.104.232.184/images/success.mp3' };
 
+
+
+
+
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
+var _myWork = __webpack_require__(/*! @/api/myWork.js */ 134);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 434);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
 var _self;var _default =
 {
   name: 'canvas-drawer',
@@ -183,6 +191,11 @@ var _self;var _default =
       {
         id: 5,
         name: '卧室',
+        video: 'http://47.104.232.184/images/woshi.mp3' },
+
+      {
+        id: 6,
+        name: '卧室',
         video: 'http://47.104.232.184/images/woshi.mp3' }],
 
 
@@ -190,8 +203,10 @@ var _self;var _default =
       isLoading: false,
       address: '',
       latitude: '',
-      longitude: '' };
-
+      longitude: '',
+      role: 0,
+      disable: false,
+      uuid: '' };
 
 
   },
@@ -232,9 +247,19 @@ var _self;var _default =
             uni.playBackgroundAudio({
               dataUrl: _this.needLocation[Number(options.num)].video });
 
-
-          } else {
             _this.checkLocation();
+            _self.role = 0;
+          } else {
+            _self.role = 1;
+            _self.location = JSON.parse(decodeURIComponent(options.location));
+            console.log(options);
+            _self.latitude = options.latitude;
+            _self.longitude = options.longitude;
+            _self.latitude = 22.71991;
+            _self.longitude = 114.24779;
+            _self.uuid = options.uuid;
+
+            _this.checkPhotoLocation();
           }
 
 
@@ -244,12 +269,11 @@ var _self;var _default =
 
   },
   methods: {
-    qrR: function () {var _qrR = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var _this2 = this;var photo, that;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
-                this.checkLocation();
+    photo: function () {var _photo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var _this2 = this;var photo;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
                 photo = uni.createCameraContext();
                 console.log(photo);
                 uni.showLoading({
-                  title: '照片上传中' });_context4.next = 6;return (
+                  title: '照片上传中' });_context4.next = 5;return (
 
                   photo.takePhoto({
                     quality: 'high',
@@ -298,7 +322,144 @@ var _self;var _default =
                                                           destWidth: 375,
                                                           destHeight: uni.upx2px(1020),
                                                           canvasId: 'firstCanvas',
-                                                          success: function () {var _success3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {var pages, currPage, prevPage;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                                          success: function () {var _success3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                                                      console.log(res);
+                                                                      _self.imgphoto = res.tempFilePath;_context.next = 4;return (
+                                                                        uni.uploadFile({
+                                                                          header: {
+                                                                            "Content-Type": "multipart/form-data" },
+
+                                                                          url: _api.UPLOAD,
+                                                                          filePath: res.tempFilePath,
+                                                                          name: 'file',
+                                                                          success: function success(result) {
+                                                                            console.log(result);
+                                                                            var data = {
+                                                                              uuid: _this2.uuid,
+                                                                              url: JSON.parse(result.data).data,
+                                                                              potId: _this2.location[_this2.currentVideoIndex],
+                                                                              latitude: _this2.latitude,
+                                                                              longitude: _this2.longitude };
+
+                                                                            (0, _myWork.photoSubmit)(data).then(function (res) {
+                                                                              _self.currentVideoIndex = _this2.currentVideoIndex + 1;
+
+                                                                              setTimeout(function () {
+                                                                                uni.hideLoading();
+                                                                                uni.showToast({
+
+                                                                                  title: '成功',
+                                                                                  icon: 'success',
+
+                                                                                  duration: 2000 });
+
+
+                                                                              }, 100);
+                                                                              if (_this2.currentVideoIndex < _this2.location.length) {
+                                                                                uni.playBackgroundAudio({
+                                                                                  dataUrl: _this2.needLocation[Number(_this2.location[_this2.currentVideoIndex])].video });
+
+
+                                                                              } else {
+                                                                                uni.playBackgroundAudio({
+                                                                                  dataUrl: viodeUrl.success,
+                                                                                  success: function success() {
+                                                                                    console.log('拍照完成，跳回前一页');
+                                                                                    uni.switchTab({
+                                                                                      url: _router.MINE });
+
+                                                                                  } });
+
+                                                                              }
+                                                                            });
+
+                                                                          } }));case 4:case "end":return _context.stop();}}}, _callee, this);}));function success(_x3) {return _success3.apply(this, arguments);}return success;}(),
+
+
+
+
+
+
+
+                                                          fail: function fail(e) {
+                                                            console.log(e);
+                                                            uni.showToast({
+                                                              title: '拍照失败',
+                                                              icon: 'none' });
+
+                                                          } });
+
+                                                      });
+                                                    },
+                                                    fail: function fail(error) {
+                                                      setTimeout(uni.hideLoading, 100);
+                                                      console.log(error);
+                                                    } }));case 6:case "end":return _context2.stop();}}}, _callee2, this);}));function success(_x2) {return _success2.apply(this, arguments);}return success;}() }));case 3:case "end":return _context3.stop();}}}, _callee3, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() }));case 5:case "end":return _context4.stop();}}}, _callee4, this);}));function photo() {return _photo.apply(this, arguments);}return photo;}(),
+
+
+
+
+
+
+
+
+
+
+    qrR: function () {var _qrR = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee8() {var _this3 = this;var photo;return _regenerator.default.wrap(function _callee8$(_context8) {while (1) {switch (_context8.prev = _context8.next) {case 0:
+                // this.checkLocation()
+                photo = uni.createCameraContext();
+                console.log(photo);
+                uni.showLoading({
+                  title: '照片上传中' });_context8.next = 5;return (
+
+                  photo.takePhoto({
+                    quality: 'high',
+                    success: function () {var _success4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee7(res) {return _regenerator.default.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:
+                                console.log(res);_context7.next = 3;return (
+
+                                  uni.uploadFile({
+                                    // 需要上传的地址
+                                    url: _api.UPLOAD,
+                                    // filePath  需要上传的文件
+                                    filePath: res.tempImagePath,
+                                    name: 'file',
+                                    success: function () {var _success5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(res1) {var w, system_info, ctx;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
+                                                console.log(res1);
+                                                w = JSON.parse(res1.data);
+                                                // _self.cover = w.data
+                                                // console.log(_self.cover)
+                                                system_info = uni.getSystemInfoSync();
+                                                ctx = uni.createCanvasContext('firstCanvas');_context6.next = 6;return (
+
+                                                  uni.getImageInfo({
+                                                    src: w.data,
+                                                    success: function success(res) {
+                                                      console.log(res.path);
+                                                      // console.log(this)
+                                                      ctx.drawImage(res.path, 0, 0, 375, uni.upx2px(1020));
+                                                      var linearGrad = ctx.createLinearGradient(0, 0, 800, 0);
+                                                      linearGrad.addColorStop('0.25', '#8b00d2');
+                                                      linearGrad.addColorStop('0.5', '#003fb3');
+                                                      linearGrad.addColorStop('0.75', '#ff3ef0');
+                                                      // ctx.fillStyle = '#FFFFFF';
+                                                      // ctx.fillRect(uni.upx2px(500), uni.upx2px(790), uni.upx2px(200), uni.upx2px(210));
+                                                      // ctx.drawImage(path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
+                                                      ctx.font = '13px Arial';
+                                                      ctx.fillStyle = '#fff';
+                                                      ctx.fillText(_this3.address, uni.upx2px(380), uni.upx2px(1000));
+                                                      ctx.font = '13px Arial';
+                                                      ctx.fillStyle = '#fff';
+                                                      ctx.fillText((0, _util.formatTime)(new Date()), uni.upx2px(380), uni.upx2px(970));
+                                                      ctx.draw(false, function () {
+                                                        uni.canvasToTempFilePath({
+                                                          x: 0,
+                                                          y: 0,
+                                                          width: 375,
+                                                          height: uni.upx2px(1020),
+                                                          destWidth: 375,
+                                                          destHeight: uni.upx2px(1020),
+                                                          canvasId: 'firstCanvas',
+                                                          success: function () {var _success6 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(res) {var pages, currPage, prevPage;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
                                                                       console.log(res);
                                                                       _self.imgphoto = res.tempFilePath;
                                                                       pages = getCurrentPages();
@@ -347,7 +508,7 @@ var _self;var _default =
                                                                       // 		console.log('save success');
                                                                       // 	}
                                                                       // });
-                                                                    case 8:case "end":return _context.stop();}}}, _callee, this);}));function success(_x3) {return _success3.apply(this, arguments);}return success;}(),
+                                                                    case 8:case "end":return _context5.stop();}}}, _callee5, this);}));function success(_x6) {return _success6.apply(this, arguments);}return success;}(),
                                                           fail: function fail(e) {
                                                             console.log(e);
                                                             uni.showToast({
@@ -359,8 +520,9 @@ var _self;var _default =
                                                       });
                                                     },
                                                     fail: function fail(error) {
+                                                      setTimeout(uni.hideLoading, 100);
                                                       console.log(error);
-                                                    } }));case 6:case "end":return _context2.stop();}}}, _callee2, this);}));function success(_x2) {return _success2.apply(this, arguments);}return success;}() }));case 3:case "end":return _context3.stop();}}}, _callee3, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() }));case 6:
+                                                    } }));case 6:case "end":return _context6.stop();}}}, _callee6, this);}));function success(_x5) {return _success5.apply(this, arguments);}return success;}() }));case 3:case "end":return _context7.stop();}}}, _callee7, this);}));function success(_x4) {return _success4.apply(this, arguments);}return success;}() }));case 5:case "end":return _context8.stop();}}}, _callee8, this);}));function qrR() {return _qrR.apply(this, arguments);}return qrR;}(),
 
 
 
@@ -377,9 +539,9 @@ var _self;var _default =
 
 
 
-                that = this;
-                // this.qr_path = path;
-              case 7:case "end":return _context4.stop();}}}, _callee4, this);}));function qrR() {return _qrR.apply(this, arguments);}return qrR;}(),
+
+
+
 
 
 
@@ -393,14 +555,14 @@ var _self;var _default =
         current: imgArr[0] });
 
     },
-    checkLocation: function () {var _checkLocation = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6() {var qqmapsdk;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
+    checkLocation: function () {var _checkLocation = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee10() {var qqmapsdk;return _regenerator.default.wrap(function _callee10$(_context10) {while (1) {switch (_context10.prev = _context10.next) {case 0:
                 qqmapsdk = new QQMapWX({
-                  key: 'RXMBZ-V3XKW-EPHR7-R7B2O-S75AK-3TFHW' });_context6.next = 3;return (
+                  key: 'RXMBZ-V3XKW-EPHR7-R7B2O-S75AK-3TFHW' });_context10.next = 3;return (
 
                   uni.getLocation({
                     type: 'gcj02',
                     altitude: 'true',
-                    success: function () {var _success4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(res) {return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+                    success: function () {var _success7 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee9(res) {return _regenerator.default.wrap(function _callee9$(_context9) {while (1) {switch (_context9.prev = _context9.next) {case 0:
                                 qqmapsdk.reverseGeocoder({
                                   location: {
                                     latitude: res.latitude,
@@ -438,7 +600,47 @@ var _self;var _default =
                                     // 	dataUrl: this.needLocation[0].video,
                                     // })
                                     // }
-                                  } });case 1:case "end":return _context5.stop();}}}, _callee5, this);}));function success(_x4) {return _success4.apply(this, arguments);}return success;}() }));case 3:case "end":return _context6.stop();}}}, _callee6, this);}));function checkLocation() {return _checkLocation.apply(this, arguments);}return checkLocation;}()
+                                  } });case 1:case "end":return _context9.stop();}}}, _callee9, this);}));function success(_x7) {return _success7.apply(this, arguments);}return success;}() }));case 3:case "end":return _context10.stop();}}}, _callee10, this);}));function checkLocation() {return _checkLocation.apply(this, arguments);}return checkLocation;}(),
+
+
+
+
+    checkPhotoLocation: function () {var _checkPhotoLocation = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee12(a, b) {var _this4 = this;var qqmapsdk;return _regenerator.default.wrap(function _callee12$(_context12) {while (1) {switch (_context12.prev = _context12.next) {case 0:
+                qqmapsdk = new QQMapWX({
+                  key: 'RXMBZ-V3XKW-EPHR7-R7B2O-S75AK-3TFHW' });_context12.next = 3;return (
+
+                  uni.getLocation({
+                    type: 'gcj02',
+                    altitude: 'true',
+                    success: function () {var _success8 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee11(res) {return _regenerator.default.wrap(function _callee11$(_context11) {while (1) {switch (_context11.prev = _context11.next) {case 0:
+                                qqmapsdk.reverseGeocoder({
+                                  location: {
+                                    latitude: res.latitude,
+                                    longitude: res.longitude },
+
+                                  success: function success(addressRes) {
+                                    console.log(res);
+
+                                    _self.address = addressRes.result.formatted_addresses.recommend;
+                                    console.log(_this4);
+                                    var dis = (0, _util.getDistance)({
+                                      lat1: res.latitude,
+                                      lng1: res.longitude,
+                                      lat2: Number(_this4.latitude),
+                                      lng2: Number(_this4.longitude) });
+
+                                    if (dis > 10 && res.altitude == 0) {
+                                      uni.playBackgroundAudio({
+                                        dataUrl: viodeUrl.feikeError });
+
+                                      _self.disable = true;
+                                    } else {
+                                      uni.playBackgroundAudio({
+                                        dataUrl: _this4.needLocation[Number(_this4.location[0])].video });
+
+                                      _self.disable = false;
+                                    }
+                                  } });case 1:case "end":return _context11.stop();}}}, _callee11, this);}));function success(_x10) {return _success8.apply(this, arguments);}return success;}() }));case 3:case "end":return _context12.stop();}}}, _callee12, this);}));function checkPhotoLocation(_x8, _x9) {return _checkPhotoLocation.apply(this, arguments);}return checkPhotoLocation;}()
 
 
 

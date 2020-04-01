@@ -9,7 +9,8 @@
 			<image :src="img[4]" mode="widthFix"></image>
 		</view>
 		<view class="apptMeasureHome_ft">
-			<view class="btn" @click="toLinkChoose">立即分享</view>
+			<!-- <view class="btn" @click="toLinkChoose">立即分享</view> -->
+			<button class="btn" open-type="share">立即分享</button>
 		</view>
 	</view>
 </template>
@@ -23,6 +24,12 @@ export default {
 			img:[INVITE_GIFT,INVITE_FRIEND,INVITE_POINT_ONE,INVITE_POINT_TWO,INVITE_POINT_THREE]
 		}
 	},
+	onShareAppMessage(res) {
+	      return {
+	        title: '邀请有礼',
+	        path: '/pages/todoChild/inviteGift/index'
+	      }
+	    },
 	methods:{},
 	async onLoad() {}
 };

@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "非客钱包",
+  "navigationStyle": "custom",
   "usingComponents": {
     "yld-top": "/pages/tabbar/home/components/YldTop",
     "swiper-img": "/components/SwiperImg",

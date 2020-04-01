@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
 
 
@@ -154,42 +154,80 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _image = __webpack_require__(/*! @/config/image.js */ 34); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var modelCalendar = function modelCalendar() {return __webpack_require__.e(/*! import() | components/Calendar */ "components/Calendar").then(__webpack_require__.bind(null, /*! @/components/Calendar.vue */ 718));};var _default = { data: function data() {return { toYear: parseInt(new Date().getFullYear()), //本日
+
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+
+var _mine = __webpack_require__(/*! @/api/tabbar/mine.js */ 325);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var modelCalendar = function modelCalendar() {return __webpack_require__.e(/*! import() | components/Calendar */ "components/Calendar").then(__webpack_require__.bind(null, /*! @/components/Calendar.vue */ 720));};
+var _self;var _default =
+
+{
+  data: function data() {
+    return {
+      toYear: parseInt(new Date().getFullYear()), //本日
       toMonth: parseInt(new Date().getMonth() + 1), //本月
-      sumCount: 0, signData: [], img: _image.SIGNIN };}, components: { modelCalendar: modelCalendar }, created: function created() {//获取当前用户当前任务的签到状态  			
-    this.getData(this.toYear + "-" + this.toMonth);}, methods: { clickbtn: function clickbtn() {this.$refs.calender.clickSignUp(parseInt(new Date().getDate()), 1);}, clickRegister: function clickRegister(day) {//console.log("在模版页签到了", day);
-      this.signData.push(day);this.sumCount++; //this.$http.postHttp("Comment/UpdateRecord", day, (res) => {//可以通过后台接口添加当前用户当日打卡记录，
+      sumCount: 0,
+      signData: [],
+      img: _image.SIGNIN,
+      show: false };
+
+  },
+  components: {
+    modelCalendar: modelCalendar },
+
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var e;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              //获取当前用户当前任务的签到状态  			
+              // this.getData(this.toYear+"-"+this.toMonth);
+              _self = this;
+              this.getData(this.getTime());_context.next = 4;return (
+                (0, _mine.getCheckIn)());case 4:e = _context.sent;
+              _self.show = e;
+              console.log(e);case 7:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}(),
+
+  methods: {
+    getTime: function getTime() {
+
+      var date = new Date(),
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
+      minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+      second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      month >= 1 && month <= 9 ? month = "0" + month : "";
+      day >= 0 && day <= 9 ? day = "0" + day : "";
+      var timer = year + '-' + month;
+      return timer;
+    },
+    // time(val){
+    // 	var time = new Date(val);
+
+    // 	      function timeAdd0(str) {
+    // 	        if (str < 10) {
+    // 	          str = '0' + str;
+    // 	        }
+    // 	        return str
+    // 	      }
+    // 	      var y = time.getFullYear();
+    // 	      var m = time.getMonth() + 1;
+    // 	      var d = time.getDate();
+    // 	      var h = time.getHours();
+    // 	      var mm = time.getMinutes();
+    // 	      var s = time.getSeconds();
+    // 	      return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) ;
+    // },
+
+    clickbtn: function () {var _clickbtn = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                this.$refs.calender.clickSignUp(parseInt(new Date().getDate()), 1);
+                (0, _mine.checkIn)();
+                this.getData(this.getTime());_context2.next = 5;return (
+                  (0, _mine.getCheckIn)());case 5:e = _context2.sent;
+                _self.show = e;case 7:case "end":return _context2.stop();}}}, _callee2, this);}));function clickbtn() {return _clickbtn.apply(this, arguments);}return clickbtn;}(),
+
+    clickRegister: function clickRegister(day) {
+      //console.log("在模版页签到了", day);
+      this.signData.push(day);
+      this.sumCount++;
+      //this.$http.postHttp("Comment/UpdateRecord", day, (res) => {//可以通过后台接口添加当前用户当日打卡记录，
       // 		//console.log(res);
       // 		//if (res!= undefined) {
       // 			uni.showToast({
@@ -200,27 +238,48 @@ var modelCalendar = function modelCalendar() {return __webpack_require__.e(/*! i
       // 		
       // 		//}
       //  })	
-    }, //当模板的时候可以直接引入，然后触发子组件事件到父界面去控制数据
+    },
+    //当模板的时候可以直接引入，然后触发子组件事件到父界面去控制数据
+
     //获取当前用户该任务的签到数组
-    getData: function getData(val) {var y = val.split('-')[0];var m = val.split('-')[1]; //this.$http.postHttp("Comment/GetRecord", {//可以通过后台接口去获取你的打卡数据
-      // 	Year: y,
-      // 	Month: m,
-      // }, (res) => {
-      //console.log(res);
-      this.sumCount = 88; //res.SumCount		
-      if (y == this.toYear && m == this.toMonth) {var num = ["02", "03", "06", "08", "12", "15"],newSign = [],today = new Date().getDate();
-        for (var i = 0; i < 6; i++) {
-          if (parseInt(num[i]) > today) {
-            break;
-          }
-          newSign.push(y + "-" + m + "-" + num[i]);
-        }
-        this.signData = newSign;
-      } else {
-        this.signData = [];
-      }
-      // })
-    } } };exports.default = _default;
+    getData: function () {var _getData = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(e) {var c, y, m, num, newSign, today, i;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  (0, _mine.calender)({ date: e }));case 2:c = _context3.sent;
+                console.log(c);
+                y = e.split('-')[0];
+                m = e.split('-')[1];
+                //this.$http.postHttp("Comment/GetRecord", {//可以通过后台接口去获取你的打卡数据
+                // 	Year: y,
+                // 	Month: m,
+                // }, (res) => {
+                //console.log(res);
+                // this.sumCount = 88; //res.SumCount	
+                this.sumCount = c.count;
+                if (y == this.toYear && m.slice(1, 2) == this.toMonth) {
+                  // let num=["02","03","06","08","12","15"],
+                  num = c.list.map(function (item) {
+                    return item.createTime.slice(0, 10);
+                  });
+                  console.log(num);
+                  newSign = [],
+                  today = new Date().getDate();
+                  for (i = 0; i < num.length; i++) {
+                    // if(parseInt(num[i])>today){
+                    // 	break;
+                    // }
+                    newSign.push(num[i]);
+                  }
+                  // for(let i=0;i<6;i++){
+                  // 	if(parseInt(num[i])>today){
+                  // 		break;
+                  // 	}
+                  // 	newSign.push(y+"-"+m+"-"+num[i])
+                  // }
+                  this.signData = newSign;
+                } else {
+                  this.signData = [];
+                }
+                // })
+              case 8:case "end":return _context3.stop();}}}, _callee3, this);}));function getData(_x) {return _getData.apply(this, arguments);}return getData;}() } };exports.default = _default;
 
 /***/ }),
 

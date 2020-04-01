@@ -1,12 +1,11 @@
 
-page{
-	background: #FFFFFF;
+.home-hd.data-v-93853c04{
+		background: #fff;
+		position: relative;
 }
-
-
 .home-top.data-v-93853c04 {
 	position: absolute;
-	top: 0;
+	bottom: 2px;
 	width: 100%;
 	height: 70rpx;
 	z-index: 99;

@@ -6,7 +6,8 @@
 		
 			<view class="scheduleCard-top" style="height: 35%;border-bottom:2rpx solid #F0F0F0 ;padding: 20px;">
 				<view class="scheduleCard-top-left" >
-					<image :src="orderList.did?orderList.did:imglogo" class="scheduleCard-top-left-img" mode="aspectFill">
+					<image :src="imglogo" class="scheduleCard-top-left-img" mode="aspectFill" >
+						<!-- <image v-if='!orderList.did' :src="imglogo" class="scheduleCard-top-left-img" mode="aspectFill"> </image> -->
 				</view>
 				<view class="scheduleCard-top-mid">
 					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;"> <text style="vertical-align: middle;">{{orderList.loanerName}}</text>  <view style="margin-left: 10px;display: inline-block;vertical-align: middle;" class="scheduleCard-top-right-success-circle">
@@ -168,7 +169,7 @@ import { loanListDetail , faceSumbit , loanBank} from '@/api/todoChild/loan.js';
 // import camera from './components/camera/camera.vue';
 import { getStorage } from '@/utils/storage.js';
 import { CAMERA, MINE} from '@/config/router.js';
-import { COMPANY_LOGO} from '@/config/image.js';
+import { TOUXIANG_LOGO} from '@/config/image.js';
 import {
 		UPLOAD
 	} from '@/config/api.js';
@@ -186,7 +187,7 @@ export default {
 				// phone:13584115454
 			},
 			imgphoto:'',
-			imglogo:COMPANY_LOGO,
+			imglogo:TOUXIANG_LOGO,
 			num:'',
 			orderList:{
 				loanMoney:300,

@@ -23,7 +23,8 @@
 			</view>
 			<view style="margin: 10px; position: relative;">
 				<image :src="img[2]" mode="widthFix" style="width: 100%;"></image>
-				<image :src="img[3]" mode="widthFix" style="width: 250px;position: absolute;left: 50%;transform: translateX(-50%);top:250px" @click="linktoRecommend"></image>
+				<!-- <image :src="img[3]" mode="widthFix" style="width: 250px;position: absolute;left: 50%;transform: translateX(-50%);top:250px" @click="linktoRecommend"></image> -->
+				<view style="width: 250px;position: absolute;left: 50%;transform: translateX(-50%);top:195px;height: 30px;" @click="linktoRecommend"></view>
 			</view>
 			
 		</view>

@@ -92,40 +92,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var f0 = _vm._f("num")(_vm.orderList.loanMoney)
-
-  var f1 = _vm._f("time")(_vm.orderList.lastTime)
-
-  var l0 = _vm.__map(_vm.dataList.phase, function(item, index) {
-    var m0 = Number(item.phaseid)
-    var m1 = Number(item.phaseid)
-    return {
-      $orig: _vm.__get_orig(item),
-      m0: m0,
-      m1: m1
-    }
-  })
-
-  var l1 = _vm.__map(_vm.dataList.phaseImg, function(item, index) {
-    var m2 = Number(item.potid)
-    var m3 = Number(item.potid)
-    var m4 = Number(item.potid)
-    return {
-      $orig: _vm.__get_orig(item),
-      m2: m2,
-      m3: m3,
-      m4: m4
-    }
-  })
+  var f0 = _vm._f("time")(_vm.orderList.lastTime)
 
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        f0: f0,
-        f1: f1,
-        l0: l0,
-        l1: l1
+        f0: f0
       }
     }
   )
@@ -324,6 +297,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
@@ -331,6 +307,8 @@ var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 145);
 
 var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _myWork = __webpack_require__(/*! @/api/myWork.js */ 134);
 var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var _default =
 
 
@@ -340,6 +318,9 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequi
   // },
   data: function data() {
     return {
+      location: [],
+      latitude: '',
+      longitude: '',
       hidden: false,
       count: false,
       userInfo: {
@@ -348,12 +329,14 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequi
         // phone:13584115454
       },
       imgphoto: '',
+      imglogo: _image.TOUXIANG_LOGO,
       num: '',
       orderList: {
         loanMoney: 300,
         lastTime: 1585568923,
         address: 'dqwadcqd' },
 
+      bankData: {},
       successItems: [
       {
         value: 'USA',
@@ -421,6 +404,17 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequi
     } },
 
   methods: {
+    linkToCamera: function linkToCamera() {
+      var a = 'photo';
+      var c = JSON.stringify(this.location);
+      uni.navigateTo({
+
+        url: "".concat(_router.CAMERA, "?role=").concat(a, "&location=").concat(c, "&latitude=").concat(this.latitude, "&longitude=").concat(this.longitude, "&uuid=").concat(this.uuid) });
+
+    },
+
+
+
     //提交
     sumbit: function sumbit() {
       console.log(this.dataList);
@@ -522,15 +516,30 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequi
 
     } },
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {var v;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              this.userInfo = (0, _storage.getStorage)('userInfo');
-              console.log(this.userInfo);
-              _self = this;_context.next = 5;return (
-                (0, _loan.loanListDetail)({ orderid: options.id }));case 5:v = _context.sent;
-              console.log(v);
-              _self.orderList = v.order[0];
-              _self.dataList.orderid = options.id;case 9:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {var e;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              // this.userInfo = getStorage('userInfo');
+              // console.log(this.userInfo);
+              _self = this;
+              // let v = await loanListDetail({orderid:options.id})
+              // console.log(v)
+              _self.orderList = JSON.parse(decodeURIComponent(options.list));
+              // console.log(_self.orderList)
+              // console.log(options.list)
+              _context.next = 4;return (0, _myWork.myWorkPhotoLocation)({ uuid: _self.orderList.pid });case 4:e = _context.sent;
+              console.log(e);
+              _self.location = e.list.map(function (item) {
+                return item.locationId - 1;
+              });
+              _self.latitude = e.list[0].latitude;
+              _self.longitude = e.list[0].longitude;
+              _self.uuid = _self.orderList.pid;
 
+
+              // 获取银行信息
+              // let r = await loanBank({orderid:options.id})
+              // _self.bankData=r.list[0]
+              // _self.dataList.orderid=options.id
+            case 10:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
   onShow: function () {var _onShow = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this = this;var pages, currPage;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:if (!
               this.count) {_context3.next = 3;break;}
               _self.count = false;return _context3.abrupt("return");case 3:

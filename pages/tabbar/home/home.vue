@@ -1,6 +1,11 @@
 <template>
-	<scroll-view scroll-y class="container" style="background: #FFFFFF;">
+	<view>
+		
+	<view :style="{height:height+'px;'}" class="home-hd">
 		<view class="home-top"><yld-top :citys="citys" @change="cityChange"></yld-top></view>
+	</view>
+	<scroll-view scroll-y class="container" style="background: #FFFFFF;">
+		
 		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="400"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
 		<!-- <yld-nav v-if="todoNav.length" :navList="todoNav"></yld-nav> -->
@@ -9,6 +14,7 @@
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view>
 	</scroll-view>
+	</view>
 </template>
 
 <script>
@@ -20,7 +26,7 @@ import YldNav from './components/YldNav.vue';
 import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR,AD_ONE, AD_TWO, AD_THREE} from '@/config/image.js';
 import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
-
+var _self;
 export default {
 	data: function() {
 		return {
@@ -29,10 +35,12 @@ export default {
 			tipList: ['非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20'],
 			demoImg: HOME_DEMO,
 			adimg:[AD_ONE, AD_TWO, AD_THREE],
-			citys: []
+			citys: [],
+			height:40
 		};
 	},
 	onLoad: function() {
+		_self = this
 		console.log(this.imgList)
 		home.loadHomeCarousel().then(res => {
 			this.imgList = res.list;
@@ -41,6 +49,27 @@ export default {
 			this.citys = res.list;
 			this.todoNav = this.citys[0].button;
 		});
+		uni.getSystemInfo({
+		        success:function(e){
+		            _self.height = e.statusBarHeight
+		            // #ifndef MP
+		            if(e.platform == 'android') {
+		                _self.height = e.statusBarHeight + 50
+		            }else {
+		               _self.height = e.statusBarHeight + 45
+		            }
+		            // #endif
+		            
+		            // #ifdef MP-WEIXIN
+		            let custom = wx.getMenuButtonBoundingClientRect()
+		            _self.height = custom.bottom + custom.top - e.statusBarHeight
+		            // #endif
+		            
+		            // #ifdef MP-ALIPAY
+		            _self.height = e.statusBarHeight + e.titleBarHeight
+		            // #endif
+		        }
+		    })
 	},
 	methods: {
 		cityChange({item,index}) {
@@ -58,15 +87,15 @@ export default {
 	}
 };
 </script>
-<style>
-	page{
-		background: #FFFFFF;
-	}
-</style>
+
 <style scoped>
+	.home-hd{
+		background: #fff;
+		position: relative;
+	}
 .home-top {
 	position: absolute;
-	top: 0;
+	bottom: 2px;
 	width: 100%;
 	height: 70rpx;
 	z-index: 99;
