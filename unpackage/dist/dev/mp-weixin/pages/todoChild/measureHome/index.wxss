@@ -11,15 +11,17 @@ background-color: #FFFFFF;
 .measureHome image.data-v-423b4d97{
 	width: 100%;
 }
-/* .btn{
+.btn.data-v-423b4d97{
 	height: 100rpx;
 	
 	background: #ffffff;
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	padding-left: 20rpx;
 	padding-right: 20rpx;
-	
-} */
+	margin: 20px 0;
+}
 .scheduleBtn.data-v-423b4d97{
 	-webkit-box-flex: 48%;
 	-webkit-flex: 48%;
@@ -42,15 +44,16 @@ background-color: #FFFFFF;
 	line-height: 80rpx;
 	text-align: center;
 }
-.apptMeasureHome_ft.data-v-423b4d97{
+/* .apptMeasureHome_ft{
 	/* position: absolute;
 	left: 0;
 	bottom: 20rpx; */
-	width: 100%;
+/* width: 100%;
 	height: 100rpx;
 	margin-top: 40px;
-}
-.btn.data-v-423b4d97{
+	
+} */
+/* .btn{
 	height: 80rpx;
 	text-align: center;
 	line-height: 80rpx;
@@ -64,5 +67,5 @@ background-color: #FFFFFF;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 	font-size: 14px;
 	letter-spacing: 2px;
-}
+} */
 

@@ -124,6 +124,20 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -146,24 +160,138 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
-var _image = __webpack_require__(/*! @/config/image.js */ 34);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 143);
+var _inShop = __webpack_require__(/*! @/api/inShop.js */ 880);
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
+var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+var _self;var _default =
 {
   data: function data() {
     return {
       imglogo: _image.COMPANY_LOGO,
       imgupload: _image.UPLOAD,
       ageData: [
-      { name: "营业执照" },
-      { name: "公司Logo" },
-      { name: "门店照片" },
-      { name: "装修案例" }] };
+      { name: "营业执照", img: '' },
+      { name: "公司Logo", img: '' },
+      { name: "门店照片", img: '' }],
+
+
+      photoData: [
+      { name: "装修案例", img: '' }],
+
+
+      list: {},
+      show: false };
 
 
   },
-  methods: {},
+  methods: {
+    toast: function toast(v) {
+
+      uni.showToast({
+        title: v,
+        duration: 2000,
+        icon: 'none' });
 
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+
+    },
+    toLinkChoose: function toLinkChoose() {
+      if (!this.ageData[0].img) {
+        this.toast('请上传营业执照');
+        return;
+      }
+      if (!this.ageData[1].img) {
+        this.toast('请上传公司Logo');
+        return;
+      }
+      if (!this.ageData[2].img) {
+        this.toast('请上传门店照片');
+        return;
+      }
+      (0, _inShop.postShop)(this.list).then(function (res) {
+        uni.showToast({
+          title: "提交成功",
+          icon: 'success',
+          duration: 2000 });
+
+        setTimeout(function () {
+          uni.switchTab({
+            url: _router.HOME });
+
+        }, 2000);
+      });
+    },
+    // 选择照片
+    chooseimage: function chooseimage(e) {
+      var _this = this;
+      uni.chooseImage({
+        count: 9, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function success(res) {
+          // 返回选定照片的本地文件路径列表，marryPath可以作为img标签的src属性显示图片
+
+          var imgFiles = res.tempFilePaths[0];
+
+          console.log(res);
+          uni.uploadFile({
+            // 需要上传的地址
+            url: _api.UPLOADPHOTO,
+            // filePath  需要上传的文件
+            filePath: imgFiles,
+            name: 'file',
+            success: function success(res1) {
+              // 显示上传信息
+              //                         console.log(res1)
+              // console.log(_self)
+              // console.log(e)
+              // console.log(_self.dataList[e])
+              // console.log(res1.data )
+              if (e == 3) {
+
+                var w = JSON.parse(res1.data);
+                _self.photoData[0].img = imgFiles;
+                _self.list.case = [];
+                _self.list.case.push({
+                  "caseName": '',
+                  "caseShowImg": w.data,
+                  "caseDescribe": '' });
+
+              } else {
+                var r = ['businessImg', 'icon', 'storePhotos'];
+
+                var _w = JSON.parse(res1.data);
+                _self.ageData[e].img = imgFiles;
+                _self.list[r[e]] = _w.data;
+              }
+
+
+              // if(e ==='thisRunningWater'||e ==='spouseRunningWater') {
+              // 	_self.dataL[e].push(imgFiles);			
+              // 	_self.dataList[e].push(w.data);
+
+              // } else{
+              // 	_self.dataList[e] = w.data;
+              // 	_self.dataL[e] = imgFiles;
+              // }
+
+
+            } });
+
+
+        } });
+
+    } },
+
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {var e;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              _self = this;
+              e = JSON.parse(decodeURIComponent(options.data));
+              _self.list = e;case 3:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

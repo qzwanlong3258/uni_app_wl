@@ -64,10 +64,12 @@
 			sexClick(e) {
 				// console.log(_self)
 				_self.current =e
+				this.$emit('testOne',e+1,2)
 				},
 			ageClick(e) {
 				// console.log(_self)
 				_self.agecurrent =e
+				this.$emit('testOne',e+1,3)
 				},
 		    
 		},

@@ -119,8 +119,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
-'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default2 =
+'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _image = __webpack_require__(/*! @/config/image.js */ 34);var _default2 =
 
 {
   data: function data() {
@@ -128,7 +130,8 @@ __webpack_require__.r(__webpack_exports__);
       cityName: '',
       searchValue: '',
       isShowSlecet: false,
-      cityIndex: 0 };
+      cityIndex: 0,
+      img: _image.HOME_HEADER };
 
   },
   props: {

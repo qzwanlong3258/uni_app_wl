@@ -71,11 +71,19 @@ module.exports = {
 	
 	
 	/** 上传照片 **/
-	UPLOAD:`${baseUrl}/ftp/upload`,
+	UPLOADPHOTO:`${baseUrl}/ftp/upload`,
 	
 	/** 我的工作—拍照 **/
 	MYWORKPHOTO:`${baseUrl}/wx/login/loadPictures`,
 	MYWORKPHOTO_LOCATION:`${baseUrl}/wx/login/loadPicturesDetail`,
-	PHOTO_SUMBIT:`${baseUrl}/wx/login/submitPictures`
+	PHOTO_SUMBIT:`${baseUrl}/wx/login/submitPictures`,
+	/** 测一测 **/
+	TESTONETEST:`${baseUrl}/test/submitChoose`,
+	GET_COUNT:`${baseUrl}/test/loadChooseCount`,
+	/** 好店入驻 **/
+	POST_SHOP:`${baseUrl}/decorate/createDecorate`,
+	/** 预约量房**/
+	MEASURE_HOME:`${baseUrl}/make/createMake`,
+	GET_SHOP:`${baseUrl}/make/loadDecorate`,
 	
 }

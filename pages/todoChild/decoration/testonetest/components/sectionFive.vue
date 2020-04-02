@@ -67,6 +67,7 @@
 			ageClick(e) {
 				// console.log(_self)
 				_self.agecurrent =e
+				this.$emit('testOne',e+1,7)
 				},
 		    
 		},

@@ -10,7 +10,7 @@
 
 <script>
 'use scrict';
-import SwiperImg from '../../../components/SwiperImg.vue';
+import SwiperImg from '../../../components/SwiperImgtodo.vue';
 import YldInfor from './components/YldInfor.vue';
 import YldRecommend from './components/YldRecommend.vue';
 import LjlStates from '@/components/LjlStates.vue';

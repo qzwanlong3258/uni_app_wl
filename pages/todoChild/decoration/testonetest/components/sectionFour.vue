@@ -3,7 +3,7 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionFour-box">
-			<view class="sectionFour-hd"> 04/06  您的职业是？您的年收入？</view>
+			<view class="sectionFour-hd"> 04/06  您的工作性质属于？您的年收入？</view>
 			<view class="sectionFour-bd" >
 				<view v-for="(item,index) in busyData" :key="index" @click="busyClick(index)">
 					<image :src="item.img" mode=""></image>
@@ -64,10 +64,12 @@
 			busyClick(e) {
 				// console.log(_self)
 				_self.current =e
+				this.$emit('testOne',e+1,5)
 				},
 			incomeClick(e) {
 				// console.log(_self)
 				_self.incomeCurrent =e
+				this.$emit('testOne',e+1,6)
 				},
 		    
 		},

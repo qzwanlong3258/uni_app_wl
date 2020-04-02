@@ -141,6 +141,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 
+
 var _self;var _default =
 {
 
@@ -162,6 +163,7 @@ var _self;var _default =
     homeClick: function homeClick(e) {
       // console.log(_self)
       _self.current = e;
+      this.$emit('testOne', e + 1, 1);
     } },
 
 

@@ -4,23 +4,22 @@
 	<view class="container container-fill">
 		<view class="scroll-fullpage" id='scrollTouch' @touchstart="scrollTouchstart" @touchmove="scrollTouchmove" @touchend="scrollTouchend" v-bind:style="{margintop: margintop+'px',transform: transform}">
 			<view :class="scrollindex==0?'active':''" style="height: 100%;">
-				
-				<sectionOne></sectionOne>
+				<sectionOne  @testOne='test'></sectionOne>
 			</view>
 			<view :class="scrollindex==1?'active':''" style="height: 100%;">
-				<sectionTwo></sectionTwo>
+				<sectionTwo @testOne='test'></sectionTwo>
 			</view>
 			<view :class="scrollindex==2?'active':''" style="height: 100%;">
-				<sectionThree></sectionThree>
+				<sectionThree @testOne='test'></sectionThree>
 			</view>
 			<view :class="scrollindex==3?'active':''" style="height: 100%;">
-				<sectionFour></sectionFour>
+				<sectionFour @testOne='test'></sectionFour>
 			</view>
 			<view :class="scrollindex==4?'active':''" style="height: 100%;">
-				<sectionFive></sectionFive>
+				<sectionFive @testOne='test'></sectionFive>
 			</view>
 			<view :class="scrollindex==5?'active':''" style="height: 100%;">
-				<sectionSix></sectionSix>
+				<sectionSix @testOne='test' @submit='submit'></sectionSix>
 			</view>
 		</view>
 	</view>
@@ -36,6 +35,8 @@
 	import sectionFour from './components/sectionFour';
 	import sectionFive from './components/sectionFive';
 	import sectionSix from './components/sectionSix';
+	import { testOneTest } from '@/api/todoChild/loan.js';
+	import { LOAN_TESTONETEST_SUBMIT} from '@/config/router.js';
 	export default {
 		components:{
 				  sectionOne,
@@ -53,10 +54,80 @@
 	          endy:0, //结束的位置y
 	          critical: 100, //触发翻页的临界值
 	          margintop:0,  //滑动下拉距离
-			  transform:'translateY(-' + 0 + '%)'
+			  transform:'translateY(-' + 0 + '%)',
+			  dataList:{},
+			  
 	    }
 	  },
 	  methods:{
+		  test(e,v){
+			  console.log(e)
+			  switch(v) {
+			  	case 1:  
+				 self_.dataList.one ={
+    "titleid": "1",
+    "chooseid": e
+}
+				 return ;
+			  	case 2:
+				self_.dataList.two = {
+				 "titleid": "2",
+				 "chooseid": e}
+				 return ;
+			  	case 3: 
+				self_.dataList.three = {
+				"titleid": "3",
+				"chooseid": e}
+				return ;
+			  	case 4: 
+				self_.dataList.four ={
+				"titleid": "4",
+				"chooseid": e}
+				return ;
+				case 5:
+				 self_.dataList.five ={
+				 "titleid": "5",
+				 "chooseid": e}
+				 return ;
+				case 6:
+				 self_.dataList.six ={
+				 "titleid": "6",
+				 "chooseid": e}
+				 return ;
+				 case 7:
+				  self_.dataList.seven ={
+				  "titleid": "7",
+				  "chooseid": e}
+				  return ;
+				  case 8:
+				   self_.dataList.eight ={
+				   "titleid": "8",
+				   "chooseid": e}
+				   return ;
+			  }
+			  
+		  },
+		 async submit(){
+			 for(let key  in this.dataList){
+				 if(this.dataList[key]){
+					 await testOneTest(this.dataList[key])
+				 }
+			         // console.log(key + '---' + obj[key])
+			   }
+			  
+			 
+			  uni.showToast({
+			  								title: "提交成功",
+			  								icon: 'success',
+			  								duration: 2000,
+			  							});
+			  							setTimeout(function(){
+			  											uni.navigateTo({
+			  												url:LOAN_TESTONETEST_SUBMIT
+			  											})
+			  										},2000)
+			  
+		  },
 		  scrollTouchstart:function(e){
 			  
 		      let py = e.touches[0].pageY;

@@ -2,7 +2,7 @@ import {
 	request
 } from '@/config/http.js';
 import {
-	LOAN_APPT ,LOAN_LIST, LOAN_LIST_DETAIL, LOAN_BANK, LOAN_FACE_MEMBER, LOAN_PERIOD, FACE_SUBMIT
+	LOAN_APPT ,LOAN_LIST, LOAN_LIST_DETAIL, LOAN_BANK, LOAN_FACE_MEMBER, LOAN_PERIOD, FACE_SUBMIT, TESTONETEST, GET_COUNT
 } from '@/config/api.js';
 const {  getStorage } = require('./storage.js')
 
@@ -71,6 +71,27 @@ export function faceSumbit(data) {
 	return request({
 		method: "POST",
 		url: `${FACE_SUBMIT}`,
+		data
+	});
+}
+export function testOneTest(data) {
+	// let token=getStorage('tempToken')
+	return request({
+		method: "POST",
+		url: `${TESTONETEST}`,
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+
+export function getCount(data) {
+	// let token=getStorage('tempToken')
+	return request({
+		method: "GET",
+		url: `${GET_COUNT}`,
+		showLoading:false,
+		hideLoading:false,
 		data
 	});
 }

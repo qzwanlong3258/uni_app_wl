@@ -2,7 +2,7 @@
 	<view class="decoration_view-box-box ">
 		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">可用额度</text>
-			<text class=" decoration_text-row-content"> <text style="font-size: 60rpx; color:#999999 ;">—</text>200.0000.00<text style="font-size:60rpx; color:#999999 ;">—</text></text>
+			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>200.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
 			<text class="decoration_text-row-submit" @click="testLinkTo">测一测额度</text>
 			<!-- <image :src="bank_pic" mode="widthFix" class="bank_pic"></image>
 			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image> -->
@@ -107,7 +107,7 @@
 	}
 	.decoration_text-row-content {
 		font-size: 70rpx;
-		font-weight: 2500;
+		font-weight: 1100;
 		color: #776A6D;
 	}
 	.decoration_text-row-submit {

@@ -22,6 +22,7 @@
 	color: #424242;
 	font-weight: 400;
 	font-family:Microsoft YaHei;
+	font-size: 30rpx;
 }
 .appt_item_content.data-v-d9771adc {
 	-webkit-box-flex: 1;
@@ -33,6 +34,11 @@
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
+}
+.appt_item_content input.data-v-d9771adc{
+	width: 100%;
+	font-size: 28rpx;
+	margin-left: 5px;
 }
 .appt_item_content_appt.data-v-d9771adc{
 	position: relative;
@@ -46,6 +52,7 @@
 }
 .input_color.data-v-d9771adc {
 	color: #dbdbdb;
+	font-size: 28rpx;
 }
 .apptMeasureHome_ft.data-v-d9771adc{
 	/* position: absolute;
@@ -53,7 +60,7 @@
 	bottom: 20rpx; */
 	width: 100%;
 	height: 100rpx;
-	margin-top: 190px;
+	margin-top: 220px;
 }
 .btn.data-v-d9771adc{
 	height: 80rpx;
@@ -68,5 +75,13 @@
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 	font-size: 14px;
 	letter-spacing: 2px;
+}
+.uni-input-style.data-v-d9771adc{
+	width: 100%;
+}
+.iconclass.data-v-d9771adc{
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 

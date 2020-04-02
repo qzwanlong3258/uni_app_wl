@@ -1,5 +1,5 @@
 <template>
-	<view class="testonetestsubmit">
+	<view class="testonetestsubmit" :hidden='show'>
 		<view class="testSuccess">
 			<view style="height: 115rpx;text-align: center;padding-top: 30rpx;">
 				<image :src="imgsuccess" mode="" style="width: 82rpx;
@@ -9,7 +9,7 @@
 				恭喜您已经通过初审，请完善申请信息！
 			</view>
 		</view>
-		<view class="testFail" :hidden='true'>
+		<view class="testFail" :hidden='!show'>
 			<view style="height: 115rpx;text-align: center;padding-top: 30rpx;">
 				<image :src="imgfail" mode="" style="width: 59rpx;
 		height:59rpx ;"></image>
@@ -29,23 +29,33 @@
 
 <script>
 'use strict';
+var _self;
 import { TESTSUCCESS, TESTFAIL} from '@/config/image.js';
 import { DECORATION} from '@/config/router.js';
+import { getCount } from '@/api/todoChild/loan.js';
 export default {
 	data(){
 		return{
 			imgsuccess:TESTSUCCESS,
-			imgfail:TESTFAIL
+			imgfail:TESTFAIL,
+			show:false
 		}
 	},
 	methods:{
 		submit(){
-			uni.navigateTo({
+			uni.switchTab({
 				url:DECORATION
 			})
 		}
 	},
-	async onLoad() {}
+	async onLoad() {
+		_self =this
+		let e= await getCount()
+		console.log(e)
+		if (e.count == '0'){
+			_self.show=true
+		}
+	}
 };
 </script>
 

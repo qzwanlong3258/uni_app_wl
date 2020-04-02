@@ -92,4 +92,14 @@ background-color: #FFFFFF;
 	box-shadow: 0 2px  rgba(0,0,0,0.1);
 	font-size: 13px;
 }
+.uni-input-style.data-v-cf55d752{
+	width: 100%;
+}
+.iconclass.data-v-cf55d752{
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
 

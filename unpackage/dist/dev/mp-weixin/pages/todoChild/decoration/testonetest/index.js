@@ -124,8 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {//
 //
 //
 //
@@ -154,14 +153,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var self_;var sectionOne = function sectionOne() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then(__webpack_require__.bind(null, /*! ./components/sectionOne */ 636));};var sectionTwo = function sectionTwo() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then(__webpack_require__.bind(null, /*! ./components/sectionTwo */ 643));};var sectionThree = function sectionThree() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then(__webpack_require__.bind(null, /*! ./components/sectionThree */ 650));};var sectionFour = function sectionFour() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then(__webpack_require__.bind(null, /*! ./components/sectionFour */ 657));};var sectionFive = function sectionFive() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then(__webpack_require__.bind(null, /*! ./components/sectionFive */ 664));};var sectionSix = function sectionSix() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then(__webpack_require__.bind(null, /*! ./components/sectionSix */ 671));};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
 
 
 
 
 
+
+var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 143);
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then(__webpack_require__.bind(null, /*! ./components/sectionOne */ 636));};var sectionTwo = function sectionTwo() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then(__webpack_require__.bind(null, /*! ./components/sectionTwo */ 643));};var sectionThree = function sectionThree() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then(__webpack_require__.bind(null, /*! ./components/sectionThree */ 650));};var sectionFour = function sectionFour() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then(__webpack_require__.bind(null, /*! ./components/sectionFour */ 657));};var sectionFive = function sectionFive() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then(__webpack_require__.bind(null, /*! ./components/sectionFive */ 664));};var sectionSix = function sectionSix() {return Promise.all(/*! import() | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then(__webpack_require__.bind(null, /*! ./components/sectionSix */ 671));};var _default =
 {
   components: {
     sectionOne: sectionOne,
@@ -179,10 +180,80 @@ var self_;var sectionOne = function sectionOne() {return Promise.all(/*! import(
       endy: 0, //结束的位置y
       critical: 100, //触发翻页的临界值
       margintop: 0, //滑动下拉距离
-      transform: 'translateY(-' + 0 + '%)' };
+      transform: 'translateY(-' + 0 + '%)',
+      dataList: {} };
+
 
   },
   methods: {
+    test: function test(e, v) {
+      console.log(e);
+      switch (v) {
+        case 1:
+          self_.dataList.one = {
+            "titleid": "1",
+            "chooseid": e };
+
+          return;
+        case 2:
+          self_.dataList.two = {
+            "titleid": "2",
+            "chooseid": e };
+          return;
+        case 3:
+          self_.dataList.three = {
+            "titleid": "3",
+            "chooseid": e };
+          return;
+        case 4:
+          self_.dataList.four = {
+            "titleid": "4",
+            "chooseid": e };
+          return;
+        case 5:
+          self_.dataList.five = {
+            "titleid": "5",
+            "chooseid": e };
+          return;
+        case 6:
+          self_.dataList.six = {
+            "titleid": "6",
+            "chooseid": e };
+          return;
+        case 7:
+          self_.dataList.seven = {
+            "titleid": "7",
+            "chooseid": e };
+          return;
+        case 8:
+          self_.dataList.eight = {
+            "titleid": "8",
+            "chooseid": e };
+          return;}
+
+
+    },
+    submit: function () {var _submit = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var key;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 = _regenerator.default.keys(
+                this.dataList);case 1:if ((_context.t1 = _context.t0()).done) {_context.next = 8;break;}key = _context.t1.value;if (!
+                this.dataList[key]) {_context.next = 6;break;}_context.next = 6;return (
+                  (0, _loan.testOneTest)(this.dataList[key]));case 6:_context.next = 1;break;case 8:
+
+
+
+
+
+                uni.showToast({
+                  title: "提交成功",
+                  icon: 'success',
+                  duration: 2000 });
+
+                setTimeout(function () {
+                  uni.navigateTo({
+                    url: _router.LOAN_TESTONETEST_SUBMIT });
+
+                }, 2000);case 10:case "end":return _context.stop();}}}, _callee, this);}));function submit() {return _submit.apply(this, arguments);}return submit;}(),
+
+
     scrollTouchstart: function scrollTouchstart(e) {
 
       var py = e.touches[0].pageY;
@@ -222,6 +293,7 @@ var self_;var sectionOne = function sectionOne() {return Promise.all(/*! import(
   onLoad: function onLoad() {
     self_ = this;
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

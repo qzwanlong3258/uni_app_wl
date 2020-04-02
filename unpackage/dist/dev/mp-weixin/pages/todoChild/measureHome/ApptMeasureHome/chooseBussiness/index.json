@@ -1,6 +1,4 @@
 {
   "navigationBarTitleText": "商户选择",
-  "usingComponents": {
-    "ljl-states": "/pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/components/changeStates"
-  }
+  "usingComponents": {}
 }

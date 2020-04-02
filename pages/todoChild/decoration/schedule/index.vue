@@ -1,7 +1,7 @@
 <template>
-	<view class="schedule">
-		<ljl-states :infor="states" @change="stateChange"  />
-		<view class="schedule-left" :hidden='states.index==1' v-for="(item,index) in dataList" :key="index">
+	<view class="schedule" >
+		<!-- <ljl-states :infor="states" @change="stateChange"  /> -->
+		<view class="schedule-left"  v-for="(item,index) in dataList" :key="index">
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
 					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
@@ -12,15 +12,15 @@
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">征信查询</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}][item.state==1?0: item.state].title}}</view>
 				</view>
 			</view>
 			<view class="schedule-bd">
 				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
 				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]"  :active="item.state|state"></uni-steps>
-			<view class="schedule-ft">
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}]"  :active="item.state|state"></uni-steps>
+			<!-- <view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
@@ -41,9 +41,9 @@
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
 				</view>
-			</view>
+			</view> -->
 		</view>
-		<view class="schedule-left" :hidden='states.index==0' v-for="(item,index) in failDataList" :key="index" >
+		<view class="schedule-left"  v-for="(item,index) in failDataListOne" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
 					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
@@ -54,15 +54,15 @@
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">征信查询</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}][item.state - 1].title}}</view>
 				</view>
 			</view>
 			<view class="schedule-bd">
 				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
 				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '资料审核'}, {title: '征信查询'}, {title: '线下面签'}, {title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
-			<view class="schedule-ft">
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
+			<!-- <view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
@@ -82,8 +82,50 @@
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+			</view> -->
+		</view>
+		<view class="schedule-left"  v-for="(item,index) in failDataListTwo" :key="index" >
+			<view class="schedule-hd">
+				<view class="schedule-hd-left">
+					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
+				</view>
+				<view class="schedule-hd-mid">
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+				</view>
+				<view class="schedule-hd-right">
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '打款成功'}][item.state - 1].title}}</view>
 				</view>
 			</view>
+			<view class="schedule-bd">
+				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
+			</view>
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
+			<!-- <view class="schedule-ft">
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+				<view style="width: 20%;height: 40px;">
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
+					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">9:30</view>
+				</view>
+			</view> -->
 		</view>
 		
 	</view>
@@ -102,7 +144,8 @@ export default {
 	data() {
 		return{
 			dataList:[],
-			failDataList:[],
+			failDataListOne:[],
+			failDataListTwo:[],
 			userInfo:{
 			},
 			states: {
@@ -126,7 +169,7 @@ export default {
 				return 4
 			}
 			if(val=='5'){
-				return 3
+				return 4
 			}
 		},
 		time(val){
@@ -181,11 +224,13 @@ export default {
 		 let c = await loanList({status:3})
 		 console.log(c)
 		 o.push(...c.list)
+		 let i =[]
 		 let d = await loanList({status:5})
 		 console.log(d)
-		 o.push(...d.list)
+		 i.push(...d.list)
 		  console.log(_self.dataList)
-		  _self.failDataList =o
+		  _self.failDataListOne =o
+		  _self.failDataListTwo =i
 		 
 	}
 };
@@ -202,6 +247,9 @@ export default {
 		position: absolute;
 		width: 100%;
 		height: 100%; */
+	}
+	.schedule-left{
+		margin: 20px 0;
 	}
 	.schedule-hd{
 		

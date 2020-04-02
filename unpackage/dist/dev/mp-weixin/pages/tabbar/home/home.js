@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
-var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}var YldTop = function YldTop() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then(__webpack_require__.bind(null, /*! ./components/YldTop.vue */ 445));};var SwiperImg = function SwiperImg() {return Promise.all(/*! import() | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then(__webpack_require__.bind(null, /*! ../../../components/SwiperImg.vue */ 452));};var YldHot = function YldHot() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then(__webpack_require__.bind(null, /*! ./components/YldHot.vue */ 459));};var YldNav = function YldNav() {return Promise.all(/*! import() | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then(__webpack_require__.bind(null, /*! ./components/YldNav.vue */ 466));};
+var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}var YldTop = function YldTop() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then(__webpack_require__.bind(null, /*! ./components/YldTop.vue */ 445));};var SwiperImg = function SwiperImg() {return __webpack_require__.e(/*! import() | components/SwiperImg */ "components/SwiperImg").then(__webpack_require__.bind(null, /*! ../../../components/SwiperImg.vue */ 452));};var YldHot = function YldHot() {return __webpack_require__.e(/*! import() | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then(__webpack_require__.bind(null, /*! ./components/YldHot.vue */ 459));};var YldNav = function YldNav() {return Promise.all(/*! import() | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then(__webpack_require__.bind(null, /*! ./components/YldNav.vue */ 466));};
 var _self;var _default =
 {
   data: function data() {
@@ -201,7 +201,42 @@ var _self;var _default =
       var temp = this.citys[0];
       this.citys[0] = this.citys[index];
       this.citys[index] = temp;
+    },
+    onShareAppMessage: function onShareAppMessage(options) {
+      var that = this;
+      // 设置菜单中的转发按钮触发转发事件时的转发内容
+      var shareObj = {
+        title: "非客钱包", // 默认是小程序的名称(可以写slogan等)
+        path: '/pages/tabbar/home/home', // 默认是当前页面，必须是以‘/’开头的完整路径
+        imageUrl: _image.FENXIANG, //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+        success: function success(res) {
+          // 转发成功之后的回调
+          if (res.errMsg == 'shareAppMessage:ok') {
+          }
+        },
+        fail: function fail() {
+          // 转发失败之后的回调
+          if (res.errMsg == 'shareAppMessage:fail cancel') {
+            // 用户取消转发
+          } else if (res.errMsg == 'shareAppMessage:fail') {
+            // 转发失败，其中 detail message 为详细失败信息
+          }
+        },
+        complete: function complete() {
+          // 转发结束之后的回调（转发成不成功都会执行）
+        } };
+
+      // 来自页面内的按钮的转发
+      if (options.from == 'button') {
+        var eData = options.target.dataset;
+        console.log(eData.name); // shareBtn
+        // 此处可以修改 shareObj 中的内容
+        shareObj.path = '/pages/tabbar/home/home';
+      }
+      // 返回shareObj
+      return shareObj;
     } },
+
 
   components: {
     YldTop: YldTop,

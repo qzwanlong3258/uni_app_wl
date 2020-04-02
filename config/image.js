@@ -13,6 +13,8 @@ module.exports = {
 	HOME_DEMO:`${staticUrl}/demo.png`,
 	// 空数据
 	NULL_DATA: `${staticUrl}/nullData.png`,
+	//home页面
+	HOME_HEADER: `${staticUrl}/todoChild/home/position.png`,
 	// 我的页面
 	ME_1: `${staticUrl}/tabbar/bitmap.png`,
 	ME_2: `${staticUrl}/tabbar/bitmap1.png`,
@@ -95,6 +97,8 @@ module.exports = {
 	LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
 	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
 	MEASUREHOME_SUCCESS: `${staticUrl}/todoChild/约量房成功@2x.png`,
+	MEASUREHOME_CHOOSE:`${staticUrl}/todoChild/measureHome/choose.png`,
+	MEASUREHOME_ISCHOOSE:`${staticUrl}/todoChild/measureHome/ischoose.png`,
 	// 上传
 	UPLOAD:`${staticUrl}/todoChild/上传@2x.png`,
 	//轮播图
@@ -169,4 +173,6 @@ module.exports = {
 	//签到
 	SIGNIN:`${staticUrl}/todoChild/calender/签到@2x.png`,
 	SIGNIN_IMAGE:`${staticUrl}/todoChild/calender/时间@2x.png`,
+	//分享
+	FENXIANG:`${staticUrl}/fenxiang.png`
 }

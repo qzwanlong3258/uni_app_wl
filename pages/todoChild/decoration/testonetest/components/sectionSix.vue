@@ -24,18 +24,17 @@
 				
 			</view> -->
 			<view class="sectionsix-ft">
-				<view class="sectionsix-ft-hd">信息确认</view>
-				<view class="sectionsix-ft-text">*房屋所在城市</view>
+				<view class="sectionsix-ft-hd" @click="open">信息确认</view>
+				<!-- <view class="sectionsix-ft-text">*房屋所在城市</view> -->
 				<!-- <button type="primary" @tap="openAddres">打开地址</button> -->
-				<view class="sectionsix-ft-city" style="letter-spacing: 5rpx;" @click="openAddres">{{pickerText}}</view>
-				<view class="sectionsix-ft-phone">
+				<!-- <view class="sectionsix-ft-city" style="letter-spacing: 5rpx;" @click="openAddres">{{pickerText}}</view> -->
+				<!-- <view class="sectionsix-ft-phone">
 					<view class="sectionsix-ft-phone-left">手机号码</view>
 					<input class="sectionsix-ft-phone-right"></input>
-				</view>
-				<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view>
-				<view class="btn" style="margin-top: 20rpx;" @click="submit">
+				</view> -->
+				<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agre" />同意<label class="noticeBook" @click.stop="open" style="color: #333333;">《用户告知书》</label></label></view>
+				<view class="btn" style="margin: 30rpx 0 10rpx 0;" @click="submit">
 					完成
-					
 				</view>
 				<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address>
 				<uni-popup ref="popup" type="center" :mask-click="false" @change="change">
@@ -43,8 +42,8 @@
 						<text class="uni-tip-title">用户告知书</text>
 						<text class="uni-tip-content">内容</text>
 						<view class="uni-tip-group-button">
-							<text class="uni-tip-button" @click="cancel('tip')">取消</text>
-							<text class="uni-tip-button" @click="cancel('tip')">确定</text>
+							<text class="uni-tip-button" @click="cancel('no')">取消</text>
+							<text class="uni-tip-button" @click="cancel('ok')">确定</text>
 						</view>
 					</view>
 				</uni-popup>
@@ -62,7 +61,7 @@
 	 import { HOMEONE ,HOMETWO, HOMETHREE ,HOMEFOUR} from '@/config/image.js';
 	 import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	 import uniPopup from "@/components/uni-popup/uni-popup.vue"
-	 import { LOAN_TESTONETEST_SUBMIT} from '@/config/router.js';
+	 
 	 
 	
 	var _self;
@@ -92,6 +91,10 @@
 			homeClick(e) {
 				// console.log(_self)
 				_self.current =e
+				this.$emit('testOne',e+1,8)
+				},
+				agre() {
+					_self.agree=!this.agree
 				},
 				openAddres() {
 					
@@ -107,16 +110,21 @@
 				open(){
 				         this.$refs.popup.open()
 				      },
-				cancel() {
+				cancel(e) {
+					if(e == 'ok'){
+						this.agree=true
+					}
+					if(e == 'no'){
+						this.agree=false
+					}
 					this.$refs.popup.close()
 				},
 				change(e) {
 					console.log('是否打开:' + e.show)
 				},
 				submit:function () {
-					uni.navigateTo({
-						url:LOAN_TESTONETEST_SUBMIT
-					})
+					this.$emit('submit')
+					
 					
 				}
 		    
@@ -192,8 +200,12 @@
 		
 	} */
 	.sectionsix-ft{
-		height: 460rpx;
+		height: 250rpx;
 		background: #FFFFFF;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 	}
 	.sectionsix-ft-hd{
 		height: 80rpx;

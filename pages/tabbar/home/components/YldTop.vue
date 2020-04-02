@@ -1,8 +1,9 @@
 <template>
 	<view class="home-header title-font">
 		<view v-if="citys.length" @click="changSelectStatus" class="city-section">
+			<image :src="img" mode="widthFix" style="width: 13px;margin-right: 5px;"></image>
 			<text>{{ cityName || citys[0].name }}</text>
-			<i class="iconfont icondown"></i>
+			<i class="iconfont iconyou iconclass" ></i>
 		</view>
 		<picker-view v-if="isShowSlecet" indicator-style="height: 40px;line-height: 40px" class="slecet-list" :value="city" @change="saveValue" @click="changSelectStatus">
 			<picker-view-column class="title-font">
@@ -14,6 +15,7 @@
 
 <script>
 'use scrict';
+import { HOME_HEADER} from '@/config/image.js';
 
 export default {
 	data() {
@@ -21,7 +23,8 @@ export default {
 			cityName: '',
 			searchValue: '',
 			isShowSlecet: false,
-			cityIndex: 0
+			cityIndex: 0,
+			img:HOME_HEADER
 		};
 	},
 	props: {
@@ -46,6 +49,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+	.iconclass{
+		font-size: 15px;
+	}
 .home-header {
 	display: flex;
 	width: 96%;
@@ -56,9 +62,9 @@ export default {
 	.city-section {
 		display: flex;
 		align-items: center;
-		color: white;
+		color: #000000;
 		font-size: 28rpx;
-		background: $color_primary;
+		// background: $color_primary;
 		padding: 0 10rpx;
 		margin-top: 10rpx;
 		text {

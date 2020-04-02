@@ -1,14 +1,15 @@
+
+page{
+	background: rgba(0, 0, 0, 0.5);
+	/* opacity: 0.5; */
+}
+
 /* Color
 --------------------------*/
 /* distance
 --------------------------*/
 /* radius
 --------------------------*/
-.success.data-v-70f4e786 {
-  position: relative;
-  height: 500px;
-  width: 100%;
-}
 .black.data-v-70f4e786 {
   background: black;
   opacity: 0.5;
@@ -27,6 +28,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  z-index: 1;
 }
 .box image.data-v-70f4e786 {
   width: 40px;

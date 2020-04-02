@@ -34,6 +34,7 @@
 	
 	import { ONEHOME ,TWOHOME, THREEHOME ,OTHERHOME} from '@/config/image.js';
 	
+	
 	var _self;
 	export default {
 		
@@ -55,6 +56,7 @@
 			homeClick(e) {
 				// console.log(_self)
 				_self.current =e
+				this.$emit('testOne',e+1,1)
 				},
 		    
 		},

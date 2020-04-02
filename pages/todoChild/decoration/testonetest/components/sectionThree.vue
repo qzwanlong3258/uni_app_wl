@@ -52,6 +52,7 @@
 			incomeClick(e) {
 				// console.log(_self)
 				_self.current =e
+				this.$emit('testOne',e+1,4)
 				},
 		    
 		},

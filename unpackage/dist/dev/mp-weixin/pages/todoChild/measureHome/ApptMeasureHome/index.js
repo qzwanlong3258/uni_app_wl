@@ -174,10 +174,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var simpleAddress = function simpleAddress() {return Promise.all(/*! import() | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address-normal/simple-address.nvue */ 696));};var _default =
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
 
+var _measureHome = __webpack_require__(/*! @/api/measureHome.js */ 881);
+var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var simpleAddress = function simpleAddress() {return Promise.all(/*! import() | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address-normal/simple-address.nvue */ 696));};
+var _self;var _default =
 {
   components: {
     simpleAddress: simpleAddress },
@@ -189,7 +207,10 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
       cityPickerValueDefault: [0, 0, 1],
       pickerText: '',
       apptArray: ['中国', '美国', '巴西', '日本'],
-      apptIndex: 0 };
+      apptIndex: 0,
+      dataList: {},
+      periodArray: [],
+      periodIndex: 0 };
 
   },
   methods: {
@@ -217,13 +238,40 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
       console.log('picker发送选择改变，携带值为', e.target.value);
       this.apptIndex = e.target.value;
     },
-    toLinkChoose: function toLinkChoose() {
-      uni.navigateTo({
-        url: _router.APPT_MEASUREHOME_SUCCESS });
+    periodBindPickerChange: function periodBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.periodIndex = e.target.value;
+      _self.dataList.address = this.periodArray[e.target.value];
+    },
+    toLinkChoose: function toLinkChoose() {var _this = this;
+      // _self.dataList.address = this.pickerText
+      (0, _measureHome.measureHome)(this.dataList).then(function (res) {
+        uni.showToast({
+          title: "提交成功",
+          icon: 'success',
+          duration: 2000 });
+
+
+        uni.navigateTo({
+          url: "".concat(_router.CHOOSEBUSSINESS, "?id=").concat(_this.dataList.address) });
+
+        // uni.navigateTo({
+        // 	url:APPT_MEASUREHOME_SUCCESS
+        // })
+      });
 
     } },
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var e;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+
+              _self = this;_context.next = 3;return (
+                (0, _city.loadCity)());case 3:e = _context.sent;
+              console.log(e);
+              _self.periodArray = e.list.map(function (res) {
+                return res.name;
+              });
+
+              _self.dataList.address = _self.periodArray[0];case 7:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

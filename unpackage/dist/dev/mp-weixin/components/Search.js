@@ -115,7 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
-var _util = __webpack_require__(/*! @/utils/util.js */ 48);var _default =
+var _util = __webpack_require__(/*! @/utils/util.js */ 46);var _default =
 
 {
   data: function data() {

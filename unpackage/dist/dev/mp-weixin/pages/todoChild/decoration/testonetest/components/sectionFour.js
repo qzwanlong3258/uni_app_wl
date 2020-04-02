@@ -171,10 +171,12 @@ var _self;var _default =
     busyClick: function busyClick(e) {
       // console.log(_self)
       _self.current = e;
+      this.$emit('testOne', e + 1, 5);
     },
     incomeClick: function incomeClick(e) {
       // console.log(_self)
       _self.incomeCurrent = e;
+      this.$emit('testOne', e + 1, 6);
     } },
 
 

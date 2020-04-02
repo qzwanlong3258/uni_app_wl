@@ -1,7 +1,7 @@
 <template>
 	<view class="success">
-		<view class="black">
-			</view>
+		<!-- <view class="black">
+			</view> -->
 			<view class="box">
 					<image :src="img" mode="widthFix"></image>
 					<view class="text-successs">提交成功</view>
@@ -40,12 +40,17 @@ export default {
 	async onLoad() {}
 };
 </script>
-
+<style>
+	page{
+		background: rgba(0, 0, 0, 0.5);
+		/* opacity: 0.5; */
+	}
+</style>
 <style lang="scss" scoped>
 .success{
-		position: relative;
-		height: 500px;
-		width: 100%;
+		// position: relative;
+		// height: 500px;
+		// width: 100%;
 }
 .black {
 	background: rgba(0, 0, 0, 1);
@@ -66,6 +71,7 @@ export default {
 	top: 50%;
 	left: 50%;
 	transform:translate(-50%,-50%);
+	z-index: 1;
 }
 .box image {
 	width: 40px;

@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 var _api = __webpack_require__(/*! @/config/api.js */ 20);
 
 
-var _util = __webpack_require__(/*! @/utils/util.js */ 48);
+var _util = __webpack_require__(/*! @/utils/util.js */ 46);
 
 
 
@@ -159,7 +159,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 48);
 
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _myWork = __webpack_require__(/*! @/api/myWork.js */ 134);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 434);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
+var _myWork = __webpack_require__(/*! @/api/myWork.js */ 132);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 434);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
 var _self;var _default =
 {
   name: 'canvas-drawer',
@@ -282,7 +282,7 @@ var _self;var _default =
 
                                   uni.uploadFile({
                                     // 需要上传的地址
-                                    url: _api.UPLOAD,
+                                    url: _api.UPLOADPHOTO,
                                     // filePath  需要上传的文件
                                     filePath: res.tempImagePath,
                                     name: 'file',
@@ -329,7 +329,7 @@ var _self;var _default =
                                                                           header: {
                                                                             "Content-Type": "multipart/form-data" },
 
-                                                                          url: _api.UPLOAD,
+                                                                          url: _api.UPLOADPHOTO,
                                                                           filePath: res.tempFilePath,
                                                                           name: 'file',
                                                                           success: function success(result) {
@@ -419,7 +419,7 @@ var _self;var _default =
 
                                   uni.uploadFile({
                                     // 需要上传的地址
-                                    url: _api.UPLOAD,
+                                    url: _api.UPLOADPHOTO,
                                     // filePath  需要上传的文件
                                     filePath: res.tempImagePath,
                                     name: 'file',

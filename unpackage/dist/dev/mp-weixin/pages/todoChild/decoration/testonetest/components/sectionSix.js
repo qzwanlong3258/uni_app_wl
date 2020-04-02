@@ -73,11 +73,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function($event) {
-      _vm.agree = !_vm.agree
-    }
-  }
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -110,7 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {//
 //
 //
 //
@@ -171,10 +165,10 @@ __webpack_require__.r(__webpack_exports__);
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _image = __webpack_require__(/*! @/config/image.js */ 34);var simpleAddress = function simpleAddress() {return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.nvue */ 741));};var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 689));};
 
 
-var _router = __webpack_require__(/*! @/config/router.js */ 21);var simpleAddress = function simpleAddress() {return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.nvue */ 741));};var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 689));};
+
 
 
 var _self;var _default =
@@ -204,6 +198,10 @@ var _self;var _default =
     homeClick: function homeClick(e) {
       // console.log(_self)
       _self.current = e;
+      this.$emit('testOne', e + 1, 8);
+    },
+    agre: function agre() {
+      _self.agree = !this.agree;
     },
     openAddres: function openAddres() {
 
@@ -219,15 +217,20 @@ var _self;var _default =
     open: function open() {
       this.$refs.popup.open();
     },
-    cancel: function cancel() {
+    cancel: function cancel(e) {
+      if (e == 'ok') {
+        this.agree = true;
+      }
+      if (e == 'no') {
+        this.agree = false;
+      }
       this.$refs.popup.close();
     },
     change: function change(e) {
       console.log('是否打开:' + e.show);
     },
     submit: function submit() {
-      uni.navigateTo({
-        url: _router.LOAN_TESTONETEST_SUBMIT });
+      this.$emit('submit');
 
 
     } },
@@ -237,7 +240,6 @@ var _self;var _default =
     _self = this;
 
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

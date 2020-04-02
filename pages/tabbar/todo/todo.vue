@@ -8,7 +8,7 @@
 
 <script>
 'use scrict';
-import SwiperImg from '../../../components/SwiperImg.vue';
+import SwiperImg from '../../../components/SwiperImgtodo.vue';
 import YldNav from './components/YldNav.vue';
 import YldShop from './components/YldShop.vue';
 import { getGoodsList } from '@/api/goods.js';

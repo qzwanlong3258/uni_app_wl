@@ -23,7 +23,7 @@
  
 <script>
 	import {
-		UPLOAD
+		UPLOADPHOTO
 	} from '@/config/api.js';
 	import {
 		getDistance
@@ -158,7 +158,7 @@
 						
 						await uni.uploadFile({
 						                            // 需要上传的地址
-						                            url:UPLOAD,
+						                            url:UPLOADPHOTO,
 						                            // filePath  需要上传的文件
 						                            filePath: res.tempImagePath,
 						                            name: 'file',
@@ -205,7 +205,7 @@
 																			  header: {
 																			    "Content-Type": "multipart/form-data"
 																			  },
-																			  url: UPLOAD,
+																			  url: UPLOADPHOTO,
 																			  filePath: res.tempFilePath,
 																			  name: 'file',
 																			  success: (result) => {
@@ -295,7 +295,7 @@
 						
 						await uni.uploadFile({
 						                            // 需要上传的地址
-						                            url:UPLOAD,
+						                            url:UPLOADPHOTO,
 						                            // filePath  需要上传的文件
 						                            filePath: res.tempImagePath,
 						                            name: 'file',

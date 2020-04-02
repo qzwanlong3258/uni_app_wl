@@ -6,10 +6,11 @@
 			</view>
 		
 		<view class="content">
-			<view class="item" v-for="(item,index) in infor.list" :key="index" :style="{width: infor.list.length > 3 ? '25%' : '33%'}" @click="linkToRoute({route:item.href,index})">
+			<view class="item" v-for="(item,index) in infor.list" :key="index" :style="{width: infor.list.length > 3 ? '33%' : '33%'}" @click="linkToRoute({route:item.href,index})">
 				<ljl-menu-item :infor="item" />
 			</view>
 		</view>
+		<!-- :style="{width: infor.list.length > 3 ? '25%' : '33%'}" -->
 	</view>
 </template>
 

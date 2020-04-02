@@ -69,8 +69,12 @@
 	
 } */
 .sectionsix-ft.data-v-f68b6d32{
-	height: 460rpx;
+	height: 250rpx;
 	background: #FFFFFF;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
 .sectionsix-ft-hd.data-v-f68b6d32{
 	height: 80rpx;

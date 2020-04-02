@@ -104,7 +104,7 @@ var render = function() {
     }
   })
 
-  var l1 = _vm.__map(_vm.failDataList, function(item, index) {
+  var l1 = _vm.__map(_vm.failDataListOne, function(item, index) {
     var f2 = _vm._f("time")(item.lastTime)
 
     var f3 = _vm._f("state")(item.state)
@@ -116,12 +116,25 @@ var render = function() {
     }
   })
 
+  var l2 = _vm.__map(_vm.failDataListTwo, function(item, index) {
+    var f4 = _vm._f("time")(item.lastTime)
+
+    var f5 = _vm._f("state")(item.state)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f4: f4,
+      f5: f5
+    }
+  })
+
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
         l0: l0,
-        l1: l1
+        l1: l1,
+        l2: l2
       }
     }
   )
@@ -248,12 +261,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
 
 
-var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 145);
+var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 143);
 var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance");}function _iterableToArray(iter) {if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;}}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _self;var uniSteps = function uniSteps() {return __webpack_require__.e(/*! import() | components/uni-steps/uni-steps */ "components/uni-steps/uni-steps").then(__webpack_require__.bind(null, /*! @/components/uni-steps/uni-steps.vue */ 706));};var LjlStates = function LjlStates() {return __webpack_require__.e(/*! import() | components/LjlStates */ "components/LjlStates").then(__webpack_require__.bind(null, /*! @/components/LjlStates */ 528));};var _default =
 {
   components: { uniSteps: uniSteps, LjlStates: LjlStates },
@@ -261,7 +316,8 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
   data: function data() {
     return {
       dataList: [],
-      failDataList: [],
+      failDataListOne: [],
+      failDataListTwo: [],
       userInfo: {},
 
       states: {
@@ -285,7 +341,7 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
         return 4;
       }
       if (val == '5') {
-        return 3;
+        return 4;
       }
     },
     time: function time(val) {
@@ -318,7 +374,7 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
                 this["stateTo".concat(index)] && this["stateTo".concat(index)]();case 3:case "end":return _context.stop();}}}, _callee, this);}));function stateChange(_x) {return _stateChange.apply(this, arguments);}return stateChange;}() },
 
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var p, v, a, b, o, c, d;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var p, v, a, b, o, c, i, d;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
 
               _self = this;
               _self.userInfo = (0, _storage.getStorage)('userInfo');
@@ -339,12 +395,14 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
               o = [];_context2.next = 23;return (
                 (0, _loan.loanList)({ status: 3 }));case 23:c = _context2.sent;
               console.log(c);
-              o.push.apply(o, _toConsumableArray(c.list));_context2.next = 28;return (
-                (0, _loan.loanList)({ status: 5 }));case 28:d = _context2.sent;
+              o.push.apply(o, _toConsumableArray(c.list));
+              i = [];_context2.next = 29;return (
+                (0, _loan.loanList)({ status: 5 }));case 29:d = _context2.sent;
               console.log(d);
-              o.push.apply(o, _toConsumableArray(d.list));
+              i.push.apply(i, _toConsumableArray(d.list));
               console.log(_self.dataList);
-              _self.failDataList = o;case 33:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+              _self.failDataListOne = o;
+              _self.failDataListTwo = i;case 35:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 
 /***/ }),
 
