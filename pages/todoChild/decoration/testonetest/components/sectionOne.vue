@@ -121,7 +121,7 @@
 		font-size: 30rpx;
 	}
 	.sectionOne-bd view label radio {
-		margin-left: 30rpx;
+		margin-left: 10rpx;
 		margin-right: 10rpx;
 	}
 	/* .input_color {

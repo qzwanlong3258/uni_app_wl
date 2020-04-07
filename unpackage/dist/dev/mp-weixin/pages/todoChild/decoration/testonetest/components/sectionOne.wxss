@@ -59,7 +59,7 @@
 	font-size: 30rpx;
 }
 .sectionOne-bd view label radio.data-v-8ec44e2a {
-	margin-left: 30rpx;
+	margin-left: 10rpx;
 	margin-right: 10rpx;
 }
 /* .input_color {

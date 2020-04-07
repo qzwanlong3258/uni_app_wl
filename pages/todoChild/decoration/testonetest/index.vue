@@ -121,7 +121,7 @@
 			  								icon: 'success',
 			  								duration: 2000,
 			  							});
-			  							setTimeout(function(){
+			  							setTimeout(()=>{
 			  											uni.navigateTo({
 			  												url:LOAN_TESTONETEST_SUBMIT
 			  											})

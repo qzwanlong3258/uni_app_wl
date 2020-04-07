@@ -1,75 +1,72 @@
 <template>
-	<view class="queryProgress">
-		<view class="queryProgressCard">
-			<image class="box-left" src="https://s2.ax1x.com/2020/03/08/3xapSe.jpg"></image>
-			<view class="box-right">
-				<view class="box-right-top" style="height: 50%;">
-					<view class="box-right-top-left">城市人家装饰</view>
-					<view class="box-right-top-right">已预约</view>
-				</view>
-				<view class="box-right-bottom" style="height: 50%;">
-					预约时间：2020年3月15日
-				</view>
+	<view class="chooseBussiness">
+		<view class="box" v-for="(item,index) in dataList" :key="index">
+			<view class="left">
+				<image :src="item.storePhotos" style="width: 55px;height: 55px;border-radius:50% ; display: block;box-shadow: 0 0 1px 1px  rgba(153,153,153,0.3);" mode="scaleToFill"></image>
+			</view>
+			<view class="mid">
+				<view style="height: 50%;line-height: 52.5px;">{{item.name}}</view>
+				<view style="height: 50%;line-height: 24.5px;font-size: 10px;color: #7E7E7E;">预约时间:{{item.createTime}}</view>
+				
+			</view>
+			<view class="right">
+				<!-- <image :src="img[0]" :hidden="!item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image>
+				<image :src="img[1]" :hidden="item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image> -->
+				<view style="width: 45px;height: 20px;background: #FFEA04;font-size: 10px;text-align: center;line-height: 20px;" v-if="item.state == '1'">待量房</view>
+				<view style="width: 45px;height: 20px;background: #01B164;font-size: 10px;text-align: center;line-height: 20px;" v-if="item.state == '2'">已完成</view>
 			</view>
 		</view>
+		
 	</view>
 </template>
 
 <script>
 'use strict';
+var _self;
+import { getMyShop} from '@/api/measureHome.js';
 export default {
 	data() {
-		return {};
+		return{
+			dataList:{}
+		}
 	},
-	methods: {},
-	async onLoad() {}
+	methods:{
+		
+	},
+	async onLoad(options) {
+		_self=this
+		let e = await getMyShop()
+		_self.dataList=e.list
+		
+	}
 };
 </script>
 
+
 <style>
-.queryProgress {
-	font-size: 32rpx;
-	background: rgba(242, 246, 249, 1);
-}
-.queryProgressCard {
-	margin: 48rpx 15rpx;
-	height: 180rpx;
-	background: #ffffff;
-	border-radius: 20rpx;
-	box-shadow: 0 2px 1px  #999999;
-	overflow: hidden;
-	padding: 20rpx;
-	display: flex;
-}
-.box-left {
-	flex: 0.8;
-	width: 100%;
-	height: 100%;
-}
-.box-right {
-	flex: 2;
-	padding-left: 30rpx;
-}
-.box-right-top {
-	display: flex;
-}
-.box-right-top-left {
-	flex: 3;
-	line-height: 90rpx;
-}
-.box-right-top-right {
-	flex: 1;
-	background: #e8be2e;
-	color: #ffffff;
-	
-	font-size: 28rpx;
-	text-align: center;
-	height: 54rpx;
-	line-height: 54rpx;
-	margin-top: 30rpx;
-}
-.box-right-bottom{
-	line-height: 90rpx;
-	
-}
+	page{
+		background: #FFFFFF;
+	}
+</style>
+<style scoped>
+	.box{
+		height: 75px;
+		border-bottom: 2px solid rgba(241,241,241,1);
+		display: flex;
+	}
+	.left{
+		flex-basis: 55px;
+		padding: 10px 10px 10px 10px;
+	}
+	.right{
+		flex-basis: 80px;
+		display: flex;
+		align-items: center;
+	}
+	.mid{
+		flex: 1;
+		/* line-height: 75px; */
+		padding-left: 10px;
+		color: 14px;
+	}
 </style>

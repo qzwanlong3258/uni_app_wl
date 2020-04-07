@@ -8,7 +8,12 @@
 			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image> -->
 		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding" style="margin-top: 20px;">
-			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)">
+			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)" v-if="!show">
+				<!-- <icon class="iconfont decoration_icon-menu" :class="item.icon"></icon> -->
+				<image :src='item.img' mode="widthFix" class="image_nav"></image>
+				<text class="decoration_text-title">{{item.title}}</text>
+			</view>
+			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" v-if="show">
 				<!-- <icon class="iconfont decoration_icon-menu" :class="item.icon"></icon> -->
 				<image :src='item.img' mode="widthFix" class="image_nav"></image>
 				<text class="decoration_text-title">{{item.title}}</text>
@@ -27,7 +32,7 @@
 		<!-- <view class="decoration_view-row decoration_view-plan page_view-box">
 			<image class="page_image-plan" src="http://fa.aitech.xin/images/aboutUs.png" mode="widthFix" />
 		</view> -->
-		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px ;margin-top: 20px;">
+		<view class="decoration_view-row decoration_view-plan page_view-box"  style="margin: 10px ;margin-top: 20px;">
 			<image @click="linkToBank(0)" class="page_image-plan" :src="bank[0]" mode="widthFix" />
 		</view>
 		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px  ;">
@@ -41,8 +46,10 @@
 
 <script>
 	'use scrict';
+	var _self;
 	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR} from '@/config/image.js';
 	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL} from '@/config/router.js';
+	import { getStorage, setStorage } from '@/utils/storage.js';
 	
 	export default {
 		data() {
@@ -58,7 +65,8 @@
 				],
 				bank_pic:BANK_PIC,
 				bank_logo:BANK_LOGO,
-				bank:[BANK_JH,BANK_BH,BANK_BJ]
+				bank:[BANK_JH,BANK_BH,BANK_BJ],
+				show:false
 			}
 		},
 		methods: {
@@ -72,16 +80,29 @@
 				uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
 			}
 			
+		},
+		 onShow() {
+			 if(getStorage('canloan')){
+				 _self.show = getStorage('canloan')
+			 } else {
+				 _self.show =false
+			 }
+			
+		},
+		async onLoad() {
+			_self=this
+			
 		}
 	}
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style lang="scss" scoped>
 	.decoration_view-box-box{
-		background: #FFFFFF;
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		
 	}
 	.decoration_view-nav {
 		display: flex;

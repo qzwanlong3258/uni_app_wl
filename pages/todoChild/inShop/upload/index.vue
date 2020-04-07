@@ -11,7 +11,7 @@
 				
 				<view class="iconfont iconjia iconclass"   @click="chooseimage(index)" v-if="item.img === ''"></view>
 				<view style="text-align: center;color: #333333;margin-top: 15px;font-size: 12px;" v-if="item.img === ''">{{item.name}}</view>
-				<image :src="item.img" mode="aspectFit" v-if="item.img != ''" style="
+				<image :src="item.img" mode="aspectFit" @click="_previewImage(item.img)" v-if="item.img != ''" style="
 				width: 100%;
 				height: 100%;
 				"></image>
@@ -20,7 +20,7 @@
 			<view  class="box" v-for="(item,index) in photoData" :key="index" >
 				<view class="iconfont iconjia iconclass"   @click="chooseimage(3)" v-if="item.img === ''"></view>
 				<view style="text-align: center;color: #333333;margin-top: 15px;font-size: 12px;" v-if="item.img === ''">{{item.name}}</view>
-				<image :src="item.img" mode="aspectFit" v-if="item.img != ''" style="
+				<image :src="item.img" mode="aspectFit" @click="_previewImage(item.img)" v-if="item.img != ''" style="
 				width: 100%;
 				height: 100%;
 				"></image>
@@ -63,6 +63,15 @@ export default {
 		}
 	},
 	methods:{
+		_previewImage(image) {
+						var imgArr = [];
+						imgArr.push(image);
+						//预览图片
+						uni.previewImage({
+							urls: imgArr,
+							current: imgArr[0]
+						});
+					},
 		toast(v){
 			
 				uni.showToast({

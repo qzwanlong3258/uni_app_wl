@@ -13,6 +13,7 @@
 		<view class="bottom-show"><image :src="adimg[1]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view>
+		<view style="height: 40px;"></view>
 	</scroll-view>
 	</view>
 </template>

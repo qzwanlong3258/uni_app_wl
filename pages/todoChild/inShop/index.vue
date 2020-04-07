@@ -133,10 +133,18 @@ export default {
 			_self.yaoqing=''
 			// setStorage('data',this.dataList)
 			let e = JSON.stringify(this.dataList)
-			uni.navigateTo({
-				
-				url: `${UPLOAD}?data=${e}`
-			})
+			uni.showToast({
+											title: "提交成功,请上传资料",
+											icon: 'none',
+											duration: 2000,
+										});
+										setTimeout(()=>{
+														uni.navigateTo({
+															
+															url: `${UPLOAD}?data=${e}`
+														})
+													},2000)
+			
 			
 		},
 		apptMeasureHomeBtn(){

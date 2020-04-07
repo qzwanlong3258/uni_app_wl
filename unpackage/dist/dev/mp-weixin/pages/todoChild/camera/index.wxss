@@ -24,4 +24,12 @@
 .iconclass.data-v-41715941 {
   font-size: 14px;
 }
+.canvas.data-v-41715941 {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
 

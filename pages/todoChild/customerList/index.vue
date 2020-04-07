@@ -1,15 +1,18 @@
 <template>
 	<view class="customer-list-box">
 		<ljl-states :infor="states" @change="stateChange" />
-		<!-- <template v-if="list.length"> -->
-			<!-- <ljl-customer-infor v-for="(item, index) in list" :key="index" :infor="item" /> -->
-			<view class="scheduleCard" >
+		<template v-if="list.length"> 
+			<ljl-customer-infor v-for="(item, index) in list" :key="index" :infor="item" />
+			</template>
+			<!-- <view class="scheduleCard" >
 				<view class="scheduleCard-top" style="height: 35%;border-bottom:4rpx solid #F0F0F0 ;">
 					<view class="scheduleCard-top-left">
 						<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
 					</view>
 					<view class="scheduleCard-top-mid">
-						<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;">{{userInfo.nickName}}</view>
+						<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx 0 10rpx 30rpx;">{{userInfo.nickName}}
+						
+						</view>
 						<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 30rpx;;color:#999999">电话：{{userInfo.phone}}</view>
 					</view>
 					<view class="scheduleCard-top-right">
@@ -26,11 +29,11 @@
 					<view style="flex: 50%;">最新交易时间: 2020-01-20</view>
 				</view>
 			</view>
-		<!-- </template> -->
-		<!-- <template v-else>
+		 </template> -->
+		<template v-else>
 			<null-data :content="states.list[states.index].nullContent" />
 			<view class="page_view-bottomMenu"><ljl-menu :infor="menu" /></view>
-		</template> -->
+		</template>
 	</view>
 </template>
 

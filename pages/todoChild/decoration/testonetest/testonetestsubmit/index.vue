@@ -33,6 +33,7 @@ var _self;
 import { TESTSUCCESS, TESTFAIL} from '@/config/image.js';
 import { DECORATION} from '@/config/router.js';
 import { getCount } from '@/api/todoChild/loan.js';
+import { getStorage, setStorage } from '@/utils/storage.js';
 export default {
 	data(){
 		return{
@@ -54,6 +55,9 @@ export default {
 		console.log(e)
 		if (e.count == '0'){
 			_self.show=true
+			setStorage('canloan',true)
+		} else {
+			setStorage('canloan',false)
 		}
 	}
 };

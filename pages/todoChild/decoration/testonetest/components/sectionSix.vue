@@ -24,7 +24,7 @@
 				
 			</view> -->
 			<view class="sectionsix-ft">
-				<view class="sectionsix-ft-hd" @click="open">信息确认</view>
+				<!-- <view class="sectionsix-ft-hd" >信息确认</view> -->
 				<!-- <view class="sectionsix-ft-text">*房屋所在城市</view> -->
 				<!-- <button type="primary" @tap="openAddres">打开地址</button> -->
 				<!-- <view class="sectionsix-ft-city" style="letter-spacing: 5rpx;" @click="openAddres">{{pickerText}}</view> -->
@@ -32,8 +32,8 @@
 					<view class="sectionsix-ft-phone-left">手机号码</view>
 					<input class="sectionsix-ft-phone-right"></input>
 				</view> -->
-				<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agre" />同意<label class="noticeBook" @click.stop="open" style="color: #333333;">《用户告知书》</label></label></view>
-				<view class="btn" style="margin: 30rpx 0 10rpx 0;" @click="submit">
+				<!-- <view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agre" />同意<label class="noticeBook" @click.stop="open" style="color: #333333;">《用户告知书》</label></label></view> -->
+				<view class="btn" style="margin: 35rpx 0 20rpx 0;" @click="submit">
 					完成
 				</view>
 				<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address>
@@ -200,7 +200,7 @@
 		
 	} */
 	.sectionsix-ft{
-		height: 250rpx;
+		height: 150rpx;
 		background: #FFFFFF;
 		position: absolute;
 		bottom: 0;

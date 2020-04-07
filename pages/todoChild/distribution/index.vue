@@ -14,21 +14,21 @@
 	    	<view class="distribution-nav ">
 	    		<view class="top">
 	    			<view class="distribution-nav-top">
-	    				<image :src="img" class="distribution-nav-top-img" mode="aspectFill">
+	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
 	    		<view style="text-align: center;color: #000000;font-size: 10px;margin: 2px 0;">WELCOME</view>
-	    		<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">普通会员</view>
-				<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">加入时间：2020-01-22   13:00</view>
+	    		<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">{{userInfo.level}}</view>
+				<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">加入时间：{{userInfo.joinTime}}</view>
 				<view class="box" style="margin-top: 15px;">
 					<view class="box-left">未入账</view>
 					<view class="box-mid">已结算金额</view>
 					<view class="box-right">已提现</view>
 				</view>
 				<view class="box">
-					<view class="box-left">100</view>
-					<view class="box-mid">100</view>
-					<view class="box-right">100</view>
+					<view class="box-left">0</view>
+					<view class="box-mid">0</view>
+					<view class="box-right">0</view>
 				</view>
 			</view>
 		</view>
@@ -50,6 +50,7 @@ import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER } from '@/config/r
 export default {
 	data() {
 		return {
+			userInfo:{},
 			img:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
 			showroom: {
 				top: [{ title: '今日奖励', content: 0 }, { title: '待结算金额', content: 0 }, { title: '累计金额', content: 0 }],

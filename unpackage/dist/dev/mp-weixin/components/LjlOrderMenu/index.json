@@ -1,6 +1,6 @@
 {
+  "component": true,
   "usingComponents": {
     "ljl-column": "/components/LjlOrderMenu/components/LjlColumn"
-  },
-  "component": true
+  }
 }

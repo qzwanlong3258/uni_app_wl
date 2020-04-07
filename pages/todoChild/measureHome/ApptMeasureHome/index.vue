@@ -122,6 +122,8 @@ export default {
 		 toLinkChoose(){
 			 // _self.dataList.address = this.pickerText
 			 measureHome (this.dataList).then(res=>{
+				 console.log(res)
+				
 				 uni.showToast({
 				 								title: "提交成功",
 				 								icon: 'success',
@@ -129,7 +131,7 @@ export default {
 				 							});
 											
 				 							uni.navigateTo({
-				 								url:`${CHOOSEBUSSINESS}?id=${this.dataList.address}`  
+				 								url:`${CHOOSEBUSSINESS}?id=${this.dataList.address}&uuid=${res.uuid}`  
 				 							})
 				 // uni.navigateTo({
 				 // 	url:APPT_MEASUREHOME_SUCCESS
@@ -220,7 +222,7 @@ export default {
 		color: #FFFFFF;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+		box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
 		font-size: 14px;
 		letter-spacing: 2px;
 	}

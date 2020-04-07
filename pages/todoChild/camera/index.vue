@@ -1,10 +1,11 @@
 
 <template>
 	<view class="content" style="position: absolute;width: 100%;height: 100%;">
-		<view class="post" style="position: absolute;width: 100%;height: 100%;">
-			<view class="wrapper"><canvas style="height: 100%;width: 100%;backgroundColor: #FFFFFF" canvas-id="firstCanvas"></canvas></view>
-		</view>
-		<view style="position: absolute;width: 100%;height: 100%;">
+		<!-- <view class="post" style="position: absolute;width: 100%;height: 100%;visibility: hidden;">
+			<view class="wrapper"><canvas style="height: 100%;width: 100%;backgroundColor: #FFFFFF;visibility: hidden;" canvas-id="firstCanvas"></canvas></view>
+		</view> -->
+		<canvas class='canvas' :style="{width:`${canvasWidth}px`,height:`${canvasHeight}px`}" canvas-id="firstCanvas"></canvas>
+		<view style="position: absolute;width: 100%;height: 100%;z-index: 1000;">
 			<camera device-position="back" flash="off" frame-size="large" @click="error" style="width: 100%; height: 80%;"></camera>
 			<view style="width: 100%;height: 20%;display: flex;justify-content: center;align-items: center;background: #000000; position: relative;">	
 			<view style="width: 50px;height: 50px;border-radius: 50%;background: #FFFFFF;text-align: center;line-height: 50px;" @tap="qrR" v-if="role == 0">
@@ -42,6 +43,8 @@
 		
 		data() {
 			return {
+				canvasWidth: 752,
+				canvasHeight: 808,
 				cover: 'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
 				imgphoto:'',
 				needLocation: [{
@@ -185,10 +188,10 @@
 																// ctx.drawImage(path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
 																ctx.font = '13px Arial';
 																ctx.fillStyle = '#fff';
-																ctx.fillText(this.address, uni.upx2px(380), uni.upx2px(1000));
+																ctx.fillText(this.address, uni.upx2px(20), uni.upx2px(1000));
 																ctx.font = '13px Arial';
 																ctx.fillStyle = '#fff';
-																ctx.fillText(formatTime(new Date()), uni.upx2px(380), uni.upx2px(970));
+																ctx.fillText(formatTime(new Date()), uni.upx2px(20), uni.upx2px(970));
 																ctx.draw(false, () => {
 																	uni.canvasToTempFilePath({
 																		x: 0,
@@ -322,10 +325,10 @@
 																// ctx.drawImage(path, uni.upx2px(520), uni.upx2px(800), uni.upx2px(160), uni.upx2px(160));
 																ctx.font = '13px Arial';
 																ctx.fillStyle = '#fff';
-																ctx.fillText(this.address, uni.upx2px(380), uni.upx2px(1000));
+																ctx.fillText(this.address, uni.upx2px(20), uni.upx2px(1000));
 																ctx.font = '13px Arial';
 																ctx.fillStyle = '#fff';
-																ctx.fillText(formatTime(new Date()), uni.upx2px(380), uni.upx2px(970));
+																ctx.fillText(formatTime(new Date()), uni.upx2px(20), uni.upx2px(970));
 																ctx.draw(false, () => {
 																	uni.canvasToTempFilePath({
 																		x: 0,
@@ -545,5 +548,13 @@
 	}
 	.iconclass{
 		font-size: 14px;
+	}
+	.canvas {
+		position: fixed;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		visibility: hidden;
 	}
 </style>

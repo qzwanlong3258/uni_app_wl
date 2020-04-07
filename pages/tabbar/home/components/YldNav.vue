@@ -35,7 +35,7 @@
 					},
 					{
 						icon:NAV_FOUR,
-						bname:'好店入住'
+						bname:'好店入驻'
 					}
 				]
 			}

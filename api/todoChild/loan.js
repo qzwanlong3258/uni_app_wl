@@ -79,8 +79,6 @@ export function testOneTest(data) {
 	return request({
 		method: "POST",
 		url: `${TESTONETEST}`,
-		showLoading:false,
-		hideLoading:false,
 		data
 	});
 }

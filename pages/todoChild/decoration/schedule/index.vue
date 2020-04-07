@@ -247,6 +247,7 @@ export default {
 		position: absolute;
 		width: 100%;
 		height: 100%; */
+		padding: 0 0 40px 0;
 	}
 	.schedule-left{
 		margin: 20px 0;

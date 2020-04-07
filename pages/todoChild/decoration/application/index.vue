@@ -95,7 +95,7 @@
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">详细地址:</view>
-			<view class="appli_hd_item_content"><input type="number" v-model="adressDetail"  placeholder="请输入你的详细地址" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content"><input type="text" v-model="adressDetail"  placeholder="请输入你的详细地址" placeholder-class="input_color" /></view>
 		</view>
 		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
@@ -271,7 +271,7 @@ export default {
 		_self.dataList.term = this.periodArray[0]
 		_self.dataList.latitude=22.686206,
 		_self.dataList.longitude=114.230672,
-		_self.dataList.cid =getStorage('userInfo').avatarUrl;
+		_self.dataList.did =getStorage('userInfo').avatarUrl;
 		
 	},
 	methods: {

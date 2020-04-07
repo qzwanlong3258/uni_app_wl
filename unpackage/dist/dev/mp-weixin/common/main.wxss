@@ -250,43 +250,43 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   -moz-osx-font-smoothing: grayscale;
 }
 .iconshouji:before {
-  content: "\E625";
+  content: "\e625";
 }
 .iconyanzhengma:before {
-  content: "\E626";
+  content: "\e626";
 }
 .icontuijian:before {
-  content: "\E6A6";
+  content: "\e6a6";
 }
 .icondown:before {
-  content: "\E7ED";
+  content: "\e7ed";
 }
 .iconiconfontzhizuobiaozhun22:before {
-  content: "\E615";
+  content: "\e615";
 }
 .iconlaba:before {
-  content: "\E61B";
+  content: "\e61b";
 }
 .iconjifen:before {
-  content: "\E61D";
+  content: "\e61d";
 }
 .icon19:before {
-  content: "\E638";
+  content: "\e638";
 }
 .iconxing:before {
-  content: "\E616";
+  content: "\e616";
 }
 .iconjian:before {
-  content: "\E632";
+  content: "\e632";
 }
 .iconjia:before {
-  content: "\E630";
+  content: "\e630";
 }
 .iconweizhi-tianchong:before {
-  content: "\E656";
+  content: "\e656";
 }
 .iconqueding:before {
-  content: "\E681";
+  content: "\e681";
 }
 .page_view-inner-padding {
   box-sizing: border-box;
@@ -381,55 +381,55 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   -moz-osx-font-smoothing: grayscale;
 }
 .iconyou:before {
-  content: "\E688";
+  content: "\e688";
 }
 .iconzuo1:before {
-  content: "\E6FE";
+  content: "\e6fe";
 }
 .icongerencanbaoxinxichaxun:before {
-  content: "\E608";
+  content: "\e608";
 }
 .iconshengyuyiliaofeijiesuanjiluchaxun:before {
-  content: "\E60A";
+  content: "\e60a";
 }
 .iconxinshenqing-:before {
-  content: "\E619";
+  content: "\e619";
 }
 .iconpaizhao:before {
-  content: "\E604";
+  content: "\e604";
 }
 .iconfenxiang:before {
-  content: "\E60D";
+  content: "\e60d";
 }
 .icondianhua:before {
-  content: "\E614";
+  content: "\e614";
 }
 .icondizhi:before {
-  content: "\E681";
+  content: "\e681";
 }
 .iconsousuo:before {
-  content: "\E759";
+  content: "\e759";
 }
 .iconjiaoseqiehuan:before {
-  content: "\E611";
+  content: "\e611";
 }
 .iconyonghu:before {
-  content: "\E68C";
+  content: "\e68c";
 }
 .iconsheyingshi:before {
-  content: "\E62B";
+  content: "\e62b";
 }
 .iconperson:before {
-  content: "\E600";
+  content: "\e600";
 }
 .iconjian:before {
-  content: "\E637";
+  content: "\e637";
 }
 .iconjia:before {
-  content: "\E70B";
+  content: "\e70b";
 }
 .iconnexts:before {
-  content: "\E621";
+  content: "\e621";
 }
 page {
   background: #F5F5F5;
