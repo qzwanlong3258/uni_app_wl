@@ -63,10 +63,12 @@ module.exports = {
 	// 分享图
 	DOWNLOAD_IMG: `${staticUrl}/todoChild/promoteGoods/save_album.png`,
 	// 专属海报
-	POSTER_1: `${staticUrl}/todoChild/poster/1.jpg`,
-	POSTER_2: `${staticUrl}/todoChild/poster/2.jpg`,
-	POSTER_3: `${staticUrl}/todoChild/poster/3.jpg`,
-	POSTER_4: `${staticUrl}/todoChild/poster/4.jpg`,
+	POSTER_1: `${staticUrl}/todoChild/poster/11.jpg`,
+	POSTER_2: `${staticUrl}/todoChild/poster/22.jpg`,
+	POSTER_3: `${staticUrl}/todoChild/poster/33.jpg`,
+	POSTER_4: `${staticUrl}/todoChild/poster/44.jpg`,
+	POSTER_5: `${staticUrl}/todoChild/poster/55.jpg`,
+	POSTER_6: `${staticUrl}/todoChild/poster/66.jpg`,
 	// 打款成功
 	SUCCESSPAY: `${staticUrl}/todoChild/打款成功@2x.png`,
 	// 测一测

@@ -29,8 +29,8 @@
 	width: 140rpx;
 	height: 140rpx;
 	display: block;
-	margin-top: -10rpx;
-	margin-left: -10rpx;
+	margin-top: -8rpx;
+	margin-left: -8rpx;
 }
 .btn-box.data-v-dd86ab04{
 	height: 35px;

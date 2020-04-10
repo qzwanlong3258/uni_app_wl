@@ -149,7 +149,7 @@ var _default = { props: { // imgList: {
     // 	type: Array,
     // },
     heightNum: { type: Number, default: 662 }, autoplay: { type: Boolean, default: true } }, data: function data() {return { dotIndex: 0, circular: true,
-      imgList: [{ 'img': _image.BANNER_ONE }, { 'img': _image.BANNER_TWO }, { 'img': _image.BANNER_THREE }, { 'img': _image.BANNER_FOUR }] };
+      imgList: [{ 'img': _image.BANNER_TWO }, { 'img': _image.BANNER_THREE }, { 'img': _image.BANNER_FOUR }] };
 
   },
   methods: {

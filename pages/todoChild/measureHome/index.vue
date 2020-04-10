@@ -1,6 +1,6 @@
 <template>
-	<view class="measureHome">
-		<image :src="img" mode="widthFix"></image>
+	<view class="measureHome" :hidden='!show'>
+		<image :src="img" mode="widthFix" @load='imgshow'></image>
 		
 		<!-- <view class="apptMeasureHome_ft">
 			<view class="btn" @click="apptMeasureHomeBtn">提交审核</view>
@@ -16,13 +16,18 @@
 'use strict';
 import { MEASUREHOME} from '@/config/image.js';
 import { APPTMEASUREHOME, QUERYPROGRESS} from '@/config/router.js';
+var _self;
 export default {
 	data() {
 		return{
-			img:MEASUREHOME
+			img:MEASUREHOME,
+			show:false
 		}
 	},
 	methods:{
+		imgshow(){
+			_self.show=true
+		},
 		queryProgressBtn(){
 			
 			uni.navigateTo({
@@ -38,7 +43,9 @@ export default {
 		
 			
 	},
-	async onLoad() {}
+	async onLoad() {
+		_self=this
+	}
 };
 </script>
 <style>

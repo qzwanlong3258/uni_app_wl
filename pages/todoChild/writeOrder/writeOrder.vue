@@ -74,7 +74,7 @@ export default {
 		loadAddress(this.shippingAddress.listQuery).then(res => {
 			this.shippingAddress.infor = res.list[0];
 		});
-		this.$eventBus.$on("addressChange", data => {
+		this.$eventBus.$on('addressChange', data => {
 			this.shippingAddress.infor = data;
 		});
 	},
@@ -83,14 +83,13 @@ export default {
 		YldAddress
 	},
 	methods: {
-
 		/**
 		 * 调整总金额
 		 */
 		changeAllMoney(counts) {
 			this.allMoney = Number(counts) * Number(this.orderInformation.goodsPrice);
 		},
-		
+
 		/**
 		 * 检测收货地址
 		 */
@@ -124,9 +123,10 @@ export default {
 		 */
 		payOrder: async function(uuid) {
 			let res = await payOrder({
-				uuid,money: this.allMoney
+				uuid,
+				money: this.allMoney
 			});
-			Number(res.count) !== 1 && ((res = null), await model({content: '支付失败,请重新选择商品', showCancel: false }));
+			Number(res.count) !== 1 && ((res = null), await model({ content: '支付失败,请重新选择商品', showCancel: false }));
 			return res;
 		},
 

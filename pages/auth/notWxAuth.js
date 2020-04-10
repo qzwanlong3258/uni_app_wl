@@ -22,7 +22,7 @@ const notWxAuth = {
 		}
 	},
 	onLoad() {
-		console.log(getApp().globalData.fm)
+		// console.log(getApp().globalData.fm)
 	},
 	methods: {
 		//获取验证码

@@ -76,7 +76,7 @@
         "pagePath": "pages/tabbar/todo/todo",
         "iconPath": "static/img/tabbar/shop.png",
         "selectedIconPath": "static/img/tabbar/selectedShop.png",
-        "text": "会员商城"
+        "text": "积分商城"
       },
       {
         "pagePath": "pages/tabbar/mine/mine",

@@ -3,7 +3,8 @@
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
-					<image :src="userInfo.avatarUrl" class="mine-nav-top-img" mode="aspectFill">
+					<image :src="userInfo.avatarUrl" class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+					<image :src="imglogo" class="mine-nav-top-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 			</view>
 			<!-- <view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view> -->
@@ -79,9 +80,10 @@
 
 <script>
 'use strict';
-import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS} from '@/config/image.js';
+import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO} from '@/config/image.js';
 import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
+
 var _self;
 export default {
 	components:{	
@@ -97,7 +99,8 @@ export default {
 			imgMeaLoan:[MINE_MEASURE,MINE_LOAN],
 			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS],
 			index:'',
-			role:''
+			role:'',
+			imglogo:TOUXIANG_LOGO
 			
 		}
 	},
@@ -185,8 +188,8 @@ export default {
 		width: 140rpx;
 		height: 140rpx;
 		display: block;
-		margin-top: -10rpx;
-		margin-left: -10rpx;
+		margin-top: -8rpx;
+		margin-left: -8rpx;
 	}
 	.btn-box{
 		height: 35px;

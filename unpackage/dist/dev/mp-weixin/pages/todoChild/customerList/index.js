@@ -195,7 +195,7 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _getReq
         list: [{ title: '全部', nullContent: "暂无数据" }, { title: '会员', nullContent: "暂无会员" }, { title: '客户', nullContent: "暂无客户" }, { title: '设计师', nullContent: "暂无设计师" }] },
 
       menu: {
-        title: '推广工具',
+        // title: '推广工具',
         center: 'center',
         list: [
         { title: '专属海报', icon: imgs.POSTER, href: _router.POSTER },

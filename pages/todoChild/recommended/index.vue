@@ -23,7 +23,7 @@
 					<image :src='img[1]' mode="widthFix"></image>
 					<view class="text" style="color: #860A0A;">推荐设计师</view>
 				</view>
-				<view class="box-right">还差一人，可获得10积分</view>
+				<view class="box-right">还差一人，可获得50积分</view>
 			</button>
 			<button class="box" open-type="share" @click="linkToRoute" style="background: #FFFFFF;">
 				<view class="box-left" style="background: #9BD2EB;">

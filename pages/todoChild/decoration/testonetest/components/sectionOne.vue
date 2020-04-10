@@ -3,7 +3,7 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionOne-box">
-			<view class="sectionOne-hd"> 01/06 你的户型是?</view>
+			<view class="sectionOne-hd"> 01/06 您的户型是?</view>
 			<view class="sectionOne-bd">
 				<view v-for="(item,index) in homeData" :key="index" @click="homeClick(index)">
 					<image :src="item.img" mode=""></image>

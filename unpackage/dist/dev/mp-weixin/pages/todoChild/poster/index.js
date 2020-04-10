@@ -146,6 +146,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _image = __webpack_require__(/*! @/config/image.js */ 34);var _default =
@@ -155,7 +158,7 @@ var _image = __webpack_require__(/*! @/config/image.js */ 34);var _default =
     return {
       options: {
         index: 0,
-        list: [_image.POSTER_1, _image.POSTER_2, _image.POSTER_3, _image.POSTER_4] },
+        list: [_image.POSTER_1, _image.POSTER_2, _image.POSTER_3, _image.POSTER_4, _image.POSTER_5, _image.POSTER_6] },
 
       logo: _image.COMPANY_LOGO };
 

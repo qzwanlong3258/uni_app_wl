@@ -207,7 +207,7 @@ var _order = __webpack_require__(/*! @/api/order.js */ 47);function _interopRequ
     (0, _address.loadAddress)(this.shippingAddress.listQuery).then(function (res) {
       _this.shippingAddress.infor = res.list[0];
     });
-    this.$eventBus.$on("addressChange", function (data) {
+    this.$eventBus.$on('addressChange', function (data) {
       _this.shippingAddress.infor = data;
     });
   },
@@ -216,7 +216,6 @@ var _order = __webpack_require__(/*! @/api/order.js */ 47);function _interopRequ
     YldAddress: YldAddress },
 
   methods: {
-
     /**
               * 调整总金额
               */
@@ -257,7 +256,8 @@ var _order = __webpack_require__(/*! @/api/order.js */ 47);function _interopRequ
                                                                                                                                                                                       */
     payOrder: function () {var _payOrder2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(uuid) {var res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
                   (0, _order.payOrder)({
-                    uuid: uuid, money: this.allMoney }));case 2:res = _context3.sent;_context3.t0 =
+                    uuid: uuid,
+                    money: this.allMoney }));case 2:res = _context3.sent;_context3.t0 =
 
                 Number(res.count) !== 1;if (!_context3.t0) {_context3.next = 8;break;}res = null;_context3.next = 8;return (0, _package.model)({ content: '支付失败,请重新选择商品', showCancel: false });case 8:return _context3.abrupt("return",
                 res);case 9:case "end":return _context3.stop();}}}, _callee3, this);}));function payOrder(_x) {return _payOrder2.apply(this, arguments);}return payOrder;}(),

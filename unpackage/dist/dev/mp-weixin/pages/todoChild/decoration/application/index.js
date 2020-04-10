@@ -323,6 +323,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 'use scrict';
 // import { ApplicationInput } from './components/ApplicationInput.vue';
@@ -368,8 +400,12 @@ var _self;var _default =
         name: '非客拍' }],
 
 
-      workArray: ['公务员事业单位', '白领', '一般职员', '个体户', '企业法人', '自由职业', '其他'],
+      workArray: ['公务员事业单位', '一般职员', '大专', '高中及以下'],
       workIndex: 0,
+      studyArray: ['硕士及以上', '大学本科', '个体户', '企业法人', '自由职业', '其他'],
+      studyIndex: 0,
+      loanArray: ['装修公司全包', '装修公司半包', '购买家具', '购买建材', '自装'],
+      loanIndex: 0,
       periodArray: [12, 24, 36, 60, 120],
       periodIndex: 0,
       dateArray: ['07:00-10:00', '10:00-13:00', '13:00-16:00', '16:00-19:00'],
@@ -435,6 +471,16 @@ var _self;var _default =
       console.log('picker发送选择改变，携带值为', e.target.value);
       this.workIndex = e.target.value;
       _self.dataList.workunit = e.target.value;
+    },
+    loanBindPickerChange: function loanBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.loanIndex = e.target.value;
+      // _self.dataList.workunit = e.target.value
+    },
+    studyBindPickerChange: function studyBindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.target.value);
+      this.studyIndex = e.target.value;
+      // _self.dataList.workunit = e.target.value
     },
     periodBindPickerChange: function periodBindPickerChange(e) {
       console.log('picker发送选择改变，携带值为', e.target.value);

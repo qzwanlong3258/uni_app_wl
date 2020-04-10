@@ -6,7 +6,7 @@
 		height:73rpx ;"></image>
 			</view>
 			<view style="height: 24rpx;margin-top: 20rpx;text-align: center;">
-				恭喜您已经通过初审，请完善申请信息！
+				恭喜您已完成测试！
 			</view>
 		</view>
 		<view class="testFail" :hidden='!show'>
@@ -18,7 +18,13 @@
 				对不起，您暂不符合条件！
 			</view>
 		</view>
-		<view style="position: fixed;left: 0;bottom: 0;width: 100%;height: 140rpx;">
+		<view style="position: fixed;left: 0;bottom: 0;width: 100%;height: 140rpx;" :hidden='show'>
+			<view class="btn" style="margin-top: 20rpx;" @click="submitToAppt">
+				立即申请
+				
+			</view>
+		</view>
+		<view style="position: fixed;left: 0;bottom: 0;width: 100%;height: 140rpx;" :hidden='!show'>
 			<view class="btn" style="margin-top: 20rpx;" @click="submit">
 				返回
 				
@@ -31,7 +37,7 @@
 'use strict';
 var _self;
 import { TESTSUCCESS, TESTFAIL} from '@/config/image.js';
-import { DECORATION} from '@/config/router.js';
+import { DECORATION ,LOAN_APPLICATION} from '@/config/router.js';
 import { getCount } from '@/api/todoChild/loan.js';
 import { getStorage, setStorage } from '@/utils/storage.js';
 export default {
@@ -46,6 +52,11 @@ export default {
 		submit(){
 			uni.switchTab({
 				url:DECORATION
+			})
+		},
+		submitToAppt(){
+			uni.navigateTo({
+				url:LOAN_APPLICATION
 			})
 		}
 	},

@@ -33,7 +33,7 @@
 			return {
 				dotIndex: 0,
 				circular: true,
-				imgList: [{'img': BANNER_ONE},{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
+				imgList: [{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
 			};
 		},
 		methods: {

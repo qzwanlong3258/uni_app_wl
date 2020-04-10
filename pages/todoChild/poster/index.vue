@@ -3,26 +3,29 @@
 		<view class="poster_view-main">
 			<button class="poster_image-logo-box" open-type="share" style="background-color: transparent;">
 				<image class="poster_image-logo" :src="logo" />
-				<text class="poster_text-logo-desc">扫描或长按二维码</text>
+				<!-- <text class="poster_text-logo-desc">扫描或长按二维码</text> -->
 			</button>
 			<image class="poster_image-back page_view-full" :src="options.list[options.index]" mode="aspectFill" />
 		</view>
 		<view class="poster_view-options" @click="optionChange">
-			<image class="poster_image-option" v-for="(item,index) in options.list" :key="index" :src="item" :data-index="index" mode="aspectFill" />
+			 <scroll-view class="scroll-view_H" scroll-x="true" >
+			                    <image class="poster_image-option" v-for="(item,index) in options.list" :key="index" :src="item" :data-index="index" mode="aspectFill" />
+			                </scroll-view>
+			
 		</view>
 	</view>
 </template>
 
 <script>
 	'use scrict';
-	import { POSTER_1, POSTER_2, POSTER_3, POSTER_4, COMPANY_LOGO, FENXIANG } from "@/config/image.js";
+	import { POSTER_1, POSTER_2, POSTER_3, POSTER_4, POSTER_5,POSTER_6,COMPANY_LOGO, FENXIANG } from "@/config/image.js";
 	
 	export default {
 		data() {
 			return {
 				options: {
 					index: 0,
-					list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4]
+					list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4, POSTER_5,POSTER_6]
 				},
 				logo: COMPANY_LOGO
 			}
@@ -110,8 +113,14 @@
 	.poster_image-option {
 		width: 130rpx;
 		height: 100%;
+	
 	}
 	.poster_image-option + .poster_image-option {
 		margin-left: 30rpx;
+	}
+	.scroll-view_H{
+		height: 100%;
+		white-space: nowrap;
+		width: 100%;
 	}
 </style>

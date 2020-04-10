@@ -1,6 +1,6 @@
 <template>
-	<view class="decorationPicture">
-		<image :src="img" mode="widthFix"> </image>
+	<view class="decorationPicture" :hidden='!show'>
+		<image :src="img" mode="widthFix" @load='imgshow'> </image>
 		<view class="btn-page">
 			<view class="btnone"  @click="submitTest">
 				
@@ -19,13 +19,19 @@
 'use strict';
 import { LOAN_PICTURE} from '@/config/image.js';
 import { LOAN_APPLICATION, LOAN_TESTONETEST} from '@/config/router.js';
+var _self;
 export default {
 	data() {
 		return{
-			img:LOAN_PICTURE
+			img:LOAN_PICTURE,
+			show:false,
+			
 		}
 	},
 	methods:{
+		imgshow(){
+			_self.show=true
+		},
 		submitTest(){
 			uni.navigateTo({
 				url:LOAN_TESTONETEST
@@ -37,7 +43,9 @@ export default {
 			})
 		},
 	},
-	async onLoad() {}
+	async onLoad() {
+		_self=this
+	}
 };
 </script>
 

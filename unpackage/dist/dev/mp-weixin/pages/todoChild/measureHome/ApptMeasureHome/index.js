@@ -202,6 +202,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
@@ -223,10 +228,32 @@ var _self;var _default =
       apptIndex: 0,
       dataList: {},
       periodArray: [],
-      periodIndex: 0 };
+      periodIndex: 0,
+      areaShow: false,
+      budgetShow: false };
+
 
   },
   methods: {
+    areaInput: function areaInput(e) {
+      // console.log(e.detail)
+      // this.$forceUpdate();
+      if (e.detail.value == "") {
+        _self.areaShow = false;
+      } else {
+        _self.areaShow = true;
+      }
+
+    },
+    budgetInput: function budgetInput(e) {
+      // console.log(e.detail)
+      // this.$forceUpdate();
+      if (e.detail.value == "") {
+        _self.budgetShow = false;
+      } else {
+        _self.budgetShow = true;
+      }
+    },
     openAddres: function openAddres() {
 
       this.$refs.simpleAddress.open();

@@ -5,7 +5,7 @@
 /* radius
 --------------------------*/
 .menu-box .title.data-v-04a6874c {
-  font-size: 36rpx;
+  font-size: 30rpx;
   color: #333333;
   margin-left: 10px;
   vertical-align: middle;

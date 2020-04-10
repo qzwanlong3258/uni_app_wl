@@ -51,7 +51,7 @@
 <style lang="scss" scoped>
 	.menu-box {
 		.title {
-			font-size: 36rpx;
+			font-size: 30rpx;
 			
 			color: #333333;
 			margin-left: 10px;

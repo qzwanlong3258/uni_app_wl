@@ -210,11 +210,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
 var _self;var _default =
 {
   components: {},
@@ -230,7 +232,8 @@ var _self;var _default =
       imgMeaLoan: [_image.MINE_MEASURE, _image.MINE_LOAN],
       imgNav: [_image.MINE_RECOMMEND, _image.MINE_INTEGRAL_LOGO, _image.MINE_SHARE_CENTER, _image.MINE_ADRESS],
       index: '',
-      role: '' };
+      role: '',
+      imglogo: _image.TOUXIANG_LOGO };
 
 
   },

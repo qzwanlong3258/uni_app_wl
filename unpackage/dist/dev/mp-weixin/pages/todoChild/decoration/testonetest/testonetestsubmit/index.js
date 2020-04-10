@@ -160,6 +160,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
@@ -179,6 +185,11 @@ var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _inter
     submit: function submit() {
       uni.switchTab({
         url: _router.DECORATION });
+
+    },
+    submitToAppt: function submitToAppt() {
+      uni.navigateTo({
+        url: _router.LOAN_APPLICATION });
 
     } },
 

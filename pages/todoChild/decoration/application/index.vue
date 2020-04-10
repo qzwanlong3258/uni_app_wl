@@ -22,11 +22,27 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">身份证号码:</view>
-				<view class="appli_hd_item_content"><input type="number" v-model="dataList.idCard"  maxlength="18" placeholder="请输入你的身份证号码" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" v-model="dataList.idCard"  maxlength="18" placeholder="请输入您的身份证号码" placeholder-class="input_color" /></view>
+			</view>
+			<view class="application_hd_item">
+				<view class="appli_hd_item_lable">学历:</view>
+				<view class="appli_hd_item_content appli_hd_item_content_work">
+					<view class="uni-list uni-input-style">
+						<view class="uni-list-cell uni-input-style">
+							<view class="uni-list-cell-db uni-input-style">
+								<picker @change="studyBindPickerChange" :value="studyIndex" :range="studyArray" >
+									<view class="uni-input uni-input-style">{{ studyArray[studyIndex] }}</view>
+									<view class="iconfont  iconyou iconclass" ></view>
+								</picker>
+							</view>
+						</view>
+					</view>
+					
+				</view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">联系电话:</view>
-				<view class="appli_hd_item_content"><input type="number" v-model="dataList.phone"  maxlength="11"  placeholder="请输入你的联系电话" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" v-model="dataList.phone"  maxlength="11"  placeholder="请输入您的联系电话" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">婚姻状态:</view>
@@ -58,7 +74,7 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">月收入:</view>
-				<view class="appli_hd_item_content"><input type="text" v-model="dataList.familyMonthIncome" placeholder="请输入你的月收入" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" v-model="dataList.familyMonthIncome" placeholder="请输入您的月收入" placeholder-class="input_color" /></view>
 			</view>
 		</view>
 		
@@ -71,7 +87,7 @@
 	<view class="application_bd">
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请金额:</view>
-			<view class="appli_hd_item_content"><input type="number" v-model="dataList.loanMoney"  placeholder="请输入你的金额" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content"><input type="number" v-model="dataList.loanMoney"  placeholder="请输入您的金额" placeholder-class="input_color" /></view>
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请周期:</view>
@@ -89,13 +105,29 @@
 			</view>
 		</view>
 		<view class="application_hd_item">
+			<view class="appli_hd_item_lable">装修类型:</view>
+			<view class="appli_hd_item_content appli_hd_item_content_work">
+				<view class="uni-list uni-input-style">
+					<view class="uni-list-cell uni-input-style">
+						<view class="uni-list-cell-db uni-input-style">
+							<picker @change="loanBindPickerChange" :value="loanIndex" :range="loanArray" >
+								<view class="uni-input uni-input-style">{{ loanArray[loanIndex] }}</view>
+								<view class="iconfont  iconyou iconclass" ></view>
+							</picker>
+						</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">所在地区:</view>
 			<view class="appli_hd_item_content" @click="openAddres"><input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /></view>
 			<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onOpenConfirm" themeColor='#007AFF'></simple-address>
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">详细地址:</view>
-			<view class="appli_hd_item_content"><input type="text" v-model="adressDetail"  placeholder="请输入你的详细地址" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content"><input type="text" v-model="adressDetail"  placeholder="请输入您的详细地址" placeholder-class="input_color" /></view>
 		</view>
 		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
@@ -153,7 +185,7 @@
 						
 		<view style="height: 20rpx;"></view>
 		<!-- <view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view> -->
-		<view class="btn" style="margin-top: 120px;margin-bottom: 20px;" @click="submit">
+		<view class="btn" style="margin-top: 160px;margin-bottom: 20px;" @click="submit">
 			提交
 		</view>
 		
@@ -229,8 +261,12 @@ export default {
 					name: '非客拍'
 				}
 			],
-			workArray: ['公务员事业单位', '白领', '一般职员', '个体户', '企业法人', '自由职业', '其他'],
+			workArray: ['公务员事业单位', '一般职员', '大专', '高中及以下'],
 			workIndex: 0,
+			studyArray: ['硕士及以上', '大学本科', '个体户', '企业法人', '自由职业', '其他'],
+			studyIndex: 0,
+			loanArray: ['装修公司全包', '装修公司半包', '购买家具', '购买建材', '自装'],
+			loanIndex: 0,
 			periodArray: [12, 24, 36, 60, 120],
 			periodIndex: 0,
 			dateArray: ['07:00-10:00', '10:00-13:00', '13:00-16:00', '16:00-19:00'],
@@ -297,6 +333,16 @@ export default {
 		            this.workIndex = e.target.value
 					_self.dataList.workunit = e.target.value
 		        },
+		loanBindPickerChange: function(e) {
+		            console.log('picker发送选择改变，携带值为', e.target.value)
+		            this.loanIndex = e.target.value
+					// _self.dataList.workunit = e.target.value
+		        },
+		studyBindPickerChange: function(e) {
+				            console.log('picker发送选择改变，携带值为', e.target.value)
+				            this.studyIndex = e.target.value
+							// _self.dataList.workunit = e.target.value
+				        },
 		periodBindPickerChange: function(e){
 			console.log('picker发送选择改变，携带值为', e.target.value)
 			this.periodIndex = e.target.value
