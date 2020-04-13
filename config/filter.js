@@ -148,7 +148,7 @@ export function formatHomeRoute(value) {
 	switch(value) {
 		case "装修分期": return DECORATION_PICTURE;
 		case "约量房": return MEASUREHOME;
-		case "好店入住": return INSHOP;
+		case "好店入驻": return INSHOP;
 		case "邀请有礼": return INVITEGIFT;
 	}
 }

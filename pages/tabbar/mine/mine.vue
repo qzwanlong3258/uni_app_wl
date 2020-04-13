@@ -13,7 +13,7 @@
 				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到日历</view>
 				<view style="flex: 0.8;font-size: 14px;text-align: center;margin: 0 10px;"> 
 				 <view style="height: 50%;line-height: 19px;">签到有礼</view> 
-				 <view style="text-align: center;color: #D3B86C;font-size: 8px;height: 50%;line-height: 17px;">WELCOME</view>
+				 <view style="text-align: center;color: #D3B86C;font-size: 8px;height: 50%;line-height: 34rpx;">WELCOME</view>
 				</view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
 				<view style="flex: 0.1;"></view>
@@ -163,16 +163,16 @@ export default {
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		padding: 10px 0;
+		padding: 20rpx 0;
 	}
 	.mine-nav{
 		background-color: #FCE77A;
-		height: 165px;
-		margin:0 10px;
+		height: 330rpx;
+		margin:0 20rpx;
 	}
 	.top{
 		height: 120rpx;
-		padding: 10px 0 2px;
+		padding: 20rpx 0 4rpx;
 	}
 	.mine-nav-top{
 		width: 120rpx;
@@ -192,9 +192,9 @@ export default {
 		margin-left: -8rpx;
 	}
 	.btn-box{
-		height: 35px;
+		height: 70rpx;
 		display: flex;
-		margin-top: 20px;
+		margin-top: 40rpx;
 	}
 	.btn{
 		color: #FFFFFF;
@@ -202,28 +202,28 @@ export default {
 		background-color: #FAB310;
 		border-radius: 10rpx;
 		font-size: 26rpx;
-		line-height: 35px;
+		line-height: 70rpx;
 		/* box-shadow: 0 4rpx 0 0  rgba(0,0,0,0.15); */
 	}
 	.mine-pic{
-		height: 20px;
+		height: 40rpx;
 		display: flex;
-		margin-top: 10px;
+		margin-top: 20rpx;
 	}
 	.mine-pic image{
-		width: 15px;
+		width: 30rpx;
 	}
 	.mine-text{
-		height: 20px;
+		height: 40rpx;
 		display: flex;
-		font-size: 13px;
-		margin-top: 10px;
+		font-size: 26rpx;
+		margin-top: 20rpx;
 	}
 	.schedule{
-		height: 35px;
+		height: 70rpx;
 		display: flex;
-		line-height: 35px;
-		border-bottom: 1px solid rgba(241,241,241,1);;
+		line-height: 70rpx;
+		border-bottom: 2rpx solid rgba(241,241,241,1);;
 	}
 	.iconclass{
 		position: absolute;
@@ -232,37 +232,37 @@ export default {
 	}
 	.schedule_logo{
 		display: flex;
-		font-size: 11px;
+		font-size: 22rpx;
 		font-weight: Regular;
 		color: #333333;
-		padding: 10px 0;
+		padding: 20rpx 0;
 		border-bottom: 3px solid #F1F1F1;
 		
 	}
 	.schedule_logo image{
-		width: 30px;
+		width: 60rpx;
 	}
 	.mine-link{
-		height: 40px;
-		border-bottom: 1px solid rgba(241,241,241,1);
-		line-height: 40px;
+		height: 80rpx;
+		border-bottom: 2rpx solid rgba(241,241,241,1);
+		line-height: 80rpx;
 		position: relative;
 	}
 	.mine-link image{
-		width: 15px;
-		margin-left: 15px;
+		width: 30rpx;
+		margin-left: 30rpx;
 		vertical-align: middle;
 	}
 	.mine-link text{
 		color: #333333;
 		font-weight:Regular ;
-		font-size: 12px;
-		margin-left: 10px;
+		font-size: 24rpx;
+		margin-left: 20rpx;
 		vertical-align: middle;
 	}
 	.mine-link .iconclass{
-		font-size: 15px;
+		font-size: 30rpx;
 		color: #666666;
-		right: 10px;
+		right: 20rpx;
 	}
 </style>

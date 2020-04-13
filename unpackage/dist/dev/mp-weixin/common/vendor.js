@@ -9861,9 +9861,9 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
- // const baseUrl = 'http://47.104.232.184:1001';
+var baseUrl = 'http://47.104.232.184:1001';
 // const baseUrl = 'http://192.168.3.25:1001';
-var baseUrl = 'http://yapi.open.com.cn/mock/2423';
+// const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 var auth = "".concat(baseUrl, "/wx/user");
 
 
@@ -11755,7 +11755,7 @@ function formatHomeRoute(value) {
   switch (value) {
     case "装修分期":return _router.DECORATION_PICTURE;
     case "约量房":return _router.MEASUREHOME;
-    case "好店入住":return _router.INSHOP;
+    case "好店入驻":return _router.INSHOP;
     case "邀请有礼":return _router.INVITEGIFT;}
 
 }
