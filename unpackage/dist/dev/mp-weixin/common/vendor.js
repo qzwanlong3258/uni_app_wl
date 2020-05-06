@@ -1615,9 +1615,12 @@ getOpenId() {return _getOpenId.apply(this, arguments);}
 
 
 
+
+
+
 /**
                                                          * 更新token
-                                                         */function _getOpenId() {_getOpenId = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var code, _ref, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return login();case 2:code = _context.sent;_context.next = 5;return request({ method: 'POST', url: "".concat(LOGIN_WECHAT_LOGIN, "?appId=").concat(_common.APP_ID, "&code=").concat(code), needToken: false, showLoading: false, showErrorModal: false }).catch(function () {console.log('调用wx.login失败');});case 5:_ref = _context.sent;data = _ref.data;setStorage('openId', data.openid);console.log(data.openid);return _context.abrupt("return", data.openid);case 10:case "end":return _context.stop();}}}, _callee);}));return _getOpenId.apply(this, arguments);}function
+                                                         */function _getOpenId() {_getOpenId = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var code, _ref, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return login();case 2:code = _context.sent;_context.next = 5;return request({ method: 'POST', url: "".concat(LOGIN_WECHAT_LOGIN, "?appId=").concat(_common.APP_ID, "&code=").concat(code), needToken: false, showLoading: false, showErrorModal: false }).catch(function () {console.log('调用wx.login失败');});case 5:_ref = _context.sent;data = _ref.data;setStorage('openId', data.openid);setStorage('session_key', data.session_key);setStorage('code', code);console.log(data.openid);return _context.abrupt("return", data.openid);case 12:case "end":return _context.stop();}}}, _callee);}));return _getOpenId.apply(this, arguments);}function
 refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshToken() {_refreshToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e, _ref2, data, d, c, _e, b;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
 
             getStorage('openId')) {_context2.next = 11;break;}
@@ -1636,8 +1639,13 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
                 data: e }).
               catch(function (err) {return console.log(err);}));case 5:_ref2 = _context2.sent;data = _ref2.data;
             setStorage('tempToken', data.token);
-            setStorage('userInfo', data.UserInfo);_context2.next = 27;break;case 11:
-
+            setStorage('userInfo', data.UserInfo);
+            // if(!data.token){
+            // 	setStorage('isLogin',false)
+            // } else{
+            // 	setStorage('isLogin',true)
+            // }
+            _context2.next = 27;break;case 11:
             // console.log(12)
             d = {};_context2.next = 14;return (
               login());case 14:d.code = _context2.sent;_context2.next = 17;return (
@@ -1653,10 +1661,11 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
               }));case 17:c = _context2.sent;
             // console.log(c)
             setStorage('openId', c.openid);
+            setStorage('session_key', c.session_key);
             _e = {};
             _e.openid = getStorage('openId');
             // console.log(e)
-            _context2.next = 23;return request({
+            _context2.next = 24;return request({
               method: 'POST',
               url: "".concat(LOGIN_OPENID_REFRESH),
               needToken: false,
@@ -1666,15 +1675,27 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
               errorText: 'openId刷新失败',
               returnHeader: true,
               data: _e }).
-            catch(function (err) {return console.log(err);});case 23:b = _context2.sent;
+            catch(function (err) {return console.log(err);});case 24:b = _context2.sent;
             console.log(b);
-            setStorage('tempToken', b.data.token);
-            setStorage('userInfo', b.data.UserInfo);case 27:case "end":return _context2.stop();}}}, _callee2);}));return _refreshToken.apply(this, arguments);}
+            if (b.code == 0) {
+              setStorage('tempToken', b.data.token);
+              setStorage('userInfo', b.data.UserInfo);
+              setStorage('isLogin', true);
+            } else {
+              setStorage('isLogin', false);
+            }
 
+            // if(!b.data.token){
+            // 	setStorage('isLogin',false)
+            // } else{
+            // 	setStorage('isLogin',true)
+            // }
+          case 27:case "end":return _context2.stop();}}}, _callee2);}));return _refreshToken.apply(this, arguments);}
 
 
 
 module.exports = {
+  login: login,
   getOpenId: getOpenId,
   refreshToken: refreshToken };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -9861,8 +9882,9 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var baseUrl = 'http://47.104.232.184:1001';
-// const baseUrl = 'http://192.168.3.25:1001';
+ // const baseUrl = 'http://47.104.232.184:1001';
+var baseUrl = 'https://feiaizn.com:1001';
+// const baseUrl = 'https://192.168.3.25:1001';
 // const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 var auth = "".concat(baseUrl, "/wx/user");
 
@@ -11325,7 +11347,7 @@ function calender(data) {
 // const staticUrl = '/static/img'
 
 // const staticUrl = 'http://47.104.232.184/static/img'
-var staticUrl = 'http://47.104.232.184/feiai';
+var staticUrl = 'https://www.feiaizn.com/feiai';
 
 module.exports = {
   /** 授权 */
@@ -58673,7 +58695,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "" };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__B837C14" };exports.default = _default;
 
 /***/ }),
 
@@ -58702,9 +58724,10 @@ var _api = __webpack_require__(/*! @/config/api.js */ 20);
 
 
 
-var _image = __webpack_require__(/*! @/config/image.js */ 34);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
 
 
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var regeneratorRuntime = __webpack_require__(/*! @/utils/regenerator-runtime/runtime.js */ 18);
 var wxAuth = {
   data: function data() {
@@ -58714,25 +58737,28 @@ var wxAuth = {
 
   },
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {var code, _ref, session_key;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-
-                (0, _openLogin.login)());case 2:code = _context.sent;_context.next = 5;return (
-
-
-                (0, _http.request)({
-                  method: 'POST',
-                  url: "".concat(_api.LOGIN_WECHAT_LOGIN, "?appId=").concat(_common.APP_ID, "&code=").concat(code),
-                  needToken: false,
-                  showLoading: false,
-                  showErrorModal: false }).
-                catch(function () {
-                  console.log('调用wx.login失败');
-                }));case 5:_ref = _context.sent;session_key = _ref.session_key;
-              this.session_key = session_key;
-              console.log(session_key);case 9:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
-
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              //请求微信接口wx.login,获取code
+              // const code = await this.login();
+              // // const code = getStorage('code')
+              // const {
+              // 	session_key
+              // } = await request({
+              // 	method: 'POST',
+              // 	url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
+              // 	needToken: false,
+              // 	showLoading: false,
+              // 	showErrorModal: false
+              // }).catch(() => {
+              // 	console.log('调用wx.login失败')
+              // })
+              // this.session_key = session_key;
+              this.session_key = (0, _storage.getStorage)('session_key');
+              this.name = options.name;
+              // console.log(session_key)
+            case 2:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
   methods: {
-    getUserInfo: function () {var _getUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {var _e$detail, encryptedData, iv, _ref2, openId, avatarUrl, nickName, _ref3, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (
+    getUserInfo: function () {var _getUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {var _e$detail, encryptedData, iv, _ref, openId, avatarUrl, nickName, _ref2, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (
                 this.session_key) {_context2.next = 2;break;}return _context2.abrupt("return",
                 wx.showToast({
                   title: '登录失败，重新授权试试',
@@ -58761,7 +58787,7 @@ var wxAuth = {
                     needToken: false,
                     showLoadind: false,
                     hideLoading: false,
-                    errorText: '登录失败' }));case 6:_ref2 = _context2.sent;openId = _ref2.openId;avatarUrl = _ref2.avatarUrl;nickName = _ref2.nickName;_context2.next = 12;return (
+                    errorText: '登录失败' }));case 6:_ref = _context2.sent;openId = _ref.openId;avatarUrl = _ref.avatarUrl;nickName = _ref.nickName;_context2.next = 12;return (
 
 
 
@@ -58778,20 +58804,40 @@ var wxAuth = {
                     needToken: false,
                     loadingText: '正在登录',
                     returnHeader: true,
-                    errorText: '登录失败' }));case 12:_ref3 = _context2.sent;data = _ref3.data;
+                    errorText: '登录失败' }));case 12:_ref2 = _context2.sent;data = _ref2.data;
 
                 (0, _storage.setStorage)('sessionKey', this.session_key);
                 (0, _storage.setStorage)('tempToken', data.token);
                 (0, _storage.setStorage)('refreshToken', data.refreshToken);
                 (0, _storage.setStorage)('userInfo', data.UserInfo);
-                (0, _storage.setStorage)('isLogin', true);_context2.next = 21;return (
+                (0, _storage.setStorage)('isLogin', true);if (!(
+                this.name = 'mine')) {_context2.next = 22;break;}_context2.next = 22;return (
                   uni.switchTab({
-                    url: getApp().globalData.fm,
+                    url: _router.MINE,
                     fail: function fail() {
                       uni.reLaunch({
-                        url: getApp().globalData.fm });
+                        url: _router.MINE });
 
-                    } }));case 21:case "end":return _context2.stop();}}}, _callee2, this);}));function getUserInfo(_x2) {return _getUserInfo.apply(this, arguments);}return getUserInfo;}() },
+                    } }));case 22:if (!(
+
+
+                this.name = 'decoration')) {_context2.next = 25;break;}_context2.next = 25;return (
+                  uni.switchTab({
+                    url: _router.DECORATION,
+                    fail: function fail() {
+                      uni.reLaunch({
+                        url: _router.DECORATION });
+
+                    } }));case 25:case "end":return _context2.stop();}}}, _callee2, this);}));function getUserInfo(_x2) {return _getUserInfo.apply(this, arguments);}return getUserInfo;}() },
+
+
+
+
+
+
+
+
+
 
 
 

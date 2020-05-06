@@ -8,7 +8,7 @@ import {
 	login
 } from '@/utils/openLogin.js'
 import {
-	setStorage
+	setStorage,getStorage
 } from '@/utils/storage.js'
 import {
 	LOGIN_WECHAT_LOGIN,
@@ -18,6 +18,7 @@ import {
 import {
 	COMPANY_LOGO
 } from '@/config/image.js'
+import { MINE ,DECORATION} from '@/config/router.js';
 const regeneratorRuntime = require('@/utils/regenerator-runtime/runtime.js')
 const wxAuth = {
 	data() {
@@ -29,20 +30,23 @@ const wxAuth = {
 
 	onLoad: async function(options) {
 		//请求微信接口wx.login,获取code
-		const code = await login();
-		const {
-			session_key
-		} = await request({
-			method: 'POST',
-			url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
-			needToken: false,
-			showLoading: false,
-			showErrorModal: false
-		}).catch(() => {
-			console.log('调用wx.login失败')
-		})
-		this.session_key = session_key;
-		console.log(session_key)
+		// const code = await this.login();
+		// // const code = getStorage('code')
+		// const {
+		// 	session_key
+		// } = await request({
+		// 	method: 'POST',
+		// 	url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
+		// 	needToken: false,
+		// 	showLoading: false,
+		// 	showErrorModal: false
+		// }).catch(() => {
+		// 	console.log('调用wx.login失败')
+		// })
+		// this.session_key = session_key;
+		this.session_key = getStorage('session_key')
+		this.name=options.name
+		// console.log(session_key)
 	},
 	methods: {
 		getUserInfo: async function(e) {
@@ -98,14 +102,34 @@ const wxAuth = {
 			setStorage('refreshToken', data.refreshToken)
 			setStorage('userInfo', data.UserInfo)
 			setStorage('isLogin', true)
-			await uni.switchTab({
-				url: getApp().globalData.fm,
-				fail: () => {
-					uni.reLaunch({
-						url: getApp().globalData.fm,
-					})
-				}
-			})
+			if(this.name='mine'){
+				await uni.switchTab({
+					url: MINE,
+					fail: () => {
+						uni.reLaunch({
+							url: MINE,
+						})
+					}
+				})
+			}
+			if(this.name='decoration'){
+				await uni.switchTab({
+					url: DECORATION,
+					fail: () => {
+						uni.reLaunch({
+							url: DECORATION,
+						})
+					}
+				})
+			}
+			// await uni.switchTab({
+			// 	url: getApp().globalData.fm,
+			// 	fail: () => {
+			// 		uni.reLaunch({
+			// 			url: getApp().globalData.fm,
+			// 		})
+			// 	}
+			// })
 		}
 	},
 

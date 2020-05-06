@@ -46,6 +46,9 @@ async function getOpenId() {
     console.log('调用wx.login失败')
   })
   setStorage('openId', data.openid)
+  setStorage('session_key', data.session_key)
+  setStorage('code', code)
+  
   console.log(data.openid)
   return data.openid
 }
@@ -68,10 +71,15 @@ async function refreshToken() {
 	   showErrorModal: false,
 	   errorText: 'openId刷新失败',
 	   returnHeader: true,
-	 	data:e
+	   data:e
 	 }).catch(err => console.log(err))
 	 	setStorage('tempToken', data.token)
 	 	setStorage('userInfo',data.UserInfo)
+		// if(!data.token){
+		// 	setStorage('isLogin',false)
+		// } else{
+		// 	setStorage('isLogin',true)
+		// }
  } else {
 	 // console.log(12)
 	 let d={}
@@ -88,6 +96,7 @@ async function refreshToken() {
 	 })
 	 // console.log(c)
 	 setStorage('openId', c.openid)
+	 setStorage('session_key', c.session_key)
 	 let e ={}
 	 e.openid =getStorage('openId')
 	 // console.log(e)
@@ -102,14 +111,26 @@ async function refreshToken() {
 	   returnHeader: true,
 	   data:e
 	 }).catch(err => console.log(err))
-	  console.log(b)
-	 	setStorage('tempToken', b.data.token)
-	 	setStorage('userInfo',b.data.UserInfo)
+	    console.log(b)
+		if (b.code==0){
+			setStorage('tempToken', b.data.token)
+			setStorage('userInfo',b.data.UserInfo)
+			setStorage('isLogin',true)
+		} else {
+			setStorage('isLogin',false)
+		}
+	 	
+		// if(!b.data.token){
+		// 	setStorage('isLogin',false)
+		// } else{
+		// 	setStorage('isLogin',true)
+		// }
  }
  
 }
 
 module.exports = {
+	login,
   getOpenId,
   refreshToken
 }

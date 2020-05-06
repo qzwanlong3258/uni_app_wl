@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": false,
 		"postcss": false,
 		"minified": true,
 		"newFeature": true,
@@ -24,6 +25,8 @@
 	"libVersion": "2.9.2",
 	"appid": "wx1b24a4f9a91a7cb6",
 	"projectname": "非客钱包",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -176,9 +176,9 @@ var _self;var _default =
   onLoad: function onLoad() {var _this = this;
     _self = this;
     console.log(this.imgList);
-    home.loadHomeCarousel().then(function (res) {
-      _this.imgList = res.list;
-    });
+    // home.loadHomeCarousel().then(res => {
+    // 	this.imgList = res.list;
+    // });
     (0, _city.loadCity)().then(function (res) {
       _this.citys = res.list;
       _this.todoNav = _this.citys[0].button;

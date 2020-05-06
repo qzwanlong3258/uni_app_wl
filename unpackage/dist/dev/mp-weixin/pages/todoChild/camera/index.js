@@ -169,7 +169,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 46);
 
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _myWork = __webpack_require__(/*! @/api/myWork.js */ 142);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 451);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
+var _myWork = __webpack_require__(/*! @/api/myWork.js */ 142);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 451);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
 var _self;var _default =
 {
   name: 'canvas-drawer',
@@ -296,6 +296,13 @@ var _self;var _default =
                                     // 需要上传的地址
                                     url: _api.UPLOADPHOTO,
                                     // filePath  需要上传的文件
+                                    header: _defineProperty({
+
+                                      "Content-Type": "multipart/form-data" }, "Content-Type",
+
+                                    'application/json'),
+
+
                                     filePath: res.tempImagePath,
                                     name: 'file',
                                     success: function () {var _success2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res1) {var w, system_info, ctx;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
@@ -338,8 +345,12 @@ var _self;var _default =
                                                                       console.log(res);
                                                                       _self.imgphoto = res.tempFilePath;_context.next = 4;return (
                                                                         uni.uploadFile({
-                                                                          header: {
-                                                                            "Content-Type": "multipart/form-data" },
+                                                                          header: _defineProperty({
+
+                                                                            "Content-Type": "multipart/form-data" }, "Content-Type",
+
+                                                                          'application/json'),
+
 
                                                                           url: _api.UPLOADPHOTO,
                                                                           filePath: res.tempFilePath,
@@ -433,6 +444,13 @@ var _self;var _default =
                                     // 需要上传的地址
                                     url: _api.UPLOADPHOTO,
                                     // filePath  需要上传的文件
+                                    header: _defineProperty({
+
+                                      "Content-Type": "multipart/form-data" }, "Content-Type",
+
+                                    'application/json'),
+
+
                                     filePath: res.tempImagePath,
                                     name: 'file',
                                     success: function () {var _success5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(res1) {var w, system_info, ctx;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:

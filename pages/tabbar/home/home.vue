@@ -43,9 +43,9 @@ export default {
 	onLoad: function() {
 		_self = this
 		console.log(this.imgList)
-		home.loadHomeCarousel().then(res => {
-			this.imgList = res.list;
-		});
+		// home.loadHomeCarousel().then(res => {
+		// 	this.imgList = res.list;
+		// });
 		loadCity().then(res => {
 			this.citys = res.list;
 			this.todoNav = this.citys[0].button;

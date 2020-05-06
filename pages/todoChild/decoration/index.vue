@@ -1,5 +1,5 @@
 <template>
-	<view class="decoration_view-box-box ">
+	<view class="decoration_view-box-box " v-if='showAuth'>
 		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高额度</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
@@ -50,6 +50,7 @@
 	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR} from '@/config/image.js';
 	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL} from '@/config/router.js';
 	import { getStorage, setStorage } from '@/utils/storage.js';
+	const { AUTH } = require('../../../config/router.js');
 	
 	export default {
 		data() {
@@ -66,7 +67,8 @@
 				bank_pic:BANK_PIC,
 				bank_logo:BANK_LOGO,
 				bank:[BANK_JH,BANK_BH,BANK_BJ],
-				show:false
+				show:false,
+				showAuth:false
 			}
 		},
 		methods: {
@@ -90,6 +92,17 @@
 			
 		},
 		async onLoad() {
+			const isLogin = getStorage('isLogin');
+			if (isLogin) {
+				this.showAuth=true
+			} else {
+				
+				let pages = getCurrentPages();
+				if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+				uni.reLaunch({
+					url:`${AUTH}?name=${'decoration'}`
+				});	
+				}
 			_self=this
 			
 		}

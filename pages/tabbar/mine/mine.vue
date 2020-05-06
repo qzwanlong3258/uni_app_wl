@@ -1,5 +1,5 @@
 <template>
-	<view class="mine">
+	<view class="mine" v-if="show">
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
@@ -83,6 +83,7 @@
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO} from '@/config/image.js';
 import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
+const { AUTH } = require('../../../config/router.js');
 
 var _self;
 export default {
@@ -100,7 +101,8 @@ export default {
 			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS],
 			index:'',
 			role:'',
-			imglogo:TOUXIANG_LOGO
+			imglogo:TOUXIANG_LOGO,
+			show:false
 			
 		}
 	},
@@ -142,6 +144,19 @@ export default {
 		}
 	},
 	async onLoad() {
+		
+			const isLogin = getStorage('isLogin');
+			if (isLogin) {
+				this.show=true
+				
+			} else {
+			
+				let pages = getCurrentPages();
+				if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+				uni.reLaunch({
+					url: `${AUTH}?name=${'mine'}`
+				});	
+				}
 		_self =this;
 		_self.userInfo = getStorage('userInfo');
 		// this.getData(this.toYear+"-"+this.toMonth);

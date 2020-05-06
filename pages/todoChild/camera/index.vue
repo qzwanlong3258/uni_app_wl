@@ -163,6 +163,13 @@
 						                            // 需要上传的地址
 						                            url:UPLOADPHOTO,
 						                            // filePath  需要上传的文件
+													header: {
+													
+													"Content-Type": "multipart/form-data",
+																					
+													'Content-Type': 'application/json'
+													
+													},
 						                            filePath: res.tempImagePath,
 						                            name: 'file',
 						                            success: async (res1) =>{
@@ -206,7 +213,11 @@
 																			_self.imgphoto=res.tempFilePath
 																			await uni.uploadFile({
 																			  header: {
-																			    "Content-Type": "multipart/form-data"
+																			  
+																			  "Content-Type": "multipart/form-data",
+																			  								
+																			  'Content-Type': 'application/json'
+																			  
 																			  },
 																			  url: UPLOADPHOTO,
 																			  filePath: res.tempFilePath,
@@ -300,6 +311,13 @@
 						                            // 需要上传的地址
 						                            url:UPLOADPHOTO,
 						                            // filePath  需要上传的文件
+													header: {
+													
+													"Content-Type": "multipart/form-data",
+																					
+													'Content-Type': 'application/json'
+													
+													},
 						                            filePath: res.tempImagePath,
 						                            name: 'file',
 						                            success: async (res1) =>{

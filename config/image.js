@@ -4,7 +4,7 @@
 // const staticUrl = '/static/img'
 
  // const staticUrl = 'http://47.104.232.184/static/img'
- const staticUrl = 'http://47.104.232.184/feiai'
+ const staticUrl = 'https://www.feiaizn.com/feiai'
 
 module.exports = {
 	/** 授权 */

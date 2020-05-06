@@ -32,7 +32,7 @@ export default {
 	},
 	methods: {
 		getCarousel: async function() {
-			this.imgList = (await loadHomeCarousel()).list;
+			// this.imgList = (await loadHomeCarousel()).list;
 		},
 		getList: async function() {
 			this.shopList = (await getGoodsList(this.listQuery)).list;

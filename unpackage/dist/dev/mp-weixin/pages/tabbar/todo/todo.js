@@ -162,8 +162,8 @@ var _home = __webpack_require__(/*! @/api/tabbar/home.js */ 35);function _intero
     this.getList();
   },
   methods: {
-    getCarousel: function () {var _getCarousel = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  (0, _home.loadHomeCarousel)());case 2:this.imgList = _context.sent.list;case 3:case "end":return _context.stop();}}}, _callee, this);}));function getCarousel() {return _getCarousel.apply(this, arguments);}return getCarousel;}(),
+    getCarousel: function () {var _getCarousel = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee);}));function getCarousel() {return _getCarousel.apply(this, arguments);}return getCarousel;}(),
+
 
     getList: function () {var _getList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   (0, _goods.getGoodsList)(this.listQuery));case 2:this.shopList = _context2.sent.list;case 3:case "end":return _context2.stop();}}}, _callee2, this);}));function getList() {return _getList.apply(this, arguments);}return getList;}(),

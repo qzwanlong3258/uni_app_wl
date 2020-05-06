@@ -126,10 +126,17 @@ export default {
 					                            url:UPLOADPHOTO,
 					                            // filePath  需要上传的文件
 					                            filePath: imgFiles,
+												header: {
+												
+												"Content-Type": "multipart/form-data",
+								
+												'Content-Type': 'application/json'
+												
+												},
 					                            name: 'file',
 					                            success: (res1) =>{
 					                                // 显示上传信息
-					        //                         console.log(res1)
+					                                console.log(res1)
 													// console.log(_self)
 													// console.log(e)
 													// console.log(_self.dataList[e])
