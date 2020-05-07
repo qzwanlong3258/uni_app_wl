@@ -281,6 +281,18 @@
 		    "style" : {
 				"navigationBarTitleText": "银行详情"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/toLink/privacy/index",
+		    "style" : {
+				"navigationBarTitleText": "隐私政策"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/toLink/service/index",
+		    "style" : {
+				"navigationBarTitleText": "服务协议"
+			}
 		}
     ],
 	"globalStyle": {

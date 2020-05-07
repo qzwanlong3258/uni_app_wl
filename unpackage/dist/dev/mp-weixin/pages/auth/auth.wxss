@@ -1,3 +1,8 @@
+
+page{
+	background: #FFFFFF;
+}
+
 /* Color
 --------------------------*/
 /* distance
@@ -84,5 +89,41 @@
     line-height: 80rpx;
     color: #fff;
     border-radius: 42rpx;
+}
+.btn.data-v-524642ff {
+  height: 100rpx;
+  background: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin: 20px 0;
+}
+.noBtn.data-v-524642ff {
+  -webkit-box-flex: 48%;
+  -webkit-flex: 48%;
+          flex: 48%;
+  margin: 10rpx 45rpx;
+  background: #FFFFFF;
+  color: #000000;
+  border: 2rpx solid #E8BE2E;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+}
+.yesBtn.data-v-524642ff {
+  -webkit-box-flex: 48%;
+  -webkit-flex: 48%;
+          flex: 48%;
+  margin: 10rpx 45rpx;
+  background: #E8BE2E;
+  color: #000000;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  border: 2rpx solid #E8BE2E;
 }
 

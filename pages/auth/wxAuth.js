@@ -24,7 +24,10 @@ const wxAuth = {
 	data() {
 		return {
 			yldLogo: COMPANY_LOGO,
-			session_key: ''
+			session_key: '',
+			show:true,
+			dataL:'',
+			name:''
 		}
 	},
 
@@ -49,6 +52,42 @@ const wxAuth = {
 		// console.log(session_key)
 	},
 	methods: {
+		noBtn(){
+			uni.showToast({
+											title: "若不同意协议则无法登录和操作下单哦",
+											icon:"none",
+											duration: 2000,
+										});
+		},
+		  yesBtn(){
+			setStorage('sessionKey', this.session_key)
+			setStorage('tempToken', this.dataL.token)
+			setStorage('refreshToken', this.dataL.refreshToken)
+			setStorage('userInfo', this.dataL.UserInfo)
+			setStorage('isLogin', true)
+			console.log(this.name)
+			if(this.name=='decoration'){
+				 uni.switchTab({
+					url: DECORATION,
+					fail: () => {
+						uni.reLaunch({
+							url: DECORATION,
+						})
+					}
+				})
+			}
+			if(this.name=='mine'){
+				 uni.switchTab({
+					url: MINE,
+					fail: () => {
+						uni.reLaunch({
+							url: MINE,
+						})
+					}
+				})
+			}
+			
+		},
 		getUserInfo: async function(e) {
 			if (!this.session_key) {
 				return wx.showToast({
@@ -97,31 +136,9 @@ const wxAuth = {
 				returnHeader: true,
 				errorText: '登录失败'
 			})
-			setStorage('sessionKey', this.session_key)
-			setStorage('tempToken', data.token)
-			setStorage('refreshToken', data.refreshToken)
-			setStorage('userInfo', data.UserInfo)
-			setStorage('isLogin', true)
-			if(this.name='mine'){
-				await uni.switchTab({
-					url: MINE,
-					fail: () => {
-						uni.reLaunch({
-							url: MINE,
-						})
-					}
-				})
-			}
-			if(this.name='decoration'){
-				await uni.switchTab({
-					url: DECORATION,
-					fail: () => {
-						uni.reLaunch({
-							url: DECORATION,
-						})
-					}
-				})
-			}
+			this.dataL=data
+			this.show=false
+			
 			// await uni.switchTab({
 			// 	url: getApp().globalData.fm,
 			// 	fail: () => {

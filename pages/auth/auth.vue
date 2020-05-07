@@ -1,5 +1,6 @@
 <template>
-	<view class="container">
+	<view>
+	<view class="container" v-if='show'>
 		<!-- #ifdef MP-WEIXIN -->
 		<image class="gxg-logo" :src="yldLogo"></image>
 		<button class="auth-btn title-font" open-type="getUserInfo" @getuserinfo="getUserInfo">
@@ -20,6 +21,19 @@
 			<button class="auth-btn title-font" style="margin-top: 80rpx;" @click='login'>登录</button>
 		<!-- #endif -->
 	</view>
+	<view class="prompt" v-if='!show'>
+		<h3 style='text-align: center;margin: 200rpx 0 60rpx 0;font-weight: 900;letter-spacing: 2rpx;'>温馨提示</h3>
+		<p style='margin: 20rpx 30rpx;font-size: 26rpx;'>感谢您信任并使用非客钱包！</p>
+		<p style='margin: 20rpx 30rpx;line-height: 50rpx;font-size: 26rpx;'>我们依据最新的法律要求更新了《服务协议》和《隐私政策》，请您在使用服务前仔细阅读并充分理解相关条款。
+          为了方便您阅读，请您点击下列协议链接，完整阅读全文：</p>
+		 <p style='margin: 20rpx 30rpx;font-size: 26rpx;color: #E8BE2E;'><span>《服务协议》</span><span>《隐私协议》</span></p>
+		 <p style='margin: 20rpx 30rpx;line-height: 50rpx;font-size: 26rpx;'>您点击同意即表示您已完整阅读并同意《服务协议》和《隐私政策》的全部内容。我们将尽全力保护您的个人信息及合法权益，再次感谢您的信任！</p>
+		 <view class="btn">
+		 	<view class="noBtn" @click="noBtn">不同意</view>
+		 	<view class="yesBtn" @click="yesBtn">同意</view>
+		 </view>
+	</view>
+	</view>
 </template>
 
 <script>
@@ -37,6 +51,11 @@
 		// #endif
 </script>
 
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style lang="scss" scoped>
 	.container {
 		display: flex;
@@ -110,6 +129,39 @@
 			color: #fff;
 			border-radius: 42upx;
 		}
+		
+	}
+	.btn{
+		height: 100rpx;
+		
+		background: #ffffff;
+		display: flex;
+		padding-left: 20rpx;
+		padding-right: 20rpx;
+		margin: 20px 0;
+		
+	}
+	.noBtn{
+		flex: 48%;
+		margin: 10rpx 45rpx;
+		background:#FFFFFF;
+		color: #000000;
+		border: 2rpx solid #E8BE2E;
+		height: 80rpx;
+		line-height: 80rpx;
+		text-align: center;
+		border-radius: 40rpx;
+	}
+	.yesBtn{
+		flex: 48%;
+		margin: 10rpx 45rpx;
+		background: #E8BE2E;
+		color: #000000;
+		height: 80rpx;
+		line-height: 80rpx;
+		text-align: center;
+		border-radius: 40rpx;
+		border: 2rpx solid #E8BE2E;
 	}
 
 </style>

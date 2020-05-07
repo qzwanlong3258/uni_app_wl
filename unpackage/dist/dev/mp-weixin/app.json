@@ -45,7 +45,9 @@
     "pages/todoChild/inviteGift/index",
     "pages/todoChild/calender/index",
     "pages/todoChild/camera/index",
-    "pages/todoChild/bankDetail/index"
+    "pages/todoChild/bankDetail/index",
+    "pages/todoChild/toLink/privacy/index",
+    "pages/todoChild/toLink/service/index"
   ],
   "subPackages": [],
   "window": {

@@ -83,6 +83,11 @@ module.exports = {
 	//拍照
 	CAMERA:`/pages/todoChild/camera/index` ,
 	//银行详情
-	BANK_DETAIL:`/pages/todoChild/bankDetail/index`
+	BANK_DETAIL:`/pages/todoChild/bankDetail/index`,
+	
+	//跳转图片  
+	TO_PRIVACY:'pages/todoChild/toLink/privacy/index',
+	TO_SERVICE:'pages/todoChild/toLink/service/index'
+	
 	
 }
