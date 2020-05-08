@@ -2,28 +2,28 @@
 	<!-- 打卡日历页面 -->
 	<view class='all'>
 		
-		<view style="height: 30px;border-bottom: 3px solid rgba(241,241,241,1);padding-top: 5px;" class="bd">
-			<image :src="imgsignin" mode="widthFix" style="margin-left: 5px;vertical-align: middle;"></image>
-			<text style="margin-left: 5px;font-size: 13px;vertical-align: middle;">{{toYear || "--"}} 年 {{toMonth || "--"}} 月 {{today || "--"}} 日</text>
+		<view style="height: 60rpx;border-bottom: 6rpx solid rgba(241,241,241,1);padding-top: 10rpx;" class="bd">
+			<image :src="imgsignin" mode="widthFix" style="margin-left: 10rpx;vertical-align: middle;"></image>
+			<text style="margin-left: 10rpx;font-size: 26rpx;vertical-align: middle;">{{toYear || "--"}} 年 {{toMonth || "--"}} 月 {{today || "--"}} 日</text>
 		</view>
 		<view class="bar">
 			<!-- 上一个月 -->
 			<view class="previous" @click="handleCalendar(0)" >
 				<!-- <button class="barbtn" v-if="langType=='ch'">上一月</button> -->
-				<icon class="iconfont iconzuo1"  v-if="langType=='ch'" style="vertical-align: middle;margin: 0 auto;"></icon>
+				<icon class="iconfont iconzuo1"  v-if="langType=='ch'" style="vertical-align: middle;margin: 0 auto;font-size: 36rpx;"></icon>
 				<button class="barbtn" v-else>Last</button>
 			</view>
 			<!-- 显示年月 -->
-			<view class="date" style="font-size: 12px;">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+			<view class="date" style="font-size: 24rpx;">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
 			<!-- 下一个月 -->
 			<view class="next" @click="handleCalendar(1)">
 				<!-- <button class="barbtn" v-if="langType=='ch'">下一月</button> -->
-				<icon class="iconfont iconyou"  v-if="langType=='ch'" style="vertical-align: middle;margin: 0 auto;"></icon>
+				<icon class="iconfont iconyou"  v-if="langType=='ch'" style="vertical-align: middle;margin: 0 auto;font-size: 36rpx;"></icon>
 				<button class="barbtn" v-else>Next</button>
 			</view>
 		</view>
 		<!-- 显示星期 -->
-		<view class="week" v-if="langType=='ch'" style="font-size: 12px;">
+		<view class="week" v-if="langType=='ch'" style="font-size: 24rpx;">
 			<view v-for="(item,index) in weeks_ch" :key="index">{{item}}</view>
 		</view>
 		<view class="week" v-else>
@@ -37,21 +37,21 @@
 				<view v-else>
 					<!-- 已签到日期 -->
 					<view v-if="item.isSign == true" class='cell bgYellow' style="position: relative;">
-						<text style="font-size: 12px;">{{item.date}}</text>
+						<text style="font-size: 24rpx;">{{item.date}}</text>
 						<!-- <view style="width: 6px;height: 6px;border-radius:50% ;background: #01B90B;position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);"></view> -->
 					</view>
 					<!-- 漏签 -->
 					<view @click="clickSignUp(item.date,0)" class="cell " v-else-if="cur_year<toYear||(cur_year==toYear&&cur_month<toMonth)||(cur_year==toYear&&cur_month==toMonth&&item.date<today)">
 						<!-- 小程序不兼容这个 v-else-if="(new Date(cur_year+'-'+cur_month+'-'+item.date))<(new Date())"> -->
-						<text style="font-size: 12px;">{{item.date}}</text>
+						<text style="font-size: 24rpx;">{{item.date}}</text>
 					</view>
 					<!-- 今日未签到-->
 					<view  class="cell blackColor bgRed" v-else-if="item.date==today&&cur_month==toMonth&&cur_year==toYear">
-						<text style="font-size: 12px;">{{item.date}}</text>
+						<text style="font-size: 24rpx;">{{item.date}}</text>
 					</view>
 					<!-- 当前日期之后 -->
 					<view class="blackColor cell" v-else>
-						<text style="font-size: 12px;">{{item.date}}</text>
+						<text style="font-size: 24rpx;">{{item.date}}</text>
 					</view>
 				</view>
 
@@ -254,7 +254,7 @@
 	}
 	
 	.all .bd image{
-		width: 15px;
+		width: 30rpx;
 	}
 
 	.all .bar {
@@ -267,9 +267,9 @@
 	
 
 	.bar .barbtn {
-		height: 30px;
-		line-height: 30px;
-		font-size: 12px;
+		height: 60rpx;
+		line-height: 60rpx;
+		font-size: 24rpx;
 	}
 
 	.all .week {
@@ -280,14 +280,14 @@
 		padding-left: 40rpx;
 		padding-right: 40rpx;
 		margin: 20rpx;
-		border-radius: 10px;
+		border-radius: 20rpx;
 		background-color: #fff;
 		font-weight: 500;
 	}
 	.myDateTable {
 		margin: 2.5vw;
 		padding: 2vw;
-		border-radius: 10px;
+		border-radius: 20rpx;
 		background: #FFFFFF;
 	}
 	.myDateTable .dateCell {
@@ -295,7 +295,7 @@
 			padding: 1vw;
 			display: inline-block;
 			text-align: center;
-			font-size: 16px;
+			font-size: 32rpx;
 		}
 
 	.dateCell .cell {

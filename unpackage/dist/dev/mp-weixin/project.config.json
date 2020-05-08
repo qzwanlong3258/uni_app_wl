@@ -13,6 +13,8 @@
 	"libVersion": "2.9.2",
 	"appid": "wx1b24a4f9a91a7cb6",
 	"projectname": "非客钱包",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -22,28 +24,13 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/auth/auth",
-					"pathName": "pages/auth/auth",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

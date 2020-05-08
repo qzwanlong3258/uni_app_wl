@@ -1,18 +1,19 @@
 <template>
-	<view>
+	<view :hidden='!imgShow'>
 		
 	<view :style="{height:height+'px;'}" class="home-hd">
-		<view class="home-top"><yld-top :citys="citys" @change="cityChange"></yld-top></view>
+		<view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view>
 	</view>
 	<scroll-view scroll-y class="container" style="background: #FFFFFF;">
 		
 		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="400"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
 		<!-- <yld-nav v-if="todoNav.length" :navList="todoNav"></yld-nav> -->
-		<yld-nav ></yld-nav>
-		<view class="bottom-show"><image :src="adimg[1]" mode="widthFix"></image></view>
+		<yld-nav  :navList="todoNav"></yld-nav>
+		<view class="bottom-show" v-for="(item,index) in adimg" :key="index"  @click="linkToPage(item.url)"><image :src="item.img" @load='imgshow' mode="widthFix"></image></view>
+		<!-- <view class="bottom-show"><image :src="adimg[1]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
-		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view>
+		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view> -->
 		<view style="height: 40px;"></view>
 	</scroll-view>
 	</view>
@@ -27,28 +28,50 @@ import YldNav from './components/YldNav.vue';
 import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR,AD_ONE, AD_TWO, AD_THREE, FENXIANG} from '@/config/image.js';
 import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
+import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
 var _self;
 export default {
 	data: function() {
 		return {
 			todoNav: [],
-			imgList: [{'img': BANNER_ONE},{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
-			tipList: ['非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20'],
+			// imgList: [{'img': BANNER_ONE},{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
+			imgList: [],
+			tipList: [],
 			demoImg: HOME_DEMO,
-			adimg:[AD_ONE, AD_TWO, AD_THREE],
+			// adimg:[AD_ONE, AD_TWO, AD_THREE],
+			adimg:[],
 			citys: [],
-			height:40
+			dataL:[],
+			height:40,
+			imgShow:false
 		};
 	},
-	onLoad: function() {
+	onLoad:  function() {
 		_self = this
+		
 		console.log(this.imgList)
-		// home.loadHomeCarousel().then(res => {
-		// 	this.imgList = res.list;
-		// });
+		home.loadHomeCarousel({type:1}).then(res => {
+			_self.imgList = res.list;
+		});
+		home.loadHomeCarousel({type:2}).then(res => {
+			_self.adimg = res.list;
+		});
+		home.loadHomeNews().then(res => {
+			_self.tipList = res.list;
+		});
 		loadCity().then(res => {
-			this.citys = res.list;
-			this.todoNav = this.citys[0].button;
+			let list = []
+			for (let i = 0; i < res.list.length; i++) {
+				list.push({
+					label: res.list[i].name,
+					value: i
+				})
+			}
+			_self.citys = list
+			_self.todoNav = res.list[0].button
+			_self.dataL = res.list
+			// _self.citys = res.list
+			// _self.todoNav = this.citys[0].button;
 		});
 		uni.getSystemInfo({
 		        success:function(e){
@@ -73,8 +96,27 @@ export default {
 		    })
 	},
 	methods: {
+		imgshow(){
+			_self.imgShow=true
+		},
+		linkToPage: function(e) {
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {
+						
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+			
+		},
 		cityChange({item,index}) {
-			this.todoNav = item.button;
+			// console.log(e)
+			// console.log(this.dataL)
+			this.todoNav = this.dataL.find(res => res.name == item).button;
+			// this.todoNav = item.button;
 			let temp = this.citys[0];
 			this.citys[0] = this.citys[index];
 			this.citys[index] = temp;

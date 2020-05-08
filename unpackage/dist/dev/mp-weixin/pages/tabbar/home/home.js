@@ -151,6 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
@@ -159,29 +160,51 @@ __webpack_require__.r(__webpack_exports__);
 
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
-var _city = __webpack_require__(/*! @/api/city.js */ 36);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}var YldTop = function YldTop() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then((function () {return resolve(__webpack_require__(/*! ./components/YldTop.vue */ 462));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SwiperImg = function SwiperImg() {__webpack_require__.e(/*! require.ensure | components/SwiperImg */ "components/SwiperImg").then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 469));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldHot = function YldHot() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then((function () {return resolve(__webpack_require__(/*! ./components/YldHot.vue */ 476));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 483));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _city = __webpack_require__(/*! @/api/city.js */ 36);
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}var YldTop = function YldTop() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then((function () {return resolve(__webpack_require__(/*! ./components/YldTop.vue */ 486));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SwiperImg = function SwiperImg() {__webpack_require__.e(/*! require.ensure | components/SwiperImg */ "components/SwiperImg").then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 493));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldHot = function YldHot() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then((function () {return resolve(__webpack_require__(/*! ./components/YldHot.vue */ 500));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 507));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   data: function data() {
     return {
       todoNav: [],
-      imgList: [{ 'img': _image.BANNER_ONE }, { 'img': _image.BANNER_TWO }, { 'img': _image.BANNER_THREE }, { 'img': _image.BANNER_FOUR }],
-      tipList: ['非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20', '非客双汇活动商品时间2019/12/19-2020/03/20'],
+      // imgList: [{'img': BANNER_ONE},{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
+      imgList: [],
+      tipList: [],
       demoImg: _image.HOME_DEMO,
-      adimg: [_image.AD_ONE, _image.AD_TWO, _image.AD_THREE],
+      // adimg:[AD_ONE, AD_TWO, AD_THREE],
+      adimg: [],
       citys: [],
-      height: 40 };
+      dataL: [],
+      height: 40,
+      imgShow: false };
 
   },
-  onLoad: function onLoad() {var _this = this;
+  onLoad: function onLoad() {
     _self = this;
+
     console.log(this.imgList);
-    // home.loadHomeCarousel().then(res => {
-    // 	this.imgList = res.list;
-    // });
+    home.loadHomeCarousel({ type: 1 }).then(function (res) {
+      _self.imgList = res.list;
+    });
+    home.loadHomeCarousel({ type: 2 }).then(function (res) {
+      _self.adimg = res.list;
+    });
+    home.loadHomeNews().then(function (res) {
+      _self.tipList = res.list;
+    });
     (0, _city.loadCity)().then(function (res) {
-      _this.citys = res.list;
-      _this.todoNav = _this.citys[0].button;
+      var list = [];
+      for (var i = 0; i < res.list.length; i++) {
+        list.push({
+          label: res.list[i].name,
+          value: i });
+
+      }
+      _self.citys = list;
+      _self.todoNav = res.list[0].button;
+      _self.dataL = res.list;
+      // _self.citys = res.list
+      // _self.todoNav = this.citys[0].button;
     });
     uni.getSystemInfo({
       success: function success(e) {
@@ -206,8 +229,27 @@ var _self;var _default =
 
   },
   methods: {
+    imgshow: function imgshow() {
+      _self.imgShow = true;
+    },
+    linkToPage: function linkToPage(e) {
+      var testmsg = e.substring(e.lastIndexOf('.') + 1);
+      var extensio = testmsg === 'jpg';
+      var extensio2 = testmsg === 'png';
+      var extensio3 = testmsg === 'jpeg';
+      if (extensio || extensio2 || extensio3) {
+        uni.navigateTo({ url: "".concat(_router.BANK_DETAIL, "?id=").concat(e) });
+      } else {
+
+        uni.navigateTo({ url: "".concat(_router.TO_WEB, "?id=").concat(e) });
+      }
+
+    },
     cityChange: function cityChange(_ref) {var item = _ref.item,index = _ref.index;
-      this.todoNav = item.button;
+      // console.log(e)
+      // console.log(this.dataL)
+      this.todoNav = this.dataL.find(function (res) {return res.name == item;}).button;
+      // this.todoNav = item.button;
       var temp = this.citys[0];
       this.citys[0] = this.citys[index];
       this.citys[index] = temp;

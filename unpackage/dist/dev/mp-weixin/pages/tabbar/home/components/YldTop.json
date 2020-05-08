@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "lb-picker": "/components/lb-picker/index"
+  }
 }

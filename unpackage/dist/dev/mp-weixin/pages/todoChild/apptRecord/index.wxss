@@ -21,20 +21,20 @@ page{
 
 
 .box.data-v-0a99bb80{
-	height: 75px;
-	border-bottom: 2px solid rgba(241,241,241,1);
+	height: 150rpx;
+	border-bottom: 4rpx solid rgba(241,241,241,1);
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
 .left.data-v-0a99bb80{
-	-webkit-flex-basis: 55px;
-	        flex-basis: 55px;
-	padding: 10px 10px 10px 10px;
+	-webkit-flex-basis: 110rpx;
+	        flex-basis: 110rpx;
+	padding: 20rpx;
 }
 .right.data-v-0a99bb80{
-	-webkit-flex-basis: 80px;
-	        flex-basis: 80px;
+	-webkit-flex-basis: 160rpx;
+	        flex-basis: 160rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -47,8 +47,8 @@ page{
 	-webkit-flex: 1;
 	        flex: 1;
 	/* line-height: 75px; */
-	padding-left: 10px;
-	color: 14px;
+	padding-left: 20rpx;
+	color: 28rpx;
 }
 .record.data-v-0a99bb80 {
 	font-size: 32rpx;
@@ -58,7 +58,7 @@ page{
 	height: 231rpx;
 	background: #ffffff;
 	border-radius: 20rpx;
-	box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
+	box-shadow: 0 4rpx 4rpx  rgba(153,153,153,0.3);
 	overflow: hidden;
 }
 .recordCard-hd.data-v-0a99bb80 {

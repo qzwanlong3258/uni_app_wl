@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<swiper class="swiper" :style="{height:`${heightNum}rpx`}" :autoplay='autoplay' :circular='circular'  @change='changeDot'>
-			<swiper-item v-for="(item,index) in imgList" :key="index" @click="linkToPage(item.href)">
+			<swiper-item v-for="(item,index) in imgList" :key="index" @click="linkToPage(item.url)">
 				<view class="swiper-item">
 					<image :src="item.img"></image>
 				</view>
@@ -14,12 +14,13 @@
 </template>
 
 <script>
-	import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR} from '@/config/image.js';
+	// import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR} from '@/config/image.js';
+	import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
 	export default {
 		props: {
-			// imgList: {
-			// 	type: Array,
-			// },
+			imgList: {
+				type: Array,
+			},
 			heightNum: {
 				type: Number,
 				default: 662
@@ -33,20 +34,25 @@
 			return {
 				dotIndex: 0,
 				circular: true,
-				imgList: [{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
+				// imgList: [{'img': BANNER_TWO},{'img': BANNER_THREE},{'img': BANNER_FOUR}],
 			};
 		},
 		methods: {
 			changeDot: function(e) {
 				this.dotIndex = e.detail.current
 			},
-			linkToPage: function(value) {
-				uni.navigateTo({
-					url: value,
-					fail(e) {
-						console.warn(e.errMsg);
-					}
-				});
+			linkToPage: function(e) {
+				var testmsg=e.substring(e.lastIndexOf('.')+1)
+				        const extensio = testmsg === 'jpg'
+				        const extensio2 = testmsg === 'png'
+				        const extensio3 = testmsg === 'jpeg'
+				        if(extensio || extensio2 || extensio3) {
+				          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+				        } else {
+							
+						 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+						}
+				
 			}
 		},
 	}

@@ -5,16 +5,16 @@ page{
 
 
 .recomCenter.data-v-6dbea9eb{
-	padding: 10px 0;
+	padding: 20rpx 0;
 }
 .recomCenter-nav.data-v-6dbea9eb{
 	background-color: #FCE77A;
-	height: 210px;
-	margin:0 10px ;
+	height: 420rpx;
+	margin:0 20rpx ;
 }
 .top.data-v-6dbea9eb{
 	height: 120rpx;
-	padding: 10px 0 2px;
+	padding: 20rpx 0 4rpx;
 }
 .recomCenter-nav-top.data-v-6dbea9eb{
 	width: 120rpx;
@@ -31,29 +31,29 @@ page{
 	margin-left: -10rpx;
 }
 .btn-box.data-v-6dbea9eb{
-	height: 15px;
-	margin-top: 15px;
+	height: 30rpx;
+	margin-top: 30rpx;
 }
 .btn.data-v-6dbea9eb{
-	height: 15px;
-	line-height: 15px;
+	height: 30rpx;
+	line-height: 30rpx;
 	text-align: center;
-	width: 60px;
-	border: 1px solid #605800;
+	width: 120rpx;
+	border: 2rpx solid #605800;
 	margin: 0 auto;
-	font-size: 10px;
+	font-size: 20rpx;
 }
 .recomCenter-pic.data-v-6dbea9eb{
-	height: 30px;
+	height: 60rpx;
 	
 	font-family:Microsoft YaHei;
 	font-weight:400;
 	color:rgba(0,0,0,1);
-	font-size: 13px;
-	margin: 15px 0;
+	font-size: 26rpx;
+	margin: 30rpx 0;
 }
 .recomCenter-pic image.data-v-6dbea9eb{
-	width: 20px;
-	margin-right: 5px;
+	width: 40rpx;
+	margin-right: 10rpx;
 }
 

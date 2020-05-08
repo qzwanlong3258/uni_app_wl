@@ -247,17 +247,17 @@ export default {
 		position: absolute;
 		width: 100%;
 		height: 100%; */
-		padding: 0 0 40px 0;
+		padding: 0 0 80rpx 0;
 	}
 	.schedule-left{
-		margin: 20px 0;
+		margin: 40rpx 0;
 	}
 	.schedule-hd{
 		
 		display: flex;
-		padding: 10px 0;
-		margin: 0 10px ;
-		border-bottom: 1px solid rgba(241,241,241,1);;
+		padding: 20rpx 0;
+		margin: 0 20rpx ;
+		border-bottom: 2rpx solid rgba(241,241,241,1);;
 	}
 	.schedule-hd-left{
 		flex-basis: 100rpx;
@@ -265,7 +265,7 @@ export default {
 		height: 100rpx;
 		border-radius: 50%;
 		overflow: hidden;
-		margin-left: 10px;
+		margin-left: 20rpx;
 		
 	}
 	.schedule-hd-left image{
@@ -282,14 +282,14 @@ export default {
 	}
 	.schedule-hd-right{
 		flex-basis: 180rpx;
-		margin-right: 10px;
+		margin-right: 20rpx;
 	}
 	.schedule-bd{
 		display: flex;
 		justify-content: space-between;
-		height: 40px;
-		line-height: 40px;
-		margin: 0 20px 20px;
+		height: 80rpx;
+		line-height: 80rpx;
+		margin: 0 40rpx 40rpx;
 	}
 	.schedule-ft{
 		display: flex;

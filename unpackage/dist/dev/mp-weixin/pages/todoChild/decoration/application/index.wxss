@@ -11,18 +11,18 @@ page{
 /* radius
 --------------------------*/
 .title.data-v-71b650e6 {
-  height: 45px;
+  height: 90rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  border-bottom: 3px solid #f1f1f1;
+  border-bottom: 6rpx solid #f1f1f1;
 }
 .title image.data-v-71b650e6 {
   width: 40rpx;
-  margin-left: 10px;
+  margin-left: 20rpx;
 }
 .application.data-v-71b650e6 {
   font-size: 30rpx;
@@ -33,12 +33,12 @@ page{
   background: white;
 }
 .application_hd_item.data-v-71b650e6 {
-  height: 45px;
+  height: 90rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  line-height: 45px;
-  border-bottom: 3px solid #f1f1f1;
+  line-height: 90rpx;
+  border-bottom: 6rpx solid #f1f1f1;
 }
 .appli_hd_item_lable.data-v-71b650e6 {
   -webkit-flex-basis: 200rpx;
@@ -56,12 +56,16 @@ page{
   -webkit-align-items: center;
           align-items: center;
 }
+.appli_hd_item_content input.data-v-71b650e6 {
+  width: 100%;
+  height: 100%;
+}
 .appli_hd_item_content_work.data-v-71b650e6 {
   position: relative;
 }
 .application_bd.data-v-71b650e6 {
   height: 156rpx;
-  padding: 0 16rpx 2.5px 16rpx;
+  padding: 0 16rpx 5rpx 16rpx;
   background: white;
 }
 .application_ft.data-v-71b650e6 {
@@ -124,14 +128,14 @@ page{
   height: 80rpx;
   text-align: center;
   line-height: 80rpx;
-  border-radius: 20px;
+  border-radius: 40rpx;
   background: #FFE906;
   color: #000000;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  font-size: 14px;
-  letter-spacing: 2px;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
+  font-size: 28rpx;
+  letter-spacing: 4rpx;
 }
 /* 提示窗口 */
 .uni-tip.data-v-71b650e6 {
@@ -142,16 +146,16 @@ page{
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  padding: 15px;
-  width: 300px;
+  padding: 30rpx;
+  width: 600rpx;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 20rpx;
 }
 .uni-tip-title.data-v-71b650e6 {
-  margin-bottom: 10px;
+  margin-bottom: 20rpx;
   text-align: center;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #333;
 }
 .uni-tip-content.data-v-71b650e6 {
@@ -168,14 +172,14 @@ page{
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
-  margin-top: 20px;
+  margin-top: 40rpx;
 }
 .uni-tip-button.data-v-71b650e6 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
   text-align: center;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #3b4144;
 }
 

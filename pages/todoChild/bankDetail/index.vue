@@ -1,26 +1,37 @@
 <template>
-	<view>
-		<image style="width: 100%;" mode="widthFix" :src="img[0]" v-if="num == 0"></image>
-		<image style="width: 100%;" mode="widthFix" :src="img[1]" v-if="num == 1"></image>
-		<image style="width: 100%;" mode="widthFix" :src="img[2]" v-if="num == 2"></image>
+	<view :hidden='!imgShow'>
+		<view >
+			<image style="width: 100%;" mode="widthFix" :src="img" @load='imgshow'></image>
+			<!-- <image style="width: 100%;" mode="widthFix" :src="img[1]" v-if="num == 1"></image>
+			<image style="width: 100%;" mode="widthFix" :src="img[2]" v-if="num == 2"></image> -->
+		</view>
+		<!-- <view v-if='!show' style="width: 100%;height: 100%;">
+		        <web-view  src="www.baidu.com"></web-view>
+		</view> -->
 	</view>
+	
 </template>
 
 <script>
 'use strict';
 var _self;
-import {  BANK_JH_DETAIL, BANK_BH_DETAIL, BANK_BJ_DETAIL} from '@/config/image.js';
+// import {  BANK_JH_DETAIL, BANK_BH_DETAIL, BANK_BJ_DETAIL} from '@/config/image.js';
 export default {
 	data() {
 		return{
-			img:[BANK_JH_DETAIL,BANK_BH_DETAIL,BANK_BJ_DETAIL],
-			num:1
+			img:'',
+			imgShow:false
 		}
 	},
-	methods:{},
+	methods:{
+		imgshow(){
+			_self.imgShow=true
+		},
+	},
 	async onLoad(options) {
 		_self=this
-		_self.num = options.id
+				_self.img=options.id
+		
 	}
 };
 </script>

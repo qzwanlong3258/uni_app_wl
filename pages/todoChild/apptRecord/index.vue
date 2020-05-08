@@ -5,18 +5,18 @@
 			<view class="chooseBussiness">
 				<view class="box" v-for="(item,index) in datalist" :key="index">
 					<view class="left">
-						<image :src="item.storePhotos" style="width: 55px;height: 55px;border-radius:50% ; display: block;box-shadow: 0 0 1px 1px  rgba(153,153,153,0.3);" mode="scaleToFill"></image>
+						<image :src="item.storePhotos" style="width: 110rpx;height: 110rpx;border-radius:50% ; display: block;box-shadow: 0 0 2rpx 2rpx  rgba(153,153,153,0.3);" mode="scaleToFill"></image>
 					</view>
 					<view class="mid">
-						<view style="height: 50%;line-height: 52.5px;">{{item.name}}</view>
-						<view style="height: 50%;line-height: 24.5px;font-size: 10px;color: #7E7E7E;">预约时间:{{item.createTime}}</view>
+						<view style="height: 50%;line-height: 105rpx;">{{item.name}}</view>
+						<view style="height: 50%;line-height: 48rpx;font-size: 20rpx;color: #7E7E7E;">预约时间:{{item.createTime}}</view>
 						
 					</view>
 					<view class="right">
 						<!-- <image :src="img[0]" :hidden="!item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image>
 						<image :src="img[1]" :hidden="item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image> -->
-						<view style="width: 45px;height: 20px;background: #FFEA04;font-size: 10px;text-align: center;line-height: 20px;" v-if="item.state == '1'">待量房</view>
-						<view style="width: 45px;height: 20px;background: #01B164;font-size: 10px;text-align: center;line-height: 20px;" v-if="item.state == '2'">已完成</view>
+						<view style="width: 90rpx;height: 40rpx;background: #FFEA04;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '1'">待量房</view>
+						<view style="width: 90rpx;height: 40rpx;background: #01B164;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '2'">已完成</view>
 					</view>
 				</view>
 				
@@ -27,7 +27,7 @@
 				<view class="null" :hidden="show"><null-data :content="nullContent" /></view>
 				<view class="recordCard" :hidden="!show" @click="linkRecordDetail" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
 					<view class="recordCard-hd">
-						<view style="margin-left: 5px;"><image :src="img" style="width: 100%;" mode="widthFix" alt="" /></view>
+						<view style="margin-left: 10rpx;"><image :src="img" style="width: 100%;" mode="widthFix" alt="" /></view>
 						<view></view>
 						<view style="font-size: 30rpx;"></view>
 						<!-- <view class="recordCard-hd-product">合作产品</view> -->
@@ -132,24 +132,24 @@ export default {
 </style>
 <style scoped>
 	.box{
-		height: 75px;
-		border-bottom: 2px solid rgba(241,241,241,1);
+		height: 150rpx;
+		border-bottom: 4rpx solid rgba(241,241,241,1);
 		display: flex;
 	}
 	.left{
-		flex-basis: 55px;
-		padding: 10px 10px 10px 10px;
+		flex-basis: 110rpx;
+		padding: 20rpx;
 	}
 	.right{
-		flex-basis: 80px;
+		flex-basis: 160rpx;
 		display: flex;
 		align-items: center;
 	}
 	.mid{
 		flex: 1;
 		/* line-height: 75px; */
-		padding-left: 10px;
-		color: 14px;
+		padding-left: 20rpx;
+		color: 28rpx;
 	}
 	
 	.record {
@@ -161,7 +161,7 @@ export default {
 		height: 231rpx;
 		background: #ffffff;
 		border-radius: 20rpx;
-		box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
+		box-shadow: 0 4rpx 4rpx  rgba(153,153,153,0.3);
 		overflow: hidden;
 	}
 	.recordCard-hd {

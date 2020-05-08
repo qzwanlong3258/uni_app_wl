@@ -17,10 +17,10 @@
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
-	    		<view style="text-align: center;color: #000000;font-size: 10px;margin: 2px 0;">WELCOME</view>
-	    		<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">{{userInfo.level}}</view>
-				<view style="text-align: center;color: #605800;font-size: 9px;margin: 2px 0;">加入时间：{{userInfo.joinTime}}</view>
-				<view class="box" style="margin-top: 15px;">
+	    		<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 4rpx 0;">WELCOME</view>
+	    		<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 4rpx 0;">{{userInfo.level}}</view>
+				<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 4rpx 0;">加入时间：{{userInfo.joinTime}}</view>
+				<view class="box" style="margin-top: 30rpx;">
 					<view class="box-left">未入账</view>
 					<view class="box-mid">已结算金额</view>
 					<view class="box-right">已提现</view>
@@ -33,7 +33,7 @@
 			</view>
 		</view>
 		<view class="menu" v-for="(item, index) in menuList" :key="index"><ljl-menu :infor="item" /></view>
-		<view style="height: 10px;transform: translateY(-10px);z-index: 1;background: #FFFFFF;"></view>
+		<view style="height: 20rpx;transform: translateY(-20rpx);z-index: 1;background: #FFFFFF;"></view>
 	</view>
 </template>
 
@@ -102,7 +102,7 @@ export default {
 <style lang="scss" scoped>
 .distribution-box {
 	background: #FFFFFF;
-	height: 500px;
+	height: 100rpx;
 	.showroom {
 		width: 700rpx;
 		height: 200rpx;
@@ -146,16 +146,16 @@ export default {
 	}
 	.distribution{
 		
-		padding: 10px 0;
+		padding: 20rpx 0;
 	}
 	.distribution-nav{
 		background-color: #FCE77A;
-		height: 165px;
-		margin:0 10px;
+		height: 330rpx;
+		margin:0 20rpx;
 	}
 	.top{
 		height: 120rpx;
-		padding: 10px 0 2px;
+		padding: 20rpx 0 4rpx;
 	}
 	.distribution-nav-top{
 		width: 120rpx;
@@ -172,11 +172,11 @@ export default {
 		margin-left: -10rpx;
 	}
 	.box{
-		height: 10px;
-		line-height: 10px;
+		height: 20rpx;
+		line-height: 20rpx;
 		display: flex;
-		font-size: 13px;
-		margin:  5px 30px;
+		font-size: 26rpx;
+		margin:  10rpx 60rpx;
 	}
 	.box-left{
 		flex:1;

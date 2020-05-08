@@ -11,7 +11,7 @@ page{
 --------------------------*/
 .distribution-box.data-v-91ea75c0 {
   background: #FFFFFF;
-  height: 500px;
+  height: 100rpx;
 }
 .distribution-box .showroom.data-v-91ea75c0 {
     width: 700rpx;
@@ -56,16 +56,16 @@ page{
     box-sizing: border-box;
 }
 .distribution-box .distribution.data-v-91ea75c0 {
-    padding: 10px 0;
+    padding: 20rpx 0;
 }
 .distribution-box .distribution-nav.data-v-91ea75c0 {
     background-color: #FCE77A;
-    height: 165px;
-    margin: 0 10px;
+    height: 330rpx;
+    margin: 0 20rpx;
 }
 .distribution-box .top.data-v-91ea75c0 {
     height: 120rpx;
-    padding: 10px 0 2px;
+    padding: 20rpx 0 4rpx;
 }
 .distribution-box .distribution-nav-top.data-v-91ea75c0 {
     width: 120rpx;
@@ -82,13 +82,13 @@ page{
     margin-left: -10rpx;
 }
 .distribution-box .box.data-v-91ea75c0 {
-    height: 10px;
-    line-height: 10px;
+    height: 20rpx;
+    line-height: 20rpx;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    font-size: 13px;
-    margin: 5px 30px;
+    font-size: 26rpx;
+    margin: 10rpx 60rpx;
 }
 .distribution-box .box-left.data-v-91ea75c0 {
     -webkit-box-flex: 1;

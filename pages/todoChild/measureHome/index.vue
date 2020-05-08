@@ -55,7 +55,6 @@ background-color: #FFFFFF;
 </style>
 <style scoped>
 	.measureHome{
-		height: 750px;
 		width: 100%;
 		
 	}
@@ -70,7 +69,7 @@ background-color: #FFFFFF;
 		display: flex;
 		padding-left: 20rpx;
 		padding-right: 20rpx;
-		margin: 20px 0;
+		margin: 40rpx 0;
 		
 	}
 	.scheduleBtn{
@@ -81,6 +80,7 @@ background-color: #FFFFFF;
 		height: 80rpx;
 		line-height: 80rpx;
 		text-align: center;
+		font-size: 28rpx;
 	}
 	.freeMeasureHomeBtn{
 		flex: 48%;
@@ -90,6 +90,7 @@ background-color: #FFFFFF;
 		height: 80rpx;
 		line-height: 80rpx;
 		text-align: center;
+		font-size: 28rpx;
 	}
 	/* .apptMeasureHome_ft{
 		/* position: absolute;

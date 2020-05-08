@@ -13,7 +13,7 @@
 					<view :class="[direction==='column'?'uni-steps__column-line':'uni-steps__row-line',direction==='column'?'uni-steps__column-line--before':'uni-steps__row-line--before']"
 					 :style="{backgroundColor:index<=active&&index!==0?activeColor:index===0?'transparent':deactiveColor}"></view>
 					<view :class="[direction==='column'?'uni-steps__column-check':'uni-steps__row-check']" v-if="index === active">
-						<uni-icons :color="activeColor" type="checkbox-filled" size="14"></uni-icons>
+						<uni-icons :color="activeColor" type="checkbox-filled" size="28"></uni-icons>
 					</view>
 					<view :class="[direction==='column'?'uni-steps__column-circle':'uni-steps__row-circle']" v-else :style="{backgroundColor:index<active?activeColor:deactiveColor}"></view>
 					<view :class="[direction==='column'?'uni-steps__column-line':'uni-steps__row-line',direction==='column'?'uni-steps__column-line--after':'uni-steps__row-line--after']"
@@ -115,9 +115,9 @@
 	}
 
 	.uni-steps__column-text {
-		padding: 6px 0px;
+		padding: 12rpx 0px;
 		border-bottom-style: solid;
-		border-bottom-width: 1px;
+		border-bottom-width: 2rpx;
 		border-bottom-color: $uni-border-color;
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -127,26 +127,26 @@
 
 	.uni-steps__row-title {
 		font-size: $uni-font-size-base;
-		line-height: 16px;
+		line-height: 32rpx;
 		text-align: center;
 	}
 
 	.uni-steps__column-title {
 		font-size: $uni-font-size-base;
 		text-align: left;
-		line-height: 18px;
+		line-height: 36rpx;
 	}
 
 	.uni-steps__row-desc {
-		font-size: 12px;
-		line-height: 14px;
+		font-size: 24rpx;
+		line-height: 28rpx;
 		text-align: center;
 	}
 
 	.uni-steps__column-desc {
 		font-size: $uni-font-size-sm;
 		text-align: left;
-		line-height: 18px;
+		line-height: 36rpx;
 	}
 
 	.uni-steps__row-container {
@@ -160,7 +160,7 @@
 		/* #ifndef APP-NVUE */
 		display: inline-flex;
 		/* #endif */
-		width: 30px;
+		width: 60rpx;
 		flex-direction: column;
 	}
 
@@ -170,8 +170,8 @@
 		/* #endif */
 		flex-direction: row;
 		flex: 1;
-		height: 14px;
-		line-height: 14px;
+		height: 28rpx;
+		line-height: 28rpx;
 		align-items: center;
 		justify-content: center;
 	}
@@ -188,56 +188,56 @@
 
 	.uni-steps__row-line {
 		flex: 1;
-		height: 1px;
+		height: 2rpx;
 		background-color: $uni-text-color-grey;
 	}
 
 	.uni-steps__column-line {
-		width: 1px;
+		width: 2rpx;
 		background-color: $uni-text-color-grey;
 	}
 
 	.uni-steps__row-line--after {
-		transform: translateX(1px);
+		transform: translateX(2rpx);
 	}
 
 	.uni-steps__column-line--after {
 		flex: 1;
-		transform: translate(0px, 1px);
+		transform: translate(0px, 2rpx);
 	}
 
 	.uni-steps__row-line--before {
-		transform: translateX(-1px);
+		transform: translateX(-2rpx);
 	}
 
 	.uni-steps__column-line--before {
-		height: 6px;
-		transform: translate(0px, -1px);
+		height: 12rpx;
+		transform: translate(0px, -2rpx);
 	}
 
 	.uni-steps__row-circle {
-		width: 5px;
-		height: 5px;
-		border-radius: 100px;
+		width: 10rpx;
+		height: 10rpx;
+		border-radius: 200rpx;
 		background-color: $uni-text-color-grey;
-		margin: 0px 3px;
+		margin: 0px 6rpx;
 	}
 
 	.uni-steps__column-circle {
-		width: 5px;
-		height: 5px;
+		width: 10rpx;
+		height: 10rpx;
 		border-radius: 100px;
 		background-color: $uni-text-color-grey;
-		margin: 4px 0px 5px 0px;
+		margin: 8rpx 0px 10rpx 0px;
 	}
 
 	.uni-steps__row-check {
-		margin: 0px 6px;
+		margin: 0px 12rpx;
 	}
 
 	.uni-steps__column-check {
-		height: 14px;
-		line-height: 14px;
-		margin: 2px 0px;
+		height: 28rpx;
+		line-height: 28rpx;
+		margin: 4rpx 0px;
 	}
 </style>

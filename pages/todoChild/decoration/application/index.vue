@@ -13,7 +13,7 @@
 		<view class="title">
 			<view><image :src="img[0]" mode="widthFix"></image></view>
 			
-			<view style="margin-left: 10px;">基础信息</view>
+			<view style="margin-left: 20rpx;">基础信息</view>
 		</view>
 		<view class="application_hd">
 			<view class="application_hd_item">
@@ -82,7 +82,7 @@
 	<view class="title">
 		<view><image :src="img[1]" mode="widthFix"></image></view>
 		
-		<view style="margin-left: 10px;">贷款信息:</view>
+		<view style="margin-left: 20rpx;">贷款信息:</view>
 	</view>
 	<view class="application_bd">
 		<view class="application_hd_item">
@@ -185,7 +185,7 @@
 						
 		<view style="height: 20rpx;"></view>
 		<!-- <view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;"><label class="radio" style="font-size: 25rpx;"><radio value="r1" :checked="agree" @click="agree=!agree" />同意<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label></label></view> -->
-		<view class="btn" style="margin-top: 160px;margin-bottom: 20px;" @click="submit">
+		<view class="btn" style="margin-top: 320rpx;margin-bottom: 40rpx;" @click="submit">
 			提交
 		</view>
 		
@@ -261,9 +261,9 @@ export default {
 					name: '非客拍'
 				}
 			],
-			workArray: ['公务员事业单位', '一般职员', '大专', '高中及以下'],
+			workArray: ['公务员事业单位', '一般职员', '个体户', '企业法人', '自由职业', '其他'],
 			workIndex: 0,
-			studyArray: ['硕士及以上', '大学本科', '个体户', '企业法人', '自由职业', '其他'],
+			studyArray: ['硕士及以上', '大学本科','大专', '高中及以下' ],
 			studyIndex: 0,
 			loanArray: ['装修公司全包', '装修公司半包', '购买家具', '购买建材', '自装'],
 			loanIndex: 0,
@@ -472,18 +472,18 @@ export default {
 // 	padding-left: 30rpx;
 // }
 .title{
-	height: 45px;
+	height: 90rpx;
 	// display: flex;
 	display: flex;
 	align-items: center;
-	border-bottom: 3px solid rgba(241,241,241,1);
+	border-bottom: 6rpx solid rgba(241,241,241,1);
 	
 	
 	
 }
 .title image{
 	width: 40rpx;
-	margin-left: 10px;
+	margin-left: 20rpx;
 	
 	
 }
@@ -502,10 +502,10 @@ export default {
 	background: rgba(255, 255, 255, 1);
 }
 .application_hd_item {
-	height: 45px;
+	height: 90rpx;
 	display: flex;
-	line-height: 45px;
-	border-bottom: 3px solid rgba(241,241,241,1);;
+	line-height: 90rpx;
+	border-bottom: 6rpx solid rgba(241,241,241,1);;
 }
 .appli_hd_item_lable {
 	flex-basis: 200rpx;
@@ -516,12 +516,16 @@ export default {
 	display: flex;
 	align-items: center;
 }
+.appli_hd_item_content input{
+	width: 100%;
+	height: 100%;
+}
 .appli_hd_item_content_work{
 	position: relative;
 }
 .application_bd {
 	height: 156rpx;
-	padding: 0 16rpx 2.5px 16rpx;
+	padding: 0 16rpx 5rpx 16rpx;
 	
 	background: rgba(255, 255, 255, 1);
 }
@@ -586,14 +590,14 @@ export default {
 		
 		text-align: center;
 		line-height: 80rpx;
-		border-radius: 20px;
+		border-radius: 40rpx;
 		background: #FFE906;
 		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-		font-size: 14px;
-		letter-spacing: 2px;
+		box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+		font-size: 28rpx;
+		letter-spacing: 4rpx;
 	}
 	/* 提示窗口 */
 	.uni-tip {
@@ -601,16 +605,16 @@ export default {
 		display: flex;
 		flex-direction: column;
 		/* #endif */
-		padding: 15px;
-		width: 300px;
+		padding: 30rpx;
+		width: 600rpx;
 		background-color: #fff;
-		border-radius: 10px;
+		border-radius: 20rpx;
 	}
 	.uni-tip-title {
-			margin-bottom: 10px;
+			margin-bottom: 20rpx;
 			text-align: center;
 			font-weight: bold;
-			font-size: 16px;
+			font-size: 32rpx;
 			color: #333;
 		}
 	
@@ -626,13 +630,13 @@ export default {
 			display: flex;
 			/* #endif */
 			flex-direction: row;
-			margin-top: 20px;
+			margin-top: 40rpx;
 		}
 	
 		.uni-tip-button {
 			flex: 1;
 			text-align: center;
-			font-size: 14px;
+			font-size: 28rpx;
 			color: #3b4144;
 		}
 	

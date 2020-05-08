@@ -14,30 +14,30 @@
 	
 	export default {
 		props: {
-			// navList: {
-			// 	type: Array,
-			// }
+			navList: {
+				type: Array,
+			}
 		},
 		data(){
 			return{
-				navList:[
-					{
-						icon:NAV_ONE,
-						bname:'邀请有礼'
-					},
-					{
-						icon:NAV_TWO,
-						bname:'约量房'
-					},
-					{
-						icon:NAV_THREE,
-						bname:'装修分期'
-					},
-					{
-						icon:NAV_FOUR,
-						bname:'好店入驻'
-					}
-				]
+				// navList:[
+				// 	{
+				// 		icon:NAV_ONE,
+				// 		bname:'邀请有礼'
+				// 	},
+				// 	{
+				// 		icon:NAV_TWO,
+				// 		bname:'约量房'
+				// 	},
+				// 	{
+				// 		icon:NAV_THREE,
+				// 		bname:'装修分期'
+				// 	},
+				// 	{
+				// 		icon:NAV_FOUR,
+				// 		bname:'好店入驻'
+				// 	}
+				// ]
 			}
 			
 		},

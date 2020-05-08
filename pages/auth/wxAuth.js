@@ -18,7 +18,10 @@ import {
 import {
 	COMPANY_LOGO
 } from '@/config/image.js'
-import { MINE ,DECORATION} from '@/config/router.js';
+import { MINE ,DECORATION,BANK_DETAIL, TO_WEB} from '@/config/router.js';
+import { refreshToken } from  '../../utils/openLogin';
+import * as home from "@/api/tabbar/home.js";
+
 const regeneratorRuntime = require('@/utils/regenerator-runtime/runtime.js')
 const wxAuth = {
 	data() {
@@ -27,11 +30,13 @@ const wxAuth = {
 			session_key: '',
 			show:true,
 			dataL:'',
-			name:''
+			name:'',
+			user:'',
+			serve:''
 		}
 	},
 
-	onLoad: async function(options) {
+	onLoad:  function(options) {
 		//请求微信接口wx.login,获取code
 		// const code = await this.login();
 		// // const code = getStorage('code')
@@ -49,9 +54,38 @@ const wxAuth = {
 		// this.session_key = session_key;
 		this.session_key = getStorage('session_key')
 		this.name=options.name
-		// console.log(session_key)
+		home.loadHomeCarousel({type:4}).then(res => {
+			this.user = res.list.find(item=>item.url=='用户协议').img;
+			this.serve = res.list.find(item=>item.url=='服务协议').img;
+		});
+		console.log(this.session_key)
+		
 	},
 	methods: {
+		linkToBankOne(){
+			let e= this.user
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+		},
+		linkToBankTwo(){
+			let e= this.serve
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+		},
 		noBtn(){
 			uni.showToast({
 											title: "若不同意协议则无法登录和操作下单哦",
@@ -90,10 +124,15 @@ const wxAuth = {
 		},
 		getUserInfo: async function(e) {
 			if (!this.session_key) {
-				return wx.showToast({
-					title: '登录失败，重新授权试试',
-					icon: 'none'
-				})
+				refreshToken()
+				this.session_key = getStorage('session_key')
+				if (!this.session_key) {
+					return wx.showToast({
+						title: '登录失败，重新授权试试',
+						icon: 'none'
+					})
+				}
+				
 			}
 			const {
 				encryptedData,

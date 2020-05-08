@@ -27,7 +27,8 @@ module.exports = {
 	LOAD_INTEGRAL: `${baseUrl}/wx/user/loadRemaining`,  // 查询积分余额
 	
 	/** 首页 **/
-	LOAD_HOME_CAROUSEL: `${baseUrl}/wx/user/loadPicture`,
+	LOAD_HOME_CAROUSEL: `${baseUrl}/picture/loadPicture`,
+	LOAD_HOME_NEWS: `${baseUrl}/news/loadNews`,
 	
 	/** 我的 **/
 	GET_CHECK_IN: `${baseUrl}/wx/user/isSignIn`,
@@ -89,5 +90,6 @@ module.exports = {
 	GET_SHOP:`${baseUrl}/make/loadDecorate`,
 	MEASURE_SUCCESS:`${baseUrl}/make/makeDecorate`,
 	GET_MY_SHOP:`${baseUrl}/make/loadMakeRecord`,
+	
 	
 }

@@ -1,5 +1,6 @@
 <template>
 	<view class="decoration_view-box-box " v-if='showAuth'>
+		<view :hidden='!imgShow'>
 		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高额度</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
@@ -32,14 +33,15 @@
 		<!-- <view class="decoration_view-row decoration_view-plan page_view-box">
 			<image class="page_image-plan" src="http://fa.aitech.xin/images/aboutUs.png" mode="widthFix" />
 		</view> -->
-		<view class="decoration_view-row decoration_view-plan page_view-box"  style="margin: 10px ;margin-top: 20px;">
-			<image @click="linkToBank(0)" class="page_image-plan" :src="bank[0]" mode="widthFix" />
+		<view class="decoration_view-row decoration_view-plan page_view-box" v-for="(item,index) in bank" :key="index"  style="margin: 10px ;margin-top: 20px;">
+			<image @click="linkToBank(item.url)" class="page_image-plan" @load='imgshow' :src="item.img" mode="widthFix" />
 		</view>
-		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px  ;">
-			<image @click="linkToBank(1)" class="page_image-plan" :src="bank[1]" mode="widthFix" />
+		<!-- <view class="decoration_view-row decoration_view-plan page_view-box" style="margin: 10px  ;">
+			<image @click="linkToBank(1)" class="page_image-plan" :src="bank[1].img" mode="widthFix" />
 		</view>
 		<view class="decoration_view-row decoration_view-plan page_view-box" style="margin:  10px ;">
-			<image @click="linkToBank(2)" class="page_image-plan" :src="bank[2]" mode="widthFix" />
+			<image @click="linkToBank(2)" class="page_image-plan" :src="bank[2].img" mode="widthFix" />
+		</view> -->
 		</view>
 	</view>
 </template>
@@ -48,9 +50,10 @@
 	'use scrict';
 	var _self;
 	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR} from '@/config/image.js';
-	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL} from '@/config/router.js';
+	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL, TO_WEB} from '@/config/router.js';
 	import { getStorage, setStorage } from '@/utils/storage.js';
 	const { AUTH } = require('../../../config/router.js');
+	import * as home from "@/api/tabbar/home.js";
 	
 	export default {
 		data() {
@@ -66,12 +69,16 @@
 				],
 				bank_pic:BANK_PIC,
 				bank_logo:BANK_LOGO,
-				bank:[BANK_JH,BANK_BH,BANK_BJ],
+				bank:[],
 				show:false,
-				showAuth:false
+				showAuth:false,
+				imgShow:false
 			}
 		},
 		methods: {
+			imgshow(){
+				_self.imgShow=true
+			},
 			linkToRoute(router) {
 				uni.navigateTo({ url: router });
 			},
@@ -79,7 +86,21 @@
 				uni.navigateTo({ url: LOAN_TESTONETEST });
 			},
 			linkToBank(e){
-				uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+				var testmsg=e.substring(e.lastIndexOf('.')+1)
+				        const extensio = testmsg === 'jpg'
+				        const extensio2 = testmsg === 'png'
+				        const extensio3 = testmsg === 'jpeg'
+				        if(extensio || extensio2 || extensio3) {
+				          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+				        } else {
+							
+						 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+						}
+			},
+			getImg(){
+				home.loadHomeCarousel({type:3}).then(res => {
+					this.bank = res.list;
+				});
 			}
 			
 		},
@@ -92,6 +113,7 @@
 			
 		},
 		async onLoad() {
+			_self=this
 			const isLogin = getStorage('isLogin');
 			if (isLogin) {
 				this.showAuth=true
@@ -103,7 +125,8 @@
 					url:`${AUTH}?name=${'decoration'}`
 				});	
 				}
-			_self=this
+			
+			this.getImg()
 			
 		}
 	}
@@ -125,7 +148,7 @@
 		background-color: #FCE77A;
 		padding: 20rpx;
 		position: relative;
-		height: 160px;
+		height: 320rpx;
 		color: #000000;
 		margin: 0 10px;
 	}

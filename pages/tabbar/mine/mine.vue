@@ -11,9 +11,9 @@
 			<view class="btn-box"> 
 				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到日历</view>
-				<view style="flex: 0.8;font-size: 14px;text-align: center;margin: 0 10px;"> 
-				 <view style="height: 50%;line-height: 19px;">签到有礼</view> 
-				 <view style="text-align: center;color: #D3B86C;font-size: 8px;height: 50%;line-height: 34rpx;">WELCOME</view>
+				<view style="flex: 0.8;font-size: 28rpx;text-align: center;margin: 0 20rpx;"> 
+				 <view style="height: 50%;line-height: 38rpx;">签到有礼</view> 
+				 <view style="text-align: center;color: #D3B86C;font-size: 16rpx;height: 50%;line-height: 34rpx;">WELCOME</view>
 				</view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
 				<view style="flex: 0.1;"></view>
@@ -32,9 +32,9 @@
 			
 		</view>
 		<view class="schedule">
-			<view style="flex: 1;color: #333333;font-size: 13px;text-align: center;font-weight: Regular;">我的申请记录</view>
+			<view style="flex: 1;color: #333333;font-size: 26rpx;text-align: center;font-weight: Regular;">我的申请记录</view>
 			<view style="flex: 1;"></view>
-			<view style="flex: 1;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;" ><view class="iconfont  iconyou iconclass" ></view></view>
+			<view style="flex: 1;position: relative;font-size: 20rpx;color: #666666;text-align: center;margin-right: 20rpx;" ><view class="iconfont  iconyou iconclass" ></view></view>
 		</view>
 		<view class="schedule_logo">
 			<view style="flex: 1;justify-content: center;" @click="tolinkrecord(0)"> 
@@ -196,7 +196,7 @@ export default {
 		overflow: hidden;
 		margin: 0 auto;
 		border: 6rpx solid #F7B414;
-		padding: 5px;
+		padding: 10rpx;
 		background: #FFFFFF;
 	}
 	.mine-nav-top-img{
@@ -251,7 +251,7 @@ export default {
 		font-weight: Regular;
 		color: #333333;
 		padding: 20rpx 0;
-		border-bottom: 3px solid #F1F1F1;
+		border-bottom: 6rpx solid #F1F1F1;
 		
 	}
 	.schedule_logo image{

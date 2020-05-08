@@ -1,8 +1,8 @@
 <template>
 	<view class="menu-box" :class="infor.center">
-		<view style="border-bottom: 1px solid rgba(241,241,241,1);
-			height: 30px;">
-			<image :src='infor.img' mode="widthFix" style="width: 15px;margin-left: 10px;vertical-align: middle;"></image> <text class="title">{{infor.title}}</text>
+		<view style="border-bottom: 2rpx solid rgba(241,241,241,1);
+			height: 60rpx;line-height: 60rpx;">
+			<image :src='infor.img' mode="widthFix" style="width: 30rpx;margin-left: 20rpx;vertical-align: middle;"></image> <text class="title">{{infor.title}}</text>
 			</view>
 		
 		<view class="content">
@@ -54,15 +54,15 @@
 			font-size: 30rpx;
 			
 			color: #333333;
-			margin-left: 10px;
+			margin-left: 20rpx;
 			vertical-align: middle;
 			
 		}
 		.content {
 			display: flex;
 			flex-wrap: wrap;
-			border-bottom: 3px solid rgba(241,241,241,1);
-			padding: 10px 0;
+			border-bottom: 6rpx solid rgba(241,241,241,1);
+			padding: 20rpx 0;
 		}
 		.item {
 			display: flex;

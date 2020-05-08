@@ -4,7 +4,7 @@
 	background: #FFFFFF;
 }
 .all .bd image{
-	width: 15px;
+	width: 30rpx;
 }
 .all .bar {
 	display: -webkit-box;
@@ -21,9 +21,9 @@
 	padding: 10rpx;
 }
 .bar .barbtn {
-	height: 30px;
-	line-height: 30px;
-	font-size: 12px;
+	height: 60rpx;
+	line-height: 60rpx;
+	font-size: 24rpx;
 }
 .all .week {
 	display: -webkit-box;
@@ -40,14 +40,14 @@
 	padding-left: 40rpx;
 	padding-right: 40rpx;
 	margin: 20rpx;
-	border-radius: 10px;
+	border-radius: 20rpx;
 	background-color: #fff;
 	font-weight: 500;
 }
 .myDateTable {
 	margin: 2.5vw;
 	padding: 2vw;
-	border-radius: 10px;
+	border-radius: 20rpx;
 	background: #FFFFFF;
 }
 .myDateTable .dateCell {
@@ -55,7 +55,7 @@
 		padding: 1vw;
 		display: inline-block;
 		text-align: center;
-		font-size: 16px;
+		font-size: 32rpx;
 }
 .dateCell .cell {
 		display: -webkit-box;

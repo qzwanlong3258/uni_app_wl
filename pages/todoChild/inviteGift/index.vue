@@ -2,8 +2,8 @@
 	<view class="inviteGift">
 		<image :src="img[0]" mode="widthFix" class="inviteGift-hd"></image>
 		<image :src="img[1]" mode="widthFix" class="inviteGift-hd-friend"></image>
-		<view class="text"><text style="color: #252525;font-size:12px ;margin-left: 10px;">邀请活动</text> <text style="color:#828282;font-size:10px ;margin-left: 10px;">邀请好友，获得积分</text></view>
-		<view style="height: 130px;" class="pic">
+		<view class="text"><text style="color: #252525;font-size:24rpx ;margin-left: 20rpx;">邀请活动</text> <text style="color:#828282;font-size:20rpx ;margin-left: 20rpx;">邀请好友，获得积分</text></view>
+		<view style="height: 260rpx;" class="pic">
 			<image :src="img[2]" mode="widthFix"></image>
 			<image :src="img[3]" mode="widthFix"></image>
 			<image :src="img[4]" mode="widthFix"></image>
@@ -43,30 +43,30 @@ export default {
 	.inviteGift{
 		position: relative;
 		background: #FFFFFF;
-		height: 510px;
+	
 	}
 	.inviteGift-hd{
 		width: 100%;
 		display: block;
 	}
 	.inviteGift-hd-friend{
-		width: 150px;
+		width: 300rpx;
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		top: 160px;
+		top: 320rpx;
 	}
 	.text{
-		height: 35px;
-		line-height: 35px;
-		border-bottom: 1px solid #F1F1F1;
+		height: 70rpx;
+		line-height: 70rpx;
+		border-bottom: 2rpx solid #F1F1F1;
 	}
 	.pic{
-		margin: 10px 20px;
+		margin: 20rpx 40rpx;
 		display: flex;
 	}
 	.pic image{
-		width: 115px;
+		width: 230rpx;
 	}
 	.apptMeasureHome_ft{
 		/* position: absolute;
@@ -74,7 +74,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 30px;
+		margin-top: 60rpx;
 		
 	}
 	.btn{
@@ -82,13 +82,13 @@ export default {
 		
 		text-align: center;
 		line-height: 80rpx;
-		border-radius: 20px;
+		border-radius: 40rpx;
 		background: #FFE906;
 		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-		font-size: 14px;
-		letter-spacing: 2px;
+		box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+		font-size: 28rpx;
+		letter-spacing: 4rpx;
 	}
 </style>

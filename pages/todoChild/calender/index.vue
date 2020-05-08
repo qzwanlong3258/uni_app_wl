@@ -1,16 +1,14 @@
 <template>
-	<view style="position: absolute;
-		width: 100%;
-		height: 100%;background: #FFFFFF;">
+	<view >
 		<view class="hd">
 			<view class="hd-circle">
 				<image :src="img" mode="widthFix"></image>
-				<view style="text-align: center;font-size: 11px;color: #B75727;margin-top: 5px;" v-if="show">今日已签</view>
-				<view style="text-align: center;font-size: 11px;color: #B75727;margin-top: 5px;" v-if="!show">请签到</view>
+				<view style="text-align: center;font-size: 22rpx;color: #B75727;margin-top: 10rpx;" v-if="show">今日已签</view>
+				<view style="text-align: center;font-size: 22rpx;color: #B75727;margin-top: 10rpx;" v-if="!show">请签到</view>
 				<!-- <view style="text-align: center;font-size: 11px;color: #B75727;">未签到</view> -->
 			</view>
 			<button class="btn" @click="clickbtn" :disabled="show">立即签到</button>
-			<view style="font-size: 12px;color: #FFFFFF;text-align: center;margin: 20px 0;"> 本月已签到{{signData.length}}天,总共签到{{sumCount}}天,继续加油！</view>
+			<view style="font-size: 24rpx;color: #FFFFFF;text-align: center;margin: 40rpx 0;"> 本月已签到{{signData.length}}天,总共签到{{sumCount}}天,继续加油！</view>
 		</view>
 		<model-calendar ref="calender"
 		:sendYear="toYear" :sendMonth="toMonth"
@@ -159,7 +157,11 @@
 		}
 	}
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style lang='scss' scoped>
 	.count .daynumber {
 		display: flex;
@@ -176,7 +178,7 @@
 		padding: 30rpx;
 		display: flex;
 		text-align: center;
-		border-radius: 10px;
+		border-radius: 20rpx;
 		flex-direction: column;
 		justify-content: center;
 		background-color: #fff;
@@ -205,31 +207,31 @@
 		margin: 10rpx;
 	}
 	 .hd{
-		height: 150px;
+		height: 300rpx;
 		background: linear-gradient(#EDB733, #F19168);
-		padding: 10px 0;
+		padding: 20rpx 0;
 	}
 	 .btn{
-		height: 20px;
-		margin: 20px 120px;
+		height: 40rpx;
+		margin: 40rpx 240rpx;
 		background: #FFEA3E;
 		color: #B75727;
-		font-size: 10px;
-		border-radius:20px ;
-		box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+		font-size: 20rpx;
+		border-radius:40rpx ;
+		box-shadow: 0 4rpx 4rpx rgba(0,0,0,0.3);
 		text-align: center;
-		line-height: 20px;
+		line-height: 40rpx;
 	}
 	 .hd-circle {
-		width: 60px;
-		height: 60px;
+		width: 120rpx;
+		height: 120rpx;
 		border-radius: 50%;
-		border: 2px solid #B75727;
+		border: 4rpx solid #B75727;
 		text-align: center;
 		margin: 0 auto;
 	}
 	 .hd-circle image{
-		margin-top: 10px;
-		width: 20px;
+		margin-top: 20rpx;
+		width: 40rpx;
 	}
 </style>

@@ -7,7 +7,7 @@
 .menu-box .title.data-v-04a6874c {
   font-size: 30rpx;
   color: #333333;
-  margin-left: 10px;
+  margin-left: 20rpx;
   vertical-align: middle;
 }
 .menu-box .content.data-v-04a6874c {
@@ -16,8 +16,8 @@
   display: flex;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
-  border-bottom: 3px solid #f1f1f1;
-  padding: 10px 0;
+  border-bottom: 6rpx solid #f1f1f1;
+  padding: 20rpx 0;
 }
 .menu-box .item.data-v-04a6874c {
   display: -webkit-box;

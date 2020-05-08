@@ -5,7 +5,6 @@ background-color: #FFFFFF;
 
 
 .measureHome.data-v-423b4d97{
-	height: 750px;
 	width: 100%;
 }
 .measureHome image.data-v-423b4d97{
@@ -20,7 +19,7 @@ background-color: #FFFFFF;
 	display: flex;
 	padding-left: 20rpx;
 	padding-right: 20rpx;
-	margin: 20px 0;
+	margin: 40rpx 0;
 }
 .scheduleBtn.data-v-423b4d97{
 	-webkit-box-flex: 48%;
@@ -32,6 +31,7 @@ background-color: #FFFFFF;
 	height: 80rpx;
 	line-height: 80rpx;
 	text-align: center;
+	font-size: 28rpx;
 }
 .freeMeasureHomeBtn.data-v-423b4d97{
 	-webkit-box-flex: 48%;
@@ -43,6 +43,7 @@ background-color: #FFFFFF;
 	height: 80rpx;
 	line-height: 80rpx;
 	text-align: center;
+	font-size: 28rpx;
 }
 /* .apptMeasureHome_ft{
 	/* position: absolute;

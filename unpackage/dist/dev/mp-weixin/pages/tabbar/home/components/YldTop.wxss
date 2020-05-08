@@ -72,7 +72,7 @@
     -webkit-box-pack: center;
     -webkit-justify-content: center;
             justify-content: center;
-    line-height: 40px;
+    line-height: 80rpx;
 }
 .home-header .select-value.data-v-39022e8e {
     position: absolute;

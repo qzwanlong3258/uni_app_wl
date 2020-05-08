@@ -86,8 +86,9 @@ module.exports = {
 	BANK_DETAIL:`/pages/todoChild/bankDetail/index`,
 	
 	//跳转图片  
-	TO_PRIVACY:'pages/todoChild/toLink/privacy/index',
-	TO_SERVICE:'pages/todoChild/toLink/service/index'
+	TO_PRIVACY:'/pages/todoChild/toLink/privacy/index',
+	TO_SERVICE:'/pages/todoChild/toLink/service/index',
+	TO_WEB:'/pages/todoChild/toLink/webview/index'
 	
 	
 }

@@ -23,9 +23,44 @@ export default {
 		accessToken: "",
 		
 		// 收货地址列表
-		addressList: null
+		addressList: null,
+		
+		addresss:''
 	},
 	methods: {
+		location(){
+			uni.getSetting({
+			            success(res) {                    
+			                if (!res.authSetting['scope.userLocation']) {
+			                    // 未授权
+			                    uni.authorize({
+			                        scope: 'scope.userLocation',
+			                        success() { //1.1 允许授权
+			                             uni.getLocation()
+			                            uni.getLocation({
+			                                            type: 'gcj02', // <map> 组件默认为国测局坐标gcj02
+			                                            altitude: true,
+			                                            success(res) {
+			                                                console.log('返回的位置信息', res, _this)
+			                                                // _this.globalData.userInfo = {
+			                                                //     latitude: res.latitude,
+			                                                //     longitude: res.longitude
+			                                                // }
+			                                            }
+			                                        })
+			                          
+			                        },
+			                        fail(){    //1.2 拒绝授权
+			                            console.log("你拒绝了授权，无法获得周边信息")
+			                        }
+			                    })
+			                }else{
+			                    // 已授权 ..(获取位置信息)
+			                }
+			            }
+			        });
+		},
+		
 		canIuse: function() {
 			return getStorage('isLogin') && this.$options.globalData.hasRefresh;
 		},
@@ -84,6 +119,7 @@ export default {
 		// 处理token
 		
 		refreshToken();
+		//获取位置授权
 	},
 	onShow: function() {},
 	onHide: function() {}

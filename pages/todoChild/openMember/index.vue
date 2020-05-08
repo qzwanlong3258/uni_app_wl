@@ -6,34 +6,34 @@
 					<image :src="userInfo.avatarUrl" class="recomCenter-nav-top-img" mode="aspectFill">
 				</view>
 			</view>
-			<view style="text-align: center;color: #000000;font-size: 10px;margin: 5px;">WELCOME</view>
-			<view style="text-align: center;color: #605800;font-size: 9px;margin: 5px;">普通会员</view>
-			<view style="text-align: center;color: #000000;font-size: 10px;margin: 10px 100px 0 100px;border-left:1px solid #000000 ;border-right:1px solid #000000 ;">10249人</view>
-			<view style="text-align: center;color: #000000;font-size: 10px;margin: 0 100px;border-left:1px solid #000000 ;border-right:1px solid #000000 ;">加入黄金会员</view>
+			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">WELCOME</view>
+			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">普通会员</view>
+			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 20rpx 200rpx 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">10249人</view>
+			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">加入黄金会员</view>
 		</view>
 		<view class="schedule">
-			<view style="flex: 1;color: #333333;font-size: 13px;text-align: center;font-weight: Regular;">选择开通类型</view>
+			<view style="flex: 1;color: #333333;font-size: 26rpx;text-align: center;font-weight: Regular;">选择开通类型</view>
 			<view style="flex: 0.7;"></view>
-			<view style="flex: 1.3;position: relative;font-size: 10px;color: #666666;text-align: center;margin-right: 10px;">黄金会员一经开通，无法退订</view>
+			<view style="flex: 1.3;position: relative;font-size: 20rpx;color: #666666;text-align: center;margin-right: 20rpx;">黄金会员一经开通，无法退订</view>
 			
 		</view>
 		<view class="seclect">
-			<view style="flex: 1;padding: 5px 0;">
-				<view style="height: 20px;line-height: 20px;text-align: center;color: #333333;font-size: 12px;">一年黄金会员</view>
-				<view style="height: 15px;line-height: 15px;text-align: center;font-size: 9px;color: #666666;">赠送100积分</view>
+			<view style="flex: 1;padding: 10rpx 0;">
+				<view style="height: 40rpx;line-height: 40rpx;text-align: center;color: #333333;font-size: 24rpx;">一年黄金会员</view>
+				<view style="height: 30rpx;line-height: 30rpx;text-align: center;font-size: 18rpx;color: #666666;">赠送100积分</view>
 			</view>
 			<view style="flex: 1;"></view>
-			<view style="flex: 1;text-align: right;line-height: 40px;">
-				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 12px;margin-right: 5px;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agree" @click="agreeClick()" /></label>
+			<view style="flex: 1;text-align: right;line-height: 80rpx;">
+				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 24rpx;margin-right: 10rpx;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agree" @click="agreeClick()" /></label>
 			</view>
 		</view>
-		<view style="color: #333333;font-size: 13px;text-align: left;height: 45px;line-height: 45px;margin-left: 10px;margin-bottom: 10px;">黄金会员的八大权益</view>
+		<view style="color: #333333;font-size: 26rpx;text-align: left;height: 90rpx;line-height: 90rpx;margin-left: 20rpx;margin-bottom: 20rpx;">黄金会员的八大权益</view>
 		<view class="box">
 			<view class="box_item" v-for="(item,index) in datalist" :key='index'>
 				<image :src="item.img" mode="widthFix"></image>
-				<view style="color: #333333;font-size: 9px;text-align: center;">
+				<view style="color: #333333;font-size: 18rpx;text-align: center;">
                               {{item.nametop}} </view>
-				<view style="color: #333333;font-size: 9px;text-align: center;">{{item.namebottom}}</view>
+				<view style="color: #333333;font-size: 18rpx;text-align: center;">{{item.namebottom}}</view>
 			</view>
 			<!-- <view class="box_item">
 				<image :src="img[0]" mode="widthFix"></image>
@@ -136,19 +136,19 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
 	.recomCenter{
-		background: #FFFFFF;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		padding: 10px 0;
+		padding: 20rpx 0;
 	}
 	.recomCenter-nav{
 		background-color: #FCE77A;
-		height: 180px;
-		margin:0 10px;
+		height: 360rpx;
+		margin:0 20rpx;
 	}
 	.top{
 		height: 120rpx;
@@ -169,34 +169,34 @@ export default {
 		margin-left: -10rpx;
 	}
 	.btn-box{
-		height: 15px;
-		margin-top: 15px;
+		height: 30rpx;
+		margin-top: 30rpx;
 		
 	}
 	.schedule{
-		height: 45px;
+		height: 90rpx;
 		display: flex;
-		line-height: 45px;
-		border-bottom: 3px solid rgba(247,247,247,1);
+		line-height: 90rpx;
+		border-bottom: 6rpx solid rgba(247,247,247,1);
 	}
 	.seclect{
-		height: 45px;
+		height: 90rpx;
 		display: flex;
-		line-height: 45px;
-		border-bottom: 3px solid rgba(247,247,247,1);
+		line-height: 90rpx;
+		border-bottom: 6rpx solid rgba(247,247,247,1);
 	}
 	.box{
-		height: 160px;
+		height: 320rpx;
 		display: flex;
 		flex-wrap: wrap;
 	}
 	.box .box_item {
 		flex: 25%;
-		height: 60px;
-		margin-top: 10px;
+		height: 120rpx;
+		margin-top: 20rpx;
 	}
 	.box_item image{
-		width:20px;
+		width:40rpx;
 		margin: 0 auto;
 		display: block;
 	}
@@ -206,7 +206,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 50px;
+		margin-top: 100rpx;
 		
 	}
 	.btn{
@@ -214,13 +214,13 @@ export default {
 		
 		text-align: center;
 		line-height: 80rpx;
-		border-radius: 20px;
+		border-radius: 40rpx;
 		background: #FFE906;
 		color: #000000;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-		font-size: 14px;
-		letter-spacing: 2px;
+		box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+		font-size: 28rpx;
+		letter-spacing: 4rpx;
 	}
 </style>

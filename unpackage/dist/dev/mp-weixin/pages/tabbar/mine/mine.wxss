@@ -22,7 +22,7 @@
 	overflow: hidden;
 	margin: 0 auto;
 	border: 6rpx solid #F7B414;
-	padding: 5px;
+	padding: 10rpx;
 	background: #FFFFFF;
 }
 .mine-nav-top-img.data-v-dd86ab04{
@@ -87,7 +87,7 @@
 	font-weight: Regular;
 	color: #333333;
 	padding: 20rpx 0;
-	border-bottom: 3px solid #F1F1F1;
+	border-bottom: 6rpx solid #F1F1F1;
 }
 .schedule_logo image.data-v-dd86ab04{
 	width: 60rpx;

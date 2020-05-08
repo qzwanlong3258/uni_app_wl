@@ -76,9 +76,44 @@ var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 12);var regenerato
     accessToken: "",
 
     // 收货地址列表
-    addressList: null },
+    addressList: null,
+
+    addresss: '' },
 
   methods: {
+    location: function location() {
+      uni.getSetting({
+        success: function success(res) {
+          if (!res.authSetting['scope.userLocation']) {
+            // 未授权
+            uni.authorize({
+              scope: 'scope.userLocation',
+              success: function success() {//1.1 允许授权
+                uni.getLocation();
+                uni.getLocation({
+                  type: 'gcj02', // <map> 组件默认为国测局坐标gcj02
+                  altitude: true,
+                  success: function success(res) {
+                    console.log('返回的位置信息', res, _this);
+                    // _this.globalData.userInfo = {
+                    //     latitude: res.latitude,
+                    //     longitude: res.longitude
+                    // }
+                  } });
+
+
+              },
+              fail: function fail() {//1.2 拒绝授权
+                console.log("你拒绝了授权，无法获得周边信息");
+              } });
+
+          } else {
+            // 已授权 ..(获取位置信息)
+          }
+        } });
+
+    },
+
     canIuse: function canIuse() {
       return getStorage('isLogin') && this.$options.globalData.hasRefresh;
     },
@@ -89,7 +124,7 @@ var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 12);var regenerato
       }
       this.$options.globalData.fm = "/".concat(path);
     },
-    switchRouter: function switchRouter(url) {var _this = this;
+    switchRouter: function switchRouter(url) {var _this2 = this;
       var pages = getCurrentPages();
       if (pages.length === 0 || url.indexOf('/' + pages[pages.length - 1].route) === 0) return;
 
@@ -97,7 +132,7 @@ var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 12);var regenerato
       uni.reLaunch({
         url: url,
         success: function success() {
-          _this.$options.globalData.hasRefresh = true;
+          _this2.$options.globalData.hasRefresh = true;
           var pages = getCurrentPages();
           if (pages.length) {
             var currentPage = pages[pages.length - 1];
@@ -108,7 +143,7 @@ var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 12);var regenerato
           uni.switchTab({
             url: url,
             success: function success() {
-              _this.$options.globalData.hasRefresh = true;
+              _this2.$options.globalData.hasRefresh = true;
               var pages = getCurrentPages();
               if (pages.length) {
                 var currentPage = pages[pages.length - 1];
@@ -137,6 +172,7 @@ var _openLogin = __webpack_require__(/*! ./utils/openLogin */ 12);var regenerato
     // 处理token
 
     (0, _openLogin.refreshToken)();
+    //获取位置授权
   },
   onShow: function onShow() {},
   onHide: function onHide() {} };exports.default = _default;

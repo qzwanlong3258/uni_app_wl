@@ -279,7 +279,7 @@
 		{
 		    "path" : "pages/todoChild/bankDetail/index",
 		    "style" : {
-				"navigationBarTitleText": "银行详情"
+				"navigationBarTitleText": ""
 			}
 		},
 		{
@@ -292,6 +292,12 @@
 		    "path" : "pages/todoChild/toLink/service/index",
 		    "style" : {
 				"navigationBarTitleText": "服务协议"
+			}
+		},
+		{
+		    "path" : "pages/todoChild/toLink/webview/index",
+		    "style" : {
+				"navigationBarTitleText": ""
 			}
 		}
     ],

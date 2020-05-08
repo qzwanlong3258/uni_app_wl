@@ -188,7 +188,7 @@ export default {
 		background: rgba(255, 255, 255, 1);
 		height: 1200rpx;
 		position: relative;
-		padding: 0 10px;
+		padding: 0 20rpx;
 	}
 	
 	.apptMeasureHome_item {
@@ -213,8 +213,9 @@ export default {
 	}
 	.appt_item_content input{
 		width: 100%;
+		height: 100%;
 		font-size: 28rpx;
-		margin-left: 5px;
+		margin-left: 10rpx;
 	}
 	.appt_item_content_appt{
 		position: relative;
@@ -236,7 +237,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 220px;
+		margin-top: 440rpx;
 		
 	}
 	.btn{
@@ -244,14 +245,14 @@ export default {
 		
 		text-align: center;
 		line-height: 80rpx;
-		border-radius: 20px;
+		border-radius: 40rpx;
 		background: #840102;
 		color: #FFFFFF;
 		margin-left: 20rpx;
 		margin-right: 20rpx;
-		box-shadow: 0 2px 2px  rgba(153,153,153,0.3);
-		font-size: 14px;
-		letter-spacing: 2px;
+		box-shadow: 0 4rpx 4rpx  rgba(153,153,153,0.3);
+		font-size: 28rpx;
+		letter-spacing: 4rpx;
 	}
 	.uni-input-style{
 		width: 100%;

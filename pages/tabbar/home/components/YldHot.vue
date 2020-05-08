@@ -3,12 +3,12 @@
 		<view class='scroll-tip'>
 			<view class="tip-title"><image :src="img" mode="widthFix"></image></view>
 			<!-- <i class="iconfont iconlaba theme-color"></i> -->
-			<view style="width: 1px;height: 15px;background: #000000;margin-top: 17px;margin-left: 5px;"></view>
+			<view style="width: 2rpx;height: 30rpx;background: #000000;margin-top: 34rpx;margin-left: 10rpx;"></view>
 			<swiper class='header-msg-tip' :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			 circular :duration="duration" easing-function="default" vertical>
 				<block v-for="(item,index) in valueList" :key="index">
 					<swiper-item class='tip-font one-line-elipsis'>
-						{{item}}
+						{{item.content}}
 					</swiper-item>
 				</block>
 			</swiper>
@@ -42,11 +42,11 @@
 		font-weight: bold;
 		margin-left: 5%;
 		
-		margin-bottom: 15px;
+		margin-bottom: 30rpx;
 		
 	}
 	.tip-title image{
-		width: 60px;
+		width: 120rpx;
 		
 	}
 	.scroll-tip {
