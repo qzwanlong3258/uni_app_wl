@@ -1,9 +1,10 @@
 <template>
 	<view class="goods-info-box">
-		<image v-if="infor.url.length" :src="infor.url[0].path" mode="aspectFill" />
+		<image v-if="infor.url.length" :src="infor.url" mode="aspectFill" />
 		<view class="content">
 			<view class="title">{{infor.name}}</view>
-			<view class="desc">{{infor.desc}}</view>
+			<view class="desc"></view>
+			<!-- <view class="desc">{{infor.desc}}</view> -->
 			<view class="rule">
 				<text>{{infor.originalPrice}}</text>
 				<text>{{infor.price}}</text>

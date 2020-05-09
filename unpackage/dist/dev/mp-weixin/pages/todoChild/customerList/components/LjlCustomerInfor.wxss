@@ -5,7 +5,7 @@
 /* radius
 --------------------------*/
 .nav.data-v-da1b74d2 {
-  height: 100rpx;
+  height: 150rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -13,6 +13,7 @@
   -webkit-align-items: center;
           align-items: center;
   background: white;
+  border-bottom: 2rpx solid #F1F1F1;
 }
 .nav .avatar.data-v-da1b74d2 {
     width: 72rpx;
@@ -22,7 +23,8 @@
 }
 .nav .content .top.data-v-da1b74d2 {
     color: #333333;
-    font-size: 34rpx;
+    font-size: 28rpx;
+    margin-left: 10rpx;
 }
 .nav .content .bottom.data-v-da1b74d2 {
     color: #999999;
@@ -39,12 +41,14 @@
     -webkit-box-align: center;
     -webkit-align-items: center;
             align-items: center;
+    font-size: 25rpx;
 }
 .info-content.data-v-da1b74d2 {
   color: #333333;
   font-size: 24rpx;
   box-sizing: border-box;
   padding: 20rpx 50rpx;
+  background: #FFFFFF;
 }
 .info-content .row.data-v-da1b74d2 {
     width: 100%;

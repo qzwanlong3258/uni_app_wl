@@ -1,4 +1,13 @@
 
+page{
+	background: #FFFFFF;
+}
+
+
+.scroll-Y.data-v-93853c04{
+		height: 1115rpx;
+		width: 100%;
+}
 .home-hd.data-v-93853c04{
 		background: #fff;
 		position: relative;

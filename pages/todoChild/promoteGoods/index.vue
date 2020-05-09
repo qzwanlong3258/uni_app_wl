@@ -15,27 +15,27 @@
 import Search from '@/components/Search.vue';
 import LjlGoodsInfo from './components/LjlGoodsInfo.vue';
 import ShareCanvas from './components/ShareCanvas/ShareCanvas.vue';
-import { getGoodsList } from '@/api/goods.js';
+import { getGoodsList,getGoodsDetail } from '@/api/goods.js';
 
 export default {
 	data() {
 		return {
 			selectedIndex: 0,
 			list: [
-				{
-					title: '月星真皮沙发',
-					desc: '法国品牌|7天包退|官方直售',
-					rule: { title: '3期免息', content: '999元/期' },
-					checked: true,
-					url: 'https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=2982686518,338089367&fm=74&app=80&f=JPEG&size=f121,140?sec=1880279984&t=c5b1a0d04e6c4936497a09bc4f6a5fb4'
-				},
-				{
-					title: '马可波罗地瓷砖地板砖墙砖红色万千热情款',
-					desc: '法国品牌|7天包退|官方直售',
-					rule: { title: '3期免息', content: '999元/期' },
-					checked: false,
-					url: 'https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=2982686518,338089367&fm=74&app=80&f=JPEG&size=f121,140?sec=1880279984&t=c5b1a0d04e6c4936497a09bc4f6a5fb4'
-				}
+				// {
+				// 	title: '月星真皮沙发',
+				// 	desc: '法国品牌|7天包退|官方直售',
+				// 	rule: { title: '3期免息', content: '999元/期' },
+				// 	checked: true,
+				// 	url: 'https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=2982686518,338089367&fm=74&app=80&f=JPEG&size=f121,140?sec=1880279984&t=c5b1a0d04e6c4936497a09bc4f6a5fb4'
+				// },
+				// {
+				// 	title: '马可波罗地瓷砖地板砖墙砖红色万千热情款',
+				// 	desc: '法国品牌|7天包退|官方直售',
+				// 	rule: { title: '3期免息', content: '999元/期' },
+				// 	checked: false,
+				// 	url: 'https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=2982686518,338089367&fm=74&app=80&f=JPEG&size=f121,140?sec=1880279984&t=c5b1a0d04e6c4936497a09bc4f6a5fb4'
+				// }
 			],
 			listQuery: {
 				page: 1,
@@ -47,7 +47,7 @@ export default {
 	},
 	onLoad: async function() {
 		await this.getList();
-		this.setShareConfig();
+		
 	},
 	onShow() {
 		this.$refs.ShareCanvas.checkPermission();
@@ -64,7 +64,37 @@ export default {
 			uni.navigateBack({delta: 1});
 		},
 		getList: async function() {
-			this.list = (await getGoodsList(this.listQuery)).list;
+			// this.list = (await getGoodsList(this.listQuery)).list;
+			let a =(await getGoodsList(this.listQuery)).list
+			var count=0
+			a.map(async res=>{
+				let e= (await getGoodsDetail({id:res.uuid})).showimg[0].url
+				console.log(e)
+				this.list.push({
+					id:res.uuid,
+					url:e,
+					name:res.name,
+					price:res.price,
+					originalPrice:res.originalPrice
+				}) 
+			    if(count==0){
+					this.shareConfig = {
+						imgUrl: e,
+						qRCodeUrl: e,
+						scene: "scene",
+						title: res.name,
+						price: Number(res.price)
+					}
+					count++
+				}
+			});
+			console.log(this.list)
+			for(let i=0;i++;i<this.list.length){
+				
+			}
+			this.$forceUpdate()
+			
+			
 		},
 
 		/**
@@ -73,12 +103,14 @@ export default {
 		setShareConfig: function() {
 			let item = this.list[this.selectedIndex];
 			this.shareConfig = {
-				imgUrl: item.url[0].path,
-				qRCodeUrl: item.url[0].path,
+				imgUrl: item.url,
+				qRCodeUrl: item.url,
 				scene: "scene",
 				title: item.name,
 				price: 99
 			}
+			this.$forceUpdate()
+			console.log(this.shareConfig)
 		},
 		
 		/**

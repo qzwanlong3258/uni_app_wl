@@ -7,7 +7,7 @@
 		<view class='content-list'>
 			<view class='content-clonum' v-for="(item,index) in shopList" :key="index" @click='goShopDetail(item.id)'>
 				<view class='shop-image'>
-					<image :src='item.url[0].path' mode="aspectFill"></image>
+					<image :src="item.img" @load='imgshowL' mode="aspectFill"></image>
 				</view>
 				<view class='shop-info'>
 					<view class='info-title content-font one-line-elipsis'>{{item.name}}</view>
@@ -42,6 +42,9 @@
 			}
 		},
 		methods: {
+			imgshowL(){
+				this.$emit('imgshow')
+			},
 			goShopDetail: function(id) {
 				uni.navigateTo({
 					url: `${SHOP_DETAIL}?id=${id}`

@@ -90,7 +90,8 @@ export default {
 		 */
 		stateTo0() {
 			this.states.index = 0;
-			this.list = [...this.buffer];
+			this.list = this.buffer.filter(item => item.roleName.indexOf('会员') !== -1||item.roleName.indexOf('会员') !== -1||item.roleName.indexOf('会员') !== -1);
+			// this.list = [...this.buffer];
 		},
 		
 		/**

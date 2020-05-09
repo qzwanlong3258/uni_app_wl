@@ -1,19 +1,21 @@
 <template>
 	<view class="todo-box">
-		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="500"></swiper-img></view>
+		<view :hidden='!imgShow' >
+		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="450"></swiper-img></view>
 		<view class="shop-nav"><yld-nav></yld-nav></view>
-		<view><yld-shop :shopList="shopList" @searchChange="searchChange"></yld-shop></view>
+		<view><yld-shop :shopList="shopList" @searchChange="searchChange" @imgshow='imgshow'></yld-shop></view>
+		</view>
 	</view>
 </template>
 
 <script>
 'use scrict';
-import SwiperImg from '../../../components/SwiperImgtodo.vue';
+import SwiperImg from '../../../components/SwiperImg.vue';
 import YldNav from './components/YldNav.vue';
 import YldShop from './components/YldShop.vue';
-import { getGoodsList } from '@/api/goods.js';
+import { getGoodsList,getGoodsDetail } from '@/api/goods.js';
 import { loadHomeCarousel } from '@/api/tabbar/home.js';
-
+var _self
 export default {
 	data: function() {
 		return {
@@ -23,19 +25,38 @@ export default {
 				type: 1
 			},
 			imgList: [],
-			shopList: []
+			shopList: [],
+			imgShow:false
 		};
 	},
 	onLoad: function() {
+		_self=this
 		this.getCarousel();
 		this.getList();
 	},
 	methods: {
+		imgshow(){
+			_self.imgShow=true
+		},
 		getCarousel: async function() {
-			// this.imgList = (await loadHomeCarousel()).list;
+			this.imgList = (await loadHomeCarousel({type:1})).list;
 		},
 		getList: async function() {
-			this.shopList = (await getGoodsList(this.listQuery)).list;
+			let a =(await getGoodsList({type:1})).list
+			
+			a.map(async res=>{
+				let e= (await getGoodsDetail({id:res.uuid})).showimg[0].url
+				console.log(e)
+				this.shopList.push({
+					id:res.uuid,
+					img:e,
+					name:res.name,
+					price:res.price
+				}) 
+			});
+			this.$forceUpdate()
+			console.log(this.shopList)
+			
 		},
 		searchChange: function(value) {
 			this.listQuery.name = value;

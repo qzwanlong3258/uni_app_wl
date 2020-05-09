@@ -1,5 +1,7 @@
 <template>
+	
 	<view class="mine" v-if="show">
+		<view :hidden='!imgShow'>
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
@@ -47,7 +49,7 @@
 			</view>
 		</view>
 		<view class="mine-link" @click="linkToUrl('推荐中心')">
-			<image :src="imgNav[0]" mode="widthFix"></image><text >推荐中心</text>
+			<image :src="imgNav[0]"  @load='imgshow' mode="widthFix"></image><text >推荐中心</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		<view class="mine-link"  @click="linkToshop()">
@@ -76,6 +78,7 @@
 		</view>
 		
 	</view>
+	</view>
 </template>
 
 <script>
@@ -102,11 +105,15 @@ export default {
 			index:'',
 			role:'',
 			imglogo:TOUXIANG_LOGO,
-			show:false
+			show:false,
+			imgShow:false
 			
 		}
 	},
 	methods:{
+		imgshow(){
+			_self.imgShow=true
+		},
 		tolinkrecord(e){
 			uni.navigateTo({
 				url:`${APPTRECORD}?num=${e}`
@@ -196,7 +203,7 @@ export default {
 		overflow: hidden;
 		margin: 0 auto;
 		border: 6rpx solid #F7B414;
-		padding: 10rpx;
+		/* padding: 10rpx; */
 		background: #FFFFFF;
 	}
 	.mine-nav-top-img{
@@ -251,7 +258,7 @@ export default {
 		font-weight: Regular;
 		color: #333333;
 		padding: 20rpx 0;
-		border-bottom: 6rpx solid #F1F1F1;
+		border-bottom: 6px solid #F1F1F1;
 		
 	}
 	.schedule_logo image{

@@ -23,7 +23,7 @@
 	</view>
 	<view class="prompt" v-if='!show'>
 		<h3 style='text-align: center;margin: 200rpx 0 60rpx 0;font-weight: 900;letter-spacing: 2rpx;'>温馨提示</h3>
-		<p style='margin: 20rpx 30rpx;font-size: 26rpx;'>感谢您信任并使用非客钱包！</p>
+		<p style='margin: 20rpx 30rpx;font-size: 26rpx;'>感谢您信任并使用此小程序！</p>
 		<p style='margin: 20rpx 30rpx;line-height: 50rpx;font-size: 26rpx;'>我们依据最新的法律要求更新了《服务协议》和《隐私政策》，请您在使用服务前仔细阅读并充分理解相关条款。
           为了方便您阅读，请您点击下列协议链接，完整阅读全文：</p>
 		 <p style='margin: 20rpx 30rpx;font-size: 26rpx;color: #E8BE2E;'><span @click='linkToBankTwo'>《服务协议》</span><span @click='linkToBankOne'>《隐私协议》</span></p>

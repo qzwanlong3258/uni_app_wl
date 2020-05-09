@@ -1,22 +1,25 @@
 <template>
 	<scroll-view scroll-y class="container">
+		<view :hidden='!imgShow' >
 		<ljl-states :infor="states"></ljl-states>
-		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="500" :autoplay="false"></swiper-img></view>
+		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="700"></swiper-img></view>
 		<view class="shop-infor"><yld-infor :infor="infor"></yld-infor></view>
-		<view class="recommend-shop"><yld-recommend></yld-recommend></view>
+		<view class="recommend-shop"><yld-recommend :detailImgs="detailImgs" @imgshow='imgshow'></yld-recommend></view>
 		<view class="fixed-document primary-cus-button" @click="buyShop">立即兑换</view>
+		</view>
 	</scroll-view>
 </template>
 
 <script>
 'use scrict';
-import SwiperImg from '../../../components/SwiperImgtodo.vue';
+
+import SwiperImg from '../../../components/SwiperImg.vue';
 import YldInfor from './components/YldInfor.vue';
 import YldRecommend from './components/YldRecommend.vue';
 import LjlStates from '@/components/LjlStates.vue';
 import { WRITE_ORDER } from '@/config/router.js';
 import { getGoodsDetail, getGoodsConvert, getGoodsEvaluation } from '@/api/goods.js';
-
+var _self;
 export default {
 	data: function() {
 		return {
@@ -28,6 +31,7 @@ export default {
 			
 			// 轮播图
 			imgList: [],
+			imgShow:false,
 			// 商品信息
 			infor: {},
 			// 商品详情
@@ -51,11 +55,20 @@ export default {
 		};
 	},
 	onLoad: function(options) {
+		_self=this
 		this.id = options.id;
 		getGoodsDetail({ id: this.id }).then(res => {
+			
 			this.infor = res.goods[0];
-			this.imgList = res.showImg;
-			this.detailImgs = res.list;
+			this.imgList = res.showimg.map(res=>{
+				return {
+					img:res.url
+				}
+			});
+			console.log(this.imgList)
+			
+			
+			this.detailImgs = res.Details;
 		});
 		this.goodsEvaluation.listQuery.id = this.id;
 		getGoodsEvaluation(this.goodsEvaluation.listQuery).then(res => {
@@ -67,6 +80,9 @@ export default {
 		});
 	},
 	methods: {
+		imgshow(){
+			_self.imgShow=true
+		},
 		buyShop: function() {
 			getApp().globalData.goodsInfor = {
 				id: this.infor.id,

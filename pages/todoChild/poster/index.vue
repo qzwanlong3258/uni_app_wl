@@ -1,17 +1,20 @@
 <template>
+	<view :hidden='!imgShow'>
 	<view class="page_poster-box page_view-all-inner-padding">
+		
 		<view class="poster_view-main">
 			<button class="poster_image-logo-box" open-type="share" style="background-color: transparent;">
-				<image class="poster_image-logo" :src="logo" />
+				<image class="poster_image-logo"  :src="logo" />
 				<!-- <text class="poster_text-logo-desc">扫描或长按二维码</text> -->
 			</button>
 			<image class="poster_image-back page_view-full" :src="options.list[options.index]" mode="aspectFill" />
 		</view>
 		<view class="poster_view-options" @click="optionChange">
 			 <scroll-view class="scroll-view_H" scroll-x="true" >
-			                    <image class="poster_image-option" v-for="(item,index) in options.list" :key="index" :src="item" :data-index="index" mode="aspectFill" />
+			                    <image class="poster_image-option" v-for="(item,index) in options.list" @load='imgshow' :key="index" :src="item" :data-index="index" mode="aspectFill" />
 			                </scroll-view>
 			
+		</view>
 		</view>
 	</view>
 </template>
@@ -19,21 +22,35 @@
 <script>
 	'use scrict';
 	import { POSTER_1, POSTER_2, POSTER_3, POSTER_4, POSTER_5,POSTER_6,COMPANY_LOGO, FENXIANG } from "@/config/image.js";
+	import {getPoster} from "@/api/todoChild/poster.js"
+	var _self;
 	
 	export default {
 		data() {
 			return {
 				options: {
 					index: 0,
-					list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4, POSTER_5,POSTER_6]
+					list: [],
+					// list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4, POSTER_5,POSTER_6]
 				},
-				logo: COMPANY_LOGO
+				logo: COMPANY_LOGO,
+				imgShow:false
 			}
 		},
 		onLoad(options) {
+			_self=this
 			options.title && uni.setNavigationBarTitle({ title: options.title });
+			getPoster().then(res=>{
+				_self.options.list=res.list.map(res=>{
+					return res.img
+				})
+				this.$forceUpdate()
+			})
 		},
 		methods: {
+			imgshow(){
+				_self.imgShow=true
+			},
 			optionChange(e) {
 				this.options.index = e.target.dataset.index;
 			},

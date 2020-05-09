@@ -1,1 +1,1 @@
-<view class="recommend-list"></view>
+<view><block wx:for="{{detailImgs}}" wx:for-item="item" wx:for-index="index"><image style="width:100%;" src="{{item.url}}" mode="widthFix" data-event-opts="{{[['load',[['imgshowL',['$event']]]]]}}" bindload="__e"></image></block><view style="height:90rpx;"></view></view>

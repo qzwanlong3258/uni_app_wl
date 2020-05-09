@@ -4,10 +4,22 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
-		"postcss": false,
+		"urlCheck": false,
 		"es6": true,
-		"minified": true
+		"enhance": false,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
@@ -24,13 +36,28 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/todoChild/promoteGoods/index",
+					"pathName": "pages/todoChild/promoteGoods/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }

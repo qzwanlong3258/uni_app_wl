@@ -1,20 +1,24 @@
 <template>
-	<view :hidden='!imgShow'>
+	<view :hidden='!imgShow' >
 		
 	<view :style="{height:height+'px;'}" class="home-hd">
 		<view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view>
 	</view>
-	<scroll-view scroll-y class="container" style="background: #FFFFFF;">
+	<scroll-view scroll-y='true' class="scroll-Y"  style="background: #FFFFFF;">
 		
-		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="400"></swiper-img></view>
+		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="450"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
 		<!-- <yld-nav v-if="todoNav.length" :navList="todoNav"></yld-nav> -->
 		<yld-nav  :navList="todoNav"></yld-nav>
-		<view class="bottom-show" v-for="(item,index) in adimg" :key="index"  @click="linkToPage(item.url)"><image :src="item.img" @load='imgshow' mode="widthFix"></image></view>
+		<view style="padding-bottom: 80rpx;">
+			<view class="bottom-show" v-for="(item,index) in adimg" :key="index"  @click="linkToPage(item.url)">
+				<image :src="item.img" @load='imgshow'  mode="widthFix"></image></view>
+		</view>
+		
 		<!-- <view class="bottom-show"><image :src="adimg[1]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view> -->
-		<view style="height: 40px;"></view>
+		<!-- <view style="height: 40px;"></view> -->
 	</scroll-view>
 	</view>
 </template>
@@ -165,8 +169,16 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
+	.scroll-Y{
+		height: 1115rpx;
+		width: 100%;
+	}
 	.home-hd{
 		background: #fff;
 		position: relative;

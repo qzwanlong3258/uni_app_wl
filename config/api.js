@@ -20,8 +20,8 @@ module.exports = {
 	LOGIN_APP_REGISTER_LOGIN: `${auth}/register`,
 	
 	/** 积分商城 **/
-	LOAD_GOODS_LIST: `${baseUrl}/wx/user/loadWxGoods`, // 加载积分商品
-	LOAD_GOODS_DETAIL: `${baseUrl}/wx/user/loadWxGoodsDetails`, // 查看积分商品详情
+	LOAD_GOODS_LIST: `${baseUrl}/goods/loadGoods`, // 加载积分商品
+	LOAD_GOODS_DETAIL: `${baseUrl}/goods/loadGoodsDetails`, // 查看积分商品详情
 	LOAD_GOODS_EVALUATION: `${baseUrl}/wx/user/loadWxGoodsEvaluation`, // 查看评价商品
 	LOAD_GOODS_CONVERT: `${baseUrl}/wx/user/loadWxGoodsConvert`,// 查看参与商品兑换记录
 	LOAD_INTEGRAL: `${baseUrl}/wx/user/loadRemaining`,  // 查询积分余额
@@ -54,11 +54,11 @@ module.exports = {
 	ORDER_DELIVERY: `${baseUrl}/wx/user/orderComplete`,
 	
 	/** 活动 **/
-	LOAD_ACTIVITY: `${baseUrl}/wx/user/loadActivity`,
+	LOAD_ACTIVITY: `${baseUrl}/activity/loadActivity`,
 	COMPLETE_ACTIVITY: `${baseUrl}/wx/user/completeActivity`,
 	
 	/** 客户 **/
-	LOAD_CUSTOMER: `${baseUrl}/wx/user/loadUserList`,
+	LOAD_CUSTOMER: `${baseUrl}/invite/loadApplyUserList`,
 	
 	/** 贷款分期申请 **/
 	LOAN_APPT:`${baseUrl}/wx/login/apply`,
@@ -90,6 +90,9 @@ module.exports = {
 	GET_SHOP:`${baseUrl}/make/loadDecorate`,
 	MEASURE_SUCCESS:`${baseUrl}/make/makeDecorate`,
 	GET_MY_SHOP:`${baseUrl}/make/loadMakeRecord`,
+	/** 海报**/
+	GET_POSTER:`${baseUrl}/posters/loadPosters`
+	
 	
 	
 }
