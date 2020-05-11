@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "商户选择",
   "usingComponents": {
-    "w-picker": "/components/w-picker/w-picker"
+    "w-picker": "/components/w-picker/w-picker",
+    "null-data": "/components/NullData"
   }
 }

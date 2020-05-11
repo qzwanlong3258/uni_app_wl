@@ -5,7 +5,7 @@
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
-					<image :src="userInfo.avatarUrl" class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+					<image :src="userInfo.avatarUrl"  @load='imgshow' class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
 					<image :src="imglogo" class="mine-nav-top-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 			</view>
@@ -49,7 +49,7 @@
 			</view>
 		</view>
 		<view class="mine-link" @click="linkToUrl('推荐中心')">
-			<image :src="imgNav[0]"  @load='imgshow' mode="widthFix"></image><text >推荐中心</text>
+			<image :src="imgNav[0]"  mode="widthFix"></image><text >推荐中心</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		<view class="mine-link"  @click="linkToshop()">

@@ -4,7 +4,7 @@
 	<view :style="{height:height+'px;'}" class="home-hd">
 		<view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view>
 	</view>
-	<scroll-view scroll-y='true' class="scroll-Y"  style="background: #FFFFFF;">
+	<scroll-view scroll-y='true' class="scroll-Y"  :style="'height:'+ScreenHeight+'px'">
 		
 		<view class="swiper-img"><swiper-img :imgList="imgList" :heightNum="450"></swiper-img></view>
 		<view class="hot-tip"><yld-hot :valueList="tipList"></yld-hot></view>
@@ -33,6 +33,7 @@ import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR,AD_ONE, AD_TW
 import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
 import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
+import { getStorage } from '@/utils/storage.js';
 var _self;
 export default {
 	data: function() {
@@ -47,7 +48,8 @@ export default {
 			citys: [],
 			dataL:[],
 			height:40,
-			imgShow:false
+			imgShow:false,
+			ScreenHeight:667
 		};
 	},
 	onLoad:  function() {
@@ -77,27 +79,34 @@ export default {
 			// _self.citys = res.list
 			// _self.todoNav = this.citys[0].button;
 		});
+		var sys=getStorage('sysInfo')
 		uni.getSystemInfo({
 		        success:function(e){
 		            _self.height = e.statusBarHeight
 		            // #ifndef MP
 		            if(e.platform == 'android') {
 		                _self.height = e.statusBarHeight + 50
+						_self.ScreenHeight=sys.windowHeight - _self.height
 		            }else {
 		               _self.height = e.statusBarHeight + 45
+					   _self.ScreenHeight=sys.windowHeight - _self.height
 		            }
 		            // #endif
 		            
 		            // #ifdef MP-WEIXIN
 		            let custom = wx.getMenuButtonBoundingClientRect()
 		            _self.height = custom.bottom + custom.top - e.statusBarHeight
+					_self.ScreenHeight=sys.windowHeight - _self.height
 		            // #endif
 		            
 		            // #ifdef MP-ALIPAY
 		            _self.height = e.statusBarHeight + e.titleBarHeight
+					_self.ScreenHeight=sys.windowHeight - _self.height
 		            // #endif
 		        }
 		    })
+			
+			
 	},
 	methods: {
 		imgshow(){

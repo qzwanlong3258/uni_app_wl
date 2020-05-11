@@ -32,8 +32,8 @@
 	var QQMapWX = require('@/utils/qqmap-wx-jssdk.js')
 	import { formatTime } from '@/utils/util.js'
 	const viodeUrl = {
-		feikeError: 'http://47.104.232.184/images/feike.mp3',
-		success: 'http://47.104.232.184/images/success.mp3',
+		feikeError: 'https://www.feiaizn.com/images/feike.mp3',
+		success: 'https://www.feiaizn.com/images/success.mp3',
 	}
 	import { MINE} from '@/config/router.js';
 	import { photoSubmit } from '@/api/myWork.js'
@@ -50,32 +50,32 @@
 				needLocation: [{
 						id: 1,
 						name: '客厅',
-						video: 'http://47.104.232.184/images/keting.mp3'
+						video: 'https://www.feiaizn.com/images/keting.mp3'
 					},
 					{
 						id: 2,
 						name: '餐厅',
-						video: 'http://47.104.232.184/images/canting.mp3'
+						video: 'https://www.feiaizn.com/images/canting.mp3'
 					},
 					{
 						id: 3,
 						name: '厨房',
-						video: 'http://47.104.232.184/images/chufang.mp3'
+						video: 'https://www.feiaizn.com/images/chufang.mp3'
 					},
 					{
 						id: 4,
 						name: '卫生间',
-						video: 'http://47.104.232.184/images/weishengjian.mp3'
+						video: 'https://www.feiaizn.com/images/weishengjian.mp3'
 					},
 					{
 						id: 5,
 						name: '卧室',
-						video: 'http://47.104.232.184/images/woshi.mp3'
+						video: 'https://www.feiaizn.com/images/woshi.mp3'
 					},
 					{
 						id: 6,
 						name: '卧室',
-						video: 'http://47.104.232.184/images/woshi.mp3'
+						video: 'https://www.feiaizn.com/images/woshi.mp3'
 					}
 				],
 				currentVideoIndex: 0,

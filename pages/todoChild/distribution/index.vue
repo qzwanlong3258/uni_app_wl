@@ -17,9 +17,9 @@
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
-	    		<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 4rpx 0;">WELCOME</view>
-	    		<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 4rpx 0;">{{userInfo.level}}</view>
-				<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 4rpx 0;">加入时间：{{userInfo.joinTime}}</view>
+	    		<view style="text-align: center;color: #000000;font-size: 22rpx;margin: 4rpx 0;">WELCOME</view>
+	    		<view style="text-align: center;color: #605800;font-size: 22rpx;margin: 4rpx 0;">{{userInfo.level}}</view>
+				<view style="text-align: center;color: #605800;font-size: 20rpx;margin: 4rpx 0;">加入时间：{{userInfo.joinTime}}</view>
 				<view class="box" style="margin-top: 30rpx;">
 					<view class="box-left">未入账</view>
 					<view class="box-mid">已结算金额</view>

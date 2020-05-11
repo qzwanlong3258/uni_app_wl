@@ -164,9 +164,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 
 var _mine = __webpack_require__(/*! @/api/tabbar/mine.js */ 342);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var modelCalendar = function modelCalendar() {__webpack_require__.e(/*! require.ensure | components/Calendar */ "components/Calendar").then((function () {return resolve(__webpack_require__(/*! @/components/Calendar.vue */ 760));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
 var _self;var _default =
 
 {
@@ -177,7 +185,12 @@ var _self;var _default =
       sumCount: 0,
       signData: [],
       img: _image.SIGNIN,
-      show: false };
+      show: false,
+      checkIn: {
+        isShow: false,
+        url: _image.CHECK_IN,
+        crossUrl: _image.CROSS } };
+
 
   },
   components: {
@@ -230,7 +243,8 @@ var _self;var _default =
                 (0, _mine.checkIn)();
                 this.getData(this.getTime());_context2.next = 5;return (
                   (0, _mine.getCheckIn)());case 5:e = _context2.sent;
-                _self.show = e;case 7:case "end":return _context2.stop();}}}, _callee2, this);}));function clickbtn() {return _clickbtn.apply(this, arguments);}return clickbtn;}(),
+                _self.show = e;
+                this.checkIn.isShow = !this.checkIn.isShow;case 8:case "end":return _context2.stop();}}}, _callee2, this);}));function clickbtn() {return _clickbtn.apply(this, arguments);}return clickbtn;}(),
 
     clickRegister: function clickRegister(day) {
       //console.log("在模版页签到了", day);

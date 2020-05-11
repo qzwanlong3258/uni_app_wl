@@ -1,6 +1,6 @@
 <template>
 	<view class="record">
-		<view class="null" :hidden="show"><null-data :content="nullContent" /></view>
+		<!-- <view class="null" :hidden="show"><null-data :content="nullContent" /></view> -->
 		<view class="recordCard" :hidden="!show" @click="linkRecordDetail" :data-id="item.id" v-for="(item,index) in dataList" :key="index">
 			<view class="recordCard-hd">
 				<view style="margin-left: 5px;"><image :src="img" style="width: 100%;" mode="widthFix" alt="" /></view>
@@ -23,6 +23,7 @@
 			<!-- <view class="recordCard-ft"><view class="recordCard-ft-box">再次申请</view></view> -->
 			<view class="recordCard-ft"><view ></view></view>
 		</view>
+		<null-data v-if="!dataList.length" class="nullData_view" />
 	</view>
 </template>
 

@@ -57,7 +57,7 @@
 					<image  :src='item.img' mode="widthFix"></image>
 					<view class="text" :style="'color:'+item.colorOne">{{item.roleName}}</view>
 				</view>
-				<view class="box-right">{{item.describe}}</view>
+				<view class="box-right">{{item.describe}}<image :src="img[3]" mode="widthFix"></image></view>
 			</button>
 			<!-- <view class="box">
 				<view class="box-left" :style="color[index]">

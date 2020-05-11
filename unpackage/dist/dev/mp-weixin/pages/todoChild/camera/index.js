@@ -169,7 +169,7 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 48);
 
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _myWork = __webpack_require__(/*! @/api/myWork.js */ 148);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 460);var viodeUrl = { feikeError: 'http://47.104.232.184/images/feike.mp3', success: 'http://47.104.232.184/images/success.mp3' };
+var _myWork = __webpack_require__(/*! @/api/myWork.js */ 148);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var QQMapWX = __webpack_require__(/*! @/utils/qqmap-wx-jssdk.js */ 460);var viodeUrl = { feikeError: 'https://www.feiaizn.com/images/feike.mp3', success: 'https://www.feiaizn.com/images/success.mp3' };
 var _self;var _default =
 {
   name: 'canvas-drawer',
@@ -183,32 +183,32 @@ var _self;var _default =
       needLocation: [{
         id: 1,
         name: '客厅',
-        video: 'http://47.104.232.184/images/keting.mp3' },
+        video: 'https://www.feiaizn.com/images/keting.mp3' },
 
       {
         id: 2,
         name: '餐厅',
-        video: 'http://47.104.232.184/images/canting.mp3' },
+        video: 'https://www.feiaizn.com/images/canting.mp3' },
 
       {
         id: 3,
         name: '厨房',
-        video: 'http://47.104.232.184/images/chufang.mp3' },
+        video: 'https://www.feiaizn.com/images/chufang.mp3' },
 
       {
         id: 4,
         name: '卫生间',
-        video: 'http://47.104.232.184/images/weishengjian.mp3' },
+        video: 'https://www.feiaizn.com/images/weishengjian.mp3' },
 
       {
         id: 5,
         name: '卧室',
-        video: 'http://47.104.232.184/images/woshi.mp3' },
+        video: 'https://www.feiaizn.com/images/woshi.mp3' },
 
       {
         id: 6,
         name: '卧室',
-        video: 'http://47.104.232.184/images/woshi.mp3' }],
+        video: 'https://www.feiaizn.com/images/woshi.mp3' }],
 
 
       currentVideoIndex: 0,

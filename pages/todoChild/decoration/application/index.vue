@@ -18,7 +18,7 @@
 		<view class="application_hd">
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">姓名:</view>
-				<view class="appli_hd_item_content"><input type="text" placeholder="姓名" v-model="dataList.loanerName" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" placeholder="请输入您的姓名" v-model="dataList.loanerName" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">身份证号码:</view>
@@ -74,7 +74,9 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">月收入:</view>
-				<view class="appli_hd_item_content"><input type="text" v-model="dataList.familyMonthIncome" placeholder="请输入您的月收入" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content" style="position: relative;"><input type="text" @input='familyMonthIncomenput' v-model="dataList.familyMonthIncome" placeholder="请输入您的月收入" placeholder-class="input_color" />
+				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!familyMonthIncomeShow'>元</view>
+				</view>
 			</view>
 		</view>
 		
@@ -87,7 +89,9 @@
 	<view class="application_bd">
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请金额:</view>
-			<view class="appli_hd_item_content"><input type="number" v-model="dataList.loanMoney"  placeholder="请输入您的金额" placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content" style="position: relative;"><input type="number" v-model="dataList.loanMoney" @input='loanMoneyinput' placeholder="请输入您的金额" placeholder-class="input_color" />
+			<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!loanMoneyShow'>元</view>
+			</view>
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请周期:</view>
@@ -242,13 +246,14 @@ export default {
 			// 	]}
 			// ]
 			marriageItems: [
-				{
-					value: '已婚',
-					name: '已婚'
-				},
+				
 				{
 					value: '未婚',
 					name: '未婚'
+				},
+				{
+					value: '已婚',
+					name: '已婚'
 				}
 			],
 			photoItems: [
@@ -292,7 +297,10 @@ export default {
 				value: '',
 				cityPickerValueDefault: [0, 0, 1],
 				                pickerText: '北京市 市辖区 西城区',
-								adressDetail:''
+								adressDetail:'',
+								familyMonthIncomeShow:false,
+								loanMoneyShow:false
+								
 			
 			
 			
@@ -311,6 +319,23 @@ export default {
 		
 	},
 	methods: {
+		familyMonthIncomenput(e){
+			// console.log(e.detail)
+			// this.$forceUpdate();
+			if(e.detail.value ==""){
+				_self.familyMonthIncomeShow=false
+			} else{
+				_self.familyMonthIncomeShow=true
+			}
+			
+		},
+		loanMoneyinput(e){
+			if(e.detail.value ==""){
+				_self.loanMoneyShow=false
+			} else{
+				_self.loanMoneyShow=true
+			}
+		},
 		marriageRadioChange: function(evt) {
 			for (let i = 0; i < this.marriageItems.length; i++) {
 				if (this.marriageItems[i].value === evt.target.value) {

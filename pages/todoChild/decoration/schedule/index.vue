@@ -127,6 +127,7 @@
 				</view>
 			</view> -->
 		</view>
+		<null-data v-if="!dataList.length&&!failDataListOne.length&&!failDataListTwo.length" class="nullData_view" />
 		
 	</view>
 </template>
@@ -138,8 +139,9 @@ import uniSteps from '@/components/uni-steps/uni-steps.vue';
 import LjlStates from '@/components/LjlStates';
 import { loanList } from '@/api/todoChild/loan.js';
 import { getStorage } from '@/utils/storage.js';
+import NullData from '@/components/NullData.vue';
 export default {
-	 components: {uniSteps,LjlStates
+	 components: {uniSteps,LjlStates,NullData
 	 },
 	data() {
 		return{

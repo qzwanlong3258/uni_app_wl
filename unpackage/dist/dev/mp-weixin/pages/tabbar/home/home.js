@@ -167,7 +167,8 @@ __webpack_require__.r(__webpack_exports__);
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
 var _city = __webpack_require__(/*! @/api/city.js */ 36);
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}var YldTop = function YldTop() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then((function () {return resolve(__webpack_require__(/*! ./components/YldTop.vue */ 489));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SwiperImg = function SwiperImg() {Promise.all(/*! require.ensure | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 496));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldHot = function YldHot() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then((function () {return resolve(__webpack_require__(/*! ./components/YldHot.vue */ 503));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 510));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}var YldTop = function YldTop() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldTop */ "pages/tabbar/home/components/YldTop").then((function () {return resolve(__webpack_require__(/*! ./components/YldTop.vue */ 489));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var SwiperImg = function SwiperImg() {Promise.all(/*! require.ensure | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 496));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldHot = function YldHot() {__webpack_require__.e(/*! require.ensure | pages/tabbar/home/components/YldHot */ "pages/tabbar/home/components/YldHot").then((function () {return resolve(__webpack_require__(/*! ./components/YldHot.vue */ 503));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/home/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/home/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 510));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   data: function data() {
@@ -182,7 +183,8 @@ var _self;var _default =
       citys: [],
       dataL: [],
       height: 40,
-      imgShow: false };
+      imgShow: false,
+      ScreenHeight: 667 };
 
   },
   onLoad: function onLoad() {
@@ -212,6 +214,7 @@ var _self;var _default =
       // _self.citys = res.list
       // _self.todoNav = this.citys[0].button;
     });
+    var sys = (0, _storage.getStorage)('sysInfo');
     uni.getSystemInfo({
       success: function success(e) {
         _self.height = e.statusBarHeight;
@@ -224,14 +227,20 @@ var _self;var _default =
 
 
 
+
+
         var custom = wx.getMenuButtonBoundingClientRect();
         _self.height = custom.bottom + custom.top - e.statusBarHeight;
+        _self.ScreenHeight = sys.windowHeight - _self.height;
+
 
 
 
 
 
       } });
+
+
 
   },
   methods: {

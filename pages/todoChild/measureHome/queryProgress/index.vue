@@ -12,11 +12,11 @@
 			<view class="right">
 				<!-- <image :src="img[0]" :hidden="!item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image>
 				<image :src="img[1]" :hidden="item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image> -->
-				<view style="width: 90rpx;height: 40rpx;background: #FFEA04;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '1'">待量房</view>
-				<view style="width: 90rpx;height: 40rpx;background: #01B164;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '2'">已完成</view>
+				<view style="width: 90rpx;height: 40rpx;background: #FFEA04;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.makeState == '1'">待量房</view>
+				<view style="width: 90rpx;height: 40rpx;background: #01B164;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.makeState == '2'">已完成</view>
 			</view>
 		</view>
-		
+		<null-data v-if="!dataList.length" class="nullData_view" />
 	</view>
 </template>
 
@@ -24,7 +24,11 @@
 'use strict';
 var _self;
 import { getMyShop} from '@/api/measureHome.js';
+import NullData from '@/components/NullData.vue';
 export default {
+	components:{
+		NullData
+	},
 	data() {
 		return{
 			dataList:{}

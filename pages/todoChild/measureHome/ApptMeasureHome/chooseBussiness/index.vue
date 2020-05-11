@@ -12,6 +12,7 @@
 				<image :src="img[1]" :hidden="item.show" @click="choose(index)" style="width: 120rpx;" mode="widthFix"></image>
 			</view>
 		</view>
+		<null-data v-if="!dataList.length" class="nullData_view" :content="'暂无商户'" />
 		<w-picker
 			mode="date" 
 			    :startYear="year" 
@@ -30,10 +31,12 @@ var _self;
 import { MEASUREHOME_CHOOSE,MEASUREHOME_ISCHOOSE } from '@/config/image.js';
 import { getShop, measureSuccess} from '@/api/measureHome.js';
 import wPicker from "@/components/w-picker/w-picker.vue";
-import {HOME} from '@/config/router.js'
+import {HOME} from '@/config/router.js';
+import NullData from '@/components/NullData.vue';
 export default {
 	components: {
 		wPicker,
+		NullData
 	},
 	data() {
 		return{

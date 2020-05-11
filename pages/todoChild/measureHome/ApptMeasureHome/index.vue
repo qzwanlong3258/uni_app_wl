@@ -146,8 +146,47 @@ export default {
 			this.periodIndex = e.target.value
 			_self.dataList.address = this.periodArray[e.target.value]
 		},
+		toast(v){
+			
+				uni.showToast({
+				    title: v,
+				    duration: 2000,
+					icon:'none'
+				});
+				
+			
+		},
+		
 		 toLinkChoose(){
 			 // _self.dataList.address = this.pickerText
+			 if(!this.dataList.name){
+			 	this.toast('请输入您的姓名')
+			 	return;
+			 }
+			 if(!this.dataList.address){
+			 	this.toast('请选择你所在城市')
+			 	return;
+			 }
+			 if(!this.dataList.communityName){
+			 	this.toast('请输入您的小区名称')
+			 	return;
+			 }
+			 if(!this.dataList.area){
+			 	this.toast('请输入您的房屋面积')
+			 	return;
+			 }
+			 if(!this.dataList.budget){
+			 	this.toast('请输入您的装修预算')
+			 	return;
+			 }
+			 if(!this.dataList.communityName){
+			 	this.toast('请输入您的房屋面积')
+			 	return;
+			 }
+			 if(!this.dataList.phone){
+			 	this.toast('请输入您的手机号')
+			 	return;
+			 }
 			 measureHome (this.dataList).then(res=>{
 				 console.log(res)
 				

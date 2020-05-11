@@ -5,23 +5,28 @@
 		<view class="application_hd">
 			<view class="application_hd_item" style="border-top:1px solid rgba(229, 229, 229, 1) ;">
 				<view class="appli_hd_item_lable">*公司名称：</view>
-				<view class="appli_hd_item_content"><input type="text" v-model="dataList.name" placeholder="请输入你的公司名称" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" v-model="dataList.name" placeholder="请输入公司名称" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item" style="border-top:1px solid rgba(229, 229, 229, 1) ;">
 				<view class="appli_hd_item_lable">*营业执照编号：</view>
-				<view class="appli_hd_item_content"><input type="number" v-model="dataList.businesslicenseCode" placeholder="请输入您的营业执照编号" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" maxlength="15" v-model="dataList.businesslicenseCode" placeholder="请输入营业执照编号" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
-				<view class="appli_hd_item_lable">*法人姓名：</view>
-				<view class="appli_hd_item_content"><input type="text"  v-model="dataList.juridicalPerson"  placeholder="请输入你的法人姓名" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_lable">*法定代表人：</view>
+				<view class="appli_hd_item_content"><input type="text"  v-model="dataList.juridicalPerson"  placeholder="请输入法定代表人姓名" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*注册时间：</view>
-				<view class="appli_hd_item_content"><input type="text"  v-model="dataList.createDate" placeholder="请输入你的注册时间" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content" @click="show" >
+					<!-- <input type="text"  v-model="dataList.createDate" placeholder="请输入注册时间" placeholder-class="input_color" /> -->
+					{{value}}
+					</view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*注册资金：</view>
-				<view class="appli_hd_item_content"><input type="number" v-model="dataList.createNumber" placeholder="请输入你的注册资金" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content" style="position: relative;"><input type="number" @input="createNumberInput" v-model="dataList.createNumber" placeholder="请输入你的注册资金" placeholder-class="input_color" />
+				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!createNumberShow'>元</view>
+				</view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*所在城市：</view>
@@ -43,20 +48,29 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*联系人电话：</view>
-				<view class="appli_hd_item_content"><input type="number"  maxlength="11" v-model="dataList.phone" placeholder="请输入你的联系人电话" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number"  maxlength="11" v-model="dataList.phone" placeholder="请输入联系人电话" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*公司地址：</view>
-				<view class="appli_hd_item_content"><input type="text" v-model="dataList.address" placeholder="请输入你的公司地址" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" v-model="dataList.address" placeholder="请输入公司地址" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">邀请人编码：</view>
-				<view class="appli_hd_item_content"><input type="text" v-model="dataList.yaoqing" placeholder="请输入你的邀请人编码" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="text" v-model="dataList.yaoqing" placeholder="请输入邀请人编码" placeholder-class="input_color" /></view>
 			</view>
 			<view class="btn">
-				<view class="scheduleBtn" @click="submitBtn">提交</view>
+				<view class="scheduleBtn" @click="submitBtn">上传资料</view>
 				<view class="freeMeasureHomeBtn" @click="apptMeasureHomeBtn">邀请商户</view>
 			</view>
+			<w-picker
+				mode="date" 
+				    startYear="1950" 
+				    
+				    :defaultVal="value"
+				@confirm="onConfirm"
+				:disabledAfter="false"
+				ref="date"
+			></w-picker>
 		</view>
 		
 	</view>
@@ -68,6 +82,7 @@ import { COMPANY_LOGO} from '@/config/image.js';
 import { UPLOAD, INVITE} from '@/config/router.js';
 import { loadCity } from '@/api/city.js';
 import { getStorage ,setStorage } from '@/utils/storage.js';
+import wPicker from "@/components/w-picker/w-picker.vue";
 var _self;
 export default {
 	data() {
@@ -76,15 +91,49 @@ export default {
 			periodArray: [],
 			periodIndex: 0,
 			dataList:{},
-			cityid:[]
+			cityid:[],
+			value:'',
+			createNumberShow:false
 		}
 	},
 	methods:{
+		createNumberInput(e){
+			if(e.detail.value ==""){
+				_self.createNumberShow=false
+			} else{
+				_self.createNumberShow=true
+			}
+		},
+		// 日期
+		show () {
+								this.$refs.date.show()
+							},
+		onConfirm (e) {
+								_self.dataList.createDate = e.result
+								_self.value = e.result
+								// console.log(e.result)
+								// console.log(_self.dataList.createDate)
+							},
 		periodBindPickerChange: function(e){
 			console.log('picker发送选择改变，携带值为', e.target.value)
 			this.periodIndex = e.target.value
 			_self.dataList.cid = this.cityid[e.target.value]
 		},
+		getTime:function(){
+		
+		var date = new Date(),
+		year = date.getFullYear(),
+		month = date.getMonth() + 1,
+		day = date.getDate(),
+		hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
+		minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+		second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+		month >= 1 && month <= 9 ? (month = "0" + month) : "";
+		day >= 0 && day <= 9 ? (day = "0" + day) : "";
+		var timer = year + '-' + month + '-' + day ;
+		return timer;
+		},
+		
 		toast(v){
 			
 				uni.showToast({
@@ -133,17 +182,24 @@ export default {
 			_self.yaoqing=''
 			// setStorage('data',this.dataList)
 			let e = JSON.stringify(this.dataList)
-			uni.showToast({
+			
+										setTimeout(()=>{
+														uni.showToast({
 											title: "提交成功,请上传资料",
 											icon: 'none',
 											duration: 2000,
 										});
-										setTimeout(()=>{
-														uni.navigateTo({
+												},100)
+										uni.navigateTo({
 															
 															url: `${UPLOAD}?data=${e}`
 														})
-													},2000)
+										// setTimeout(()=>{
+										// 				uni.navigateTo({
+															
+										// 					url: `${UPLOAD}?data=${e}`
+										// 				})
+										// 			},2000)
 			
 			
 		},
@@ -164,6 +220,8 @@ export default {
 			return res.id
 		})
 		_self.dataList.cid = _self.cityid[0]
+		_self.value=this.getTime()
+		_self.dataList.createDate=this.getTime()
 	}
 };
 </script>

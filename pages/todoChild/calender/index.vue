@@ -15,6 +15,13 @@
 		:dataSource="signData" :totalNum="sumCount"
 		 @dateChange="getData" @clickChange="clickRegister"	 >
 		 </model-calendar>
+		 <view class="check-in-barrage" :style="{visibility: checkIn.isShow ? 'visible' : 'hidden'}">
+		 	<view class="checkImg">
+		 		<image class="img" :src="checkIn.url" model="aspectFit"></image>
+		 		<text class="font">签到成功，今日已领<text>1</text>积分</text>
+		 	</view>
+		 	<image class="cross" data-tab="close" :src="checkIn.crossUrl" model="aspectFit" @click="handerCheckInChange"></image>
+		 </view>
 		<!-- <view class='count'>
 			<text>截至目前，已签到</text>
 			<view class='daynumber'>
@@ -32,6 +39,7 @@
 	import {SIGNIN, SIGNIN_IMAGE} from '@/config/image.js'
 	import modelCalendar from '@/components/Calendar.vue';
 	import { checkIn, calender ,getCheckIn } from '@/api/tabbar/mine.js';
+	import { CHECK_IN, CROSS } from "@/config/image.js";
 	var _self;
 
 	export default {
@@ -42,7 +50,12 @@
 				sumCount: 0,
 				signData: [],
 				img:SIGNIN,
-				show:false
+				show:false,
+				checkIn: {
+					isShow: false,
+					url: CHECK_IN,
+					crossUrl: CROSS
+				}
 			};
 		},
 		components: {
@@ -96,6 +109,7 @@
 				this.getData(this.getTime())
 				let e = await getCheckIn()
 				_self.show=e
+				this.checkIn.isShow = !this.checkIn.isShow;
 			},
 			clickRegister(day) {
 				//console.log("在模版页签到了", day);

@@ -213,7 +213,7 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
                             if (count == 0) {
                               _this.shareConfig = {
                                 imgUrl: e,
-                                qRCodeUrl: e,
+                                qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
                                 scene: "scene",
                                 title: res.name,
                                 price: Number(res.price) };
@@ -237,10 +237,10 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
       var item = this.list[this.selectedIndex];
       this.shareConfig = {
         imgUrl: item.url,
-        qRCodeUrl: item.url,
+        qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
         scene: "scene",
         title: item.name,
-        price: 99 };
+        price: Number(item.price) };
 
       this.$forceUpdate();
       console.log(this.shareConfig);

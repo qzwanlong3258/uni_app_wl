@@ -80,7 +80,7 @@ export default {
 			    if(count==0){
 					this.shareConfig = {
 						imgUrl: e,
-						qRCodeUrl: e,
+						qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
 						scene: "scene",
 						title: res.name,
 						price: Number(res.price)
@@ -104,10 +104,10 @@ export default {
 			let item = this.list[this.selectedIndex];
 			this.shareConfig = {
 				imgUrl: item.url,
-				qRCodeUrl: item.url,
+				qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
 				scene: "scene",
 				title: item.name,
-				price: 99
+				price: Number(item.price)
 			}
 			this.$forceUpdate()
 			console.log(this.shareConfig)

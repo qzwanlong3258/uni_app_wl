@@ -355,6 +355,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 'use scrict';
 // import { ApplicationInput } from './components/ApplicationInput.vue';
@@ -381,13 +385,14 @@ var _self;var _default =
       // 	]}
       // ]
       marriageItems: [
-      {
-        value: '已婚',
-        name: '已婚' },
 
       {
         value: '未婚',
-        name: '未婚' }],
+        name: '未婚' },
+
+      {
+        value: '已婚',
+        name: '已婚' }],
 
 
       photoItems: [
@@ -431,7 +436,10 @@ var _self;var _default =
       value: '',
       cityPickerValueDefault: [0, 0, 1],
       pickerText: '北京市 市辖区 西城区',
-      adressDetail: '' };
+      adressDetail: '',
+      familyMonthIncomeShow: false,
+      loanMoneyShow: false };
+
 
 
 
@@ -450,6 +458,23 @@ var _self;var _default =
 
   },
   methods: {
+    familyMonthIncomenput: function familyMonthIncomenput(e) {
+      // console.log(e.detail)
+      // this.$forceUpdate();
+      if (e.detail.value == "") {
+        _self.familyMonthIncomeShow = false;
+      } else {
+        _self.familyMonthIncomeShow = true;
+      }
+
+    },
+    loanMoneyinput: function loanMoneyinput(e) {
+      if (e.detail.value == "") {
+        _self.loanMoneyShow = false;
+      } else {
+        _self.loanMoneyShow = true;
+      }
+    },
     marriageRadioChange: function marriageRadioChange(evt) {
       for (var i = 0; i < this.marriageItems.length; i++) {
         if (this.marriageItems[i].value === evt.target.value) {

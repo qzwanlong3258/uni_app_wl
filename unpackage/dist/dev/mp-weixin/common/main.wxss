@@ -340,8 +340,8 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   position: absolute;
   top: 20%;
   left: calc(50% - 175rpx);
-  -webkit-filter: opacity(0.4);
-          filter: opacity(0.4);
+  -webkit-filter: opacity(0.7);
+          filter: opacity(0.7);
 }
 .customerInfor_text-role.member {
   color: white;

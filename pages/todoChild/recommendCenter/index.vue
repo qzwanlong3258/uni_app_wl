@@ -13,11 +13,11 @@
 				<view style="display: flex;" class="recomCenter-pic">
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
 						<view><image :src="img[0]" mode="widthFix"></image></view>
-						<view>积分: 100</view>
+						<view>积分: 0</view>
 					</view>
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
 						<view><image :src="img[1]" mode="widthFix"></image></view>
-						<view>优惠卷: 100元</view>
+						<view>优惠券: 0元</view>
 					</view>
 				</view>
 			</view>
@@ -35,13 +35,14 @@
 'use strict';
 import {RECOMMEND_POINT,RECOMMEND_COUPON, RECOMMEND_GIFT, RECOMMEND_INVITE} from '@/config/image.js';
 import {RECOMMENDED} from '@/config/router.js';
+import { getStorage } from '@/utils/storage.js';
 export default {
 	data() {
 		return{
 			userInfo:{
-				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
-				nickName:'李三',
-				phone:'广东 深圳'
+				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				// nickName:'李三',
+				// phone:'广东 深圳'
 			},
 			img:[RECOMMEND_POINT,RECOMMEND_COUPON,RECOMMEND_GIFT,RECOMMEND_INVITE]
 		}
@@ -53,7 +54,9 @@ export default {
 			})
 		}
 	},
-	async onLoad() {}
+	async onLoad() {
+		this.userInfo = getStorage('userInfo');
+	}
 };
 </script>
 <style>
