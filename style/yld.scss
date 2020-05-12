@@ -82,8 +82,10 @@ button::after {
 	text-align: center;
 	line-height: 80upx;
 	border-radius: 48upx;
-	color: #fff;
-	background: linear-gradient(135deg, #df365d, #ee141e);
+	color: #000000;
+	background: #FFEA04;
+	// color: #fff;
+	// background: linear-gradient(135deg, #df365d, #ee141e);
 	margin-left: 30upx;
 }
 /*底部覆盖副按钮*/
@@ -93,8 +95,10 @@ button::after {
 	font-size: 34upx;
 	text-align: center;
 	line-height: 100upx;
-	color: #fff;
-	background: linear-gradient(135deg, #df365d, #ee141e);
+	// color: #fff;
+	color: #000000;
+	// background: linear-gradient(135deg, #df365d, #ee141e);
+	background: #FFEA04;
 }
 /*背景图*/
 

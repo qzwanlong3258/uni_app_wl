@@ -93,7 +93,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  "tki-qrcode": function() {
+    return Promise.all(/*! import() | components/tki-qrcode/tki-qrcode */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/tki-qrcode/tki-qrcode")]).then(__webpack_require__.bind(null, /*! @/components/tki-qrcode/tki-qrcode.vue */ 661))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -143,12 +147,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
 
 
-var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var Search = function Search() {Promise.all(/*! require.ensure | components/Search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/Search")]).then((function () {return resolve(__webpack_require__(/*! @/components/Search.vue */ 650));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlGoodsInfo = function LjlGoodsInfo() {__webpack_require__.e(/*! require.ensure | pages/todoChild/promoteGoods/components/LjlGoodsInfo */ "pages/todoChild/promoteGoods/components/LjlGoodsInfo").then((function () {return resolve(__webpack_require__(/*! ./components/LjlGoodsInfo.vue */ 657));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ShareCanvas = function ShareCanvas() {Promise.all(/*! require.ensure | pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas")]).then((function () {return resolve(__webpack_require__(/*! ./components/ShareCanvas/ShareCanvas.vue */ 664));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var Search = function Search() {Promise.all(/*! require.ensure | components/Search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/Search")]).then((function () {return resolve(__webpack_require__(/*! @/components/Search.vue */ 669));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlGoodsInfo = function LjlGoodsInfo() {__webpack_require__.e(/*! require.ensure | pages/todoChild/promoteGoods/components/LjlGoodsInfo */ "pages/todoChild/promoteGoods/components/LjlGoodsInfo").then((function () {return resolve(__webpack_require__(/*! ./components/LjlGoodsInfo.vue */ 676));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ShareCanvas = function ShareCanvas() {Promise.all(/*! require.ensure | pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas")]).then((function () {return resolve(__webpack_require__(/*! ./components/ShareCanvas/ShareCanvas.vue */ 683));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var hchPoster = function hchPoster() {__webpack_require__.e(/*! require.ensure | wxcomponents/hch-poster/hch-poster */ "wxcomponents/hch-poster/hch-poster").then((function () {return resolve(__webpack_require__(/*! ../../../wxcomponents/hch-poster/hch-poster.vue */ 692));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tkiQrcode = function tkiQrcode() {Promise.all(/*! require.ensure | components/tki-qrcode/tki-qrcode */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/tki-qrcode/tki-qrcode")]).then((function () {return resolve(__webpack_require__(/*! @/components/tki-qrcode/tki-qrcode.vue */ 661));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 {
   data: function data() {
@@ -175,7 +213,13 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
         size: 5,
         type: 2 },
 
-      shareConfig: {} };
+      shareConfig: {},
+      // 海报
+      deliveryFlag: false,
+      canvasFlag: true,
+      posterData: {},
+      val: 'https://www.baidu.com' };
+
 
   },
   onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
@@ -186,6 +230,69 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
     this.$refs.ShareCanvas.checkPermission();
   },
   methods: {
+
+    // 海报
+    createCanvasImageEvn: function createCanvasImageEvn() {var _this = this;
+      // 这个是固定写死的小程序码
+      // Object.assign(this.posterData,
+      // {
+      // 	url:'https://img0.zuipin.cn/mp_zuipin/poster/hch-pro.jpg',//商品主图
+      // 	icon:'https://img0.zuipin.cn/mp_zuipin/poster/hch-hyj.png',//醉品价图标
+      // 	title:"诗酒茶系列 武夷大红袍 2018年 花香型中火 一级 体验装 16g",//标题
+      // 	discountPrice:"250.00",//折后价格
+      // 	orignPrice:"300.00",//原价
+      // 	code:'https://img0.zuipin.cn/mp_zuipin/poster/hch-code.png',//小程序码
+      // })
+      this.$forceUpdate(); //强制渲染数据
+      setTimeout(function () {
+        _this.canvasFlag = false; //显示canvas海报
+        _this.deliveryFlag = false; //关闭分享弹窗
+        _this.$refs.hchPoster.createCanvasImage(); //调用子组件的方法
+      }, 500);
+      // 这个是固定写死的小程序码 end
+      // 以下是根据后端接口动态生成小程序码
+      // let code="https://img0.zuipin.cn/mp_zuipin/poster/hch-code.png";
+      // this.codeImg().then((res)=>{
+      // 	code = res;
+      // 	Object.assign(this.posterData,
+      // 	{
+      // 		url:'https://img0.zuipin.cn/mp_zuipin/poster/hch-pro.jpg',//商品主图
+      // 		icon:'https://img0.zuipin.cn/mp_zuipin/poster/hch-hyj.png',//醉品价图标
+      // 		title:"诗酒茶系列 武夷大红袍 2018年 花香型中火 一级 体验装 16g",//标题
+      // 		discountPrice:"250.00",//折后价格
+      // 		orignPrice:"300.00",//原价
+      // 		code:code,//小程序码
+      // 	})
+      // 	this.$forceUpdate();//强制渲染数据
+      // 	setTimeout(()=>{
+      // 		this.canvasFlag=false;//显示canvas海报
+      // 		this.deliveryFlag = false;//关闭分享弹窗
+      // 		this.$refs.hchPoster.createCanvasImage();//调用子组件的方法
+      // 	},500)
+      // })
+      // 以下是根据后端接口动态生成小程序码 end
+    },
+    // 分享弹窗
+    shareEvn: function shareEvn() {
+      this.deliveryFlag = true;
+    },
+    // 关闭分享弹窗
+    closeShareEvn: function closeShareEvn() {
+      this.deliveryFlag = false;
+    },
+    // 取消海报
+    canvasCancel: function canvasCancel(val) {
+      this.canvasFlag = val;
+    },
+    saveToAlbum: function saveToAlbum() {
+      this.$refs.qrcode._makeCode();
+    },
+    qrR: function qrR(path) {
+      this.posterData.code = path;
+      this.shareEvn();
+
+    },
+
     goodsChange: function goodsChange(index) {
       this.selectedIndex = index;
       this.setShareConfig();
@@ -196,14 +303,14 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
     navigateBack: function navigateBack() {
       uni.navigateBack({ delta: 1 });
     },
-    getList: function () {var _getList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this = this;var a, count, i;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+    getList: function () {var _getList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this2 = this;var a, count, i;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
 
                   (0, _goods.getGoodsList)(this.listQuery));case 2:a = _context3.sent.list;
                 count = 0;
                 a.map( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res) {var e;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                               (0, _goods.getGoodsDetail)({ id: res.uuid }));case 2:e = _context2.sent.showimg[0].url;
                             console.log(e);
-                            _this.list.push({
+                            _this2.list.push({
                               id: res.uuid,
                               url: e,
                               name: res.name,
@@ -211,13 +318,21 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
                               originalPrice: res.originalPrice });
 
                             if (count == 0) {
-                              _this.shareConfig = {
-                                imgUrl: e,
-                                qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
-                                scene: "scene",
-                                title: res.name,
-                                price: Number(res.price) };
-
+                              // this.shareConfig = {
+                              // 	imgUrl: e,
+                              // 	qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
+                              // 	scene: "scene",
+                              // 	title: res.name,
+                              // 	price: Number(res.price)
+                              // }
+                              _this2.posterData = {
+                                url: e, //商品主图
+                                icon: '', //醉品价图标
+                                title: res.name, //标题
+                                discountPrice: res.price, //折后价格
+                                orignPrice: res.originalPrice, //原价
+                                code: '' //小程序码
+                              };
                               count++;
                             }case 6:case "end":return _context2.stop();}}}, _callee2);}));return function (_x) {return _ref.apply(this, arguments);};}());
 
@@ -256,7 +371,9 @@ var _goods = __webpack_require__(/*! @/api/goods.js */ 76);function _interopRequ
   components: {
     Search: Search,
     LjlGoodsInfo: LjlGoodsInfo,
-    ShareCanvas: ShareCanvas } };exports.default = _default;
+    ShareCanvas: ShareCanvas,
+    hchPoster: hchPoster,
+    tkiQrcode: tkiQrcode } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

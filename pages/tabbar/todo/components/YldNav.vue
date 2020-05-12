@@ -12,6 +12,12 @@ import { ORDER_LIST } from '@/config/router.js';
 import { loadIntegral } from '@/api/tabbar/todo.js';
 
 export default {
+	props: {
+		integral: {
+			type: Number,
+			default: 0
+		}
+		},
 	data() {
 		return {
 			navList: [
@@ -28,11 +34,11 @@ export default {
 					href: `${ORDER_LIST}?title=兑换记录`
 				}
 			],
-			integral: NaN
+			// integral: NaN
 		};
 	},
 	created() {
-		this.loadIntegral();
+		// this.loadIntegral();
 	},
 	methods: {
 		/**
@@ -40,7 +46,8 @@ export default {
 		 */
 		loadIntegral: function() {
 			loadIntegral().then(res => {
-				this.integral = res.Remaining;
+				// console.log(res)
+				this.integral = res.integral;
 			});
 		},
 		

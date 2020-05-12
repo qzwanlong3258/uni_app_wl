@@ -10,7 +10,6 @@
 			    <view style="margin-bottom: 30rpx;">
 					<ljl-menu-item :infor="item" />
 				</view>
-				
 			</view>
 		</view>
 		<!-- :style="{width: infor.list.length > 3 ? '25%' : '33%'}" -->
@@ -55,7 +54,7 @@
 	.menu-box {
 		.title {
 			font-size: 30rpx;
-			
+			font-weight: bold;
 			color: #333333;
 			margin-left: 20rpx;
 			vertical-align: middle;

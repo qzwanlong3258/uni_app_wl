@@ -3,18 +3,18 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionTwo-box">
-			<view class="sectionTwo-hd"> 02/06  您的性别和年龄？</view>
+			<view class="sectionTwo-hd"> {{dataTwo.content}}</view>
 			<view class="sectionTwo-bd" >
-				<view v-for="(item,index) in sexData" :key="index" @click="sexClick(index)">
+				<view v-for="(item,index) in sexData" :key="index" @click="sexClick(index,item.cid)">
 					<image :src="item.img" mode=""></image>
-					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
+					<label class="radio"><radio :value="item.cname" :checked="index === current" />{{item.cname}}</label>
 				</view>
 				
 				
 				</view>
 			<view class="sectionTwo-ft">
-				<view v-for="(item,index) in ageData" :key="index" @click="ageClick(index)">
-					<label class="radio"><radio :value="item.value" :checked="index === agecurrent" />{{item.name}}</label>
+				<view v-for="(item,index) in ageData" :key="index" @click="ageClick(index,item.cid)">
+					<label class="radio"><radio :value="item.cname" :checked="index === agecurrent" />{{item.cname}}</label>
 				</view>
 				</view>
 			<!-- <view class="sectionTwo-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
@@ -28,7 +28,8 @@
 				</view>
 				
 			</view> -->
-			<view class="iconfont iconnexts nextclass" ></view> 
+			<view class="iconfont iconnexts nextclass" ></view>
+			<view class="textClass">NEXT</view>
 		</view>
 		
 	</view>
@@ -41,19 +42,38 @@
 	
 	var _self;
 	export default {
-		
+		props: {
+			dataTwo: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
+		watch:{
+			dataTwo(newValue, oldValue) {
+							// console.log("obj",newValue,oldValue)
+							_self.sexData.push(newValue.choose[0])
+							_self.sexData.push(newValue.choose[1])
+							_self.ageData.push(newValue.choose[2])
+							_self.ageData.push(newValue.choose[3])
+							_self.ageData.push(newValue.choose[4])
+							_self.ageData.push(newValue.choose[5])
+							
+						}
+		},
 		data() {
 			return {
 				r2:'',
 				sexData:[
-					{ img: TESTMEN, name: "男" ,value:'TESTMEN'},
-					{ img: TESTWOMEN, name: "女" ,value:'TESTWOMEN'},
+					// { img: TESTMEN, name: "男" ,value:'TESTMEN'},
+					// { img: TESTWOMEN, name: "女" ,value:'TESTWOMEN'},
 				],
 				ageData:[
-					{  name: "35岁以下" ,value:'TESTMEN'},
-					{  name: "35-45岁" ,value:'TESTWOMEN'},
-					{  name: "45-55岁" ,value:'TESTMEN'},
-					{  name: "55岁以上" ,value:'TESTWOMEN'},
+					// {  name: "35岁以下" ,value:'TESTMEN'},
+					// {  name: "35-45岁" ,value:'TESTWOMEN'},
+					// {  name: "45-55岁" ,value:'TESTMEN'},
+					// {  name: "55岁以上" ,value:'TESTWOMEN'},
 				],
 				current:null,
 				agecurrent:null
@@ -61,20 +81,27 @@
 			}
 		},
 		methods: {
-			sexClick(e) {
+			sexClick(e,c) {
 				// console.log(_self)
 				_self.current =e
-				this.$emit('testOne',e+1,2)
+				this.$emit('testOne',c,2,this.dataTwo.tid)
 				},
-			ageClick(e) {
+			ageClick(e,c) {
 				// console.log(_self)
 				_self.agecurrent =e
-				this.$emit('testOne',e+1,3)
+				this.$emit('testOne',c,3,this.dataTwo.tid)
 				},
 		    
 		},
 		created(){
 			_self = this
+			// console.log(this.dataTwo)
+			// _self.sexData.push(this.dataTwo.choose[0])
+			// _self.sexData.push(this.dataTwo.choose[1])
+			// _self.ageData.push(this.dataTwo.choose[2])
+			// _self.ageData.push(this.dataTwo.choose[3])
+			// _self.ageData.push(this.dataTwo.choose[4])
+			// _self.ageData.push(this.dataTwo.choose[5])
 			
 		},
 		
@@ -95,10 +122,18 @@
 	}
 	.nextclass{
 		position: absolute;
-		left: calc(50% - 10px);
-		bottom: 10px;
+		left: calc(50% - 20rpx);
+		bottom: 60rpx;
 		transform: rotate(-90deg);
+		color: #333333;
 		
+	}
+	.textClass{
+		position: absolute;
+		left: calc(50% - 36rpx);
+		bottom: 20rpx;
+		font-size: 28rpx;
+		color: #333333;
 	}
 	.sectionTwo-hd{
 		height: 80rpx;

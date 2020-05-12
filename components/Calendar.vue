@@ -14,7 +14,7 @@
 				<button class="barbtn" v-else>Last</button>
 			</view>
 			<!-- 显示年月 -->
-			<view class="date" style="font-size: 24rpx;">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+			<view class="date" style="font-size: 24rpx;margin-top: 15rpx;">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
 			<!-- 下一个月 -->
 			<view class="next" @click="handleCalendar(1)">
 				<!-- <button class="barbtn" v-if="langType=='ch'">下一月</button> -->
@@ -261,8 +261,8 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin: 30rpx 10rpx;
-		padding: 10rpx;
+		margin: 0 10rpx;
+		/* padding: 10rpx; */
 	}
 	
 
@@ -276,17 +276,17 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		padding: 20rpx;
+		padding: 20rpx 20rpx 0 20rpx;
 		padding-left: 40rpx;
 		padding-right: 40rpx;
-		margin: 20rpx;
+		margin: 20rpx 33rpx 0 33rpx;
 		border-radius: 20rpx;
 		background-color: #fff;
 		font-weight: 500;
 	}
 	.myDateTable {
-		margin: 2.5vw;
-		padding: 2vw;
+		margin:0 2.5vw 2.5vw 2.5vw;
+		padding:0 2vw 2vw 2vw;
 		border-radius: 20rpx;
 		background: #FFFFFF;
 	}

@@ -15,8 +15,8 @@
 					<view class="right">
 						<!-- <image :src="img[0]" :hidden="!item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image>
 						<image :src="img[1]" :hidden="item.show" @click="choose(index)" style="width: 60px;" mode="widthFix"></image> -->
-						<view style="width: 90rpx;height: 40rpx;background: #FFEA04;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '1'">待量房</view>
-						<view style="width: 90rpx;height: 40rpx;background: #01B164;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.state == '2'">已完成</view>
+						<view style="width: 90rpx;height: 40rpx;background: #FFEA04;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.makeState == '1'">待量房</view>
+						<view style="width: 90rpx;height: 40rpx;background: #01B164;font-size: 20rpx;text-align: center;line-height: 40rpx;" v-if="item.makeState == '2'">已完成</view>
 					</view>
 				</view>
 				

@@ -8,10 +8,18 @@
 }
 .nextclass.data-v-68c77a06{
 	position: absolute;
-	left: calc(50% - 10px);
-	bottom: 10px;
+	left: calc(50% - 20rpx);
+	bottom: 60rpx;
 	-webkit-transform: rotate(-90deg);
 	        transform: rotate(-90deg);
+	color: #333333;
+}
+.textClass.data-v-68c77a06{
+	position: absolute;
+	left: calc(50% - 36rpx);
+	bottom: 20rpx;
+	font-size: 28rpx;
+	color: #333333;
 }
 .sectionFive-box.data-v-68c77a06{
 	position: absolute;
@@ -91,7 +99,7 @@
 	color: 000000;
 }
 .sectionFive-ft view label radio.data-v-68c77a06 {
-	margin-left: 20rpx;
+	margin-left: 15rpx;
 	margin-right: 10rpx;
 }
 /* .input_color {

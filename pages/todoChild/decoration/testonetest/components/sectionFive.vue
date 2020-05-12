@@ -3,7 +3,7 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionFive-box">
-			<view class="sectionFive-hd">05/06  您申请的装修分期用于？</view>
+			<view class="sectionFive-hd">{{dataFive.content}}</view>
 			<!-- <view class="sectionFive-bd" >
 				<view v-for="(item,index) in sexData" :key="index" @click="sexClick(index)">
 					<image :src="item.img" mode=""></image>
@@ -13,8 +13,8 @@
 				
 				</view> -->
 			<view class="sectionFive-ft">
-				<view v-for="(item,index) in ageData" :key="index" @click="ageClick(index)">
-					<label class="radio"><radio :value="item.value" :checked="index === agecurrent" />{{item.name}}</label>
+				<view v-for="(item,index) in dataFive.choose" :key="index" @click="ageClick(index,item.cid)">
+					<label class="radio"><radio :value="item.cname" :checked="index === agecurrent" />{{item.cname}}</label>
 				</view>
 				</view>
 			<!-- <view class="sectionFive-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
@@ -29,7 +29,8 @@
 				
 			</view> -->
 		</view>
-		<view class="iconfont iconnexts nextclass" ></view> 
+		<view class="iconfont iconnexts nextclass" ></view>
+		<view class="textClass">NEXT</view>
 	</view>
 </template>
 
@@ -40,6 +41,14 @@
 	
 	var _self;
 	export default {
+		props: {
+			dataFive: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
 		
 		data() {
 			return {
@@ -64,10 +73,10 @@
 			// 	// console.log(_self)
 			// 	_self.current =e
 			// 	},
-			ageClick(e) {
+			ageClick(e,c) {
 				// console.log(_self)
 				_self.agecurrent =e
-				this.$emit('testOne',e+1,7)
+				this.$emit('testOne',c,7,this.dataFive.tid)
 				},
 		    
 		},
@@ -88,10 +97,18 @@
 		}
 	.nextclass{
 		position: absolute;
-		left: calc(50% - 10px);
-		bottom: 10px;
+		left: calc(50% - 20rpx);
+		bottom: 60rpx;
 		transform: rotate(-90deg);
+		color: #333333;
 		
+	}
+	.textClass{
+		position: absolute;
+		left: calc(50% - 36rpx);
+		bottom: 20rpx;
+		font-size: 28rpx;
+		color: #333333;
 	}
 	.sectionFive-box{
 		position: absolute;
@@ -158,7 +175,7 @@
 		color: 000000;
 	}
 	.sectionFive-ft view label radio {
-		margin-left: 20rpx;
+		margin-left: 15rpx;
 		margin-right: 10rpx;
 	}
 	/* .input_color {

@@ -195,7 +195,7 @@ var _package = __webpack_require__(/*! @/config/package.js */ 66); //
 //
 //
 //
-var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor */ 517));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
+var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor */ 528));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { photoList: [{ id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }, { id: '', _path: '', _url: '' }] };}, computed: {}, methods: { startTodo: function startTodo() {var _this = this;var imgId = '';this.photoList.forEach(function (item) {
         item.id && (imgId += item.id);
       });
       getAlterSale({ orderid: this.orderInformation.id, img: imgId }).then(function (res) {

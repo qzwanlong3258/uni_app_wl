@@ -3,11 +3,11 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionOne-box">
-			<view class="sectionOne-hd"> 01/06 您的户型是?</view>
+			<view class="sectionOne-hd"> {{dataOne.content}}</view>
 			<view class="sectionOne-bd">
-				<view v-for="(item,index) in homeData" :key="index" @click="homeClick(index)">
+				<view v-for="(item,index) in dataOne.choose" :key="index" @click="homeClick(index,item.cid)">
 					<image :src="item.img" mode=""></image>
-					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
+					<label class="radio"><radio :value="item.cname" :checked="index === current" />{{item.cname}}</label>
 				</view>
 				
 				
@@ -24,7 +24,8 @@
 				
 			</view> -->
 		</view>
-		<view class="iconfont iconnexts nextclass" ></view> 
+		<view class="iconfont iconnexts nextclass" ></view>
+		<view class="textClass">NEXT</view>
 		
 	</view>
 </template>
@@ -37,6 +38,14 @@
 	
 	var _self;
 	export default {
+		props: {
+			dataOne: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
 		
 		data() {
 			return {
@@ -53,10 +62,10 @@
 			}
 		},
 		methods: {
-			homeClick(e) {
+			homeClick(e,c) {
 				// console.log(_self)
 				_self.current =e
-				this.$emit('testOne',e+1,1)
+				this.$emit('testOne',c,1,this.dataOne.tid)
 				},
 		    
 		},
@@ -77,10 +86,18 @@
 		}
 	.nextclass{
 		position: absolute;
-		left: calc(50% - 10px);
-		bottom: 10px;
+		left: calc(50% - 20rpx);
+		bottom: 60rpx;
 		transform: rotate(-90deg);
+		color: #333333;
 		
+	}
+	.textClass{
+		position: absolute;
+		left: calc(50% - 36rpx);
+		bottom: 20rpx;
+		font-size: 28rpx;
+		color: #333333;
 	}
 	.sectionOne-box{
 		position: absolute;

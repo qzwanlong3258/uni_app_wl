@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "simple-address": function() {
-    return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.nvue */ 715))
+    return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.nvue */ 741))
   }
 }
 var render = function() {
@@ -212,7 +212,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 
 var _measureHome = __webpack_require__(/*! @/api/measureHome.js */ 128);
-var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 743));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _city = __webpack_require__(/*! @/api/city.js */ 36);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 758));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   components: {

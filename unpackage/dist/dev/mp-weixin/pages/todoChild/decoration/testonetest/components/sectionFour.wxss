@@ -8,10 +8,18 @@
 }
 .nextclass.data-v-0803ff71{
 	position: absolute;
-	left: calc(50% - 10px);
-	bottom: 10px;
+	left: calc(50% - 20rpx);
+	bottom: 60rpx;
 	-webkit-transform: rotate(-90deg);
 	        transform: rotate(-90deg);
+	color: #333333;
+}
+.textClass.data-v-0803ff71{
+	position: absolute;
+	left: calc(50% - 36rpx);
+	bottom: 20rpx;
+	font-size: 28rpx;
+	color: #333333;
 }
 .sectionFour-box.data-v-0803ff71{
 	position: absolute;

@@ -150,7 +150,7 @@ export default {
 	}
 	.distribution-nav{
 		background-color: #FCE77A;
-		height: 330rpx;
+		height: 370rpx;
 		margin:0 20rpx;
 	}
 	.top{

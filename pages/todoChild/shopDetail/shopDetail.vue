@@ -5,7 +5,7 @@
 		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="700"></swiper-img></view>
 		<view class="shop-infor"><yld-infor :infor="infor"></yld-infor></view>
 		<view class="recommend-shop"><yld-recommend :detailImgs="detailImgs" @imgshow='imgshow'></yld-recommend></view>
-		<view class="fixed-document primary-cus-button" @click="buyShop">立即兑换</view>
+		<view class="fixed-document primary-cus-button" style="background-color: #FFEA04;color: #000000;" @click="buyShop">立即兑换</view>
 		</view>
 	</scroll-view>
 </template>

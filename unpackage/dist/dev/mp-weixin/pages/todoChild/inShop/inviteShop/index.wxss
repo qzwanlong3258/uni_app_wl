@@ -1,4 +1,15 @@
 
+.tki-qrcode {
+  position: relative;
+}
+.tki-qrcode-canvas {
+  position: fixed;
+  top: -99999rpx;
+  left: -99999rpx;
+  z-index: -99999;
+}
+
+
 .scheduleCard.data-v-702df426{
 	margin: 48rpx 15rpx;
 	height: 430px;

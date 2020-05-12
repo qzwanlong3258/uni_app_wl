@@ -171,7 +171,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 136);
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 673));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 680));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 687));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 694));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 701));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 708));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 699));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 706));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 713));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 720));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 727));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 734));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     sectionOne: sectionOne,
@@ -190,62 +190,85 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
       critical: 100, //触发翻页的临界值
       margintop: 0, //滑动下拉距离
       transform: 'translateY(-' + 0 + '%)',
-      dataList: {} };
+      dataList: {},
+      dataL: [] };
 
 
   },
   methods: {
-    test: function test(e, v) {
+    test: function test(e, v, d) {
       console.log(e);
       switch (v) {
         case 1:
           self_.dataList.one = {
-            "titleid": "1",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
 
           return;
         case 2:
           self_.dataList.two = {
-            "titleid": "2",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 3:
           self_.dataList.three = {
-            "titleid": "3",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 4:
           self_.dataList.four = {
-            "titleid": "4",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 5:
           self_.dataList.five = {
-            "titleid": "5",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 6:
           self_.dataList.six = {
-            "titleid": "6",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 7:
           self_.dataList.seven = {
-            "titleid": "7",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;
         case 8:
           self_.dataList.eight = {
-            "titleid": "8",
-            "chooseid": e };
+            "titleid": e,
+            "chooseid": d };
           return;}
 
 
     },
-    submit: function () {var _submit = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var key;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 = _regenerator.default.keys(
-                this.dataList);case 1:if ((_context.t1 = _context.t0()).done) {_context.next = 8;break;}key = _context.t1.value;if (!
-                this.dataList[key]) {_context.next = 6;break;}_context.next = 6;return (
-                  (0, _loan.testOneTest)(this.dataList[key]));case 6:_context.next = 1;break;case 8:
+    countProperties: function countProperties(obj) {
+      var count = 0;
+      for (var property in obj) {
+
+        count++;
+
+      }
+      return count;
+    },
+    getList: function () {var _getList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  (0, _loan.getIssue)());case 2:self_.dataL = _context.sent.list;
+                console.log(self_.dataL);case 4:case "end":return _context.stop();}}}, _callee);}));function getList() {return _getList.apply(this, arguments);}return getList;}(),
+
+    submit: function () {var _submit = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var key;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                console.log(this.countProperties(this.dataList));if (!(
+                this.countProperties(this.dataList) != 8)) {_context2.next = 4;break;}
+                uni.showToast({
+                  title: "请选择所有选项后提交",
+                  duration: 2000,
+                  icon: 'none' });return _context2.abrupt("return");case 4:_context2.t0 = _regenerator.default.keys(
+
+
+
+                this.dataList);case 5:if ((_context2.t1 = _context2.t0()).done) {_context2.next = 12;break;}key = _context2.t1.value;if (!
+                this.dataList[key]) {_context2.next = 10;break;}_context2.next = 10;return (
+                  (0, _loan.testOneTest)(this.dataList[key]));case 10:_context2.next = 5;break;case 12:
 
 
 
@@ -260,7 +283,7 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
                   uni.navigateTo({
                     url: _router.LOAN_TESTONETEST_SUBMIT });
 
-                }, 2000);case 10:case "end":return _context.stop();}}}, _callee, this);}));function submit() {return _submit.apply(this, arguments);}return submit;}(),
+                }, 2000);case 14:case "end":return _context2.stop();}}}, _callee2, this);}));function submit() {return _submit.apply(this, arguments);}return submit;}(),
 
 
     scrollTouchstart: function scrollTouchstart(e) {
@@ -301,6 +324,7 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
 
   onLoad: function onLoad() {
     self_ = this;
+    this.getList();
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

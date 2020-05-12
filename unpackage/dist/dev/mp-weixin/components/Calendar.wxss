@@ -17,8 +17,8 @@
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
-	margin: 30rpx 10rpx;
-	padding: 10rpx;
+	margin: 0 10rpx;
+	/* padding: 10rpx; */
 }
 .bar .barbtn {
 	height: 60rpx;
@@ -36,17 +36,17 @@
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	        justify-content: space-between;
-	padding: 20rpx;
+	padding: 20rpx 20rpx 0 20rpx;
 	padding-left: 40rpx;
 	padding-right: 40rpx;
-	margin: 20rpx;
+	margin: 20rpx 33rpx 0 33rpx;
 	border-radius: 20rpx;
 	background-color: #fff;
 	font-weight: 500;
 }
 .myDateTable {
-	margin: 2.5vw;
-	padding: 2vw;
+	margin:0 2.5vw 2.5vw 2.5vw;
+	padding:0 2vw 2vw 2vw;
 	border-radius: 20rpx;
 	background: #FFFFFF;
 }

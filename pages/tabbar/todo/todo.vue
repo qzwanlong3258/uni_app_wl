@@ -2,7 +2,7 @@
 	<view class="todo-box">
 		<view :hidden='!imgShow' >
 		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="450"></swiper-img></view>
-		<view class="shop-nav"><yld-nav></yld-nav></view>
+		<view class="shop-nav"><yld-nav :integral="integral"></yld-nav></view>
 		<view><yld-shop :shopList="shopList" @searchChange="searchChange" @imgshow='imgshow'></yld-shop></view>
 		</view>
 	</view>
@@ -15,6 +15,7 @@ import YldNav from './components/YldNav.vue';
 import YldShop from './components/YldShop.vue';
 import { getGoodsList,getGoodsDetail } from '@/api/goods.js';
 import { loadHomeCarousel } from '@/api/tabbar/home.js';
+import { loadIntegral } from '@/api/tabbar/todo.js';
 var _self
 export default {
 	data: function() {
@@ -26,13 +27,18 @@ export default {
 			},
 			imgList: [],
 			shopList: [],
-			imgShow:false
+			imgShow:false,
+			integral:0
 		};
 	},
 	onLoad: function() {
 		_self=this
 		this.getCarousel();
 		this.getList();
+		this.loadIntegral();
+	},
+	onShow() {
+		this.loadIntegral();
 	},
 	methods: {
 		imgshow(){
@@ -61,7 +67,16 @@ export default {
 		searchChange: function(value) {
 			this.listQuery.name = value;
 			this.getList();
-		}
+		},
+		/**
+		 * 加载积分
+		 */
+		loadIntegral: function() {
+			loadIntegral().then(res => {
+				// console.log(res)
+				this.integral = Number(res.integral);
+			});
+		},
 	},
 	components: {
 		SwiperImg,

@@ -4,22 +4,22 @@
 	<view class="container container-fill">
 		<view class="scroll-fullpage" id='scrollTouch' @touchstart="scrollTouchstart" @touchmove="scrollTouchmove" @touchend="scrollTouchend" v-bind:style="{margintop: margintop+'px',transform: transform}">
 			<view :class="scrollindex==0?'active':''" style="height: 100%;">
-				<sectionOne  @testOne='test'></sectionOne>
+				<sectionOne  @testOne='test' :dataOne="dataL[0]"></sectionOne>
 			</view>
 			<view :class="scrollindex==1?'active':''" style="height: 100%;">
-				<sectionTwo @testOne='test'></sectionTwo>
+				<sectionTwo @testOne='test' :dataTwo="dataL[1]"></sectionTwo>
 			</view>
 			<view :class="scrollindex==2?'active':''" style="height: 100%;">
-				<sectionThree @testOne='test'></sectionThree>
+				<sectionThree @testOne='test' :dataThree="dataL[2]"></sectionThree>
 			</view>
 			<view :class="scrollindex==3?'active':''" style="height: 100%;">
-				<sectionFour @testOne='test'></sectionFour>
+				<sectionFour @testOne='test' :dataFour="dataL[3]"></sectionFour>
 			</view>
 			<view :class="scrollindex==4?'active':''" style="height: 100%;">
-				<sectionFive @testOne='test'></sectionFive>
+				<sectionFive @testOne='test' :dataFive="dataL[4]"></sectionFive>
 			</view>
 			<view :class="scrollindex==5?'active':''" style="height: 100%;">
-				<sectionSix @testOne='test' @submit='submit'></sectionSix>
+				<sectionSix @testOne='test' @submit='submit' :dataSix="dataL[5]"></sectionSix>
 			</view>
 		</view>
 	</view>
@@ -35,7 +35,7 @@
 	import sectionFour from './components/sectionFour';
 	import sectionFive from './components/sectionFive';
 	import sectionSix from './components/sectionSix';
-	import { testOneTest } from '@/api/todoChild/loan.js';
+	import { testOneTest ,getIssue} from '@/api/todoChild/loan.js';
 	import { LOAN_TESTONETEST_SUBMIT} from '@/config/router.js';
 	export default {
 		components:{
@@ -56,58 +56,81 @@
 	          margintop:0,  //滑动下拉距离
 			  transform:'translateY(-' + 0 + '%)',
 			  dataList:{},
+			  dataL:[]
 			  
 	    }
 	  },
 	  methods:{
-		  test(e,v){
+		  test(e,v,d){
 			  console.log(e)
 			  switch(v) {
 			  	case 1:  
 				 self_.dataList.one ={
-    "titleid": "1",
-    "chooseid": e
+    "titleid": e,
+    "chooseid": d
 }
 				 return ;
 			  	case 2:
 				self_.dataList.two = {
-				 "titleid": "2",
-				 "chooseid": e}
+				 "titleid": e,
+				 "chooseid": d}
 				 return ;
 			  	case 3: 
 				self_.dataList.three = {
-				"titleid": "3",
-				"chooseid": e}
+				"titleid": e,
+				"chooseid": d}
 				return ;
 			  	case 4: 
 				self_.dataList.four ={
-				"titleid": "4",
-				"chooseid": e}
+				"titleid": e,
+				"chooseid": d}
 				return ;
 				case 5:
 				 self_.dataList.five ={
-				 "titleid": "5",
-				 "chooseid": e}
+				 "titleid": e,
+				 "chooseid": d}
 				 return ;
 				case 6:
 				 self_.dataList.six ={
-				 "titleid": "6",
-				 "chooseid": e}
+				 "titleid": e,
+				 "chooseid": d}
 				 return ;
 				 case 7:
 				  self_.dataList.seven ={
-				  "titleid": "7",
-				  "chooseid": e}
+				  "titleid": e,
+				  "chooseid": d}
 				  return ;
 				  case 8:
 				   self_.dataList.eight ={
-				   "titleid": "8",
-				   "chooseid": e}
+				   "titleid": e,
+				   "chooseid": d}
 				   return ;
 			  }
 			  
 		  },
+		   countProperties(obj){
+			   var count=0
+		      for(var property in obj){
+		         
+		              count++;
+		         
+		      }
+		      return count;
+		  },
+		 async getList(){
+			self_.dataL = (await getIssue()).list
+			console.log(self_.dataL)
+		  },
 		 async submit(){
+			 console.log(this.countProperties(this.dataList))
+			 if(this.countProperties(this.dataList)!=8){
+				 uni.showToast({
+				     title: "请选择所有选项后提交",
+				     duration: 2000,
+				 	icon:'none'
+				 });
+				 return;
+			 }
 			 for(let key  in this.dataList){
 				 if(this.dataList[key]){
 					 await testOneTest(this.dataList[key])
@@ -166,6 +189,7 @@
 	  },
 	  onLoad() {
 	  	self_=this
+		this.getList()
 	  }
 	}
 </script>

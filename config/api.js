@@ -24,7 +24,7 @@ module.exports = {
 	LOAD_GOODS_DETAIL: `${baseUrl}/goods/loadGoodsDetails`, // 查看积分商品详情
 	LOAD_GOODS_EVALUATION: `${baseUrl}/wx/user/loadWxGoodsEvaluation`, // 查看评价商品
 	LOAD_GOODS_CONVERT: `${baseUrl}/wx/user/loadWxGoodsConvert`,// 查看参与商品兑换记录
-	LOAD_INTEGRAL: `${baseUrl}/wx/user/loadRemaining`,  // 查询积分余额
+	LOAD_INTEGRAL: `${baseUrl}/wx/user/loadIntegral`,  // 查询积分余额
 	
 	/** 首页 **/
 	LOAD_HOME_CAROUSEL: `${baseUrl}/picture/loadPicture`,
@@ -83,6 +83,7 @@ module.exports = {
 	/** 测一测 **/
 	TESTONETEST:`${baseUrl}/test/submitChoose`,
 	GET_COUNT:`${baseUrl}/test/loadChooseCount`,
+	GET_ISSUE:`${baseUrl}/test/loadTest`,
 	/** 好店入驻 **/
 	POST_SHOP:`${baseUrl}/decorate/createDecorate`,
 	/** 预约量房**/
@@ -91,7 +92,10 @@ module.exports = {
 	MEASURE_SUCCESS:`${baseUrl}/make/makeDecorate`,
 	GET_MY_SHOP:`${baseUrl}/make/loadMakeRecord`,
 	/** 海报**/
-	GET_POSTER:`${baseUrl}/posters/loadPosters`
+	GET_POSTER:`${baseUrl}/posters/loadPosters`,
+	/** 积分**/
+	
+	
 	
 	
 	

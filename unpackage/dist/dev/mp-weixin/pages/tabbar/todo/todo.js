@@ -145,7 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _goods = __webpack_require__(/*! @/api/goods.js */ 76);
-var _home = __webpack_require__(/*! @/api/tabbar/home.js */ 35);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var SwiperImg = function SwiperImg() {Promise.all(/*! require.ensure | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 496));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/todo/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/todo/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 572));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldShop = function YldShop() {Promise.all(/*! require.ensure | pages/tabbar/todo/components/YldShop */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/todo/components/YldShop")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldShop.vue */ 580));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _home = __webpack_require__(/*! @/api/tabbar/home.js */ 35);
+var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 588);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var SwiperImg = function SwiperImg() {Promise.all(/*! require.ensure | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 507));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldNav = function YldNav() {Promise.all(/*! require.ensure | pages/tabbar/todo/components/YldNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/todo/components/YldNav")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldNav.vue */ 583));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldShop = function YldShop() {Promise.all(/*! require.ensure | pages/tabbar/todo/components/YldShop */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/tabbar/todo/components/YldShop")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldShop.vue */ 591));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   data: function data() {
@@ -157,13 +158,18 @@ var _self;var _default =
 
       imgList: [],
       shopList: [],
-      imgShow: false };
+      imgShow: false,
+      integral: 0 };
 
   },
   onLoad: function onLoad() {
     _self = this;
     this.getCarousel();
     this.getList();
+    this.loadIntegral();
+  },
+  onShow: function onShow() {
+    this.loadIntegral();
   },
   methods: {
     imgshow: function imgshow() {
@@ -192,6 +198,15 @@ var _self;var _default =
     searchChange: function searchChange(value) {
       this.listQuery.name = value;
       this.getList();
+    },
+    /**
+        * 加载积分
+        */
+    loadIntegral: function loadIntegral() {var _this2 = this;
+      (0, _todo.loadIntegral)().then(function (res) {
+        // console.log(res)
+        _this2.integral = Number(res.integral);
+      });
     } },
 
   components: {

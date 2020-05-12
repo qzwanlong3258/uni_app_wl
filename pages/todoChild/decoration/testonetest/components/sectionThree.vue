@@ -3,11 +3,11 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionThree-box">
-			<view class="sectionThree-hd"> 03/06  您的装修预算是多少？</view>
+			<view class="sectionThree-hd"> {{dataThree.content}}</view>
 			<view class="sectionThree-bd">
-				<view v-for="(item,index) in incomeData" :key="index" @click="incomeClick(index)">
+				<view v-for="(item,index) in dataThree.choose" :key="index" @click="incomeClick(index,item.cid)">
 					<image :src="item.img" mode=""></image>
-					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
+					<label class="radio"><radio :value="item.cname" :checked="index === current" />{{item.cname}}</label>
 				</view>
 				</view>
 			<!-- <view class="sectionThree-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
@@ -22,7 +22,8 @@
 				
 			</view> -->
 		</view>
-		<view class="iconfont iconnexts nextclass" ></view> 
+		<view class="iconfont iconnexts nextclass" ></view>
+		<view class="textClass">NEXT</view>
 	</view>
 </template>
 
@@ -33,6 +34,14 @@
 	
 	var _self;
 	export default {
+		props: {
+			dataThree: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
 		
 		data() {
 			return {
@@ -49,10 +58,10 @@
 			}
 		},
 		methods: {
-			incomeClick(e) {
+			incomeClick(e,c) {
 				// console.log(_self)
 				_self.current =e
-				this.$emit('testOne',e+1,4)
+				this.$emit('testOne',c,4,this.dataThree.tid)
 				},
 		    
 		},
@@ -73,10 +82,18 @@
 		}
 	.nextclass{
 		position: absolute;
-		left: calc(50% - 10px);
-		bottom: 10px;
+		left: calc(50% - 20rpx);
+		bottom: 60rpx;
 		transform: rotate(-90deg);
+		color: #333333;
 		
+	}
+	.textClass{
+		position: absolute;
+		left: calc(50% - 36rpx);
+		bottom: 20rpx;
+		font-size: 28rpx;
+		color: #333333;
 	}
 	.sectionThree-box{
 		position: absolute;

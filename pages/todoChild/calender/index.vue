@@ -15,7 +15,7 @@
 		:dataSource="signData" :totalNum="sumCount"
 		 @dateChange="getData" @clickChange="clickRegister"	 >
 		 </model-calendar>
-		 <view class="check-in-barrage" :style="{visibility: checkIn.isShow ? 'visible' : 'hidden'}">
+		 <view class="check-in-barrage"  :style="{visibility: checkIn.isShow ? 'visible' : 'hidden'}">
 		 	<view class="checkImg">
 		 		<image class="img" :src="checkIn.url" model="aspectFit"></image>
 		 		<text class="font">签到成功，今日已领<text>1</text>积分</text>
@@ -71,6 +71,11 @@
 			console.log(e)
 		},
 		methods: {
+			handerCheckInChange: async function(e) {
+			
+				this.checkIn.isShow = !this.checkIn.isShow;
+				
+			},
 			getTime:function(){
 			
 			var date = new Date(),
@@ -221,20 +226,20 @@
 		margin: 10rpx;
 	}
 	 .hd{
-		height: 300rpx;
+		height: 350rpx;
 		background: linear-gradient(#EDB733, #F19168);
 		padding: 20rpx 0;
 	}
 	 .btn{
-		height: 40rpx;
-		margin: 40rpx 240rpx;
+		height: 50rpx;
+		margin: 50rpx 240rpx;
 		background: #FFEA3E;
 		color: #B75727;
-		font-size: 20rpx;
+		font-size: 22rpx;
 		border-radius:40rpx ;
 		box-shadow: 0 4rpx 4rpx rgba(0,0,0,0.3);
 		text-align: center;
-		line-height: 40rpx;
+		line-height: 50rpx;
 	}
 	 .hd-circle {
 		width: 120rpx;
@@ -247,5 +252,44 @@
 	 .hd-circle image{
 		margin-top: 20rpx;
 		width: 40rpx;
+	}
+	.check-in-barrage {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(#000000, 0.7);
+		z-index: 99;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.checkImg {
+			width: 550rpx;
+			height: 400rpx;
+			position: relative;
+			.img {
+				width: 100%;
+				height: 100%;
+			}
+			.font {
+				position: absolute;
+				top: 70%;
+				left: 14%;
+				text {
+					display: inline-block;
+					color: #D63754;
+					font-size: 36rpx;
+					width: 50rpx;
+					text-align: center;
+				}
+			}
+		}
+		.cross {
+			margin-top: 100rpx;
+			width: 100rpx;
+			height: 100rpx;
+		}
 	}
 </style>

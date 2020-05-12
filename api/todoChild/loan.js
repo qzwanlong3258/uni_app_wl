@@ -2,7 +2,7 @@ import {
 	request
 } from '@/config/http.js';
 import {
-	LOAN_APPT ,LOAN_LIST, LOAN_LIST_DETAIL, LOAN_BANK, LOAN_FACE_MEMBER, LOAN_PERIOD, FACE_SUBMIT, TESTONETEST, GET_COUNT
+	LOAN_APPT ,LOAN_LIST, LOAN_LIST_DETAIL, LOAN_BANK, LOAN_FACE_MEMBER, LOAN_PERIOD, FACE_SUBMIT, TESTONETEST, GET_COUNT, GET_ISSUE
 } from '@/config/api.js';
 const {  getStorage } = require('./storage.js')
 
@@ -88,6 +88,17 @@ export function getCount(data) {
 	return request({
 		method: "GET",
 		url: `${GET_COUNT}`,
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+
+export function getIssue(data) {
+	// let token=getStorage('tempToken')
+	return request({
+		method: "GET",
+		url: `${GET_ISSUE}`,
 		showLoading:false,
 		hideLoading:false,
 		data

@@ -14,28 +14,54 @@
 				</view>
 			</view>
 			<view class="scheduleCard-bottom" style="height: 300px;border: 1px solid #979797;">
-				<image src="https://s1.ax1x.com/2020/03/17/8UVCkR.jpg" mode=""></image>
+				<image :src="code" mode=""></image>
 			</view>
 			<view style="color: #999999;text-align: center;font-size: 28rpx;margin: 10px 0;">扫码注册成为商户，非客为您提供更优质服务</view>
 			<view style="color: #999999;text-align: center;font-size: 28rpx;margin: 10px 0;">邀请人编号 <text style="color: #333333;">1956</text></view>
 		</view>
+		<tki-qrcode ref="qrcode" :val="val" :size="200" background="#fff" foreground="#000" pdground="#000" :onval="false"
+		 :loadMake="false" @result="qrR" :show="false"></tki-qrcode>
 	</view>
 </template>
 
 <script>
 'use strict';
+import tkiQrcode from '@/components/tki-qrcode/tki-qrcode.vue';
+import { getStorage } from '@/utils/storage.js';
+
+
+var _self;
 export default {
+	component:{
+		tkiQrcode
+	},
 	data() {
 		return{
 			userInfo:{
-				avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
-				nickName:'李三',
-				phone:'广东 深圳'
+				// avatarUrl:'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
+				// nickName:'李三',
+				// phone:'广东 深圳'
 			},
+			val: 'https://www.baidu.com',
+			code:''
 		}
 	},
-	methods:{},
-	async onLoad() {}
+	methods:{
+		saveToAlbum() {
+			this.$refs.qrcode._makeCode();
+		},
+		qrR(path) {
+			_self.code=path
+			
+			
+		},
+		
+	},
+	async onLoad() {
+		_self =this;
+		_self.userInfo = getStorage('userInfo');
+		this.saveToAlbum()
+	}
 };
 </script>
 

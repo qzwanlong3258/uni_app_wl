@@ -14,10 +14,10 @@
 		</view>
 		<view class="colunm-slider title-font">
 			<view class="setting-address">设为默认地址</view>
-			<switch :disabled="isDisabledDefault" color="#000" :checked="addressInfo.default" @change="switch1Change" />
+			<switch :disabled="isDisabledDefault" color="#FFEA04" :checked="addressInfo.default" @change="switch1Change" />
 		</view>
 		<view v-if="isExit" class="colunm-slider" @click="deleteAddress" style="margin:0;"><view class="theme-color">删除收货地址</view></view>
-		<view class="start-todo" @click="saveAddress"><gxg-button class="cus-big-button">立即保存</gxg-button></view>
+		<view class="start-todo" @click="saveAddress"><gxg-button class="cus-big-button" >立即保存</gxg-button></view>
 	</view>
 </template>
 

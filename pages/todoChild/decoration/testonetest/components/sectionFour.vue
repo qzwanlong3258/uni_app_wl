@@ -3,18 +3,18 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionFour-box">
-			<view class="sectionFour-hd"> 04/06  您的工作性质属于？您的年收入？</view>
+			<view class="sectionFour-hd"> {{dataFour.content}}</view>
 			<view class="sectionFour-bd" >
-				<view v-for="(item,index) in busyData" :key="index" @click="busyClick(index)">
+				<view v-for="(item,index) in busyData" :key="index" @click="busyClick(index,item.cid)">
 					<image :src="item.img" mode=""></image>
-					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
+					<label class="radio"><radio :value="item.cname" :checked="index === current" />{{item.cname}}</label>
 				</view>
 				
 				
 				</view>
 			<view class="sectionFour-ft">
-				<view v-for="(item,index) in incomData" :key="index" @click="incomeClick(index)">
-					<label class="radio"><radio :value="item.value" :checked="index === incomeCurrent" />{{item.name}}</label>
+				<view v-for="(item,index) in incomData" :key="index" @click="incomeClick(index,item.cid)">
+					<label class="radio"><radio :value="item.cname" :checked="index === incomeCurrent" />{{item.cname}}</label>
 				</view>
 				</view>
 			<!-- <view class="sectionFour-ft" style="background: #ffffff;margin: 50rpx 74rpx;height: 175rpx;">
@@ -29,7 +29,8 @@
 				
 			</view> -->
 		</view>
-		<view class="iconfont iconnexts nextclass" ></view> 
+		<view class="iconfont iconnexts nextclass" ></view>
+		<view class="textClass">NEXT</view>
 	</view>
 </template>
 
@@ -40,20 +41,41 @@
 	
 	var _self;
 	export default {
-		
+		props: {
+			dataFour: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
+		watch:{
+			dataFour(newValue, oldValue) {
+							// console.log("obj",newValue,oldValue)
+							_self.busyData.push(newValue.choose[0])
+							_self.busyData.push(newValue.choose[1])
+							_self.busyData.push(newValue.choose[2])
+							_self.busyData.push(newValue.choose[3])
+							_self.incomData.push(newValue.choose[4])
+							_self.incomData.push(newValue.choose[5])
+							_self.incomData.push(newValue.choose[6])
+							_self.incomData.push(newValue.choose[7])
+							
+						}
+		},
 		data() {
 			return {
 				busyData:[
-					{ img: SERVANTMAN, name: "公务员" ,value:'TESTMEN'},
-					{ img: STAFF, name: "一般职员" ,value:'TESTWOMEN'},
-					{ img: EMPLOYEE, name: "自由职业" ,value:'TESTMEN'},
-					{ img: BUSINESSMAN, name: "企业法人" ,value:'TESTWOMEN'},
+					// { img: SERVANTMAN, name: "公务员" ,value:'TESTMEN'},
+					// { img: STAFF, name: "一般职员" ,value:'TESTWOMEN'},
+					// { img: EMPLOYEE, name: "自由职业" ,value:'TESTMEN'},
+					// { img: BUSINESSMAN, name: "企业法人" ,value:'TESTWOMEN'},
 				],
 				incomData:[
-					{  name: "5万以下" ,value:'TESTMEN'},
-					{  name: "5-10万" ,value:'TESTWOMEN'},
-					{  name: "10-20万" ,value:'TESTMEN'},
-					{  name: "20万以上" ,value:'TESTWOMEN'},
+					// {  name: "5万以下" ,value:'TESTMEN'},
+					// {  name: "5-10万" ,value:'TESTWOMEN'},
+					// {  name: "10-20万" ,value:'TESTMEN'},
+					// {  name: "20万以上" ,value:'TESTWOMEN'},
 				],
 				current:null,
 				incomeCurrent:null
@@ -61,15 +83,15 @@
 			}
 		},
 		methods: {
-			busyClick(e) {
+			busyClick(e,c) {
 				// console.log(_self)
 				_self.current =e
-				this.$emit('testOne',e+1,5)
+				this.$emit('testOne',c,5,this.dataFour.tid)
 				},
-			incomeClick(e) {
+			incomeClick(e,c) {
 				// console.log(_self)
 				_self.incomeCurrent =e
-				this.$emit('testOne',e+1,6)
+				this.$emit('testOne',c,6,this.dataFour.tid)
 				},
 		    
 		},
@@ -90,10 +112,17 @@
 		}
 	.nextclass{
 		position: absolute;
-		left: calc(50% - 10px);
-		bottom: 10px;
+		left: calc(50% - 20rpx);
+		bottom: 60rpx;
 		transform: rotate(-90deg);
-		
+		color: #333333;
+	}
+	.textClass{
+		position: absolute;
+		left: calc(50% - 36rpx);
+		bottom: 20rpx;
+		font-size: 28rpx;
+		color: #333333;
 	}
 	.sectionFour-box{
 		position: absolute;

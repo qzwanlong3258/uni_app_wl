@@ -3,11 +3,11 @@
 		<!-- <text class="section-maintitle">页面1</text>
 		<text class="section-subtitle">我的页面”1</text> -->
 		<view class="sectionsix-box">
-			<view class="sectionsix-hd"> 06/06  您喜欢的风格是？</view>
+			<view class="sectionsix-hd"> {{dataSix.content}}</view>
 			<view class="sectionsix-bd">
-				<view v-for="(item,index) in homeData" :key="index" @click="homeClick(index)">
+				<view v-for="(item,index) in dataSix.choose" :key="index" @click="homeClick(index,item.cid)">
 					<image :src="item.img" mode=""></image>
-					<label class="radio"><radio :value="item.value" :checked="index === current" />{{item.name}}</label>
+					<label class="radio"><radio :value="item.cname" :checked="index === current" />{{item.cname}}</label>
 				</view>
 				
 				
@@ -66,6 +66,14 @@
 	
 	var _self;
 	export default {
+		props: {
+			dataSix: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
 		components: {
 		            simpleAddress,
 					uniPopup
@@ -76,7 +84,6 @@
 				
 				homeData:[
 					{ img: HOMEONE, name: "地中海风格" ,value:'ONEHOME'},
-					
 					{ img: HOMETWO, name: "现代简约" ,value:'TWOHOME'},
 					{ img: HOMETHREE, name: "新中式风格"  ,value:'THREEHOME'},
 					{ img: HOMEFOUR, name: "欧式风格"  ,value:'OTHERHOME'},
@@ -88,10 +95,10 @@
 			}
 		},
 		methods: {
-			homeClick(e) {
+			homeClick(e,c) {
 				// console.log(_self)
 				_self.current =e
-				this.$emit('testOne',e+1,8)
+				this.$emit('testOne',c,8,this.dataSix.tid)
 				},
 				agre() {
 					_self.agree=!this.agree
