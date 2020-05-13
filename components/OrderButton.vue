@@ -39,6 +39,7 @@ export default {
 			}
 		}
 	},
+	
 	methods: {
 		...mapActions('order', ['getOrderItem', 'getOrderStatus']),
 		...mapMutations('order', [types.SET_ORDER_ITEM]),
@@ -57,7 +58,7 @@ export default {
 		 * 删除订单
 		 */
 		_deleteOrder: async function() {
-			let res = await deleteOrder({ uuid: this.infor.id });
+			let res = await deleteOrder({ uuid: this.infor.uuid });
 			Number(res.count) !== 1 && ((res = null), await model({ content: '删除订单失败', icon: 'none', showCancel: false }));
 			return res;
 		},
@@ -66,7 +67,7 @@ export default {
 		 * 取消订单
 		 */
 		deleteOrder: async function() {
-			(await model()).confirm && (await this._deleteOrder()) && this.$emit('change', this.selected);
+			(await model()).confirm && (await this._deleteOrder({ uuid: this.infor.uuid })) && this.$emit('change', this.selected);
 		},
 
 		/**

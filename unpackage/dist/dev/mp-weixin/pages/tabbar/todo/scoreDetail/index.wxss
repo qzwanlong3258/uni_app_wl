@@ -1,0 +1,13 @@
+
+page{
+	background: #FFFFFF;
+}
+
+
+.red.data-v-f89beb44{
+	color: red;
+}
+.green.data-v-f89beb44{
+	color: green;
+}
+

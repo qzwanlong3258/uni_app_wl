@@ -18,7 +18,7 @@ import {
 import {
 	COMPANY_LOGO
 } from '@/config/image.js'
-import { MINE ,DECORATION,BANK_DETAIL, TO_WEB} from '@/config/router.js';
+import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP} from '@/config/router.js';
 import { refreshToken } from  '../../utils/openLogin';
 import * as home from "@/api/tabbar/home.js";
 
@@ -120,6 +120,17 @@ const wxAuth = {
 					}
 				})
 			}
+			if(this.name=='inShop'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: INSHOP,
+						})
+					}
+				})
+			}
+			
 			
 		},
 		getUserInfo: async function(e) {

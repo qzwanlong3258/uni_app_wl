@@ -48,7 +48,8 @@
     "pages/todoChild/bankDetail/index",
     "pages/todoChild/toLink/privacy/index",
     "pages/todoChild/toLink/service/index",
-    "pages/todoChild/toLink/webview/index"
+    "pages/todoChild/toLink/webview/index",
+    "pages/tabbar/todo/scoreDetail/index"
   ],
   "subPackages": [],
   "window": {

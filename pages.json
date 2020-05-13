@@ -299,6 +299,12 @@
 		    "style" : {
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+		    "path" : "pages/tabbar/todo/scoreDetail/index",
+		    "style" : {
+				"navigationBarTitleText": "积分详情"
+			}
 		}
     ],
 	"globalStyle": {

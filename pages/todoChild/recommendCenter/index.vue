@@ -13,7 +13,7 @@
 				<view style="display: flex;" class="recomCenter-pic">
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
 						<view><image :src="img[0]" mode="widthFix"></image></view>
-						<view>积分: 0</view>
+						<view>积分: {{integral?integral:0}}</view>
 					</view>
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
 						<view><image :src="img[1]" mode="widthFix"></image></view>
@@ -36,6 +36,7 @@
 import {RECOMMEND_POINT,RECOMMEND_COUPON, RECOMMEND_GIFT, RECOMMEND_INVITE} from '@/config/image.js';
 import {RECOMMENDED} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
+import { loadIntegral } from '@/api/tabbar/todo.js';
 export default {
 	data() {
 		return{
@@ -44,18 +45,32 @@ export default {
 				// nickName:'李三',
 				// phone:'广东 深圳'
 			},
-			img:[RECOMMEND_POINT,RECOMMEND_COUPON,RECOMMEND_GIFT,RECOMMEND_INVITE]
+			img:[RECOMMEND_POINT,RECOMMEND_COUPON,RECOMMEND_GIFT,RECOMMEND_INVITE],
+			integral:0
 		}
+	},
+	onShow() {
+		this.loadIntegral();
 	},
 	methods:{
 		linktoRecommend(){
 			uni.navigateTo({
 				url:RECOMMENDED
 			})
-		}
+		},
+		/**
+		 * 加载积分
+		 */
+		loadIntegral: function() {
+			loadIntegral().then(res => {
+				// console.log(res)
+				this.integral = Number(res.integral);
+			});
+		},
 	},
 	async onLoad() {
 		this.userInfo = getStorage('userInfo');
+		this.loadIntegral();
 	}
 };
 </script>

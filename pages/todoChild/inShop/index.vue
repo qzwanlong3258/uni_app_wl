@@ -1,5 +1,5 @@
 <template>
-	<view class="inShop">
+	<view class="inShop" v-if="showAuth">
 		<image class="inShop-hd" :src="imglogo"></image>
 		<view style="color: #333333;font-size: 14px;text-align: center;margin-bottom: 20px;">欢迎入驻非客有家</view>
 		<view class="application_hd">
@@ -83,6 +83,7 @@ import { UPLOAD, INVITE} from '@/config/router.js';
 import { loadCity } from '@/api/city.js';
 import { getStorage ,setStorage } from '@/utils/storage.js';
 import wPicker from "@/components/w-picker/w-picker.vue";
+	const { AUTH } = require('../../../config/router.js');
 var _self;
 export default {
 	data() {
@@ -93,7 +94,8 @@ export default {
 			dataList:{},
 			cityid:[],
 			value:'',
-			createNumberShow:false
+			createNumberShow:false,
+			showAuth:false
 		}
 	},
 	methods:{
@@ -222,6 +224,19 @@ export default {
 		_self.dataList.cid = _self.cityid[0]
 		_self.value=this.getTime()
 		_self.dataList.createDate=this.getTime()
+		
+		
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+		} else {
+			
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url:`${AUTH}?name=${'inShop'}`
+			});	
+			}
 	}
 };
 </script>

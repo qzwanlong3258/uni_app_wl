@@ -94,7 +94,7 @@ module.exports = {
 	/** 海报**/
 	GET_POSTER:`${baseUrl}/posters/loadPosters`,
 	/** 积分**/
-	
+	GET_SCORE_DETAIL:`${baseUrl}/integral/loadIntegral`
 	
 	
 	

@@ -28,7 +28,7 @@
 				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;text-align: center;">余额(元) | 0</view>
 				<view style="flex: 0.8;"></view>
-				<view style="flex: 1;text-align: center;">积分 | 0</view>
+				<view style="flex: 1;text-align: center;">积分 | {{integral?integral:0}}</view>
 				<view style="flex: 0.1;"></view>
 			</view>
 			
@@ -87,6 +87,7 @@ import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MIN
 import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
 const { AUTH } = require('../../../config/router.js');
+import { loadIntegral } from '@/api/tabbar/todo.js';
 
 var _self;
 export default {
@@ -106,10 +107,12 @@ export default {
 			role:'',
 			imglogo:TOUXIANG_LOGO,
 			show:false,
-			imgShow:false
+			imgShow:false,
+			integral:0
 			
 		}
 	},
+	
 	methods:{
 		imgshow(){
 			_self.imgShow=true
@@ -148,7 +151,19 @@ export default {
 			uni.navigateTo({
 				url:MYWORK_PHOTO
 			})
-		}
+		},
+		/**
+		 * 加载积分
+		 */
+		loadIntegral: function() {
+			loadIntegral().then(res => {
+				// console.log(res)
+				this.integral = Number(res.integral);
+			});
+		},
+	},
+	onShow() {
+		this.loadIntegral();
 	},
 	async onLoad() {
 		
@@ -170,6 +185,7 @@ export default {
 		_self.index =getStorage('index')
 		_self.role =getStorage('userInfo').role[0]
 		console.log(_self.role)
+		this.loadIntegral();
 	},
 	onShow() {
 		_self.userInfo = getStorage('userInfo');

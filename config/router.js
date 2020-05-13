@@ -88,7 +88,10 @@ module.exports = {
 	//跳转图片  
 	TO_PRIVACY:'/pages/todoChild/toLink/privacy/index',
 	TO_SERVICE:'/pages/todoChild/toLink/service/index',
-	TO_WEB:'/pages/todoChild/toLink/webview/index'
+	TO_WEB:'/pages/todoChild/toLink/webview/index',
+	
+	//积分详情
+	TO_SCORE_DETAIL:'/pages/tabbar/todo/scoreDetail/index'
 	
 	
 }

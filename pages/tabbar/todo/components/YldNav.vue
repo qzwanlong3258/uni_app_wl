@@ -2,7 +2,7 @@
 	<view class="nav-box">
 		<view class="nav-clonum" v-for="(item, index) in navList" :key="index" @click="linkToRoute(item.href)">
 			<i :class="['iconfont', item.icon]"></i>
-			<text class="page_text-single-omit">{{item.name + (item.name !== '我的积分' || isNaN(integral) ? '' : ':' + integral)}}</text>
+			<text class="page_text-single-omit" @click="toScoreDetail">{{item.name + (item.name !== '我的积分' || isNaN(integral) ? '' : ':' + integral)}}</text>
 		</view>
 	</view>
 </template>
@@ -10,6 +10,7 @@
 <script>
 import { ORDER_LIST } from '@/config/router.js';
 import { loadIntegral } from '@/api/tabbar/todo.js';
+import {TO_SCORE_DETAIL} from '@/config/router.js';
 
 export default {
 	props: {
@@ -41,6 +42,11 @@ export default {
 		// this.loadIntegral();
 	},
 	methods: {
+		toScoreDetail(){
+			uni.navigateTo({
+				url:TO_SCORE_DETAIL
+			})
+		},
 		/**
 		 * 加载积分
 		 */

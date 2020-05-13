@@ -1702,7 +1702,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/measureHome.js ***!
   \******************************************************************/
@@ -1773,7 +1773,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
 
 /***/ }),
 
-/***/ 136:
+/***/ 137:
 /*!*********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/loan.js ***!
   \*********************************************************************/
@@ -1787,7 +1787,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.loanAppt =
 var _api = __webpack_require__(/*! @/config/api.js */ 20);var _require =
 
 
-__webpack_require__(/*! ./storage.js */ 137),getStorage = _require.getStorage;
+__webpack_require__(/*! ./storage.js */ 138),getStorage = _require.getStorage;
 
 function loanAppt(data) {
   // let token=getStorage('tempToken')
@@ -1890,7 +1890,7 @@ function getIssue(data) {
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /*!************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/storage.js ***!
   \************************************************************************/
@@ -2059,7 +2059,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 148:
+/***/ 149:
 /*!*************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/myWork.js ***!
   \*************************************************************/
@@ -9987,8 +9987,9 @@ module.exports = {
   MEASURE_SUCCESS: "".concat(baseUrl, "/make/makeDecorate"),
   GET_MY_SHOP: "".concat(baseUrl, "/make/loadMakeRecord"),
   /** 海报**/
-  GET_POSTER: "".concat(baseUrl, "/posters/loadPosters")
-  /** 积分**/ };
+  GET_POSTER: "".concat(baseUrl, "/posters/loadPosters"),
+  /** 积分**/
+  GET_SCORE_DETAIL: "".concat(baseUrl, "/integral/loadIntegral") };
 
 /***/ }),
 
@@ -10090,11 +10091,14 @@ module.exports = {
   //跳转图片  
   TO_PRIVACY: '/pages/todoChild/toLink/privacy/index',
   TO_SERVICE: '/pages/todoChild/toLink/service/index',
-  TO_WEB: '/pages/todoChild/toLink/webview/index' };
+  TO_WEB: '/pages/todoChild/toLink/webview/index',
+
+  //积分详情
+  TO_SCORE_DETAIL: '/pages/tabbar/todo/scoreDetail/index' };
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /*!***************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
   \***************************************************************/
@@ -10259,7 +10263,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
   \*****************************************************************************/
@@ -11262,7 +11266,7 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /*!***********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/poster.js ***!
   \***********************************************************************/
@@ -11526,7 +11530,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 342:
+/***/ 343:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
   \******************************************************************/
@@ -11645,7 +11649,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 406:
+/***/ 407:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -11795,7 +11799,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 407:
+/***/ 408:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -13309,7 +13313,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 408:
+/***/ 409:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -25862,7 +25866,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 409:
+/***/ 410:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -26523,7 +26527,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 422:
+/***/ 423:
 /*!*************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/inShop.js ***!
   \*************************************************************/
@@ -26552,2923 +26556,7 @@ function postShop(data) {
 
 /***/ }),
 
-/***/ 47:
-/*!****************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/config/filter.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.formatGender = formatGender;exports.formatOrderState = formatOrderState;exports.formatOrderStateIcon = formatOrderStateIcon;exports.formatDate = formatDate;exports.formatOrderBtns = formatOrderBtns;exports.formatHomeRoute = formatHomeRoute;
-var _util = __webpack_require__(/*! @/utils/util.js */ 48);
-
-
-var img = _interopRequireWildcard(__webpack_require__(/*! @/config/image.js */ 34));
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
-
-/**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * 格式化-性别
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
-function formatGender(value) {
-  switch (Number(value)) {
-    case 1:
-      return '男';
-    case 2:
-      return '女';
-    default:
-      return '位置';}
-
-}
-
-/**
-   * 格式化-订单状态
-   */
-function formatOrderState(value) {
-  switch (Number(value)) {
-    case 1:
-      return "待付款";
-    case 2:
-      return "待发货";
-    case 3:
-      return "待收货";
-    case 4:
-      return "完成";
-    case 5:
-      return "退换";
-    default:
-      return "未知";}
-
-}
-
-/**
-   * 格式化-订单ICON
-   */
-function formatOrderStateIcon(value) {
-  switch (Number(value)) {
-    case 1:
-      return img.PRE_PAYMENT;
-    case 2:
-      return img.TO_BE_DELIVERED;
-    case 3:
-      return img.TO_BE_RECEIVED;
-    case 4:
-      return img.EVALUATION;
-    case 5:
-      return img.AFTER_SALE;
-    default:
-      return img.NULL_DATA;}
-
-}
-
-/**
-   * 格式化-时间
-   */
-function formatDate(value) {
-  if (value == null || value === "") {
-    return "";
-  }
-  value = parseInt(value);
-  var date,leg = value.length;
-  if (leg === 13) {
-    date = new Date(value);
-  } else if (value.length < 13) {
-    date = new Date(value * 10 * (13 - leg));
-  } else if (value.length > 13) {
-    date = new Date(value / (10 * (leg - 13)));
-  } else {
-    date = new Date(value);
-  }
-  if (date.toString() === "Invalid Date") return date.toString();
-  return (0, _util.formatTime)(date, "yyyy-MM-dd hh:mm:ss");
-}
-
-/**
-   * 格式化-订单按钮列表
-   */
-function formatOrderBtns(value) {
-  switch (Number(value)) {
-    case 1:
-      return [{
-        id: 1,
-        name: "联系客服",
-        event: "makePhoneCall",
-        params: "12345678910" },
-      {
-        id: 2,
-        name: "取消订单",
-        event: "deleteOrder" },
-      {
-        id: 8,
-        name: "兑换",
-        event: "linkToWriteOrder" }];
-
-    case 2:
-      return [{
-        id: 4,
-        name: "修改地址",
-        event: "linkToAddress" },
-      {
-        id: 10,
-        name: "回到首页",
-        event: "linkToHome" }];
-
-    case 3:
-      return [{
-        id: 1,
-        name: "联系客服",
-        event: "makePhoneCall",
-        params: "12345678910" },
-      {
-        id: 6,
-        name: "确认收货",
-        event: "orderDelivery" }];
-
-    case 4:
-      return [{
-        id: 1,
-        name: "联系客服",
-        event: "makePhoneCall",
-        params: "12345678910" },
-      {
-        id: 8,
-        name: "再来一单",
-        event: "linkToWriteOrder" }];
-
-    case 5:
-      return [];
-    default:
-      return [];}
-
-}
-
-/**
-   * 格式化-首页路由
-   */
-function formatHomeRoute(value) {
-  switch (value) {
-    case "装修分期":return _router.DECORATION_PICTURE;
-    case "约量房":return _router.MEASUREHOME;
-    case "好店入驻":return _router.INSHOP;
-    case "邀请有礼":return _router.INVITEGIFT;}
-
-}
-
-/***/ }),
-
-/***/ 471:
-/*!***********************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/utils/qqmap-wx-jssdk.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 微信小程序JavaScriptSDK
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @version 1.2
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @date 2019-03-06
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @author v_ylyue@tencent.com
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */
-
-var ERROR_CONF = {
-  KEY_ERR: 311,
-  KEY_ERR_MSG: 'key格式错误',
-  PARAM_ERR: 310,
-  PARAM_ERR_MSG: '请求参数信息有误',
-  SYSTEM_ERR: 600,
-  SYSTEM_ERR_MSG: '系统错误',
-  WX_ERR_CODE: 1000,
-  WX_OK_CODE: 200 };
-
-var BASE_URL = 'https://apis.map.qq.com/ws/';
-var URL_SEARCH = BASE_URL + 'place/v1/search';
-var URL_SUGGESTION = BASE_URL + 'place/v1/suggestion';
-var URL_GET_GEOCODER = BASE_URL + 'geocoder/v1/';
-var URL_CITY_LIST = BASE_URL + 'district/v1/list';
-var URL_AREA_LIST = BASE_URL + 'district/v1/getchildren';
-var URL_DISTANCE = BASE_URL + 'distance/v1/';
-var URL_DIRECTION = BASE_URL + 'direction/v1/';
-var MODE = {
-  driving: 'driving',
-  transit: 'transit' };
-
-var EARTH_RADIUS = 6378136.49;
-var Utils = {
-  /**
-              * md5加密方法
-              * 版权所有©2011 Sebastian Tschan，https：//blueimp.net
-              */
-  safeAdd: function safeAdd(x, y) {
-    var lsw = (x & 0xffff) + (y & 0xffff);
-    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
-    return msw << 16 | lsw & 0xffff;
-  },
-  bitRotateLeft: function bitRotateLeft(num, cnt) {
-    return num << cnt | num >>> 32 - cnt;
-  },
-  md5cmn: function md5cmn(q, a, b, x, s, t) {
-    return this.safeAdd(this.bitRotateLeft(this.safeAdd(this.safeAdd(a, q), this.safeAdd(x, t)), s), b);
-  },
-  md5ff: function md5ff(a, b, c, d, x, s, t) {
-    return this.md5cmn(b & c | ~b & d, a, b, x, s, t);
-  },
-  md5gg: function md5gg(a, b, c, d, x, s, t) {
-    return this.md5cmn(b & d | c & ~d, a, b, x, s, t);
-  },
-  md5hh: function md5hh(a, b, c, d, x, s, t) {
-    return this.md5cmn(b ^ c ^ d, a, b, x, s, t);
-  },
-  md5ii: function md5ii(a, b, c, d, x, s, t) {
-    return this.md5cmn(c ^ (b | ~d), a, b, x, s, t);
-  },
-  binlMD5: function binlMD5(x, len) {
-    /* append padding */
-    x[len >> 5] |= 0x80 << len % 32;
-    x[(len + 64 >>> 9 << 4) + 14] = len;
-
-    var i;
-    var olda;
-    var oldb;
-    var oldc;
-    var oldd;
-    var a = 1732584193;
-    var b = -271733879;
-    var c = -1732584194;
-    var d = 271733878;
-
-    for (i = 0; i < x.length; i += 16) {
-      olda = a;
-      oldb = b;
-      oldc = c;
-      oldd = d;
-
-      a = this.md5ff(a, b, c, d, x[i], 7, -680876936);
-      d = this.md5ff(d, a, b, c, x[i + 1], 12, -389564586);
-      c = this.md5ff(c, d, a, b, x[i + 2], 17, 606105819);
-      b = this.md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
-      a = this.md5ff(a, b, c, d, x[i + 4], 7, -176418897);
-      d = this.md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
-      c = this.md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
-      b = this.md5ff(b, c, d, a, x[i + 7], 22, -45705983);
-      a = this.md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
-      d = this.md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
-      c = this.md5ff(c, d, a, b, x[i + 10], 17, -42063);
-      b = this.md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
-      a = this.md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
-      d = this.md5ff(d, a, b, c, x[i + 13], 12, -40341101);
-      c = this.md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
-      b = this.md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
-
-      a = this.md5gg(a, b, c, d, x[i + 1], 5, -165796510);
-      d = this.md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
-      c = this.md5gg(c, d, a, b, x[i + 11], 14, 643717713);
-      b = this.md5gg(b, c, d, a, x[i], 20, -373897302);
-      a = this.md5gg(a, b, c, d, x[i + 5], 5, -701558691);
-      d = this.md5gg(d, a, b, c, x[i + 10], 9, 38016083);
-      c = this.md5gg(c, d, a, b, x[i + 15], 14, -660478335);
-      b = this.md5gg(b, c, d, a, x[i + 4], 20, -405537848);
-      a = this.md5gg(a, b, c, d, x[i + 9], 5, 568446438);
-      d = this.md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
-      c = this.md5gg(c, d, a, b, x[i + 3], 14, -187363961);
-      b = this.md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
-      a = this.md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
-      d = this.md5gg(d, a, b, c, x[i + 2], 9, -51403784);
-      c = this.md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
-      b = this.md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
-
-      a = this.md5hh(a, b, c, d, x[i + 5], 4, -378558);
-      d = this.md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
-      c = this.md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
-      b = this.md5hh(b, c, d, a, x[i + 14], 23, -35309556);
-      a = this.md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
-      d = this.md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
-      c = this.md5hh(c, d, a, b, x[i + 7], 16, -155497632);
-      b = this.md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
-      a = this.md5hh(a, b, c, d, x[i + 13], 4, 681279174);
-      d = this.md5hh(d, a, b, c, x[i], 11, -358537222);
-      c = this.md5hh(c, d, a, b, x[i + 3], 16, -722521979);
-      b = this.md5hh(b, c, d, a, x[i + 6], 23, 76029189);
-      a = this.md5hh(a, b, c, d, x[i + 9], 4, -640364487);
-      d = this.md5hh(d, a, b, c, x[i + 12], 11, -421815835);
-      c = this.md5hh(c, d, a, b, x[i + 15], 16, 530742520);
-      b = this.md5hh(b, c, d, a, x[i + 2], 23, -995338651);
-
-      a = this.md5ii(a, b, c, d, x[i], 6, -198630844);
-      d = this.md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
-      c = this.md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
-      b = this.md5ii(b, c, d, a, x[i + 5], 21, -57434055);
-      a = this.md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
-      d = this.md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
-      c = this.md5ii(c, d, a, b, x[i + 10], 15, -1051523);
-      b = this.md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
-      a = this.md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
-      d = this.md5ii(d, a, b, c, x[i + 15], 10, -30611744);
-      c = this.md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
-      b = this.md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
-      a = this.md5ii(a, b, c, d, x[i + 4], 6, -145523070);
-      d = this.md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
-      c = this.md5ii(c, d, a, b, x[i + 2], 15, 718787259);
-      b = this.md5ii(b, c, d, a, x[i + 9], 21, -343485551);
-
-      a = this.safeAdd(a, olda);
-      b = this.safeAdd(b, oldb);
-      c = this.safeAdd(c, oldc);
-      d = this.safeAdd(d, oldd);
-    }
-    return [a, b, c, d];
-  },
-  binl2rstr: function binl2rstr(input) {
-    var i;
-    var output = '';
-    var length32 = input.length * 32;
-    for (i = 0; i < length32; i += 8) {
-      output += String.fromCharCode(input[i >> 5] >>> i % 32 & 0xff);
-    }
-    return output;
-  },
-  rstr2binl: function rstr2binl(input) {
-    var i;
-    var output = [];
-    output[(input.length >> 2) - 1] = undefined;
-    for (i = 0; i < output.length; i += 1) {
-      output[i] = 0;
-    }
-    var length8 = input.length * 8;
-    for (i = 0; i < length8; i += 8) {
-      output[i >> 5] |= (input.charCodeAt(i / 8) & 0xff) << i % 32;
-    }
-    return output;
-  },
-  rstrMD5: function rstrMD5(s) {
-    return this.binl2rstr(this.binlMD5(this.rstr2binl(s), s.length * 8));
-  },
-  rstrHMACMD5: function rstrHMACMD5(key, data) {
-    var i;
-    var bkey = this.rstr2binl(key);
-    var ipad = [];
-    var opad = [];
-    var hash;
-    ipad[15] = opad[15] = undefined;
-    if (bkey.length > 16) {
-      bkey = this.binlMD5(bkey, key.length * 8);
-    }
-    for (i = 0; i < 16; i += 1) {
-      ipad[i] = bkey[i] ^ 0x36363636;
-      opad[i] = bkey[i] ^ 0x5c5c5c5c;
-    }
-    hash = this.binlMD5(ipad.concat(this.rstr2binl(data)), 512 + data.length * 8);
-    return this.binl2rstr(this.binlMD5(opad.concat(hash), 512 + 128));
-  },
-  rstr2hex: function rstr2hex(input) {
-    var hexTab = '0123456789abcdef';
-    var output = '';
-    var x;
-    var i;
-    for (i = 0; i < input.length; i += 1) {
-      x = input.charCodeAt(i);
-      output += hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f);
-    }
-    return output;
-  },
-  str2rstrUTF8: function str2rstrUTF8(input) {
-    return unescape(encodeURIComponent(input));
-  },
-  rawMD5: function rawMD5(s) {
-    return this.rstrMD5(this.str2rstrUTF8(s));
-  },
-  hexMD5: function hexMD5(s) {
-    return this.rstr2hex(this.rawMD5(s));
-  },
-  rawHMACMD5: function rawHMACMD5(k, d) {
-    return this.rstrHMACMD5(this.str2rstrUTF8(k), str2rstrUTF8(d));
-  },
-  hexHMACMD5: function hexHMACMD5(k, d) {
-    return this.rstr2hex(this.rawHMACMD5(k, d));
-  },
-
-  md5: function md5(string, key, raw) {
-    if (!key) {
-      if (!raw) {
-        return this.hexMD5(string);
-      }
-      return this.rawMD5(string);
-    }
-    if (!raw) {
-      return this.hexHMACMD5(key, string);
-    }
-    return this.rawHMACMD5(key, string);
-  },
-  /**
-      * 得到md5加密后的sig参数
-      * @param {Object} requestParam 接口参数
-      * @param {String} sk签名字符串
-      * @param {String} featrue 方法名
-      * @return 返回加密后的sig参数
-      */
-  getSig: function getSig(requestParam, sk, feature, mode) {
-    var sig = null;
-    var requestArr = [];
-    Object.keys(requestParam).sort().forEach(function (key) {
-      requestArr.push(key + '=' + requestParam[key]);
-    });
-    if (feature == 'search') {
-      sig = '/ws/place/v1/search?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'suggest') {
-      sig = '/ws/place/v1/suggestion?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'reverseGeocoder') {
-      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'geocoder') {
-      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'getCityList') {
-      sig = '/ws/district/v1/list?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'getDistrictByCityId') {
-      sig = '/ws/district/v1/getchildren?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'calculateDistance') {
-      sig = '/ws/distance/v1/?' + requestArr.join('&') + sk;
-    }
-    if (feature == 'direction') {
-      sig = '/ws/direction/v1/' + mode + '?' + requestArr.join('&') + sk;
-    }
-    sig = this.md5(sig);
-    return sig;
-  },
-  /**
-      * 得到终点query字符串
-      * @param {Array|String} 检索数据
-      */
-  location2query: function location2query(data) {
-    if (typeof data == 'string') {
-      return data;
-    }
-    var query = '';
-    for (var i = 0; i < data.length; i++) {
-      var d = data[i];
-      if (!!query) {
-        query += ';';
-      }
-      if (d.location) {
-        query = query + d.location.lat + ',' + d.location.lng;
-      }
-      if (d.latitude && d.longitude) {
-        query = query + d.latitude + ',' + d.longitude;
-      }
-    }
-    return query;
-  },
-
-  /**
-      * 计算角度
-      */
-  rad: function rad(d) {
-    return d * Math.PI / 180.0;
-  },
-  /**
-      * 处理终点location数组
-      * @return 返回终点数组
-      */
-  getEndLocation: function getEndLocation(location) {
-    var to = location.split(';');
-    var endLocation = [];
-    for (var i = 0; i < to.length; i++) {
-      endLocation.push({
-        lat: parseFloat(to[i].split(',')[0]),
-        lng: parseFloat(to[i].split(',')[1]) });
-
-    }
-    return endLocation;
-  },
-
-  /**
-      * 计算两点间直线距离
-      * @param a 表示纬度差
-      * @param b 表示经度差
-      * @return 返回的是距离，单位m
-      */
-  getDistance: function getDistance(latFrom, lngFrom, latTo, lngTo) {
-    var radLatFrom = this.rad(latFrom);
-    var radLatTo = this.rad(latTo);
-    var a = radLatFrom - radLatTo;
-    var b = this.rad(lngFrom) - this.rad(lngTo);
-    var distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLatFrom) * Math.cos(radLatTo) * Math.pow(Math.sin(b / 2), 2)));
-    distance = distance * EARTH_RADIUS;
-    distance = Math.round(distance * 10000) / 10000;
-    return parseFloat(distance.toFixed(0));
-  },
-  /**
-      * 使用微信接口进行定位
-      */
-  getWXLocation: function getWXLocation(success, fail, complete) {
-    wx.getLocation({
-      type: 'gcj02',
-      success: success,
-      fail: fail,
-      complete: complete });
-
-  },
-
-  /**
-      * 获取location参数
-      */
-  getLocationParam: function getLocationParam(location) {
-    if (typeof location == 'string') {
-      var locationArr = location.split(',');
-      if (locationArr.length === 2) {
-        location = {
-          latitude: location.split(',')[0],
-          longitude: location.split(',')[1] };
-
-      } else {
-        location = {};
-      }
-    }
-    return location;
-  },
-
-  /**
-      * 回调函数默认处理
-      */
-  polyfillParam: function polyfillParam(param) {
-    param.success = param.success || function () {};
-    param.fail = param.fail || function () {};
-    param.complete = param.complete || function () {};
-  },
-
-  /**
-      * 验证param对应的key值是否为空
-      * 
-      * @param {Object} param 接口参数
-      * @param {String} key 对应参数的key
-      */
-  checkParamKeyEmpty: function checkParamKeyEmpty(param, key) {
-    if (!param[key]) {
-      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + key + '参数格式有误');
-      param.fail(errconf);
-      param.complete(errconf);
-      return true;
-    }
-    return false;
-  },
-
-  /**
-      * 验证参数中是否存在检索词keyword
-      * 
-      * @param {Object} param 接口参数
-      */
-  checkKeyword: function checkKeyword(param) {
-    return !this.checkParamKeyEmpty(param, 'keyword');
-  },
-
-  /**
-      * 验证location值
-      * 
-      * @param {Object} param 接口参数
-      */
-  checkLocation: function checkLocation(param) {
-    var location = this.getLocationParam(param.location);
-    if (!location || !location.latitude || !location.longitude) {
-      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + ' location参数格式有误');
-      param.fail(errconf);
-      param.complete(errconf);
-      return false;
-    }
-    return true;
-  },
-
-  /**
-      * 构造错误数据结构
-      * @param {Number} errCode 错误码
-      * @param {Number} errMsg 错误描述
-      */
-  buildErrorConfig: function buildErrorConfig(errCode, errMsg) {
-    return {
-      status: errCode,
-      message: errMsg };
-
-  },
-
-  /**
-      * 
-      * 数据处理函数
-      * 根据传入参数不同处理不同数据
-      * @param {String} feature 功能名称
-      * search 地点搜索
-      * suggest关键词提示
-      * reverseGeocoder逆地址解析
-      * geocoder地址解析
-      * getCityList获取城市列表：父集
-      * getDistrictByCityId获取区县列表：子集
-      * calculateDistance距离计算
-      * @param {Object} param 接口参数
-      * @param {Object} data 数据
-      */
-  handleData: function handleData(param, data, feature) {
-    if (feature == 'search') {
-      var searchResult = data.data;
-      var searchSimplify = [];
-      for (var i = 0; i < searchResult.length; i++) {
-        searchSimplify.push({
-          id: searchResult[i].id || null,
-          title: searchResult[i].title || null,
-          latitude: searchResult[i].location && searchResult[i].location.lat || null,
-          longitude: searchResult[i].location && searchResult[i].location.lng || null,
-          address: searchResult[i].address || null,
-          category: searchResult[i].category || null,
-          tel: searchResult[i].tel || null,
-          adcode: searchResult[i].ad_info && searchResult[i].ad_info.adcode || null,
-          city: searchResult[i].ad_info && searchResult[i].ad_info.city || null,
-          district: searchResult[i].ad_info && searchResult[i].ad_info.district || null,
-          province: searchResult[i].ad_info && searchResult[i].ad_info.province || null });
-
-      }
-      param.success(data, {
-        searchResult: searchResult,
-        searchSimplify: searchSimplify });
-
-    } else if (feature == 'suggest') {
-      var suggestResult = data.data;
-      var suggestSimplify = [];
-      for (var i = 0; i < suggestResult.length; i++) {
-        suggestSimplify.push({
-          adcode: suggestResult[i].adcode || null,
-          address: suggestResult[i].address || null,
-          category: suggestResult[i].category || null,
-          city: suggestResult[i].city || null,
-          district: suggestResult[i].district || null,
-          id: suggestResult[i].id || null,
-          latitude: suggestResult[i].location && suggestResult[i].location.lat || null,
-          longitude: suggestResult[i].location && suggestResult[i].location.lng || null,
-          province: suggestResult[i].province || null,
-          title: suggestResult[i].title || null,
-          type: suggestResult[i].type || null });
-
-      }
-      param.success(data, {
-        suggestResult: suggestResult,
-        suggestSimplify: suggestSimplify });
-
-    } else if (feature == 'reverseGeocoder') {
-      var reverseGeocoderResult = data.result;
-      var reverseGeocoderSimplify = {
-        address: reverseGeocoderResult.address || null,
-        latitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lat || null,
-        longitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lng || null,
-        adcode: reverseGeocoderResult.ad_info && reverseGeocoderResult.ad_info.adcode || null,
-        city: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.city || null,
-        district: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.district || null,
-        nation: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.nation || null,
-        province: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.province || null,
-        street: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street || null,
-        street_number: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street_number || null,
-        recommend: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.recommend || null,
-        rough: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.rough || null };
-
-      if (reverseGeocoderResult.pois) {//判断是否返回周边poi
-        var pois = reverseGeocoderResult.pois;
-        var poisSimplify = [];
-        for (var i = 0; i < pois.length; i++) {
-          poisSimplify.push({
-            id: pois[i].id || null,
-            title: pois[i].title || null,
-            latitude: pois[i].location && pois[i].location.lat || null,
-            longitude: pois[i].location && pois[i].location.lng || null,
-            address: pois[i].address || null,
-            category: pois[i].category || null,
-            adcode: pois[i].ad_info && pois[i].ad_info.adcode || null,
-            city: pois[i].ad_info && pois[i].ad_info.city || null,
-            district: pois[i].ad_info && pois[i].ad_info.district || null,
-            province: pois[i].ad_info && pois[i].ad_info.province || null });
-
-        }
-        param.success(data, {
-          reverseGeocoderResult: reverseGeocoderResult,
-          reverseGeocoderSimplify: reverseGeocoderSimplify,
-          pois: pois,
-          poisSimplify: poisSimplify });
-
-      } else {
-        param.success(data, {
-          reverseGeocoderResult: reverseGeocoderResult,
-          reverseGeocoderSimplify: reverseGeocoderSimplify });
-
-      }
-    } else if (feature == 'geocoder') {
-      var geocoderResult = data.result;
-      var geocoderSimplify = {
-        title: geocoderResult.title || null,
-        latitude: geocoderResult.location && geocoderResult.location.lat || null,
-        longitude: geocoderResult.location && geocoderResult.location.lng || null,
-        adcode: geocoderResult.ad_info && geocoderResult.ad_info.adcode || null,
-        province: geocoderResult.address_components && geocoderResult.address_components.province || null,
-        city: geocoderResult.address_components && geocoderResult.address_components.city || null,
-        district: geocoderResult.address_components && geocoderResult.address_components.district || null,
-        street: geocoderResult.address_components && geocoderResult.address_components.street || null,
-        street_number: geocoderResult.address_components && geocoderResult.address_components.street_number || null,
-        level: geocoderResult.level || null };
-
-      param.success(data, {
-        geocoderResult: geocoderResult,
-        geocoderSimplify: geocoderSimplify });
-
-    } else if (feature == 'getCityList') {
-      var provinceResult = data.result[0];
-      var cityResult = data.result[1];
-      var districtResult = data.result[2];
-      param.success(data, {
-        provinceResult: provinceResult,
-        cityResult: cityResult,
-        districtResult: districtResult });
-
-    } else if (feature == 'getDistrictByCityId') {
-      var districtByCity = data.result[0];
-      param.success(data, districtByCity);
-    } else if (feature == 'calculateDistance') {
-      var calculateDistanceResult = data.result.elements;
-      var distance = [];
-      for (var i = 0; i < calculateDistanceResult.length; i++) {
-        distance.push(calculateDistanceResult[i].distance);
-      }
-      param.success(data, {
-        calculateDistanceResult: calculateDistanceResult,
-        distance: distance });
-
-    } else if (feature == 'direction') {
-      var direction = data.result.routes;
-      param.success(data, direction);
-    } else {
-      param.success(data);
-    }
-  },
-
-  /**
-      * 构造微信请求参数，公共属性处理
-      * 
-      * @param {Object} param 接口参数
-      * @param {Object} param 配置项
-      * @param {String} feature 方法名
-      */
-  buildWxRequestConfig: function buildWxRequestConfig(param, options, feature) {
-    var that = this;
-    options.header = { "content-type": "application/json" };
-    options.method = 'GET';
-    options.success = function (res) {
-      var data = res.data;
-      if (data.status === 0) {
-        that.handleData(param, data, feature);
-      } else {
-        param.fail(data);
-      }
-    };
-    options.fail = function (res) {
-      res.statusCode = ERROR_CONF.WX_ERR_CODE;
-      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
-    };
-    options.complete = function (res) {
-      var statusCode = +res.statusCode;
-      switch (statusCode) {
-        case ERROR_CONF.WX_ERR_CODE:{
-            param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
-            break;
-          }
-        case ERROR_CONF.WX_OK_CODE:{
-            var data = res.data;
-            if (data.status === 0) {
-              param.complete(data);
-            } else {
-              param.complete(that.buildErrorConfig(data.status, data.message));
-            }
-            break;
-          }
-        default:{
-            param.complete(that.buildErrorConfig(ERROR_CONF.SYSTEM_ERR, ERROR_CONF.SYSTEM_ERR_MSG));
-          }}
-
-
-    };
-    return options;
-  },
-
-  /**
-      * 处理用户参数是否传入坐标进行不同的处理
-      */
-  locationProcess: function locationProcess(param, locationsuccess, locationfail, locationcomplete) {
-    var that = this;
-    locationfail = locationfail || function (res) {
-      res.statusCode = ERROR_CONF.WX_ERR_CODE;
-      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
-    };
-    locationcomplete = locationcomplete || function (res) {
-      if (res.statusCode == ERROR_CONF.WX_ERR_CODE) {
-        param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
-      }
-    };
-    if (!param.location) {
-      that.getWXLocation(locationsuccess, locationfail, locationcomplete);
-    } else if (that.checkLocation(param)) {
-      var location = Utils.getLocationParam(param.location);
-      locationsuccess(location);
-    }
-  } };var
-
-
-
-QQMapWX = /*#__PURE__*/function () {
-
-  /**
-                                     * 构造函数
-                                     * 
-                                     * @param {Object} options 接口参数,key 为必选参数
-                                     */
-  function QQMapWX(options) {_classCallCheck(this, QQMapWX);
-    if (!options.key) {
-      throw Error('key值不能为空');
-    }
-    this.key = options.key;
-  }_createClass(QQMapWX, [{ key: "search",
-
-    /**
-                                            * POI周边检索
-                                            *
-                                            * @param {Object} options 接口参数对象
-                                            * 
-                                            * 参数对象结构可以参考
-                                            * @see http://lbs.qq.com/webservice_v1/guide-search.html
-                                            */value: function search(
-    options) {
-      var that = this;
-      options = options || {};
-
-      Utils.polyfillParam(options);
-
-      if (!Utils.checkKeyword(options)) {
-        return;
-      }
-
-      var requestParam = {
-        keyword: options.keyword,
-        orderby: options.orderby || '_distance',
-        page_size: options.page_size || 10,
-        page_index: options.page_index || 1,
-        output: 'json',
-        key: that.key };
-
-
-      if (options.address_format) {
-        requestParam.address_format = options.address_format;
-      }
-
-      if (options.filter) {
-        requestParam.filter = options.filter;
-      }
-
-      var distance = options.distance || "1000";
-      var auto_extend = options.auto_extend || 1;
-      var region = null;
-      var rectangle = null;
-
-      //判断城市限定参数
-      if (options.region) {
-        region = options.region;
-      }
-
-      //矩形限定坐标(暂时只支持字符串格式)
-      if (options.rectangle) {
-        rectangle = options.rectangle;
-      }
-
-      var locationsuccess = function locationsuccess(result) {
-        if (region && !rectangle) {
-          //城市限定参数拼接
-          requestParam.boundary = "region(" + region + "," + auto_extend + "," + result.latitude + "," + result.longitude + ")";
-          if (options.sig) {
-            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
-          }
-        } else if (rectangle && !region) {
-          //矩形搜索
-          requestParam.boundary = "rectangle(" + rectangle + ")";
-          if (options.sig) {
-            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
-          }
-        } else {
-          requestParam.boundary = "nearby(" + result.latitude + "," + result.longitude + "," + distance + "," + auto_extend + ")";
-          if (options.sig) {
-            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
-          }
-        }
-        wx.request(Utils.buildWxRequestConfig(options, {
-          url: URL_SEARCH,
-          data: requestParam },
-        'search'));
-      };
-      Utils.locationProcess(options, locationsuccess);
-    } }, { key: "getSuggestion",
-
-    /**
-                                  * sug模糊检索
-                                  *
-                                  * @param {Object} options 接口参数对象
-                                  * 
-                                  * 参数对象结构可以参考
-                                  * http://lbs.qq.com/webservice_v1/guide-suggestion.html
-                                  */value: function getSuggestion(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-
-      if (!Utils.checkKeyword(options)) {
-        return;
-      }
-
-      var requestParam = {
-        keyword: options.keyword,
-        region: options.region || '全国',
-        region_fix: options.region_fix || 0,
-        policy: options.policy || 0,
-        page_size: options.page_size || 10, //控制显示条数
-        page_index: options.page_index || 1, //控制页数
-        get_subpois: options.get_subpois || 0, //返回子地点
-        output: 'json',
-        key: that.key };
-
-      //长地址
-      if (options.address_format) {
-        requestParam.address_format = options.address_format;
-      }
-      //过滤
-      if (options.filter) {
-        requestParam.filter = options.filter;
-      }
-      //排序
-      if (options.location) {
-        var locationsuccess = function locationsuccess(result) {
-          requestParam.location = result.latitude + ',' + result.longitude;
-          if (options.sig) {
-            requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
-          }
-          wx.request(Utils.buildWxRequestConfig(options, {
-            url: URL_SUGGESTION,
-            data: requestParam },
-          "suggest"));
-        };
-        Utils.locationProcess(options, locationsuccess);
-      } else {
-        if (options.sig) {
-          requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
-        }
-        wx.request(Utils.buildWxRequestConfig(options, {
-          url: URL_SUGGESTION,
-          data: requestParam },
-        "suggest"));
-      }
-    } }, { key: "reverseGeocoder",
-
-    /**
-                                    * 逆地址解析
-                                    *
-                                    * @param {Object} options 接口参数对象
-                                    * 
-                                    * 请求参数结构可以参考
-                                    * http://lbs.qq.com/webservice_v1/guide-gcoder.html
-                                    */value: function reverseGeocoder(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-      var requestParam = {
-        coord_type: options.coord_type || 5,
-        get_poi: options.get_poi || 0,
-        output: 'json',
-        key: that.key };
-
-      if (options.poi_options) {
-        requestParam.poi_options = options.poi_options;
-      }
-
-      var locationsuccess = function locationsuccess(result) {
-        requestParam.location = result.latitude + ',' + result.longitude;
-        if (options.sig) {
-          requestParam.sig = Utils.getSig(requestParam, options.sig, 'reverseGeocoder');
-        }
-        wx.request(Utils.buildWxRequestConfig(options, {
-          url: URL_GET_GEOCODER,
-          data: requestParam },
-        'reverseGeocoder'));
-      };
-      Utils.locationProcess(options, locationsuccess);
-    } }, { key: "geocoder",
-
-    /**
-                             * 地址解析
-                             *
-                             * @param {Object} options 接口参数对象
-                             * 
-                             * 请求参数结构可以参考
-                             * http://lbs.qq.com/webservice_v1/guide-geocoder.html
-                             */value: function geocoder(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-
-      if (Utils.checkParamKeyEmpty(options, 'address')) {
-        return;
-      }
-
-      var requestParam = {
-        address: options.address,
-        output: 'json',
-        key: that.key };
-
-
-      //城市限定
-      if (options.region) {
-        requestParam.region = options.region;
-      }
-
-      if (options.sig) {
-        requestParam.sig = Utils.getSig(requestParam, options.sig, 'geocoder');
-      }
-
-      wx.request(Utils.buildWxRequestConfig(options, {
-        url: URL_GET_GEOCODER,
-        data: requestParam },
-      'geocoder'));
-    } }, { key: "getCityList",
-
-
-    /**
-                                * 获取城市列表
-                                *
-                                * @param {Object} options 接口参数对象
-                                * 
-                                * 请求参数结构可以参考
-                                * http://lbs.qq.com/webservice_v1/guide-region.html
-                                */value: function getCityList(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-      var requestParam = {
-        output: 'json',
-        key: that.key };
-
-
-      if (options.sig) {
-        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getCityList');
-      }
-
-      wx.request(Utils.buildWxRequestConfig(options, {
-        url: URL_CITY_LIST,
-        data: requestParam },
-      'getCityList'));
-    } }, { key: "getDistrictByCityId",
-
-    /**
-                                        * 获取对应城市ID的区县列表
-                                        *
-                                        * @param {Object} options 接口参数对象
-                                        * 
-                                        * 请求参数结构可以参考
-                                        * http://lbs.qq.com/webservice_v1/guide-region.html
-                                        */value: function getDistrictByCityId(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-
-      if (Utils.checkParamKeyEmpty(options, 'id')) {
-        return;
-      }
-
-      var requestParam = {
-        id: options.id || '',
-        output: 'json',
-        key: that.key };
-
-
-      if (options.sig) {
-        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getDistrictByCityId');
-      }
-
-      wx.request(Utils.buildWxRequestConfig(options, {
-        url: URL_AREA_LIST,
-        data: requestParam },
-      'getDistrictByCityId'));
-    } }, { key: "calculateDistance",
-
-    /**
-                                      * 用于单起点到多终点的路线距离(非直线距离)计算：
-                                      * 支持两种距离计算方式：步行和驾车。
-                                      * 起点到终点最大限制直线距离10公里。
-                                      *
-                                      * 新增直线距离计算。
-                                      * 
-                                      * @param {Object} options 接口参数对象
-                                      * 
-                                      * 请求参数结构可以参考
-                                      * http://lbs.qq.com/webservice_v1/guide-distance.html
-                                      */value: function calculateDistance(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-
-      if (Utils.checkParamKeyEmpty(options, 'to')) {
-        return;
-      }
-
-      var requestParam = {
-        mode: options.mode || 'walking',
-        to: Utils.location2query(options.to),
-        output: 'json',
-        key: that.key };
-
-
-      if (options.from) {
-        options.location = options.from;
-      }
-
-      //计算直线距离
-      if (requestParam.mode == 'straight') {
-        var locationsuccess = function locationsuccess(result) {
-          var locationTo = Utils.getEndLocation(requestParam.to); //处理终点坐标
-          var data = {
-            message: "query ok",
-            result: {
-              elements: [] },
-
-            status: 0 };
-
-          for (var i = 0; i < locationTo.length; i++) {
-            data.result.elements.push({ //将坐标存入
-              distance: Utils.getDistance(result.latitude, result.longitude, locationTo[i].lat, locationTo[i].lng),
-              duration: 0,
-              from: {
-                lat: result.latitude,
-                lng: result.longitude },
-
-              to: {
-                lat: locationTo[i].lat,
-                lng: locationTo[i].lng } });
-
-
-          }
-          var calculateResult = data.result.elements;
-          var distanceResult = [];
-          for (var i = 0; i < calculateResult.length; i++) {
-            distanceResult.push(calculateResult[i].distance);
-          }
-          return options.success(data, {
-            calculateResult: calculateResult,
-            distanceResult: distanceResult });
-
-        };
-
-        Utils.locationProcess(options, locationsuccess);
-      } else {
-        var locationsuccess = function locationsuccess(result) {
-          requestParam.from = result.latitude + ',' + result.longitude;
-          if (options.sig) {
-            requestParam.sig = Utils.getSig(requestParam, options.sig, 'calculateDistance');
-          }
-          wx.request(Utils.buildWxRequestConfig(options, {
-            url: URL_DISTANCE,
-            data: requestParam },
-          'calculateDistance'));
-        };
-
-        Utils.locationProcess(options, locationsuccess);
-      }
-    } }, { key: "direction",
-
-    /**
-                              * 路线规划：
-                              * 
-                              * @param {Object} options 接口参数对象
-                              * 
-                              * 请求参数结构可以参考
-                              * https://lbs.qq.com/webservice_v1/guide-road.html
-                              */value: function direction(
-    options) {
-      var that = this;
-      options = options || {};
-      Utils.polyfillParam(options);
-
-      if (Utils.checkParamKeyEmpty(options, 'to')) {
-        return;
-      }
-
-      var requestParam = {
-        output: 'json',
-        key: that.key };
-
-
-      //to格式处理
-      if (typeof options.to == 'string') {
-        requestParam.to = options.to;
-      } else {
-        requestParam.to = options.to.latitude + ',' + options.to.longitude;
-      }
-      //初始化局部请求域名
-      var SET_URL_DIRECTION = null;
-      //设置默认mode属性
-      options.mode = options.mode || MODE.driving;
-
-      //设置请求域名
-      SET_URL_DIRECTION = URL_DIRECTION + options.mode;
-
-      if (options.from) {
-        options.location = options.from;
-      }
-
-      if (options.mode == MODE.driving) {
-        if (options.from_poi) {
-          requestParam.from_poi = options.from_poi;
-        }
-        if (options.heading) {
-          requestParam.heading = options.heading;
-        }
-        if (options.speed) {
-          requestParam.speed = options.speed;
-        }
-        if (options.accuracy) {
-          requestParam.accuracy = options.accuracy;
-        }
-        if (options.road_type) {
-          requestParam.road_type = options.road_type;
-        }
-        if (options.to_poi) {
-          requestParam.to_poi = options.to_poi;
-        }
-        if (options.from_track) {
-          requestParam.from_track = options.from_track;
-        }
-        if (options.waypoints) {
-          requestParam.waypoints = options.waypoints;
-        }
-        if (options.policy) {
-          requestParam.policy = options.policy;
-        }
-        if (options.plate_number) {
-          requestParam.plate_number = options.plate_number;
-        }
-      }
-
-      if (options.mode == MODE.transit) {
-        if (options.departure_time) {
-          requestParam.departure_time = options.departure_time;
-        }
-        if (options.policy) {
-          requestParam.policy = options.policy;
-        }
-      }
-
-      var locationsuccess = function locationsuccess(result) {
-        requestParam.from = result.latitude + ',' + result.longitude;
-        if (options.sig) {
-          requestParam.sig = Utils.getSig(requestParam, options.sig, 'direction', options.mode);
-        }
-        wx.request(Utils.buildWxRequestConfig(options, {
-          url: SET_URL_DIRECTION,
-          data: requestParam },
-        'direction'));
-      };
-
-      Utils.locationProcess(options, locationsuccess);
-    } }]);return QQMapWX;}();
-;
-
-module.exports = QQMapWX;
-
-/***/ }),
-
-/***/ 48:
-/*!*************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/utils/util.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var formatTime = function formatTime(date) {
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hour = date.getHours();
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':');
-};
-
-var formatNumber = function formatNumber(n) {
-  n = n.toString();
-  return n[1] ? n : '0' + n;
-};
-
-//时间戳转时间
-var time = function time(timestamp) {
-  timestamp = timestamp.toString().length < 13 ? timestamp * 1000 : timestamp;
-  var date = new Date(timestamp);
-  var Y = date.getFullYear() + '-';
-  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-  var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
-  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-  var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-  return Y + M + D + h + m + s;
-};
-
-// 字符串是否必填校验
-var checkRequestStr = function checkRequestStr(inputStr, fieldName) {
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    return true;
-  }
-};
-
-// 验证手机号（精确）
-var checkPhone = function checkPhone(inputStr, fieldName) {
-  inputStr = inputStr.toString();
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '手机号不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    var regex = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/ig;
-    var result = regex.test(inputStr);
-    if (!result) {
-      var _info = fieldName ? '请输入正确' + fieldName : '请输入正确手机号';
-      uni.showToast({
-        title: _info,
-        icon: 'none',
-        mask: true,
-        duration: 2000 });
-
-      return false;
-    }
-    return true;
-  }
-};
-//验证身份证号
-var checkIdCardLength = function checkIdCardLength(inputStr, fieldName) {
-  inputStr = inputStr.toString();
-  if (inputStr.trim() === '') {
-    var info = fieldName ? fieldName + '不可为空' : '身份证不可为空';
-    uni.showToast({
-      title: info,
-      icon: 'none',
-      mask: true,
-      duration: 2000 });
-
-    return false;
-  } else {
-    if (inputStr.length != 18) {
-      var _info2 = fieldName ? '请输入正确' + fieldName : '请输入正确身份证号';
-      uni.showToast({
-        title: _info2,
-        icon: 'none',
-        mask: true,
-        duration: 2000 });
-
-      return false;
-    }
-    return true;
-  }
-};
-//平面内坐标旋转公式
-var anglePoint = function anglePoint() {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$ox = _ref.ox,ox = _ref$ox === void 0 ? 0 : _ref$ox,_ref$oy = _ref.oy,oy = _ref$oy === void 0 ? 0 : _ref$oy,_ref$ax = _ref.ax,ax = _ref$ax === void 0 ? 0 : _ref$ax,_ref$ay = _ref.ay,ay = _ref$ay === void 0 ? 0 : _ref$ay,_ref$angle = _ref.angle,angle = _ref$angle === void 0 ? 0 : _ref$angle;
-  var obj = {
-    c: 0,
-    d: 0 };
-
-  obj.c = parseInt(ox + (ax - ox) * Math.cos(angle) + (ay - oy) * Math.sin(angle));
-  obj.d = parseInt(oy + (ax - ox) * -Math.sin(angle) + (ay - oy) * Math.cos(angle));
-  return obj;
-};
-//获取字符串的长度
-var getBLen = function getBLen(str) {
-  if (str == null) return 0;
-  if (typeof str != "string") {
-    str += "";
-  }
-  return str.replace(/[^a-z]\d*/g, "01").length;
-};
-
-// /**
-//  * 获取页面
-//  */
-// const getPage = function({name,index}) {
-// 	let pages = getCurrentPages();
-// 	name&&(return pages.find(page => page.route == name));
-// 	index&&(return index==-1?pages[pages.length-1]:pages[index])
-// 	return ''
-// }
-
-
-//js 加法计算
-//调用：accAdd(arg1,arg2)
-//返回值：arg1加arg2的精确结果
-function accAdd(arg1, arg2) {
-  var r1, r2, m;
-  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
-  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
-  m = Math.pow(10, Math.max(r1, r2));
-  return ((arg1 * m + arg2 * m) / m).toFixed(2);
-}
-
-//js 减法计算
-//调用：Subtr(arg1,arg2)
-//返回值：arg1减arg2的精确结果
-function subtr(arg1, arg2) {
-  var r1, r2, m, n;
-  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
-  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
-  m = Math.pow(10, Math.max(r1, r2));
-  //last modify by deeka
-  //动态控制精度长度
-  n = r1 >= r2 ? r1 : r2;
-  return ((arg1 * m - arg2 * m) / m).toFixed(2);
-}
-
-//js 乘法函数
-//调用：accMul(arg1,arg2)
-//返回值：arg1乘以arg2的精确结果
-function accMul(arg1, arg2) {
-  var m = 0,s1 = arg1.toString(),s2 = arg2.toString();
-  try {m += s1.split(".")[1].length;} catch (e) {}
-  try {m += s2.split(".")[1].length;} catch (e) {}
-  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
-}
-
-/**
-   * 节流函数
-   */
-function waterTap(func, delay) {
-  if (!(typeof func === "function")) {
-    console.warn("func 参数必须是Function类型");
-    return function () {};
-  }
-  if (!(typeof delay === "number")) {
-    console.warn("delay 参数必须是Number类型");
-    return function () {};
-  }
-  var prev = Date.now();
-  return function () {
-    if (Date.now() - prev >= delay) {
-      func.call(this, arguments);
-      prev = Date.now();
-    }
-  };
-}
-
-/**
-   * 防抖函数
-   */
-function debounce(func, wait) {
-  if (!(typeof func === "function")) {
-    console.warn("func 参数必须是Function类型");
-    return function () {};
-  }
-  if (!(typeof wait === "number")) {
-    console.warn("wait 参数必须是Number类型");
-    return function () {};
-  }
-  var timeout = null;
-  return function () {
-    if (timeout !== null) clearTimeout(timeout);
-    timeout = setTimeout(func, wait);
-  };
-}
-
-/**
-   * 跳转路由
-   */
-function toRoute(route) {
-  var pages = getCurrentPages();
-  var pageIndex = pages.findIndex(function (item) {return item.route == route.substring(1);});
-  if (pageIndex != -1) {
-    uni.navigateBack({
-      delta: pages.length - pageIndex - 1 });
-
-  } else {
-    uni.navigateTo({ url: route, fail: function fail() {
-        uni.switchTab({ url: route });
-      } });
-  }
-}
-
-//根据经纬度计算两点之间的距离
-var getDistance = function getDistance() {var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref2$lat = _ref2.lat1,lat1 = _ref2$lat === void 0 ? 0 : _ref2$lat,_ref2$lng = _ref2.lng1,lng1 = _ref2$lng === void 0 ? 0 : _ref2$lng,_ref2$lat2 = _ref2.lat2,lat2 = _ref2$lat2 === void 0 ? 0 : _ref2$lat2,_ref2$lng2 = _ref2.lng2,lng2 = _ref2$lng2 === void 0 ? 0 : _ref2$lng2;
-  var rad1 = lat1 * Math.PI / 180.0;
-  var rad2 = lat2 * Math.PI / 180.0;
-  var a = rad1 - rad2;
-  var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
-  var r = 6378137;
-  var distance = r * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(rad1) * Math.cos(rad2) * Math.pow(Math.sin(b / 2), 2)));
-  return parseInt(distance);
-};
-
-module.exports = {
-  formatTime: formatTime,
-  time: time,
-  checkRequestStr: checkRequestStr,
-  checkPhone: checkPhone,
-  checkIdCardLength: checkIdCardLength,
-  anglePoint: anglePoint,
-  getBLen: getBLen,
-  accAdd: accAdd,
-  subtr: subtr,
-  accMul: accMul,
-  waterTap: waterTap,
-  debounce: debounce,
-  toRoute: toRoute,
-  getDistance: getDistance };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 49:
-/*!************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/order.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createOrder = createOrder;exports.payOrder = payOrder;exports.getOrderDetail = getOrderDetail;exports.deleteOrder = deleteOrder;exports.orderDelivery = orderDelivery;exports.getOrderList = getOrderList;exports.updateOrder = updateOrder;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-
-
-
-
-
-
-/**
-                                        * 创建订单
-                                        */
-function createOrder(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.CREATE_ORDER,
-    data: data });
-
-}
-
-/**
-   * 订单支付
-   */
-function payOrder(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.PAY_ORDER,
-    data: data });
-
-}
-
-/**
-   * 查询订单详情
-   */
-function getOrderDetail(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_ORDER_DETAIL,
-    data: data });
-
-}
-
-/**
-   * 删除订单
-   */
-function deleteOrder(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.DELETE_ORDER,
-    data: data });
-
-}
-
-/*确认收货*/
-function orderDelivery(id) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.ORDER_DELIVERY,
-    data: {
-      orderid: id } });
-
-
-}
-
-/**
-   * 查询订单列表
-   */
-function getOrderList(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_ORDER_LIST,
-    data: data });
-
-}
-
-/**
-   * 更新订单
-   */
-function updateOrder(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.UPDATE_ORDER,
-    data: data });
-
-}
-
-/***/ }),
-
-/***/ 5:
-/*!*******************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_require__(/*! ../package.json */ 6);function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
-
-var STAT_VERSION = _package.version;
-var STAT_URL = 'https://tongji.dcloud.io/uni/stat';
-var STAT_H5_URL = 'https://tongji.dcloud.io/uni/stat.gif';
-var PAGE_PVER_TIME = 1800;
-var APP_PVER_TIME = 300;
-var OPERATING_TIME = 10;
-
-var UUID_KEY = '__DC_STAT_UUID';
-var UUID_VALUE = '__DC_UUID_VALUE';
-
-function getUuid() {
-  var uuid = '';
-  if (getPlatformName() === 'n') {
-    try {
-      uuid = plus.runtime.getDCloudId();
-    } catch (e) {
-      uuid = '';
-    }
-    return uuid;
-  }
-
-  try {
-    uuid = uni.getStorageSync(UUID_KEY);
-  } catch (e) {
-    uuid = UUID_VALUE;
-  }
-
-  if (!uuid) {
-    uuid = Date.now() + '' + Math.floor(Math.random() * 1e7);
-    try {
-      uni.setStorageSync(UUID_KEY, uuid);
-    } catch (e) {
-      uni.setStorageSync(UUID_KEY, UUID_VALUE);
-    }
-  }
-  return uuid;
-}
-
-var getSgin = function getSgin(statData) {
-  var arr = Object.keys(statData);
-  var sortArr = arr.sort();
-  var sgin = {};
-  var sginStr = '';
-  for (var i in sortArr) {
-    sgin[sortArr[i]] = statData[sortArr[i]];
-    sginStr += sortArr[i] + '=' + statData[sortArr[i]] + '&';
-  }
-  // const options = sginStr.substr(0, sginStr.length - 1)
-  // sginStr = sginStr.substr(0, sginStr.length - 1) + '&key=' + STAT_KEY;
-  // const si = crypto.createHash('md5').update(sginStr).digest('hex');
-  return {
-    sign: '',
-    options: sginStr.substr(0, sginStr.length - 1) };
-
-};
-
-var getSplicing = function getSplicing(data) {
-  var str = '';
-  for (var i in data) {
-    str += i + '=' + data[i] + '&';
-  }
-  return str.substr(0, str.length - 1);
-};
-
-var getTime = function getTime() {
-  return parseInt(new Date().getTime() / 1000);
-};
-
-var getPlatformName = function getPlatformName() {
-  var platformList = {
-    'app-plus': 'n',
-    'h5': 'h5',
-    'mp-weixin': 'wx',
-    'mp-alipay': 'ali',
-    'mp-baidu': 'bd',
-    'mp-toutiao': 'tt',
-    'mp-qq': 'qq' };
-
-  return platformList["mp-weixin"];
-};
-
-var getPackName = function getPackName() {
-  var packName = '';
-  if (getPlatformName() === 'wx' || getPlatformName() === 'qq') {
-    // 兼容微信小程序低版本基础库
-    if (uni.canIUse('getAccountInfoSync')) {
-      packName = uni.getAccountInfoSync().miniProgram.appId || '';
-    }
-  }
-  return packName;
-};
-
-var getVersion = function getVersion() {
-  return getPlatformName() === 'n' ? plus.runtime.version : '';
-};
-
-var getChannel = function getChannel() {
-  var platformName = getPlatformName();
-  var channel = '';
-  if (platformName === 'n') {
-    channel = plus.runtime.channel;
-  }
-  return channel;
-};
-
-var getScene = function getScene(options) {
-  var platformName = getPlatformName();
-  var scene = '';
-  if (options) {
-    return options;
-  }
-  if (platformName === 'wx') {
-    scene = uni.getLaunchOptionsSync().scene;
-  }
-  return scene;
-};
-var First__Visit__Time__KEY = 'First__Visit__Time';
-var Last__Visit__Time__KEY = 'Last__Visit__Time';
-
-var getFirstVisitTime = function getFirstVisitTime() {
-  var timeStorge = uni.getStorageSync(First__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = getTime();
-    uni.setStorageSync(First__Visit__Time__KEY, time);
-    uni.removeStorageSync(Last__Visit__Time__KEY);
-  }
-  return time;
-};
-
-var getLastVisitTime = function getLastVisitTime() {
-  var timeStorge = uni.getStorageSync(Last__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = '';
-  }
-  uni.setStorageSync(Last__Visit__Time__KEY, getTime());
-  return time;
-};
-
-
-var PAGE_RESIDENCE_TIME = '__page__residence__time';
-var First_Page_residence_time = 0;
-var Last_Page_residence_time = 0;
-
-
-var setPageResidenceTime = function setPageResidenceTime() {
-  First_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    uni.setStorageSync(PAGE_RESIDENCE_TIME, getTime());
-  }
-  return First_Page_residence_time;
-};
-
-var getPageResidenceTime = function getPageResidenceTime() {
-  Last_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    First_Page_residence_time = uni.getStorageSync(PAGE_RESIDENCE_TIME);
-  }
-  return Last_Page_residence_time - First_Page_residence_time;
-};
-var TOTAL__VISIT__COUNT = 'Total__Visit__Count';
-var getTotalVisitCount = function getTotalVisitCount() {
-  var timeStorge = uni.getStorageSync(TOTAL__VISIT__COUNT);
-  var count = 1;
-  if (timeStorge) {
-    count = timeStorge;
-    count++;
-  }
-  uni.setStorageSync(TOTAL__VISIT__COUNT, count);
-  return count;
-};
-
-var GetEncodeURIComponentOptions = function GetEncodeURIComponentOptions(statData) {
-  var data = {};
-  for (var prop in statData) {
-    data[prop] = encodeURIComponent(statData[prop]);
-  }
-  return data;
-};
-
-var Set__First__Time = 0;
-var Set__Last__Time = 0;
-
-var getFirstTime = function getFirstTime() {
-  var time = new Date().getTime();
-  Set__First__Time = time;
-  Set__Last__Time = 0;
-  return time;
-};
-
-
-var getLastTime = function getLastTime() {
-  var time = new Date().getTime();
-  Set__Last__Time = time;
-  return time;
-};
-
-
-var getResidenceTime = function getResidenceTime(type) {
-  var residenceTime = 0;
-  if (Set__First__Time !== 0) {
-    residenceTime = Set__Last__Time - Set__First__Time;
-  }
-
-  residenceTime = parseInt(residenceTime / 1000);
-  residenceTime = residenceTime < 1 ? 1 : residenceTime;
-  if (type === 'app') {
-    var overtime = residenceTime > APP_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: overtime };
-
-  }
-  if (type === 'page') {
-    var _overtime = residenceTime > PAGE_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: _overtime };
-
-  }
-
-  return {
-    residenceTime: residenceTime };
-
-
-};
-
-var getRoute = function getRoute() {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  var _self = page.$vm;
-
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is;
-  } else {
-    return _self.$scope && _self.$scope.route || _self.$mp && _self.$mp.page.route;
-  }
-};
-
-var getPageRoute = function getPageRoute(self) {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  var _self = page.$vm;
-  var query = self._query;
-  var str = query && JSON.stringify(query) !== '{}' ? '?' + JSON.stringify(query) : '';
-  // clear
-  self._query = '';
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is + str;
-  } else {
-    return _self.$scope && _self.$scope.route + str || _self.$mp && _self.$mp.page.route + str;
-  }
-};
-
-var getPageTypes = function getPageTypes(self) {
-  if (self.mpType === 'page' || self.$mp && self.$mp.mpType === 'page' || self.$options.mpType === 'page') {
-    return true;
-  }
-  return false;
-};
-
-var calibration = function calibration(eventName, options) {
-  //  login 、 share 、pay_success 、pay_fail 、register 、title
-  if (!eventName) {
-    console.error("uni.report \u7F3A\u5C11 [eventName] \u53C2\u6570");
-    return true;
-  }
-  if (typeof eventName !== 'string') {
-    console.error("uni.report [eventName] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u7C7B\u578B");
-    return true;
-  }
-  if (eventName.length > 255) {
-    console.error("uni.report [eventName] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (typeof options !== 'string' && typeof options !== 'object') {
-    console.error("uni.report [options] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u6216 Object \u7C7B\u578B");
-    return true;
-  }
-
-  if (typeof options === 'string' && options.length > 255) {
-    console.error("uni.report [options] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (eventName === 'title' && typeof options !== 'string') {
-    console.error('uni.report [eventName] 参数为 title 时，[options] 参数只能为 String 类型');
-    return true;
-  }
-};
-
-var PagesJson = __webpack_require__(/*! uni-pages?{"type":"style"} */ 7).default;
-var statConfig = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
-
-var resultOptions = uni.getSystemInfoSync();var
-
-Util = /*#__PURE__*/function () {
-  function Util() {_classCallCheck(this, Util);
-    this.self = '';
-    this._retry = 0;
-    this._platform = '';
-    this._query = {};
-    this._navigationBarTitle = {
-      config: '',
-      page: '',
-      report: '',
-      lt: '' };
-
-    this._operatingTime = 0;
-    this._reportingRequestData = {
-      '1': [],
-      '11': [] };
-
-    this.__prevent_triggering = false;
-
-    this.__licationHide = false;
-    this.__licationShow = false;
-    this._lastPageRoute = '';
-    this.statData = {
-      uuid: getUuid(),
-      ut: getPlatformName(),
-      mpn: getPackName(),
-      ak: statConfig.appid,
-      usv: STAT_VERSION,
-      v: getVersion(),
-      ch: getChannel(),
-      cn: '',
-      pn: '',
-      ct: '',
-      t: getTime(),
-      tt: '',
-      p: resultOptions.platform === 'android' ? 'a' : 'i',
-      brand: resultOptions.brand || '',
-      md: resultOptions.model,
-      sv: resultOptions.system.replace(/(Android|iOS)\s/, ''),
-      mpsdk: resultOptions.SDKVersion || '',
-      mpv: resultOptions.version || '',
-      lang: resultOptions.language,
-      pr: resultOptions.pixelRatio,
-      ww: resultOptions.windowWidth,
-      wh: resultOptions.windowHeight,
-      sw: resultOptions.screenWidth,
-      sh: resultOptions.screenHeight };
-
-
-  }_createClass(Util, [{ key: "_applicationShow", value: function _applicationShow()
-
-    {
-      if (this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('app');
-        if (time.overtime) {
-          var options = {
-            path: this._lastPageRoute,
-            scene: this.statData.sc };
-
-          this._sendReportRequest(options);
-        }
-        this.__licationHide = false;
-      }
-    } }, { key: "_applicationHide", value: function _applicationHide(
-
-    self, type) {
-
-      this.__licationHide = true;
-      getLastTime();
-      var time = getResidenceTime();
-      getFirstTime();
-      var route = getPageRoute(this);
-      this._sendHideRequest({
-        urlref: route,
-        urlref_ts: time.residenceTime },
-      type);
-    } }, { key: "_pageShow", value: function _pageShow()
-
-    {
-      var route = getPageRoute(this);
-      var routepath = getRoute();
-      this._navigationBarTitle.config = PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].titleNView &&
-      PagesJson.pages[routepath].titleNView.titleText ||
-      PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].navigationBarTitleText || '';
-
-      if (this.__licationShow) {
-        getFirstTime();
-        this.__licationShow = false;
-        // console.log('这是 onLauch 之后执行的第一次 pageShow ，为下次记录时间做准备');
-        this._lastPageRoute = route;
-        return;
-      }
-
-      getLastTime();
-      this._lastPageRoute = route;
-      var time = getResidenceTime('page');
-      if (time.overtime) {
-        var options = {
-          path: this._lastPageRoute,
-          scene: this.statData.sc };
-
-        this._sendReportRequest(options);
-      }
-      getFirstTime();
-    } }, { key: "_pageHide", value: function _pageHide()
-
-    {
-      if (!this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('page');
-        this._sendPageRequest({
-          url: this._lastPageRoute,
-          urlref: this._lastPageRoute,
-          urlref_ts: time.residenceTime });
-
-        this._navigationBarTitle = {
-          config: '',
-          page: '',
-          report: '',
-          lt: '' };
-
-        return;
-      }
-    } }, { key: "_login", value: function _login()
-
-    {
-      this._sendEventRequest({
-        key: 'login' },
-      0);
-    } }, { key: "_share", value: function _share()
-
-    {
-      this._sendEventRequest({
-        key: 'share' },
-      0);
-    } }, { key: "_payment", value: function _payment(
-    key) {
-      this._sendEventRequest({
-        key: key },
-      0);
-    } }, { key: "_sendReportRequest", value: function _sendReportRequest(
-    options) {
-
-      this._navigationBarTitle.lt = '1';
-      var query = options.query && JSON.stringify(options.query) !== '{}' ? '?' + JSON.stringify(options.query) : '';
-      this.statData.lt = '1';
-      this.statData.url = options.path + query || '';
-      this.statData.t = getTime();
-      this.statData.sc = getScene(options.scene);
-      this.statData.fvts = getFirstVisitTime();
-      this.statData.lvts = getLastVisitTime();
-      this.statData.tvc = getTotalVisitCount();
-      if (getPlatformName() === 'n') {
-        this.getProperty();
-      } else {
-        this.getNetworkInfo();
-      }
-    } }, { key: "_sendPageRequest", value: function _sendPageRequest(
-
-    opt) {var
-
-      url =
-
-
-      opt.url,urlref = opt.urlref,urlref_ts = opt.urlref_ts;
-      this._navigationBarTitle.lt = '11';
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '11',
-        ut: this.statData.ut,
-        url: url,
-        tt: this.statData.tt,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "_sendHideRequest", value: function _sendHideRequest(
-
-    opt, type) {var
-
-      urlref =
-
-      opt.urlref,urlref_ts = opt.urlref_ts;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '3',
-        ut: this.statData.ut,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options, type);
-    } }, { key: "_sendEventRequest", value: function _sendEventRequest()
-
-
-
-    {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$key = _ref.key,key = _ref$key === void 0 ? '' : _ref$key,_ref$value = _ref.value,value = _ref$value === void 0 ? "" : _ref$value;
-      var route = this._lastPageRoute;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '21',
-        ut: this.statData.ut,
-        url: route,
-        ch: this.statData.ch,
-        e_n: key,
-        e_v: typeof value === 'object' ? JSON.stringify(value) : value.toString(),
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "getNetworkInfo", value: function getNetworkInfo()
-
-    {var _this = this;
-      uni.getNetworkType({
-        success: function success(result) {
-          _this.statData.net = result.networkType;
-          _this.getLocation();
-        } });
-
-    } }, { key: "getProperty", value: function getProperty()
-
-    {var _this2 = this;
-      plus.runtime.getProperty(plus.runtime.appid, function (wgtinfo) {
-        _this2.statData.v = wgtinfo.version || '';
-        _this2.getNetworkInfo();
-      });
-    } }, { key: "getLocation", value: function getLocation()
-
-    {var _this3 = this;
-      if (statConfig.getLocation) {
-        uni.getLocation({
-          type: 'wgs84',
-          geocode: true,
-          success: function success(result) {
-            if (result.address) {
-              _this3.statData.cn = result.address.country;
-              _this3.statData.pn = result.address.province;
-              _this3.statData.ct = result.address.city;
-            }
-
-            _this3.statData.lat = result.latitude;
-            _this3.statData.lng = result.longitude;
-            _this3.request(_this3.statData);
-          } });
-
-      } else {
-        this.statData.lat = 0;
-        this.statData.lng = 0;
-        this.request(this.statData);
-      }
-    } }, { key: "request", value: function request(
-
-    data, type) {var _this4 = this;
-      var time = getTime();
-      var title = this._navigationBarTitle;
-      data.ttn = title.page;
-      data.ttpj = title.config;
-      data.ttc = title.report;
-
-      var requestData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        requestData = uni.getStorageSync('__UNI__STAT__DATA') || {};
-      }
-      if (!requestData[data.lt]) {
-        requestData[data.lt] = [];
-      }
-      requestData[data.lt].push(data);
-
-      if (getPlatformName() === 'n') {
-        uni.setStorageSync('__UNI__STAT__DATA', requestData);
-      }
-      if (getPageResidenceTime() < OPERATING_TIME && !type) {
-        return;
-      }
-      var uniStatData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        uniStatData = uni.getStorageSync('__UNI__STAT__DATA');
-      }
-      // 时间超过，重新获取时间戳
-      setPageResidenceTime();
-      var firstArr = [];
-      var contentArr = [];
-      var lastArr = [];var _loop = function _loop(
-
-      i) {
-        var rd = uniStatData[i];
-        rd.forEach(function (elm) {
-          var newData = getSplicing(elm);
-          if (i === 0) {
-            firstArr.push(newData);
-          } else if (i === 3) {
-            lastArr.push(newData);
-          } else {
-            contentArr.push(newData);
-          }
-        });};for (var i in uniStatData) {_loop(i);
-      }
-
-      firstArr.push.apply(firstArr, contentArr.concat(lastArr));
-      var optionsData = {
-        usv: STAT_VERSION, //统计 SDK 版本号
-        t: time, //发送请求时的时间戮
-        requests: JSON.stringify(firstArr) };
-
-
-      this._reportingRequestData = {};
-      if (getPlatformName() === 'n') {
-        uni.removeStorageSync('__UNI__STAT__DATA');
-      }
-
-      if (data.ut === 'h5') {
-        this.imageRequest(optionsData);
-        return;
-      }
-
-      if (getPlatformName() === 'n' && this.statData.p === 'a') {
-        setTimeout(function () {
-          _this4._sendRequest(optionsData);
-        }, 200);
-        return;
-      }
-      this._sendRequest(optionsData);
-    } }, { key: "_sendRequest", value: function _sendRequest(
-    optionsData) {var _this5 = this;
-      uni.request({
-        url: STAT_URL,
-        method: 'POST',
-        // header: {
-        //   'content-type': 'application/json' // 默认值
-        // },
-        data: optionsData,
-        success: function success() {
-          // if (process.env.NODE_ENV === 'development') {
-          //   console.log('stat request success');
-          // }
-        },
-        fail: function fail(e) {
-          if (++_this5._retry < 3) {
-            setTimeout(function () {
-              _this5._sendRequest(optionsData);
-            }, 1000);
-          }
-        } });
-
-    }
-    /**
-       * h5 请求
-       */ }, { key: "imageRequest", value: function imageRequest(
-    data) {
-      var image = new Image();
-      var options = getSgin(GetEncodeURIComponentOptions(data)).options;
-      image.src = STAT_H5_URL + '?' + options;
-    } }, { key: "sendEvent", value: function sendEvent(
-
-    key, value) {
-      // 校验 type 参数
-      if (calibration(key, value)) return;
-
-      if (key === 'title') {
-        this._navigationBarTitle.report = value;
-        return;
-      }
-      this._sendEventRequest({
-        key: key,
-        value: typeof value === 'object' ? JSON.stringify(value) : value },
-      1);
-    } }]);return Util;}();var
-
-
-
-Stat = /*#__PURE__*/function (_Util) {_inherits(Stat, _Util);_createClass(Stat, null, [{ key: "getInstance", value: function getInstance()
-    {
-      if (!this.instance) {
-        this.instance = new Stat();
-      }
-      return this.instance;
-    } }]);
-  function Stat() {var _this6;_classCallCheck(this, Stat);
-    _this6 = _possibleConstructorReturn(this, _getPrototypeOf(Stat).call(this));
-    _this6.instance = null;
-    // 注册拦截器
-    if (typeof uni.addInterceptor === 'function' && "development" !== 'development') {
-      _this6.addInterceptorInit();
-      _this6.interceptLogin();
-      _this6.interceptShare(true);
-      _this6.interceptRequestPayment();
-    }return _this6;
-  }_createClass(Stat, [{ key: "addInterceptorInit", value: function addInterceptorInit()
-
-    {
-      var self = this;
-      uni.addInterceptor('setNavigationBarTitle', {
-        invoke: function invoke(args) {
-          self._navigationBarTitle.page = args.title;
-        } });
-
-    } }, { key: "interceptLogin", value: function interceptLogin()
-
-    {
-      var self = this;
-      uni.addInterceptor('login', {
-        complete: function complete() {
-          self._login();
-        } });
-
-    } }, { key: "interceptShare", value: function interceptShare(
-
-    type) {
-      var self = this;
-      if (!type) {
-        self._share();
-        return;
-      }
-      uni.addInterceptor('share', {
-        success: function success() {
-          self._share();
-        },
-        fail: function fail() {
-          self._share();
-        } });
-
-    } }, { key: "interceptRequestPayment", value: function interceptRequestPayment()
-
-    {
-      var self = this;
-      uni.addInterceptor('requestPayment', {
-        success: function success() {
-          self._payment('pay_success');
-        },
-        fail: function fail() {
-          self._payment('pay_fail');
-        } });
-
-    } }, { key: "report", value: function report(
-
-    options, self) {
-      this.self = self;
-      // if (process.env.NODE_ENV === 'development') {
-      //   console.log('report init');
-      // }
-      setPageResidenceTime();
-      this.__licationShow = true;
-      this._sendReportRequest(options, true);
-    } }, { key: "load", value: function load(
-
-    options, self) {
-      if (!self.$scope && !self.$mp) {
-        var page = getCurrentPages();
-        self.$scope = page[page.length - 1];
-      }
-      this.self = self;
-      this._query = options;
-    } }, { key: "show", value: function show(
-
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageShow(self);
-      } else {
-        this._applicationShow(self);
-      }
-    } }, { key: "ready", value: function ready(
-
-    self) {
-      // this.self = self;
-      // if (getPageTypes(self)) {
-      //   this._pageShow(self);
-      // }
-    } }, { key: "hide", value: function hide(
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageHide(self);
-      } else {
-        this._applicationHide(self, true);
-      }
-    } }, { key: "error", value: function error(
-    em) {
-      if (this._platform === 'devtools') {
-        if (true) {
-          console.info('当前运行环境为开发者工具，不上报数据。');
-        }
-        // return;
-      }
-      var emVal = '';
-      if (!em.message) {
-        emVal = JSON.stringify(em);
-      } else {
-        emVal = em.stack;
-      }
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '31',
-        ut: this.statData.ut,
-        ch: this.statData.ch,
-        mpsdk: this.statData.mpsdk,
-        mpv: this.statData.mpv,
-        v: this.statData.v,
-        em: emVal,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }]);return Stat;}(Util);
-
-
-var stat = Stat.getInstance();
-var isHide = false;
-var lifecycle = {
-  onLaunch: function onLaunch(options) {
-    stat.report(options, this);
-  },
-  onReady: function onReady() {
-    stat.ready(this);
-  },
-  onLoad: function onLoad(options) {
-    stat.load(options, this);
-    // 重写分享，获取分享上报事件
-    if (this.$scope && this.$scope.onShareAppMessage) {
-      var oldShareAppMessage = this.$scope.onShareAppMessage;
-      this.$scope.onShareAppMessage = function (options) {
-        stat.interceptShare(false);
-        return oldShareAppMessage.call(this, options);
-      };
-    }
-  },
-  onShow: function onShow() {
-    isHide = false;
-    stat.show(this);
-  },
-  onHide: function onHide() {
-    isHide = true;
-    stat.hide(this);
-  },
-  onUnload: function onUnload() {
-    if (isHide) {
-      isHide = false;
-      return;
-    }
-    stat.hide(this);
-  },
-  onError: function onError(e) {
-    stat.error(e);
-  } };
-
-
-function main() {
-  if (true) {
-    uni.report = function (type, options) {};
-  } else { var Vue; }
-}
-
-main();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 540:
-/*!**********************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var types = {};var _default =
-
-
-
-types;exports.default = _default;
-
-/***/ }),
-
-/***/ 588:
-/*!******************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.loadIntegral = loadIntegral;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-// 获取我的积分余额
-function loadIntegral(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.LOAD_INTEGRAL,
-    data: data });
-
-}
-
-/***/ }),
-
-/***/ 6:
-/*!******************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
-  \******************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
-/***/ (function(module) {
-
-module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.0.0-26920200402001","_inBundle":false,"_integrity":"sha512-Mdhd/IRuUMHWPj3TtWrBb0kghRBA0YiO2L2THMFvhCTfQDSoSq1vwOdAx5n/8fIORAvG0uVQoYl73xeVFZML5A==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@next","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"next","saveSpec":null,"fetchSpec":"next"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-26920200402001.tgz","_shasum":"5f66f5dc252ac00c6064857dee8251ee51aa2391","_spec":"@dcloudio/uni-stat@next","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/release/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"bfdbb7b3000599679ef8cb29a969e6bd447b00c7","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-26920200402001"};
-
-/***/ }),
-
-/***/ 66:
-/*!*****************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/config/package.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
-var _common = __webpack_require__(/*! ./common.js */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var duration = 2000;
-
-
-/**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * 对uni-app的api的二次封装
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
-
-/**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * 拨打电话，对uni.uni.makePhoneCall进行封装
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * @param {string} phone - 电话号码
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */
-function makePhoneCall()
-
-{var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$phone = _ref.phone,phone = _ref$phone === void 0 ? '' : _ref$phone;
-  uni.makePhoneCall({
-    phoneNumber: phone,
-    success: function success() {
-
-    },
-    fail: function fail() {
-      uni.showToast({
-        icon: 'none',
-        title: '拨打失败',
-        duration: duration });
-
-    } });
-
-}
-
-/**
-   * 下载单个或多个文件，对uni.downloadFile的封装
-   * @param {string[]} urls - 所有需要下载的资源，可以是一个，可以是多个
-   * @param {Object} header - 请求Header，header中不能设置Referer
-   * header中需要指定合理的Content-Type字段，以保证客户端正确处理文件类型
-   * @return {Promise} 封装下载操作的Promise对象
-   */
-function downloadFile()
-
-
-{var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref2$urls = _ref2.urls,urls = _ref2$urls === void 0 ? [] : _ref2$urls,_ref2$header = _ref2.header,header = _ref2$header === void 0 ? {} : _ref2$header;
-  /**
-                                                                                                                                                                                                                                              * 下载单个文件
-                                                                                                                                                                                                                                              * @param {string} url - 所要下载资源的url
-                                                                                                                                                                                                                                              * @return {Promise} 封装下载操作的Promise 
-                                                                                                                                                                                                                                              */
-  function createPromise(url) {
-    var downloadTask = null;
-    var p = new Promise(function (resolve, reject) {
-      downloadTask = uni.downloadFile({
-        url: url,
-        header: header,
-        success: function success(res) {var
-
-          statusCode =
-          res.statusCode;
-          if (statusCode === 200) {var
-
-            tempFilePath =
-            res.tempFilePath;
-            resolve(tempFilePath);
-          } else {var
-
-            errMsg =
-            res.errMsg;
-            var err = "\u4E0B\u8F7D\u5931\u8D25\uFF1A".concat(statusCode, "-").concat(errMsg);
-            reject(err);
-          }
-        },
-        fail: function fail(res) {
-          var err = "\u63A5\u53E3\u8C03\u7528\u5931\u8D25\uFF1A".concat(res);
-          reject(err);
-        } });
-
-    });
-    // 暴露出downloadTask
-    p.onProgressUpdate = function (callback) {
-      downloadTask.onProgressUpdate(function (res) {
-        callback(res);
-      });
-    };
-    p.abort = function () {
-      downloadTask.abort();
-    };
-    return p;
-  }
-  // 判断是下载一个文件还是多个文件
-  var len = urls.length;
-  if (len === 1) {
-    return new Promise(function (resolve, reject) {
-      // 显示下载的Loading
-      //uni.showLoading({ title: '正在下载' })
-      createPromise(urls[0]).
-      then(function (tempFilePath) {return thenHandle(tempFilePath, resolve);}).
-      catch(function (err) {return catchHandle(err, reject);});
-    });
-  }
-  if (len > 1) {
-    return new Promise(function (reslove, reject) {
-      // 显示下载的Loading
-      //uni.showLoading({ title: '正在下载' })
-      Promise.all(urls.map(function (item) {return createPromise(item);})).
-      then(function (tempFilePaths) {return thenHandle(tempFilePaths, resolve);}).
-      catch(function (err) {return catchHandle(err, reject);});
-    });
-  }
-}
-
-/**
-   * 上传图片，对uni.chooseImage,uni.uploadFile的封装
-   */
-//上传单张图片
-function singleImage()
-
-
-
-
-{var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref3$url = _ref3.url,url = _ref3$url === void 0 ? _common.uploadImageUrl : _ref3$url,_ref3$fn = _ref3.fn,fn = _ref3$fn === void 0 ? function () {} : _ref3$fn,_ref3$needAlbum = _ref3.needAlbum,needAlbum = _ref3$needAlbum === void 0 ? true : _ref3$needAlbum,_ref3$needCamera = _ref3.needCamera,needCamera = _ref3$needCamera === void 0 ? true : _ref3$needCamera;
-  var sourceType = [];
-  if (needAlbum) {
-    sourceType.push('album');
-  }
-  if (needCamera) {
-    sourceType.push('camera');
-  }
-  uni.chooseImage({
-    count: 1,
-    sizeType: ['original', 'compressed'],
-    sourceType: sourceType,
-    success: function success(res) {
-      var tempFilePaths = res.tempFilePaths;
-      uni.showLoading();
-      uni.uploadFile({
-        header: {
-          "Content-Type": "multipart/form-data" },
-
-        url: url,
-        filePath: tempFilePaths[0],
-        name: 'file',
-        success: function success(res) {
-          uni.hideLoading();
-          fn(res);
-        } });
-
-    } });
-
-}
-//多图上传
-function muchImages()
-
-
-
-
-
-{var _ref4 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref4$url = _ref4.url,url = _ref4$url === void 0 ? _common.uploadImageUrl : _ref4$url,_ref4$fn = _ref4.fn,fn = _ref4$fn === void 0 ? fn = function fn() {} : _ref4$fn,_ref4$count = _ref4.count,count = _ref4$count === void 0 ? 9 : _ref4$count,_ref4$needAlbum = _ref4.needAlbum,needAlbum = _ref4$needAlbum === void 0 ? true : _ref4$needAlbum,_ref4$needCamera = _ref4.needCamera,needCamera = _ref4$needCamera === void 0 ? true : _ref4$needCamera;
-  var list = [];
-  var sourceType = [];
-  if (needAlbum) {
-    sourceType.push('album');
-  }
-  if (needCamera) {
-    sourceType.push('camera');
-  }
-  uni.chooseImage({
-    count: count,
-    sizeType: ['original', 'compressed'],
-    sourceType: sourceType,
-    success: function success(res) {
-      var tempFilePaths = res.tempFilePaths;
-      tempFilePaths.forEach( /*#__PURE__*/function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(filePath) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                    uni.uploadFile({
-                      url: url,
-                      filePath: filePath,
-                      name: 'file',
-                      header: {
-                        "Content-Type": "multipart/form-data" },
-
-                      success: function success(res) {
-                        fn(res);
-                      },
-                      fail: function fail(res) {
-                        uni.showModal({
-                          content: res.msg,
-                          showCancel: false });
-
-                      } }));case 2:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref5.apply(this, arguments);};}());
-
-
-    } });
-
-}
-
-/**
-   * 微信弹框 Model
-   */
-function model()
-
-
-
-
-
-
-{var _ref6 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref6$title = _ref6.title,title = _ref6$title === void 0 ? '温馨提示' : _ref6$title,_ref6$content = _ref6.content,content = _ref6$content === void 0 ? '该数据删除后无法找回，请问是否确认删除？' : _ref6$content,_ref6$confirmText = _ref6.confirmText,confirmText = _ref6$confirmText === void 0 ? '确认' : _ref6$confirmText,_ref6$showCancel = _ref6.showCancel,showCancel = _ref6$showCancel === void 0 ? true : _ref6$showCancel,_ref6$successFunction = _ref6.successFunction,successFunction = _ref6$successFunction === void 0 ? function () {} : _ref6$successFunction,_ref6$failFunction = _ref6.failFunction,failFunction = _ref6$failFunction === void 0 ? function () {} : _ref6$failFunction;
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      wx.showModal({
-        title: title,
-        content: content,
-        confirmText: confirmText,
-        showCancel: showCancel,
-        cancelColor: '#888888',
-        confirmColor: '#000',
-        success: function success(res) {
-          resolve(res);
-        },
-        fail: function fail(err) {
-          reject(res);
-        } });
-
-    }, 100);
-  });
-}
-
-/**
-   * 微信弹框 TOAST
-   */
-function toast()
-
-
-
-
-{var _ref7 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref7$title = _ref7.title,title = _ref7$title === void 0 ? '紧急加载中' : _ref7$title,_ref7$mask = _ref7.mask,mask = _ref7$mask === void 0 ? true : _ref7$mask,_ref7$icon = _ref7.icon,icon = _ref7$icon === void 0 ? 'loading' : _ref7$icon,_ref7$duration = _ref7.duration,duration = _ref7$duration === void 0 ? 1000 : _ref7$duration;
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      wx.showToast({
-        title: title,
-        mask: mask,
-        icon: icon,
-        duration: duration,
-        success: function success(res) {
-          resolve(res);
-        },
-        fail: function fail(res) {
-          reject(res);
-        } });
-
-    }, 100);
-  });
-}
-
-/**
-   * 调起微信支付
-   */
-function wxpay(wxJsApiParam) {
-  return new Promise(function (resolve, reject) {
-    uni.requestPayment(_objectSpread({},
-    wxJsApiParam, {
-      success: function success(res) {
-        toast({
-          title: "购买成功",
-          icon: "success" }).
-        then(function (res) {
-          resolve({
-            type: 'success',
-            msg: res });
-
-        });
-      },
-      fail: function fail(res) {
-        if (res.errMsg !== 'requestPayment:fail cancel') {//如果失败原因是(非用户取消的正常失败事件)为真
-          model({
-            title: '系统错误',
-            content: res.errMsg,
-            showCancel: false }).
-          then(function (res) {
-            reject({
-              type: 'error',
-              msg: res });
-
-          });
-        } else {//用户正常取消
-          model({
-            content: '用户取消购买支付',
-            showCancel: false }).
-          then(function (res) {
-            resolve({
-              type: 'cancel',
-              msg: res });
-
-          });
-        }
-      } }));
-
-  });
-}
-
-module.exports = {
-  downloadFile: downloadFile,
-  singleImage: singleImage,
-  muchImages: muchImages,
-  makePhoneCall: makePhoneCall,
-  toast: toast,
-  model: model,
-  wxpay: wxpay };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 666:
+/***/ 439:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/tki-qrcode/qrcode.js ***!
   \*******************************************************************************/
@@ -30681,6 +27769,2895 @@ QRCode;exports.default = _default;
 
 /***/ }),
 
+/***/ 47:
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/filter.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatGender = formatGender;exports.formatOrderState = formatOrderState;exports.formatOrderStateIcon = formatOrderStateIcon;exports.formatDate = formatDate;exports.formatOrderBtns = formatOrderBtns;exports.formatHomeRoute = formatHomeRoute;
+var _util = __webpack_require__(/*! @/utils/util.js */ 48);
+
+
+var img = _interopRequireWildcard(__webpack_require__(/*! @/config/image.js */ 34));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * 格式化-性别
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+function formatGender(value) {
+  switch (Number(value)) {
+    case 1:
+      return '男';
+    case 2:
+      return '女';
+    default:
+      return '位置';}
+
+}
+
+/**
+   * 格式化-订单状态
+   */
+function formatOrderState(value) {
+  switch (Number(value)) {
+    case 1:
+      return "待付款";
+    case 2:
+      return "待发货";
+    case 3:
+      return "待收货";
+    case 4:
+      return "完成";
+    case 5:
+      return "退换";
+    default:
+      return "未知";}
+
+}
+
+/**
+   * 格式化-订单ICON
+   */
+function formatOrderStateIcon(value) {
+  switch (Number(value)) {
+    case 1:
+      return img.PRE_PAYMENT;
+    case 2:
+      return img.TO_BE_DELIVERED;
+    case 3:
+      return img.TO_BE_RECEIVED;
+    case 4:
+      return img.EVALUATION;
+    case 5:
+      return img.AFTER_SALE;
+    default:
+      return img.NULL_DATA;}
+
+}
+
+/**
+   * 格式化-时间
+   */
+function formatDate(value) {
+  if (value == null || value === "") {
+    return "";
+  }
+  value = parseInt(value);
+  var date,leg = value.length;
+  if (leg === 13) {
+    date = new Date(value);
+  } else if (value.length < 13) {
+    date = new Date(value * 10 * (13 - leg));
+  } else if (value.length > 13) {
+    date = new Date(value / (10 * (leg - 13)));
+  } else {
+    date = new Date(value);
+  }
+  if (date.toString() === "Invalid Date") return date.toString();
+  return (0, _util.formatTime)(date, "yyyy-MM-dd hh:mm:ss");
+}
+
+/**
+   * 格式化-订单按钮列表
+   */
+function formatOrderBtns(value) {
+  switch (Number(value)) {
+    case 1:
+      return [{
+        id: 1,
+        name: "联系客服",
+        event: "makePhoneCall",
+        params: "12345678910" },
+      {
+        id: 2,
+        name: "取消订单",
+        event: "deleteOrder" },
+      {
+        id: 8,
+        name: "兑换",
+        event: "linkToWriteOrder" }];
+
+    case 2:
+      return [{
+        id: 4,
+        name: "修改地址",
+        event: "linkToAddress" },
+      {
+        id: 10,
+        name: "回到首页",
+        event: "linkToHome" }];
+
+    case 3:
+      return [{
+        id: 1,
+        name: "联系客服",
+        event: "makePhoneCall",
+        params: "12345678910" },
+      {
+        id: 6,
+        name: "确认收货",
+        event: "orderDelivery" }];
+
+    case 4:
+      return [{
+        id: 1,
+        name: "联系客服",
+        event: "makePhoneCall",
+        params: "12345678910" },
+      {
+        id: 8,
+        name: "再来一单",
+        event: "linkToWriteOrder" }];
+
+    case 5:
+      return [];
+    default:
+      return [];}
+
+}
+
+/**
+   * 格式化-首页路由
+   */
+function formatHomeRoute(value) {
+  switch (value) {
+    case "装修分期":return _router.DECORATION_PICTURE;
+    case "约量房":return _router.MEASUREHOME;
+    case "好店入驻":return _router.INSHOP;
+    case "邀请有礼":return _router.INVITEGIFT;}
+
+}
+
+/***/ }),
+
+/***/ 48:
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/util.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var formatTime = function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+};
+
+var formatNumber = function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+};
+
+//时间戳转时间
+var time = function time(timestamp) {
+  timestamp = timestamp.toString().length < 13 ? timestamp * 1000 : timestamp;
+  var date = new Date(timestamp);
+  var Y = date.getFullYear() + '-';
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+  var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+  return Y + M + D + h + m + s;
+};
+
+// 字符串是否必填校验
+var checkRequestStr = function checkRequestStr(inputStr, fieldName) {
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// 验证手机号（精确）
+var checkPhone = function checkPhone(inputStr, fieldName) {
+  inputStr = inputStr.toString();
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '手机号不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    var regex = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/ig;
+    var result = regex.test(inputStr);
+    if (!result) {
+      var _info = fieldName ? '请输入正确' + fieldName : '请输入正确手机号';
+      uni.showToast({
+        title: _info,
+        icon: 'none',
+        mask: true,
+        duration: 2000 });
+
+      return false;
+    }
+    return true;
+  }
+};
+//验证身份证号
+var checkIdCardLength = function checkIdCardLength(inputStr, fieldName) {
+  inputStr = inputStr.toString();
+  if (inputStr.trim() === '') {
+    var info = fieldName ? fieldName + '不可为空' : '身份证不可为空';
+    uni.showToast({
+      title: info,
+      icon: 'none',
+      mask: true,
+      duration: 2000 });
+
+    return false;
+  } else {
+    if (inputStr.length != 18) {
+      var _info2 = fieldName ? '请输入正确' + fieldName : '请输入正确身份证号';
+      uni.showToast({
+        title: _info2,
+        icon: 'none',
+        mask: true,
+        duration: 2000 });
+
+      return false;
+    }
+    return true;
+  }
+};
+//平面内坐标旋转公式
+var anglePoint = function anglePoint() {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$ox = _ref.ox,ox = _ref$ox === void 0 ? 0 : _ref$ox,_ref$oy = _ref.oy,oy = _ref$oy === void 0 ? 0 : _ref$oy,_ref$ax = _ref.ax,ax = _ref$ax === void 0 ? 0 : _ref$ax,_ref$ay = _ref.ay,ay = _ref$ay === void 0 ? 0 : _ref$ay,_ref$angle = _ref.angle,angle = _ref$angle === void 0 ? 0 : _ref$angle;
+  var obj = {
+    c: 0,
+    d: 0 };
+
+  obj.c = parseInt(ox + (ax - ox) * Math.cos(angle) + (ay - oy) * Math.sin(angle));
+  obj.d = parseInt(oy + (ax - ox) * -Math.sin(angle) + (ay - oy) * Math.cos(angle));
+  return obj;
+};
+//获取字符串的长度
+var getBLen = function getBLen(str) {
+  if (str == null) return 0;
+  if (typeof str != "string") {
+    str += "";
+  }
+  return str.replace(/[^a-z]\d*/g, "01").length;
+};
+
+// /**
+//  * 获取页面
+//  */
+// const getPage = function({name,index}) {
+// 	let pages = getCurrentPages();
+// 	name&&(return pages.find(page => page.route == name));
+// 	index&&(return index==-1?pages[pages.length-1]:pages[index])
+// 	return ''
+// }
+
+
+//js 加法计算
+//调用：accAdd(arg1,arg2)
+//返回值：arg1加arg2的精确结果
+function accAdd(arg1, arg2) {
+  var r1, r2, m;
+  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
+  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
+  m = Math.pow(10, Math.max(r1, r2));
+  return ((arg1 * m + arg2 * m) / m).toFixed(2);
+}
+
+//js 减法计算
+//调用：Subtr(arg1,arg2)
+//返回值：arg1减arg2的精确结果
+function subtr(arg1, arg2) {
+  var r1, r2, m, n;
+  try {r1 = arg1.toString().split(".")[1].length;} catch (e) {r1 = 0;}
+  try {r2 = arg2.toString().split(".")[1].length;} catch (e) {r2 = 0;}
+  m = Math.pow(10, Math.max(r1, r2));
+  //last modify by deeka
+  //动态控制精度长度
+  n = r1 >= r2 ? r1 : r2;
+  return ((arg1 * m - arg2 * m) / m).toFixed(2);
+}
+
+//js 乘法函数
+//调用：accMul(arg1,arg2)
+//返回值：arg1乘以arg2的精确结果
+function accMul(arg1, arg2) {
+  var m = 0,s1 = arg1.toString(),s2 = arg2.toString();
+  try {m += s1.split(".")[1].length;} catch (e) {}
+  try {m += s2.split(".")[1].length;} catch (e) {}
+  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+/**
+   * 节流函数
+   */
+function waterTap(func, delay) {
+  if (!(typeof func === "function")) {
+    console.warn("func 参数必须是Function类型");
+    return function () {};
+  }
+  if (!(typeof delay === "number")) {
+    console.warn("delay 参数必须是Number类型");
+    return function () {};
+  }
+  var prev = Date.now();
+  return function () {
+    if (Date.now() - prev >= delay) {
+      func.call(this, arguments);
+      prev = Date.now();
+    }
+  };
+}
+
+/**
+   * 防抖函数
+   */
+function debounce(func, wait) {
+  if (!(typeof func === "function")) {
+    console.warn("func 参数必须是Function类型");
+    return function () {};
+  }
+  if (!(typeof wait === "number")) {
+    console.warn("wait 参数必须是Number类型");
+    return function () {};
+  }
+  var timeout = null;
+  return function () {
+    if (timeout !== null) clearTimeout(timeout);
+    timeout = setTimeout(func, wait);
+  };
+}
+
+/**
+   * 跳转路由
+   */
+function toRoute(route) {
+  var pages = getCurrentPages();
+  var pageIndex = pages.findIndex(function (item) {return item.route == route.substring(1);});
+  if (pageIndex != -1) {
+    uni.navigateBack({
+      delta: pages.length - pageIndex - 1 });
+
+  } else {
+    uni.navigateTo({ url: route, fail: function fail() {
+        uni.switchTab({ url: route });
+      } });
+  }
+}
+
+//根据经纬度计算两点之间的距离
+var getDistance = function getDistance() {var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref2$lat = _ref2.lat1,lat1 = _ref2$lat === void 0 ? 0 : _ref2$lat,_ref2$lng = _ref2.lng1,lng1 = _ref2$lng === void 0 ? 0 : _ref2$lng,_ref2$lat2 = _ref2.lat2,lat2 = _ref2$lat2 === void 0 ? 0 : _ref2$lat2,_ref2$lng2 = _ref2.lng2,lng2 = _ref2$lng2 === void 0 ? 0 : _ref2$lng2;
+  var rad1 = lat1 * Math.PI / 180.0;
+  var rad2 = lat2 * Math.PI / 180.0;
+  var a = rad1 - rad2;
+  var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
+  var r = 6378137;
+  var distance = r * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(rad1) * Math.cos(rad2) * Math.pow(Math.sin(b / 2), 2)));
+  return parseInt(distance);
+};
+
+module.exports = {
+  formatTime: formatTime,
+  time: time,
+  checkRequestStr: checkRequestStr,
+  checkPhone: checkPhone,
+  checkIdCardLength: checkIdCardLength,
+  anglePoint: anglePoint,
+  getBLen: getBLen,
+  accAdd: accAdd,
+  subtr: subtr,
+  accMul: accMul,
+  waterTap: waterTap,
+  debounce: debounce,
+  toRoute: toRoute,
+  getDistance: getDistance };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 480:
+/*!***********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/utils/qqmap-wx-jssdk.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 微信小程序JavaScriptSDK
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @version 1.2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @date 2019-03-06
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * @author v_ylyue@tencent.com
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */
+
+var ERROR_CONF = {
+  KEY_ERR: 311,
+  KEY_ERR_MSG: 'key格式错误',
+  PARAM_ERR: 310,
+  PARAM_ERR_MSG: '请求参数信息有误',
+  SYSTEM_ERR: 600,
+  SYSTEM_ERR_MSG: '系统错误',
+  WX_ERR_CODE: 1000,
+  WX_OK_CODE: 200 };
+
+var BASE_URL = 'https://apis.map.qq.com/ws/';
+var URL_SEARCH = BASE_URL + 'place/v1/search';
+var URL_SUGGESTION = BASE_URL + 'place/v1/suggestion';
+var URL_GET_GEOCODER = BASE_URL + 'geocoder/v1/';
+var URL_CITY_LIST = BASE_URL + 'district/v1/list';
+var URL_AREA_LIST = BASE_URL + 'district/v1/getchildren';
+var URL_DISTANCE = BASE_URL + 'distance/v1/';
+var URL_DIRECTION = BASE_URL + 'direction/v1/';
+var MODE = {
+  driving: 'driving',
+  transit: 'transit' };
+
+var EARTH_RADIUS = 6378136.49;
+var Utils = {
+  /**
+              * md5加密方法
+              * 版权所有©2011 Sebastian Tschan，https：//blueimp.net
+              */
+  safeAdd: function safeAdd(x, y) {
+    var lsw = (x & 0xffff) + (y & 0xffff);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return msw << 16 | lsw & 0xffff;
+  },
+  bitRotateLeft: function bitRotateLeft(num, cnt) {
+    return num << cnt | num >>> 32 - cnt;
+  },
+  md5cmn: function md5cmn(q, a, b, x, s, t) {
+    return this.safeAdd(this.bitRotateLeft(this.safeAdd(this.safeAdd(a, q), this.safeAdd(x, t)), s), b);
+  },
+  md5ff: function md5ff(a, b, c, d, x, s, t) {
+    return this.md5cmn(b & c | ~b & d, a, b, x, s, t);
+  },
+  md5gg: function md5gg(a, b, c, d, x, s, t) {
+    return this.md5cmn(b & d | c & ~d, a, b, x, s, t);
+  },
+  md5hh: function md5hh(a, b, c, d, x, s, t) {
+    return this.md5cmn(b ^ c ^ d, a, b, x, s, t);
+  },
+  md5ii: function md5ii(a, b, c, d, x, s, t) {
+    return this.md5cmn(c ^ (b | ~d), a, b, x, s, t);
+  },
+  binlMD5: function binlMD5(x, len) {
+    /* append padding */
+    x[len >> 5] |= 0x80 << len % 32;
+    x[(len + 64 >>> 9 << 4) + 14] = len;
+
+    var i;
+    var olda;
+    var oldb;
+    var oldc;
+    var oldd;
+    var a = 1732584193;
+    var b = -271733879;
+    var c = -1732584194;
+    var d = 271733878;
+
+    for (i = 0; i < x.length; i += 16) {
+      olda = a;
+      oldb = b;
+      oldc = c;
+      oldd = d;
+
+      a = this.md5ff(a, b, c, d, x[i], 7, -680876936);
+      d = this.md5ff(d, a, b, c, x[i + 1], 12, -389564586);
+      c = this.md5ff(c, d, a, b, x[i + 2], 17, 606105819);
+      b = this.md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
+      a = this.md5ff(a, b, c, d, x[i + 4], 7, -176418897);
+      d = this.md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
+      c = this.md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
+      b = this.md5ff(b, c, d, a, x[i + 7], 22, -45705983);
+      a = this.md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
+      d = this.md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
+      c = this.md5ff(c, d, a, b, x[i + 10], 17, -42063);
+      b = this.md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
+      a = this.md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
+      d = this.md5ff(d, a, b, c, x[i + 13], 12, -40341101);
+      c = this.md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
+      b = this.md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
+
+      a = this.md5gg(a, b, c, d, x[i + 1], 5, -165796510);
+      d = this.md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
+      c = this.md5gg(c, d, a, b, x[i + 11], 14, 643717713);
+      b = this.md5gg(b, c, d, a, x[i], 20, -373897302);
+      a = this.md5gg(a, b, c, d, x[i + 5], 5, -701558691);
+      d = this.md5gg(d, a, b, c, x[i + 10], 9, 38016083);
+      c = this.md5gg(c, d, a, b, x[i + 15], 14, -660478335);
+      b = this.md5gg(b, c, d, a, x[i + 4], 20, -405537848);
+      a = this.md5gg(a, b, c, d, x[i + 9], 5, 568446438);
+      d = this.md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
+      c = this.md5gg(c, d, a, b, x[i + 3], 14, -187363961);
+      b = this.md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
+      a = this.md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
+      d = this.md5gg(d, a, b, c, x[i + 2], 9, -51403784);
+      c = this.md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
+      b = this.md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
+
+      a = this.md5hh(a, b, c, d, x[i + 5], 4, -378558);
+      d = this.md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
+      c = this.md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
+      b = this.md5hh(b, c, d, a, x[i + 14], 23, -35309556);
+      a = this.md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
+      d = this.md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
+      c = this.md5hh(c, d, a, b, x[i + 7], 16, -155497632);
+      b = this.md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
+      a = this.md5hh(a, b, c, d, x[i + 13], 4, 681279174);
+      d = this.md5hh(d, a, b, c, x[i], 11, -358537222);
+      c = this.md5hh(c, d, a, b, x[i + 3], 16, -722521979);
+      b = this.md5hh(b, c, d, a, x[i + 6], 23, 76029189);
+      a = this.md5hh(a, b, c, d, x[i + 9], 4, -640364487);
+      d = this.md5hh(d, a, b, c, x[i + 12], 11, -421815835);
+      c = this.md5hh(c, d, a, b, x[i + 15], 16, 530742520);
+      b = this.md5hh(b, c, d, a, x[i + 2], 23, -995338651);
+
+      a = this.md5ii(a, b, c, d, x[i], 6, -198630844);
+      d = this.md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
+      c = this.md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
+      b = this.md5ii(b, c, d, a, x[i + 5], 21, -57434055);
+      a = this.md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
+      d = this.md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
+      c = this.md5ii(c, d, a, b, x[i + 10], 15, -1051523);
+      b = this.md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
+      a = this.md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
+      d = this.md5ii(d, a, b, c, x[i + 15], 10, -30611744);
+      c = this.md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
+      b = this.md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
+      a = this.md5ii(a, b, c, d, x[i + 4], 6, -145523070);
+      d = this.md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
+      c = this.md5ii(c, d, a, b, x[i + 2], 15, 718787259);
+      b = this.md5ii(b, c, d, a, x[i + 9], 21, -343485551);
+
+      a = this.safeAdd(a, olda);
+      b = this.safeAdd(b, oldb);
+      c = this.safeAdd(c, oldc);
+      d = this.safeAdd(d, oldd);
+    }
+    return [a, b, c, d];
+  },
+  binl2rstr: function binl2rstr(input) {
+    var i;
+    var output = '';
+    var length32 = input.length * 32;
+    for (i = 0; i < length32; i += 8) {
+      output += String.fromCharCode(input[i >> 5] >>> i % 32 & 0xff);
+    }
+    return output;
+  },
+  rstr2binl: function rstr2binl(input) {
+    var i;
+    var output = [];
+    output[(input.length >> 2) - 1] = undefined;
+    for (i = 0; i < output.length; i += 1) {
+      output[i] = 0;
+    }
+    var length8 = input.length * 8;
+    for (i = 0; i < length8; i += 8) {
+      output[i >> 5] |= (input.charCodeAt(i / 8) & 0xff) << i % 32;
+    }
+    return output;
+  },
+  rstrMD5: function rstrMD5(s) {
+    return this.binl2rstr(this.binlMD5(this.rstr2binl(s), s.length * 8));
+  },
+  rstrHMACMD5: function rstrHMACMD5(key, data) {
+    var i;
+    var bkey = this.rstr2binl(key);
+    var ipad = [];
+    var opad = [];
+    var hash;
+    ipad[15] = opad[15] = undefined;
+    if (bkey.length > 16) {
+      bkey = this.binlMD5(bkey, key.length * 8);
+    }
+    for (i = 0; i < 16; i += 1) {
+      ipad[i] = bkey[i] ^ 0x36363636;
+      opad[i] = bkey[i] ^ 0x5c5c5c5c;
+    }
+    hash = this.binlMD5(ipad.concat(this.rstr2binl(data)), 512 + data.length * 8);
+    return this.binl2rstr(this.binlMD5(opad.concat(hash), 512 + 128));
+  },
+  rstr2hex: function rstr2hex(input) {
+    var hexTab = '0123456789abcdef';
+    var output = '';
+    var x;
+    var i;
+    for (i = 0; i < input.length; i += 1) {
+      x = input.charCodeAt(i);
+      output += hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f);
+    }
+    return output;
+  },
+  str2rstrUTF8: function str2rstrUTF8(input) {
+    return unescape(encodeURIComponent(input));
+  },
+  rawMD5: function rawMD5(s) {
+    return this.rstrMD5(this.str2rstrUTF8(s));
+  },
+  hexMD5: function hexMD5(s) {
+    return this.rstr2hex(this.rawMD5(s));
+  },
+  rawHMACMD5: function rawHMACMD5(k, d) {
+    return this.rstrHMACMD5(this.str2rstrUTF8(k), str2rstrUTF8(d));
+  },
+  hexHMACMD5: function hexHMACMD5(k, d) {
+    return this.rstr2hex(this.rawHMACMD5(k, d));
+  },
+
+  md5: function md5(string, key, raw) {
+    if (!key) {
+      if (!raw) {
+        return this.hexMD5(string);
+      }
+      return this.rawMD5(string);
+    }
+    if (!raw) {
+      return this.hexHMACMD5(key, string);
+    }
+    return this.rawHMACMD5(key, string);
+  },
+  /**
+      * 得到md5加密后的sig参数
+      * @param {Object} requestParam 接口参数
+      * @param {String} sk签名字符串
+      * @param {String} featrue 方法名
+      * @return 返回加密后的sig参数
+      */
+  getSig: function getSig(requestParam, sk, feature, mode) {
+    var sig = null;
+    var requestArr = [];
+    Object.keys(requestParam).sort().forEach(function (key) {
+      requestArr.push(key + '=' + requestParam[key]);
+    });
+    if (feature == 'search') {
+      sig = '/ws/place/v1/search?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'suggest') {
+      sig = '/ws/place/v1/suggestion?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'reverseGeocoder') {
+      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'geocoder') {
+      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'getCityList') {
+      sig = '/ws/district/v1/list?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'getDistrictByCityId') {
+      sig = '/ws/district/v1/getchildren?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'calculateDistance') {
+      sig = '/ws/distance/v1/?' + requestArr.join('&') + sk;
+    }
+    if (feature == 'direction') {
+      sig = '/ws/direction/v1/' + mode + '?' + requestArr.join('&') + sk;
+    }
+    sig = this.md5(sig);
+    return sig;
+  },
+  /**
+      * 得到终点query字符串
+      * @param {Array|String} 检索数据
+      */
+  location2query: function location2query(data) {
+    if (typeof data == 'string') {
+      return data;
+    }
+    var query = '';
+    for (var i = 0; i < data.length; i++) {
+      var d = data[i];
+      if (!!query) {
+        query += ';';
+      }
+      if (d.location) {
+        query = query + d.location.lat + ',' + d.location.lng;
+      }
+      if (d.latitude && d.longitude) {
+        query = query + d.latitude + ',' + d.longitude;
+      }
+    }
+    return query;
+  },
+
+  /**
+      * 计算角度
+      */
+  rad: function rad(d) {
+    return d * Math.PI / 180.0;
+  },
+  /**
+      * 处理终点location数组
+      * @return 返回终点数组
+      */
+  getEndLocation: function getEndLocation(location) {
+    var to = location.split(';');
+    var endLocation = [];
+    for (var i = 0; i < to.length; i++) {
+      endLocation.push({
+        lat: parseFloat(to[i].split(',')[0]),
+        lng: parseFloat(to[i].split(',')[1]) });
+
+    }
+    return endLocation;
+  },
+
+  /**
+      * 计算两点间直线距离
+      * @param a 表示纬度差
+      * @param b 表示经度差
+      * @return 返回的是距离，单位m
+      */
+  getDistance: function getDistance(latFrom, lngFrom, latTo, lngTo) {
+    var radLatFrom = this.rad(latFrom);
+    var radLatTo = this.rad(latTo);
+    var a = radLatFrom - radLatTo;
+    var b = this.rad(lngFrom) - this.rad(lngTo);
+    var distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLatFrom) * Math.cos(radLatTo) * Math.pow(Math.sin(b / 2), 2)));
+    distance = distance * EARTH_RADIUS;
+    distance = Math.round(distance * 10000) / 10000;
+    return parseFloat(distance.toFixed(0));
+  },
+  /**
+      * 使用微信接口进行定位
+      */
+  getWXLocation: function getWXLocation(success, fail, complete) {
+    wx.getLocation({
+      type: 'gcj02',
+      success: success,
+      fail: fail,
+      complete: complete });
+
+  },
+
+  /**
+      * 获取location参数
+      */
+  getLocationParam: function getLocationParam(location) {
+    if (typeof location == 'string') {
+      var locationArr = location.split(',');
+      if (locationArr.length === 2) {
+        location = {
+          latitude: location.split(',')[0],
+          longitude: location.split(',')[1] };
+
+      } else {
+        location = {};
+      }
+    }
+    return location;
+  },
+
+  /**
+      * 回调函数默认处理
+      */
+  polyfillParam: function polyfillParam(param) {
+    param.success = param.success || function () {};
+    param.fail = param.fail || function () {};
+    param.complete = param.complete || function () {};
+  },
+
+  /**
+      * 验证param对应的key值是否为空
+      * 
+      * @param {Object} param 接口参数
+      * @param {String} key 对应参数的key
+      */
+  checkParamKeyEmpty: function checkParamKeyEmpty(param, key) {
+    if (!param[key]) {
+      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + key + '参数格式有误');
+      param.fail(errconf);
+      param.complete(errconf);
+      return true;
+    }
+    return false;
+  },
+
+  /**
+      * 验证参数中是否存在检索词keyword
+      * 
+      * @param {Object} param 接口参数
+      */
+  checkKeyword: function checkKeyword(param) {
+    return !this.checkParamKeyEmpty(param, 'keyword');
+  },
+
+  /**
+      * 验证location值
+      * 
+      * @param {Object} param 接口参数
+      */
+  checkLocation: function checkLocation(param) {
+    var location = this.getLocationParam(param.location);
+    if (!location || !location.latitude || !location.longitude) {
+      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + ' location参数格式有误');
+      param.fail(errconf);
+      param.complete(errconf);
+      return false;
+    }
+    return true;
+  },
+
+  /**
+      * 构造错误数据结构
+      * @param {Number} errCode 错误码
+      * @param {Number} errMsg 错误描述
+      */
+  buildErrorConfig: function buildErrorConfig(errCode, errMsg) {
+    return {
+      status: errCode,
+      message: errMsg };
+
+  },
+
+  /**
+      * 
+      * 数据处理函数
+      * 根据传入参数不同处理不同数据
+      * @param {String} feature 功能名称
+      * search 地点搜索
+      * suggest关键词提示
+      * reverseGeocoder逆地址解析
+      * geocoder地址解析
+      * getCityList获取城市列表：父集
+      * getDistrictByCityId获取区县列表：子集
+      * calculateDistance距离计算
+      * @param {Object} param 接口参数
+      * @param {Object} data 数据
+      */
+  handleData: function handleData(param, data, feature) {
+    if (feature == 'search') {
+      var searchResult = data.data;
+      var searchSimplify = [];
+      for (var i = 0; i < searchResult.length; i++) {
+        searchSimplify.push({
+          id: searchResult[i].id || null,
+          title: searchResult[i].title || null,
+          latitude: searchResult[i].location && searchResult[i].location.lat || null,
+          longitude: searchResult[i].location && searchResult[i].location.lng || null,
+          address: searchResult[i].address || null,
+          category: searchResult[i].category || null,
+          tel: searchResult[i].tel || null,
+          adcode: searchResult[i].ad_info && searchResult[i].ad_info.adcode || null,
+          city: searchResult[i].ad_info && searchResult[i].ad_info.city || null,
+          district: searchResult[i].ad_info && searchResult[i].ad_info.district || null,
+          province: searchResult[i].ad_info && searchResult[i].ad_info.province || null });
+
+      }
+      param.success(data, {
+        searchResult: searchResult,
+        searchSimplify: searchSimplify });
+
+    } else if (feature == 'suggest') {
+      var suggestResult = data.data;
+      var suggestSimplify = [];
+      for (var i = 0; i < suggestResult.length; i++) {
+        suggestSimplify.push({
+          adcode: suggestResult[i].adcode || null,
+          address: suggestResult[i].address || null,
+          category: suggestResult[i].category || null,
+          city: suggestResult[i].city || null,
+          district: suggestResult[i].district || null,
+          id: suggestResult[i].id || null,
+          latitude: suggestResult[i].location && suggestResult[i].location.lat || null,
+          longitude: suggestResult[i].location && suggestResult[i].location.lng || null,
+          province: suggestResult[i].province || null,
+          title: suggestResult[i].title || null,
+          type: suggestResult[i].type || null });
+
+      }
+      param.success(data, {
+        suggestResult: suggestResult,
+        suggestSimplify: suggestSimplify });
+
+    } else if (feature == 'reverseGeocoder') {
+      var reverseGeocoderResult = data.result;
+      var reverseGeocoderSimplify = {
+        address: reverseGeocoderResult.address || null,
+        latitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lat || null,
+        longitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lng || null,
+        adcode: reverseGeocoderResult.ad_info && reverseGeocoderResult.ad_info.adcode || null,
+        city: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.city || null,
+        district: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.district || null,
+        nation: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.nation || null,
+        province: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.province || null,
+        street: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street || null,
+        street_number: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street_number || null,
+        recommend: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.recommend || null,
+        rough: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.rough || null };
+
+      if (reverseGeocoderResult.pois) {//判断是否返回周边poi
+        var pois = reverseGeocoderResult.pois;
+        var poisSimplify = [];
+        for (var i = 0; i < pois.length; i++) {
+          poisSimplify.push({
+            id: pois[i].id || null,
+            title: pois[i].title || null,
+            latitude: pois[i].location && pois[i].location.lat || null,
+            longitude: pois[i].location && pois[i].location.lng || null,
+            address: pois[i].address || null,
+            category: pois[i].category || null,
+            adcode: pois[i].ad_info && pois[i].ad_info.adcode || null,
+            city: pois[i].ad_info && pois[i].ad_info.city || null,
+            district: pois[i].ad_info && pois[i].ad_info.district || null,
+            province: pois[i].ad_info && pois[i].ad_info.province || null });
+
+        }
+        param.success(data, {
+          reverseGeocoderResult: reverseGeocoderResult,
+          reverseGeocoderSimplify: reverseGeocoderSimplify,
+          pois: pois,
+          poisSimplify: poisSimplify });
+
+      } else {
+        param.success(data, {
+          reverseGeocoderResult: reverseGeocoderResult,
+          reverseGeocoderSimplify: reverseGeocoderSimplify });
+
+      }
+    } else if (feature == 'geocoder') {
+      var geocoderResult = data.result;
+      var geocoderSimplify = {
+        title: geocoderResult.title || null,
+        latitude: geocoderResult.location && geocoderResult.location.lat || null,
+        longitude: geocoderResult.location && geocoderResult.location.lng || null,
+        adcode: geocoderResult.ad_info && geocoderResult.ad_info.adcode || null,
+        province: geocoderResult.address_components && geocoderResult.address_components.province || null,
+        city: geocoderResult.address_components && geocoderResult.address_components.city || null,
+        district: geocoderResult.address_components && geocoderResult.address_components.district || null,
+        street: geocoderResult.address_components && geocoderResult.address_components.street || null,
+        street_number: geocoderResult.address_components && geocoderResult.address_components.street_number || null,
+        level: geocoderResult.level || null };
+
+      param.success(data, {
+        geocoderResult: geocoderResult,
+        geocoderSimplify: geocoderSimplify });
+
+    } else if (feature == 'getCityList') {
+      var provinceResult = data.result[0];
+      var cityResult = data.result[1];
+      var districtResult = data.result[2];
+      param.success(data, {
+        provinceResult: provinceResult,
+        cityResult: cityResult,
+        districtResult: districtResult });
+
+    } else if (feature == 'getDistrictByCityId') {
+      var districtByCity = data.result[0];
+      param.success(data, districtByCity);
+    } else if (feature == 'calculateDistance') {
+      var calculateDistanceResult = data.result.elements;
+      var distance = [];
+      for (var i = 0; i < calculateDistanceResult.length; i++) {
+        distance.push(calculateDistanceResult[i].distance);
+      }
+      param.success(data, {
+        calculateDistanceResult: calculateDistanceResult,
+        distance: distance });
+
+    } else if (feature == 'direction') {
+      var direction = data.result.routes;
+      param.success(data, direction);
+    } else {
+      param.success(data);
+    }
+  },
+
+  /**
+      * 构造微信请求参数，公共属性处理
+      * 
+      * @param {Object} param 接口参数
+      * @param {Object} param 配置项
+      * @param {String} feature 方法名
+      */
+  buildWxRequestConfig: function buildWxRequestConfig(param, options, feature) {
+    var that = this;
+    options.header = { "content-type": "application/json" };
+    options.method = 'GET';
+    options.success = function (res) {
+      var data = res.data;
+      if (data.status === 0) {
+        that.handleData(param, data, feature);
+      } else {
+        param.fail(data);
+      }
+    };
+    options.fail = function (res) {
+      res.statusCode = ERROR_CONF.WX_ERR_CODE;
+      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+    };
+    options.complete = function (res) {
+      var statusCode = +res.statusCode;
+      switch (statusCode) {
+        case ERROR_CONF.WX_ERR_CODE:{
+            param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+            break;
+          }
+        case ERROR_CONF.WX_OK_CODE:{
+            var data = res.data;
+            if (data.status === 0) {
+              param.complete(data);
+            } else {
+              param.complete(that.buildErrorConfig(data.status, data.message));
+            }
+            break;
+          }
+        default:{
+            param.complete(that.buildErrorConfig(ERROR_CONF.SYSTEM_ERR, ERROR_CONF.SYSTEM_ERR_MSG));
+          }}
+
+
+    };
+    return options;
+  },
+
+  /**
+      * 处理用户参数是否传入坐标进行不同的处理
+      */
+  locationProcess: function locationProcess(param, locationsuccess, locationfail, locationcomplete) {
+    var that = this;
+    locationfail = locationfail || function (res) {
+      res.statusCode = ERROR_CONF.WX_ERR_CODE;
+      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+    };
+    locationcomplete = locationcomplete || function (res) {
+      if (res.statusCode == ERROR_CONF.WX_ERR_CODE) {
+        param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+      }
+    };
+    if (!param.location) {
+      that.getWXLocation(locationsuccess, locationfail, locationcomplete);
+    } else if (that.checkLocation(param)) {
+      var location = Utils.getLocationParam(param.location);
+      locationsuccess(location);
+    }
+  } };var
+
+
+
+QQMapWX = /*#__PURE__*/function () {
+
+  /**
+                                     * 构造函数
+                                     * 
+                                     * @param {Object} options 接口参数,key 为必选参数
+                                     */
+  function QQMapWX(options) {_classCallCheck(this, QQMapWX);
+    if (!options.key) {
+      throw Error('key值不能为空');
+    }
+    this.key = options.key;
+  }_createClass(QQMapWX, [{ key: "search",
+
+    /**
+                                            * POI周边检索
+                                            *
+                                            * @param {Object} options 接口参数对象
+                                            * 
+                                            * 参数对象结构可以参考
+                                            * @see http://lbs.qq.com/webservice_v1/guide-search.html
+                                            */value: function search(
+    options) {
+      var that = this;
+      options = options || {};
+
+      Utils.polyfillParam(options);
+
+      if (!Utils.checkKeyword(options)) {
+        return;
+      }
+
+      var requestParam = {
+        keyword: options.keyword,
+        orderby: options.orderby || '_distance',
+        page_size: options.page_size || 10,
+        page_index: options.page_index || 1,
+        output: 'json',
+        key: that.key };
+
+
+      if (options.address_format) {
+        requestParam.address_format = options.address_format;
+      }
+
+      if (options.filter) {
+        requestParam.filter = options.filter;
+      }
+
+      var distance = options.distance || "1000";
+      var auto_extend = options.auto_extend || 1;
+      var region = null;
+      var rectangle = null;
+
+      //判断城市限定参数
+      if (options.region) {
+        region = options.region;
+      }
+
+      //矩形限定坐标(暂时只支持字符串格式)
+      if (options.rectangle) {
+        rectangle = options.rectangle;
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        if (region && !rectangle) {
+          //城市限定参数拼接
+          requestParam.boundary = "region(" + region + "," + auto_extend + "," + result.latitude + "," + result.longitude + ")";
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        } else if (rectangle && !region) {
+          //矩形搜索
+          requestParam.boundary = "rectangle(" + rectangle + ")";
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        } else {
+          requestParam.boundary = "nearby(" + result.latitude + "," + result.longitude + "," + distance + "," + auto_extend + ")";
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        }
+        wx.request(Utils.buildWxRequestConfig(options, {
+          url: URL_SEARCH,
+          data: requestParam },
+        'search'));
+      };
+      Utils.locationProcess(options, locationsuccess);
+    } }, { key: "getSuggestion",
+
+    /**
+                                  * sug模糊检索
+                                  *
+                                  * @param {Object} options 接口参数对象
+                                  * 
+                                  * 参数对象结构可以参考
+                                  * http://lbs.qq.com/webservice_v1/guide-suggestion.html
+                                  */value: function getSuggestion(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (!Utils.checkKeyword(options)) {
+        return;
+      }
+
+      var requestParam = {
+        keyword: options.keyword,
+        region: options.region || '全国',
+        region_fix: options.region_fix || 0,
+        policy: options.policy || 0,
+        page_size: options.page_size || 10, //控制显示条数
+        page_index: options.page_index || 1, //控制页数
+        get_subpois: options.get_subpois || 0, //返回子地点
+        output: 'json',
+        key: that.key };
+
+      //长地址
+      if (options.address_format) {
+        requestParam.address_format = options.address_format;
+      }
+      //过滤
+      if (options.filter) {
+        requestParam.filter = options.filter;
+      }
+      //排序
+      if (options.location) {
+        var locationsuccess = function locationsuccess(result) {
+          requestParam.location = result.latitude + ',' + result.longitude;
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
+          }
+          wx.request(Utils.buildWxRequestConfig(options, {
+            url: URL_SUGGESTION,
+            data: requestParam },
+          "suggest"));
+        };
+        Utils.locationProcess(options, locationsuccess);
+      } else {
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
+        }
+        wx.request(Utils.buildWxRequestConfig(options, {
+          url: URL_SUGGESTION,
+          data: requestParam },
+        "suggest"));
+      }
+    } }, { key: "reverseGeocoder",
+
+    /**
+                                    * 逆地址解析
+                                    *
+                                    * @param {Object} options 接口参数对象
+                                    * 
+                                    * 请求参数结构可以参考
+                                    * http://lbs.qq.com/webservice_v1/guide-gcoder.html
+                                    */value: function reverseGeocoder(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+      var requestParam = {
+        coord_type: options.coord_type || 5,
+        get_poi: options.get_poi || 0,
+        output: 'json',
+        key: that.key };
+
+      if (options.poi_options) {
+        requestParam.poi_options = options.poi_options;
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        requestParam.location = result.latitude + ',' + result.longitude;
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'reverseGeocoder');
+        }
+        wx.request(Utils.buildWxRequestConfig(options, {
+          url: URL_GET_GEOCODER,
+          data: requestParam },
+        'reverseGeocoder'));
+      };
+      Utils.locationProcess(options, locationsuccess);
+    } }, { key: "geocoder",
+
+    /**
+                             * 地址解析
+                             *
+                             * @param {Object} options 接口参数对象
+                             * 
+                             * 请求参数结构可以参考
+                             * http://lbs.qq.com/webservice_v1/guide-geocoder.html
+                             */value: function geocoder(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'address')) {
+        return;
+      }
+
+      var requestParam = {
+        address: options.address,
+        output: 'json',
+        key: that.key };
+
+
+      //城市限定
+      if (options.region) {
+        requestParam.region = options.region;
+      }
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'geocoder');
+      }
+
+      wx.request(Utils.buildWxRequestConfig(options, {
+        url: URL_GET_GEOCODER,
+        data: requestParam },
+      'geocoder'));
+    } }, { key: "getCityList",
+
+
+    /**
+                                * 获取城市列表
+                                *
+                                * @param {Object} options 接口参数对象
+                                * 
+                                * 请求参数结构可以参考
+                                * http://lbs.qq.com/webservice_v1/guide-region.html
+                                */value: function getCityList(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+      var requestParam = {
+        output: 'json',
+        key: that.key };
+
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getCityList');
+      }
+
+      wx.request(Utils.buildWxRequestConfig(options, {
+        url: URL_CITY_LIST,
+        data: requestParam },
+      'getCityList'));
+    } }, { key: "getDistrictByCityId",
+
+    /**
+                                        * 获取对应城市ID的区县列表
+                                        *
+                                        * @param {Object} options 接口参数对象
+                                        * 
+                                        * 请求参数结构可以参考
+                                        * http://lbs.qq.com/webservice_v1/guide-region.html
+                                        */value: function getDistrictByCityId(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'id')) {
+        return;
+      }
+
+      var requestParam = {
+        id: options.id || '',
+        output: 'json',
+        key: that.key };
+
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getDistrictByCityId');
+      }
+
+      wx.request(Utils.buildWxRequestConfig(options, {
+        url: URL_AREA_LIST,
+        data: requestParam },
+      'getDistrictByCityId'));
+    } }, { key: "calculateDistance",
+
+    /**
+                                      * 用于单起点到多终点的路线距离(非直线距离)计算：
+                                      * 支持两种距离计算方式：步行和驾车。
+                                      * 起点到终点最大限制直线距离10公里。
+                                      *
+                                      * 新增直线距离计算。
+                                      * 
+                                      * @param {Object} options 接口参数对象
+                                      * 
+                                      * 请求参数结构可以参考
+                                      * http://lbs.qq.com/webservice_v1/guide-distance.html
+                                      */value: function calculateDistance(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'to')) {
+        return;
+      }
+
+      var requestParam = {
+        mode: options.mode || 'walking',
+        to: Utils.location2query(options.to),
+        output: 'json',
+        key: that.key };
+
+
+      if (options.from) {
+        options.location = options.from;
+      }
+
+      //计算直线距离
+      if (requestParam.mode == 'straight') {
+        var locationsuccess = function locationsuccess(result) {
+          var locationTo = Utils.getEndLocation(requestParam.to); //处理终点坐标
+          var data = {
+            message: "query ok",
+            result: {
+              elements: [] },
+
+            status: 0 };
+
+          for (var i = 0; i < locationTo.length; i++) {
+            data.result.elements.push({ //将坐标存入
+              distance: Utils.getDistance(result.latitude, result.longitude, locationTo[i].lat, locationTo[i].lng),
+              duration: 0,
+              from: {
+                lat: result.latitude,
+                lng: result.longitude },
+
+              to: {
+                lat: locationTo[i].lat,
+                lng: locationTo[i].lng } });
+
+
+          }
+          var calculateResult = data.result.elements;
+          var distanceResult = [];
+          for (var i = 0; i < calculateResult.length; i++) {
+            distanceResult.push(calculateResult[i].distance);
+          }
+          return options.success(data, {
+            calculateResult: calculateResult,
+            distanceResult: distanceResult });
+
+        };
+
+        Utils.locationProcess(options, locationsuccess);
+      } else {
+        var locationsuccess = function locationsuccess(result) {
+          requestParam.from = result.latitude + ',' + result.longitude;
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'calculateDistance');
+          }
+          wx.request(Utils.buildWxRequestConfig(options, {
+            url: URL_DISTANCE,
+            data: requestParam },
+          'calculateDistance'));
+        };
+
+        Utils.locationProcess(options, locationsuccess);
+      }
+    } }, { key: "direction",
+
+    /**
+                              * 路线规划：
+                              * 
+                              * @param {Object} options 接口参数对象
+                              * 
+                              * 请求参数结构可以参考
+                              * https://lbs.qq.com/webservice_v1/guide-road.html
+                              */value: function direction(
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'to')) {
+        return;
+      }
+
+      var requestParam = {
+        output: 'json',
+        key: that.key };
+
+
+      //to格式处理
+      if (typeof options.to == 'string') {
+        requestParam.to = options.to;
+      } else {
+        requestParam.to = options.to.latitude + ',' + options.to.longitude;
+      }
+      //初始化局部请求域名
+      var SET_URL_DIRECTION = null;
+      //设置默认mode属性
+      options.mode = options.mode || MODE.driving;
+
+      //设置请求域名
+      SET_URL_DIRECTION = URL_DIRECTION + options.mode;
+
+      if (options.from) {
+        options.location = options.from;
+      }
+
+      if (options.mode == MODE.driving) {
+        if (options.from_poi) {
+          requestParam.from_poi = options.from_poi;
+        }
+        if (options.heading) {
+          requestParam.heading = options.heading;
+        }
+        if (options.speed) {
+          requestParam.speed = options.speed;
+        }
+        if (options.accuracy) {
+          requestParam.accuracy = options.accuracy;
+        }
+        if (options.road_type) {
+          requestParam.road_type = options.road_type;
+        }
+        if (options.to_poi) {
+          requestParam.to_poi = options.to_poi;
+        }
+        if (options.from_track) {
+          requestParam.from_track = options.from_track;
+        }
+        if (options.waypoints) {
+          requestParam.waypoints = options.waypoints;
+        }
+        if (options.policy) {
+          requestParam.policy = options.policy;
+        }
+        if (options.plate_number) {
+          requestParam.plate_number = options.plate_number;
+        }
+      }
+
+      if (options.mode == MODE.transit) {
+        if (options.departure_time) {
+          requestParam.departure_time = options.departure_time;
+        }
+        if (options.policy) {
+          requestParam.policy = options.policy;
+        }
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        requestParam.from = result.latitude + ',' + result.longitude;
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'direction', options.mode);
+        }
+        wx.request(Utils.buildWxRequestConfig(options, {
+          url: SET_URL_DIRECTION,
+          data: requestParam },
+        'direction'));
+      };
+
+      Utils.locationProcess(options, locationsuccess);
+    } }]);return QQMapWX;}();
+;
+
+module.exports = QQMapWX;
+
+/***/ }),
+
+/***/ 49:
+/*!************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/order.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.createOrder = createOrder;exports.payOrder = payOrder;exports.getOrderDetail = getOrderDetail;exports.deleteOrder = deleteOrder;exports.orderDelivery = orderDelivery;exports.getOrderList = getOrderList;exports.updateOrder = updateOrder;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+
+
+
+
+
+
+/**
+                                        * 创建订单
+                                        */
+function createOrder(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.CREATE_ORDER,
+    data: data });
+
+}
+
+/**
+   * 订单支付
+   */
+function payOrder(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.PAY_ORDER,
+    data: data });
+
+}
+
+/**
+   * 查询订单详情
+   */
+function getOrderDetail(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_ORDER_DETAIL,
+    data: data });
+
+}
+
+/**
+   * 删除订单
+   */
+function deleteOrder(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.DELETE_ORDER,
+    data: data });
+
+}
+
+/*确认收货*/
+function orderDelivery(id) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.ORDER_DELIVERY,
+    data: {
+      orderid: id } });
+
+
+}
+
+/**
+   * 查询订单列表
+   */
+function getOrderList(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_ORDER_LIST,
+    data: data });
+
+}
+
+/**
+   * 更新订单
+   */
+function updateOrder(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.UPDATE_ORDER,
+    data: data });
+
+}
+
+/***/ }),
+
+/***/ 5:
+/*!*******************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_require__(/*! ../package.json */ 6);function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+
+var STAT_VERSION = _package.version;
+var STAT_URL = 'https://tongji.dcloud.io/uni/stat';
+var STAT_H5_URL = 'https://tongji.dcloud.io/uni/stat.gif';
+var PAGE_PVER_TIME = 1800;
+var APP_PVER_TIME = 300;
+var OPERATING_TIME = 10;
+
+var UUID_KEY = '__DC_STAT_UUID';
+var UUID_VALUE = '__DC_UUID_VALUE';
+
+function getUuid() {
+  var uuid = '';
+  if (getPlatformName() === 'n') {
+    try {
+      uuid = plus.runtime.getDCloudId();
+    } catch (e) {
+      uuid = '';
+    }
+    return uuid;
+  }
+
+  try {
+    uuid = uni.getStorageSync(UUID_KEY);
+  } catch (e) {
+    uuid = UUID_VALUE;
+  }
+
+  if (!uuid) {
+    uuid = Date.now() + '' + Math.floor(Math.random() * 1e7);
+    try {
+      uni.setStorageSync(UUID_KEY, uuid);
+    } catch (e) {
+      uni.setStorageSync(UUID_KEY, UUID_VALUE);
+    }
+  }
+  return uuid;
+}
+
+var getSgin = function getSgin(statData) {
+  var arr = Object.keys(statData);
+  var sortArr = arr.sort();
+  var sgin = {};
+  var sginStr = '';
+  for (var i in sortArr) {
+    sgin[sortArr[i]] = statData[sortArr[i]];
+    sginStr += sortArr[i] + '=' + statData[sortArr[i]] + '&';
+  }
+  // const options = sginStr.substr(0, sginStr.length - 1)
+  // sginStr = sginStr.substr(0, sginStr.length - 1) + '&key=' + STAT_KEY;
+  // const si = crypto.createHash('md5').update(sginStr).digest('hex');
+  return {
+    sign: '',
+    options: sginStr.substr(0, sginStr.length - 1) };
+
+};
+
+var getSplicing = function getSplicing(data) {
+  var str = '';
+  for (var i in data) {
+    str += i + '=' + data[i] + '&';
+  }
+  return str.substr(0, str.length - 1);
+};
+
+var getTime = function getTime() {
+  return parseInt(new Date().getTime() / 1000);
+};
+
+var getPlatformName = function getPlatformName() {
+  var platformList = {
+    'app-plus': 'n',
+    'h5': 'h5',
+    'mp-weixin': 'wx',
+    'mp-alipay': 'ali',
+    'mp-baidu': 'bd',
+    'mp-toutiao': 'tt',
+    'mp-qq': 'qq' };
+
+  return platformList["mp-weixin"];
+};
+
+var getPackName = function getPackName() {
+  var packName = '';
+  if (getPlatformName() === 'wx' || getPlatformName() === 'qq') {
+    // 兼容微信小程序低版本基础库
+    if (uni.canIUse('getAccountInfoSync')) {
+      packName = uni.getAccountInfoSync().miniProgram.appId || '';
+    }
+  }
+  return packName;
+};
+
+var getVersion = function getVersion() {
+  return getPlatformName() === 'n' ? plus.runtime.version : '';
+};
+
+var getChannel = function getChannel() {
+  var platformName = getPlatformName();
+  var channel = '';
+  if (platformName === 'n') {
+    channel = plus.runtime.channel;
+  }
+  return channel;
+};
+
+var getScene = function getScene(options) {
+  var platformName = getPlatformName();
+  var scene = '';
+  if (options) {
+    return options;
+  }
+  if (platformName === 'wx') {
+    scene = uni.getLaunchOptionsSync().scene;
+  }
+  return scene;
+};
+var First__Visit__Time__KEY = 'First__Visit__Time';
+var Last__Visit__Time__KEY = 'Last__Visit__Time';
+
+var getFirstVisitTime = function getFirstVisitTime() {
+  var timeStorge = uni.getStorageSync(First__Visit__Time__KEY);
+  var time = 0;
+  if (timeStorge) {
+    time = timeStorge;
+  } else {
+    time = getTime();
+    uni.setStorageSync(First__Visit__Time__KEY, time);
+    uni.removeStorageSync(Last__Visit__Time__KEY);
+  }
+  return time;
+};
+
+var getLastVisitTime = function getLastVisitTime() {
+  var timeStorge = uni.getStorageSync(Last__Visit__Time__KEY);
+  var time = 0;
+  if (timeStorge) {
+    time = timeStorge;
+  } else {
+    time = '';
+  }
+  uni.setStorageSync(Last__Visit__Time__KEY, getTime());
+  return time;
+};
+
+
+var PAGE_RESIDENCE_TIME = '__page__residence__time';
+var First_Page_residence_time = 0;
+var Last_Page_residence_time = 0;
+
+
+var setPageResidenceTime = function setPageResidenceTime() {
+  First_Page_residence_time = getTime();
+  if (getPlatformName() === 'n') {
+    uni.setStorageSync(PAGE_RESIDENCE_TIME, getTime());
+  }
+  return First_Page_residence_time;
+};
+
+var getPageResidenceTime = function getPageResidenceTime() {
+  Last_Page_residence_time = getTime();
+  if (getPlatformName() === 'n') {
+    First_Page_residence_time = uni.getStorageSync(PAGE_RESIDENCE_TIME);
+  }
+  return Last_Page_residence_time - First_Page_residence_time;
+};
+var TOTAL__VISIT__COUNT = 'Total__Visit__Count';
+var getTotalVisitCount = function getTotalVisitCount() {
+  var timeStorge = uni.getStorageSync(TOTAL__VISIT__COUNT);
+  var count = 1;
+  if (timeStorge) {
+    count = timeStorge;
+    count++;
+  }
+  uni.setStorageSync(TOTAL__VISIT__COUNT, count);
+  return count;
+};
+
+var GetEncodeURIComponentOptions = function GetEncodeURIComponentOptions(statData) {
+  var data = {};
+  for (var prop in statData) {
+    data[prop] = encodeURIComponent(statData[prop]);
+  }
+  return data;
+};
+
+var Set__First__Time = 0;
+var Set__Last__Time = 0;
+
+var getFirstTime = function getFirstTime() {
+  var time = new Date().getTime();
+  Set__First__Time = time;
+  Set__Last__Time = 0;
+  return time;
+};
+
+
+var getLastTime = function getLastTime() {
+  var time = new Date().getTime();
+  Set__Last__Time = time;
+  return time;
+};
+
+
+var getResidenceTime = function getResidenceTime(type) {
+  var residenceTime = 0;
+  if (Set__First__Time !== 0) {
+    residenceTime = Set__Last__Time - Set__First__Time;
+  }
+
+  residenceTime = parseInt(residenceTime / 1000);
+  residenceTime = residenceTime < 1 ? 1 : residenceTime;
+  if (type === 'app') {
+    var overtime = residenceTime > APP_PVER_TIME ? true : false;
+    return {
+      residenceTime: residenceTime,
+      overtime: overtime };
+
+  }
+  if (type === 'page') {
+    var _overtime = residenceTime > PAGE_PVER_TIME ? true : false;
+    return {
+      residenceTime: residenceTime,
+      overtime: _overtime };
+
+  }
+
+  return {
+    residenceTime: residenceTime };
+
+
+};
+
+var getRoute = function getRoute() {
+  var pages = getCurrentPages();
+  var page = pages[pages.length - 1];
+  var _self = page.$vm;
+
+  if (getPlatformName() === 'bd') {
+    return _self.$mp && _self.$mp.page.is;
+  } else {
+    return _self.$scope && _self.$scope.route || _self.$mp && _self.$mp.page.route;
+  }
+};
+
+var getPageRoute = function getPageRoute(self) {
+  var pages = getCurrentPages();
+  var page = pages[pages.length - 1];
+  var _self = page.$vm;
+  var query = self._query;
+  var str = query && JSON.stringify(query) !== '{}' ? '?' + JSON.stringify(query) : '';
+  // clear
+  self._query = '';
+  if (getPlatformName() === 'bd') {
+    return _self.$mp && _self.$mp.page.is + str;
+  } else {
+    return _self.$scope && _self.$scope.route + str || _self.$mp && _self.$mp.page.route + str;
+  }
+};
+
+var getPageTypes = function getPageTypes(self) {
+  if (self.mpType === 'page' || self.$mp && self.$mp.mpType === 'page' || self.$options.mpType === 'page') {
+    return true;
+  }
+  return false;
+};
+
+var calibration = function calibration(eventName, options) {
+  //  login 、 share 、pay_success 、pay_fail 、register 、title
+  if (!eventName) {
+    console.error("uni.report \u7F3A\u5C11 [eventName] \u53C2\u6570");
+    return true;
+  }
+  if (typeof eventName !== 'string') {
+    console.error("uni.report [eventName] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u7C7B\u578B");
+    return true;
+  }
+  if (eventName.length > 255) {
+    console.error("uni.report [eventName] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
+    return true;
+  }
+
+  if (typeof options !== 'string' && typeof options !== 'object') {
+    console.error("uni.report [options] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u6216 Object \u7C7B\u578B");
+    return true;
+  }
+
+  if (typeof options === 'string' && options.length > 255) {
+    console.error("uni.report [options] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
+    return true;
+  }
+
+  if (eventName === 'title' && typeof options !== 'string') {
+    console.error('uni.report [eventName] 参数为 title 时，[options] 参数只能为 String 类型');
+    return true;
+  }
+};
+
+var PagesJson = __webpack_require__(/*! uni-pages?{"type":"style"} */ 7).default;
+var statConfig = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
+
+var resultOptions = uni.getSystemInfoSync();var
+
+Util = /*#__PURE__*/function () {
+  function Util() {_classCallCheck(this, Util);
+    this.self = '';
+    this._retry = 0;
+    this._platform = '';
+    this._query = {};
+    this._navigationBarTitle = {
+      config: '',
+      page: '',
+      report: '',
+      lt: '' };
+
+    this._operatingTime = 0;
+    this._reportingRequestData = {
+      '1': [],
+      '11': [] };
+
+    this.__prevent_triggering = false;
+
+    this.__licationHide = false;
+    this.__licationShow = false;
+    this._lastPageRoute = '';
+    this.statData = {
+      uuid: getUuid(),
+      ut: getPlatformName(),
+      mpn: getPackName(),
+      ak: statConfig.appid,
+      usv: STAT_VERSION,
+      v: getVersion(),
+      ch: getChannel(),
+      cn: '',
+      pn: '',
+      ct: '',
+      t: getTime(),
+      tt: '',
+      p: resultOptions.platform === 'android' ? 'a' : 'i',
+      brand: resultOptions.brand || '',
+      md: resultOptions.model,
+      sv: resultOptions.system.replace(/(Android|iOS)\s/, ''),
+      mpsdk: resultOptions.SDKVersion || '',
+      mpv: resultOptions.version || '',
+      lang: resultOptions.language,
+      pr: resultOptions.pixelRatio,
+      ww: resultOptions.windowWidth,
+      wh: resultOptions.windowHeight,
+      sw: resultOptions.screenWidth,
+      sh: resultOptions.screenHeight };
+
+
+  }_createClass(Util, [{ key: "_applicationShow", value: function _applicationShow()
+
+    {
+      if (this.__licationHide) {
+        getLastTime();
+        var time = getResidenceTime('app');
+        if (time.overtime) {
+          var options = {
+            path: this._lastPageRoute,
+            scene: this.statData.sc };
+
+          this._sendReportRequest(options);
+        }
+        this.__licationHide = false;
+      }
+    } }, { key: "_applicationHide", value: function _applicationHide(
+
+    self, type) {
+
+      this.__licationHide = true;
+      getLastTime();
+      var time = getResidenceTime();
+      getFirstTime();
+      var route = getPageRoute(this);
+      this._sendHideRequest({
+        urlref: route,
+        urlref_ts: time.residenceTime },
+      type);
+    } }, { key: "_pageShow", value: function _pageShow()
+
+    {
+      var route = getPageRoute(this);
+      var routepath = getRoute();
+      this._navigationBarTitle.config = PagesJson &&
+      PagesJson.pages[routepath] &&
+      PagesJson.pages[routepath].titleNView &&
+      PagesJson.pages[routepath].titleNView.titleText ||
+      PagesJson &&
+      PagesJson.pages[routepath] &&
+      PagesJson.pages[routepath].navigationBarTitleText || '';
+
+      if (this.__licationShow) {
+        getFirstTime();
+        this.__licationShow = false;
+        // console.log('这是 onLauch 之后执行的第一次 pageShow ，为下次记录时间做准备');
+        this._lastPageRoute = route;
+        return;
+      }
+
+      getLastTime();
+      this._lastPageRoute = route;
+      var time = getResidenceTime('page');
+      if (time.overtime) {
+        var options = {
+          path: this._lastPageRoute,
+          scene: this.statData.sc };
+
+        this._sendReportRequest(options);
+      }
+      getFirstTime();
+    } }, { key: "_pageHide", value: function _pageHide()
+
+    {
+      if (!this.__licationHide) {
+        getLastTime();
+        var time = getResidenceTime('page');
+        this._sendPageRequest({
+          url: this._lastPageRoute,
+          urlref: this._lastPageRoute,
+          urlref_ts: time.residenceTime });
+
+        this._navigationBarTitle = {
+          config: '',
+          page: '',
+          report: '',
+          lt: '' };
+
+        return;
+      }
+    } }, { key: "_login", value: function _login()
+
+    {
+      this._sendEventRequest({
+        key: 'login' },
+      0);
+    } }, { key: "_share", value: function _share()
+
+    {
+      this._sendEventRequest({
+        key: 'share' },
+      0);
+    } }, { key: "_payment", value: function _payment(
+    key) {
+      this._sendEventRequest({
+        key: key },
+      0);
+    } }, { key: "_sendReportRequest", value: function _sendReportRequest(
+    options) {
+
+      this._navigationBarTitle.lt = '1';
+      var query = options.query && JSON.stringify(options.query) !== '{}' ? '?' + JSON.stringify(options.query) : '';
+      this.statData.lt = '1';
+      this.statData.url = options.path + query || '';
+      this.statData.t = getTime();
+      this.statData.sc = getScene(options.scene);
+      this.statData.fvts = getFirstVisitTime();
+      this.statData.lvts = getLastVisitTime();
+      this.statData.tvc = getTotalVisitCount();
+      if (getPlatformName() === 'n') {
+        this.getProperty();
+      } else {
+        this.getNetworkInfo();
+      }
+    } }, { key: "_sendPageRequest", value: function _sendPageRequest(
+
+    opt) {var
+
+      url =
+
+
+      opt.url,urlref = opt.urlref,urlref_ts = opt.urlref_ts;
+      this._navigationBarTitle.lt = '11';
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '11',
+        ut: this.statData.ut,
+        url: url,
+        tt: this.statData.tt,
+        urlref: urlref,
+        urlref_ts: urlref_ts,
+        ch: this.statData.ch,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }, { key: "_sendHideRequest", value: function _sendHideRequest(
+
+    opt, type) {var
+
+      urlref =
+
+      opt.urlref,urlref_ts = opt.urlref_ts;
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '3',
+        ut: this.statData.ut,
+        urlref: urlref,
+        urlref_ts: urlref_ts,
+        ch: this.statData.ch,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options, type);
+    } }, { key: "_sendEventRequest", value: function _sendEventRequest()
+
+
+
+    {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$key = _ref.key,key = _ref$key === void 0 ? '' : _ref$key,_ref$value = _ref.value,value = _ref$value === void 0 ? "" : _ref$value;
+      var route = this._lastPageRoute;
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '21',
+        ut: this.statData.ut,
+        url: route,
+        ch: this.statData.ch,
+        e_n: key,
+        e_v: typeof value === 'object' ? JSON.stringify(value) : value.toString(),
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }, { key: "getNetworkInfo", value: function getNetworkInfo()
+
+    {var _this = this;
+      uni.getNetworkType({
+        success: function success(result) {
+          _this.statData.net = result.networkType;
+          _this.getLocation();
+        } });
+
+    } }, { key: "getProperty", value: function getProperty()
+
+    {var _this2 = this;
+      plus.runtime.getProperty(plus.runtime.appid, function (wgtinfo) {
+        _this2.statData.v = wgtinfo.version || '';
+        _this2.getNetworkInfo();
+      });
+    } }, { key: "getLocation", value: function getLocation()
+
+    {var _this3 = this;
+      if (statConfig.getLocation) {
+        uni.getLocation({
+          type: 'wgs84',
+          geocode: true,
+          success: function success(result) {
+            if (result.address) {
+              _this3.statData.cn = result.address.country;
+              _this3.statData.pn = result.address.province;
+              _this3.statData.ct = result.address.city;
+            }
+
+            _this3.statData.lat = result.latitude;
+            _this3.statData.lng = result.longitude;
+            _this3.request(_this3.statData);
+          } });
+
+      } else {
+        this.statData.lat = 0;
+        this.statData.lng = 0;
+        this.request(this.statData);
+      }
+    } }, { key: "request", value: function request(
+
+    data, type) {var _this4 = this;
+      var time = getTime();
+      var title = this._navigationBarTitle;
+      data.ttn = title.page;
+      data.ttpj = title.config;
+      data.ttc = title.report;
+
+      var requestData = this._reportingRequestData;
+      if (getPlatformName() === 'n') {
+        requestData = uni.getStorageSync('__UNI__STAT__DATA') || {};
+      }
+      if (!requestData[data.lt]) {
+        requestData[data.lt] = [];
+      }
+      requestData[data.lt].push(data);
+
+      if (getPlatformName() === 'n') {
+        uni.setStorageSync('__UNI__STAT__DATA', requestData);
+      }
+      if (getPageResidenceTime() < OPERATING_TIME && !type) {
+        return;
+      }
+      var uniStatData = this._reportingRequestData;
+      if (getPlatformName() === 'n') {
+        uniStatData = uni.getStorageSync('__UNI__STAT__DATA');
+      }
+      // 时间超过，重新获取时间戳
+      setPageResidenceTime();
+      var firstArr = [];
+      var contentArr = [];
+      var lastArr = [];var _loop = function _loop(
+
+      i) {
+        var rd = uniStatData[i];
+        rd.forEach(function (elm) {
+          var newData = getSplicing(elm);
+          if (i === 0) {
+            firstArr.push(newData);
+          } else if (i === 3) {
+            lastArr.push(newData);
+          } else {
+            contentArr.push(newData);
+          }
+        });};for (var i in uniStatData) {_loop(i);
+      }
+
+      firstArr.push.apply(firstArr, contentArr.concat(lastArr));
+      var optionsData = {
+        usv: STAT_VERSION, //统计 SDK 版本号
+        t: time, //发送请求时的时间戮
+        requests: JSON.stringify(firstArr) };
+
+
+      this._reportingRequestData = {};
+      if (getPlatformName() === 'n') {
+        uni.removeStorageSync('__UNI__STAT__DATA');
+      }
+
+      if (data.ut === 'h5') {
+        this.imageRequest(optionsData);
+        return;
+      }
+
+      if (getPlatformName() === 'n' && this.statData.p === 'a') {
+        setTimeout(function () {
+          _this4._sendRequest(optionsData);
+        }, 200);
+        return;
+      }
+      this._sendRequest(optionsData);
+    } }, { key: "_sendRequest", value: function _sendRequest(
+    optionsData) {var _this5 = this;
+      uni.request({
+        url: STAT_URL,
+        method: 'POST',
+        // header: {
+        //   'content-type': 'application/json' // 默认值
+        // },
+        data: optionsData,
+        success: function success() {
+          // if (process.env.NODE_ENV === 'development') {
+          //   console.log('stat request success');
+          // }
+        },
+        fail: function fail(e) {
+          if (++_this5._retry < 3) {
+            setTimeout(function () {
+              _this5._sendRequest(optionsData);
+            }, 1000);
+          }
+        } });
+
+    }
+    /**
+       * h5 请求
+       */ }, { key: "imageRequest", value: function imageRequest(
+    data) {
+      var image = new Image();
+      var options = getSgin(GetEncodeURIComponentOptions(data)).options;
+      image.src = STAT_H5_URL + '?' + options;
+    } }, { key: "sendEvent", value: function sendEvent(
+
+    key, value) {
+      // 校验 type 参数
+      if (calibration(key, value)) return;
+
+      if (key === 'title') {
+        this._navigationBarTitle.report = value;
+        return;
+      }
+      this._sendEventRequest({
+        key: key,
+        value: typeof value === 'object' ? JSON.stringify(value) : value },
+      1);
+    } }]);return Util;}();var
+
+
+
+Stat = /*#__PURE__*/function (_Util) {_inherits(Stat, _Util);_createClass(Stat, null, [{ key: "getInstance", value: function getInstance()
+    {
+      if (!this.instance) {
+        this.instance = new Stat();
+      }
+      return this.instance;
+    } }]);
+  function Stat() {var _this6;_classCallCheck(this, Stat);
+    _this6 = _possibleConstructorReturn(this, _getPrototypeOf(Stat).call(this));
+    _this6.instance = null;
+    // 注册拦截器
+    if (typeof uni.addInterceptor === 'function' && "development" !== 'development') {
+      _this6.addInterceptorInit();
+      _this6.interceptLogin();
+      _this6.interceptShare(true);
+      _this6.interceptRequestPayment();
+    }return _this6;
+  }_createClass(Stat, [{ key: "addInterceptorInit", value: function addInterceptorInit()
+
+    {
+      var self = this;
+      uni.addInterceptor('setNavigationBarTitle', {
+        invoke: function invoke(args) {
+          self._navigationBarTitle.page = args.title;
+        } });
+
+    } }, { key: "interceptLogin", value: function interceptLogin()
+
+    {
+      var self = this;
+      uni.addInterceptor('login', {
+        complete: function complete() {
+          self._login();
+        } });
+
+    } }, { key: "interceptShare", value: function interceptShare(
+
+    type) {
+      var self = this;
+      if (!type) {
+        self._share();
+        return;
+      }
+      uni.addInterceptor('share', {
+        success: function success() {
+          self._share();
+        },
+        fail: function fail() {
+          self._share();
+        } });
+
+    } }, { key: "interceptRequestPayment", value: function interceptRequestPayment()
+
+    {
+      var self = this;
+      uni.addInterceptor('requestPayment', {
+        success: function success() {
+          self._payment('pay_success');
+        },
+        fail: function fail() {
+          self._payment('pay_fail');
+        } });
+
+    } }, { key: "report", value: function report(
+
+    options, self) {
+      this.self = self;
+      // if (process.env.NODE_ENV === 'development') {
+      //   console.log('report init');
+      // }
+      setPageResidenceTime();
+      this.__licationShow = true;
+      this._sendReportRequest(options, true);
+    } }, { key: "load", value: function load(
+
+    options, self) {
+      if (!self.$scope && !self.$mp) {
+        var page = getCurrentPages();
+        self.$scope = page[page.length - 1];
+      }
+      this.self = self;
+      this._query = options;
+    } }, { key: "show", value: function show(
+
+    self) {
+      this.self = self;
+      if (getPageTypes(self)) {
+        this._pageShow(self);
+      } else {
+        this._applicationShow(self);
+      }
+    } }, { key: "ready", value: function ready(
+
+    self) {
+      // this.self = self;
+      // if (getPageTypes(self)) {
+      //   this._pageShow(self);
+      // }
+    } }, { key: "hide", value: function hide(
+    self) {
+      this.self = self;
+      if (getPageTypes(self)) {
+        this._pageHide(self);
+      } else {
+        this._applicationHide(self, true);
+      }
+    } }, { key: "error", value: function error(
+    em) {
+      if (this._platform === 'devtools') {
+        if (true) {
+          console.info('当前运行环境为开发者工具，不上报数据。');
+        }
+        // return;
+      }
+      var emVal = '';
+      if (!em.message) {
+        emVal = JSON.stringify(em);
+      } else {
+        emVal = em.stack;
+      }
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '31',
+        ut: this.statData.ut,
+        ch: this.statData.ch,
+        mpsdk: this.statData.mpsdk,
+        mpv: this.statData.mpv,
+        v: this.statData.v,
+        em: emVal,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }]);return Stat;}(Util);
+
+
+var stat = Stat.getInstance();
+var isHide = false;
+var lifecycle = {
+  onLaunch: function onLaunch(options) {
+    stat.report(options, this);
+  },
+  onReady: function onReady() {
+    stat.ready(this);
+  },
+  onLoad: function onLoad(options) {
+    stat.load(options, this);
+    // 重写分享，获取分享上报事件
+    if (this.$scope && this.$scope.onShareAppMessage) {
+      var oldShareAppMessage = this.$scope.onShareAppMessage;
+      this.$scope.onShareAppMessage = function (options) {
+        stat.interceptShare(false);
+        return oldShareAppMessage.call(this, options);
+      };
+    }
+  },
+  onShow: function onShow() {
+    isHide = false;
+    stat.show(this);
+  },
+  onHide: function onHide() {
+    isHide = true;
+    stat.hide(this);
+  },
+  onUnload: function onUnload() {
+    if (isHide) {
+      isHide = false;
+      return;
+    }
+    stat.hide(this);
+  },
+  onError: function onError(e) {
+    stat.error(e);
+  } };
+
+
+function main() {
+  if (true) {
+    uni.report = function (type, options) {};
+  } else { var Vue; }
+}
+
+main();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 549:
+/*!**********************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var types = {};var _default =
+
+
+
+types;exports.default = _default;
+
+/***/ }),
+
+/***/ 6:
+/*!******************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
+  \******************************************************/
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
+/***/ (function(module) {
+
+module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.0.0-26920200402001","_inBundle":false,"_integrity":"sha512-Mdhd/IRuUMHWPj3TtWrBb0kghRBA0YiO2L2THMFvhCTfQDSoSq1vwOdAx5n/8fIORAvG0uVQoYl73xeVFZML5A==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@next","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"next","saveSpec":null,"fetchSpec":"next"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-26920200402001.tgz","_shasum":"5f66f5dc252ac00c6064857dee8251ee51aa2391","_spec":"@dcloudio/uni-stat@next","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/release/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"bfdbb7b3000599679ef8cb29a969e6bd447b00c7","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-26920200402001"};
+
+/***/ }),
+
+/***/ 66:
+/*!*****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/config/package.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
+var _common = __webpack_require__(/*! ./common.js */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var duration = 2000;
+
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * 对uni-app的api的二次封装
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * 拨打电话，对uni.uni.makePhoneCall进行封装
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * @param {string} phone - 电话号码
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */
+function makePhoneCall()
+
+{var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$phone = _ref.phone,phone = _ref$phone === void 0 ? '' : _ref$phone;
+  uni.makePhoneCall({
+    phoneNumber: phone,
+    success: function success() {
+
+    },
+    fail: function fail() {
+      uni.showToast({
+        icon: 'none',
+        title: '拨打失败',
+        duration: duration });
+
+    } });
+
+}
+
+/**
+   * 下载单个或多个文件，对uni.downloadFile的封装
+   * @param {string[]} urls - 所有需要下载的资源，可以是一个，可以是多个
+   * @param {Object} header - 请求Header，header中不能设置Referer
+   * header中需要指定合理的Content-Type字段，以保证客户端正确处理文件类型
+   * @return {Promise} 封装下载操作的Promise对象
+   */
+function downloadFile()
+
+
+{var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref2$urls = _ref2.urls,urls = _ref2$urls === void 0 ? [] : _ref2$urls,_ref2$header = _ref2.header,header = _ref2$header === void 0 ? {} : _ref2$header;
+  /**
+                                                                                                                                                                                                                                              * 下载单个文件
+                                                                                                                                                                                                                                              * @param {string} url - 所要下载资源的url
+                                                                                                                                                                                                                                              * @return {Promise} 封装下载操作的Promise 
+                                                                                                                                                                                                                                              */
+  function createPromise(url) {
+    var downloadTask = null;
+    var p = new Promise(function (resolve, reject) {
+      downloadTask = uni.downloadFile({
+        url: url,
+        header: header,
+        success: function success(res) {var
+
+          statusCode =
+          res.statusCode;
+          if (statusCode === 200) {var
+
+            tempFilePath =
+            res.tempFilePath;
+            resolve(tempFilePath);
+          } else {var
+
+            errMsg =
+            res.errMsg;
+            var err = "\u4E0B\u8F7D\u5931\u8D25\uFF1A".concat(statusCode, "-").concat(errMsg);
+            reject(err);
+          }
+        },
+        fail: function fail(res) {
+          var err = "\u63A5\u53E3\u8C03\u7528\u5931\u8D25\uFF1A".concat(res);
+          reject(err);
+        } });
+
+    });
+    // 暴露出downloadTask
+    p.onProgressUpdate = function (callback) {
+      downloadTask.onProgressUpdate(function (res) {
+        callback(res);
+      });
+    };
+    p.abort = function () {
+      downloadTask.abort();
+    };
+    return p;
+  }
+  // 判断是下载一个文件还是多个文件
+  var len = urls.length;
+  if (len === 1) {
+    return new Promise(function (resolve, reject) {
+      // 显示下载的Loading
+      //uni.showLoading({ title: '正在下载' })
+      createPromise(urls[0]).
+      then(function (tempFilePath) {return thenHandle(tempFilePath, resolve);}).
+      catch(function (err) {return catchHandle(err, reject);});
+    });
+  }
+  if (len > 1) {
+    return new Promise(function (reslove, reject) {
+      // 显示下载的Loading
+      //uni.showLoading({ title: '正在下载' })
+      Promise.all(urls.map(function (item) {return createPromise(item);})).
+      then(function (tempFilePaths) {return thenHandle(tempFilePaths, resolve);}).
+      catch(function (err) {return catchHandle(err, reject);});
+    });
+  }
+}
+
+/**
+   * 上传图片，对uni.chooseImage,uni.uploadFile的封装
+   */
+//上传单张图片
+function singleImage()
+
+
+
+
+{var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref3$url = _ref3.url,url = _ref3$url === void 0 ? _common.uploadImageUrl : _ref3$url,_ref3$fn = _ref3.fn,fn = _ref3$fn === void 0 ? function () {} : _ref3$fn,_ref3$needAlbum = _ref3.needAlbum,needAlbum = _ref3$needAlbum === void 0 ? true : _ref3$needAlbum,_ref3$needCamera = _ref3.needCamera,needCamera = _ref3$needCamera === void 0 ? true : _ref3$needCamera;
+  var sourceType = [];
+  if (needAlbum) {
+    sourceType.push('album');
+  }
+  if (needCamera) {
+    sourceType.push('camera');
+  }
+  uni.chooseImage({
+    count: 1,
+    sizeType: ['original', 'compressed'],
+    sourceType: sourceType,
+    success: function success(res) {
+      var tempFilePaths = res.tempFilePaths;
+      uni.showLoading();
+      uni.uploadFile({
+        header: {
+          "Content-Type": "multipart/form-data" },
+
+        url: url,
+        filePath: tempFilePaths[0],
+        name: 'file',
+        success: function success(res) {
+          uni.hideLoading();
+          fn(res);
+        } });
+
+    } });
+
+}
+//多图上传
+function muchImages()
+
+
+
+
+
+{var _ref4 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref4$url = _ref4.url,url = _ref4$url === void 0 ? _common.uploadImageUrl : _ref4$url,_ref4$fn = _ref4.fn,fn = _ref4$fn === void 0 ? fn = function fn() {} : _ref4$fn,_ref4$count = _ref4.count,count = _ref4$count === void 0 ? 9 : _ref4$count,_ref4$needAlbum = _ref4.needAlbum,needAlbum = _ref4$needAlbum === void 0 ? true : _ref4$needAlbum,_ref4$needCamera = _ref4.needCamera,needCamera = _ref4$needCamera === void 0 ? true : _ref4$needCamera;
+  var list = [];
+  var sourceType = [];
+  if (needAlbum) {
+    sourceType.push('album');
+  }
+  if (needCamera) {
+    sourceType.push('camera');
+  }
+  uni.chooseImage({
+    count: count,
+    sizeType: ['original', 'compressed'],
+    sourceType: sourceType,
+    success: function success(res) {
+      var tempFilePaths = res.tempFilePaths;
+      tempFilePaths.forEach( /*#__PURE__*/function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(filePath) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                    uni.uploadFile({
+                      url: url,
+                      filePath: filePath,
+                      name: 'file',
+                      header: {
+                        "Content-Type": "multipart/form-data" },
+
+                      success: function success(res) {
+                        fn(res);
+                      },
+                      fail: function fail(res) {
+                        uni.showModal({
+                          content: res.msg,
+                          showCancel: false });
+
+                      } }));case 2:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref5.apply(this, arguments);};}());
+
+
+    } });
+
+}
+
+/**
+   * 微信弹框 Model
+   */
+function model()
+
+
+
+
+
+
+{var _ref6 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref6$title = _ref6.title,title = _ref6$title === void 0 ? '温馨提示' : _ref6$title,_ref6$content = _ref6.content,content = _ref6$content === void 0 ? '该数据删除后无法找回，请问是否确认删除？' : _ref6$content,_ref6$confirmText = _ref6.confirmText,confirmText = _ref6$confirmText === void 0 ? '确认' : _ref6$confirmText,_ref6$showCancel = _ref6.showCancel,showCancel = _ref6$showCancel === void 0 ? true : _ref6$showCancel,_ref6$successFunction = _ref6.successFunction,successFunction = _ref6$successFunction === void 0 ? function () {} : _ref6$successFunction,_ref6$failFunction = _ref6.failFunction,failFunction = _ref6$failFunction === void 0 ? function () {} : _ref6$failFunction;
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      wx.showModal({
+        title: title,
+        content: content,
+        confirmText: confirmText,
+        showCancel: showCancel,
+        cancelColor: '#888888',
+        confirmColor: '#000',
+        success: function success(res) {
+          resolve(res);
+        },
+        fail: function fail(err) {
+          reject(res);
+        } });
+
+    }, 100);
+  });
+}
+
+/**
+   * 微信弹框 TOAST
+   */
+function toast()
+
+
+
+
+{var _ref7 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref7$title = _ref7.title,title = _ref7$title === void 0 ? '紧急加载中' : _ref7$title,_ref7$mask = _ref7.mask,mask = _ref7$mask === void 0 ? true : _ref7$mask,_ref7$icon = _ref7.icon,icon = _ref7$icon === void 0 ? 'loading' : _ref7$icon,_ref7$duration = _ref7.duration,duration = _ref7$duration === void 0 ? 1000 : _ref7$duration;
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      wx.showToast({
+        title: title,
+        mask: mask,
+        icon: icon,
+        duration: duration,
+        success: function success(res) {
+          resolve(res);
+        },
+        fail: function fail(res) {
+          reject(res);
+        } });
+
+    }, 100);
+  });
+}
+
+/**
+   * 调起微信支付
+   */
+function wxpay(wxJsApiParam) {
+  return new Promise(function (resolve, reject) {
+    uni.requestPayment(_objectSpread({},
+    wxJsApiParam, {
+      success: function success(res) {
+        toast({
+          title: "购买成功",
+          icon: "success" }).
+        then(function (res) {
+          resolve({
+            type: 'success',
+            msg: res });
+
+        });
+      },
+      fail: function fail(res) {
+        if (res.errMsg !== 'requestPayment:fail cancel') {//如果失败原因是(非用户取消的正常失败事件)为真
+          model({
+            title: '系统错误',
+            content: res.errMsg,
+            showCancel: false }).
+          then(function (res) {
+            reject({
+              type: 'error',
+              msg: res });
+
+          });
+        } else {//用户正常取消
+          model({
+            content: '用户取消购买支付',
+            showCancel: false }).
+          then(function (res) {
+            resolve({
+              type: 'cancel',
+              msg: res });
+
+          });
+        }
+      } }));
+
+  });
+}
+
+module.exports = {
+  downloadFile: downloadFile,
+  singleImage: singleImage,
+  muchImages: muchImages,
+  makePhoneCall: makePhoneCall,
+  toast: toast,
+  model: model,
+  wxpay: wxpay };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 67:
 /*!**************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/address.js ***!
@@ -31317,7 +31294,7 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom" }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表" }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情" }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单" }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情" }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城" }, "pages/auth/auth": { "navigationBarTitleText": "授权" }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员" }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的" }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换" }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作" }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作" }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务" }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务" }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情" }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表" }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址" }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心" }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员" }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表" }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品" }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现" }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报" }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期" }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住" }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请" }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请" }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请" }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度" }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情" }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择" }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询" }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻" }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料" }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户" }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼" }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到" }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照" }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "" }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策" }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议" }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" }, "usingAutoImportComponents": {} }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" }, "usingAutoImportComponents": {} }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务", "usingComponents": { "ljl-states": "/pages/todoChild/myWorkPhoto/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" }, "usingAutoImportComponents": {} }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas", "hch-poster": "/wxcomponents/hch-poster/hch-poster", "tki-qrcode": "/components/tki-qrcode/tki-qrcode" }, "usingAutoImportComponents": { "tki-qrcode": "/components/tki-qrcode/tki-qrcode" } }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup", "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "uni-steps": "/components/uni-steps/uni-steps", "ljl-states": "/components/LjlStates", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "uni-steps": "/components/uni-steps/uni-steps" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {}, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户", "usingComponents": {}, "usingAutoImportComponents": { "tki-qrcode": "/components/tki-qrcode/tki-qrcode" } }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到", "usingComponents": { "model-calendar": "/components/Calendar" }, "usingAutoImportComponents": {} }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/todo/scoreDetail/index": { "navigationBarTitleText": "积分详情" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
 
 /***/ }),
 
@@ -59986,7 +59963,42 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 91:
+/***/ 85:
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.loadIntegral = loadIntegral;exports.loadIntegralDeyail = loadIntegralDeyail;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+// 获取我的积分余额
+function loadIntegral(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.LOAD_INTEGRAL,
+    data: data });
+
+}
+// 获取我的积分余额
+function loadIntegralDeyail(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_SCORE_DETAIL,
+    data: data });
+
+}
+
+/***/ }),
+
+/***/ 92:
 /*!********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/auth/wxAuth.js ***!
   \********************************************************************/
@@ -60116,6 +60128,17 @@ var wxAuth = {
           } });
 
       }
+      if (this.name == 'inShop') {
+        uni.switchTab({
+          url: _router.INSHOP,
+          fail: function fail() {
+            uni.reLaunch({
+              url: _router.INSHOP });
+
+          } });
+
+      }
+
 
     },
     getUserInfo: function () {var _getUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {var _e$detail, encryptedData, iv, _ref, openId, avatarUrl, nickName, _ref2, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (

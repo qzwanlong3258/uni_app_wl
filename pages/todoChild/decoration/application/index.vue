@@ -126,7 +126,10 @@
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">所在地区:</view>
-			<view class="appli_hd_item_content" @click="openAddres"><input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /></view>
+			<view class="appli_hd_item_content" @click="openAddres">
+				<!-- <input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /> -->
+				{{pickerText}}
+				</view>
 			<simple-address ref="simpleAddress" :themeColor="'#FFEA04'" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onOpenConfirm" themeColor='#007AFF'></simple-address>
 		</view>
 		<view class="application_hd_item">
