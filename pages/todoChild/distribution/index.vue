@@ -17,18 +17,18 @@
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
-	    		<view style="text-align: center;color: #000000;font-size: 22rpx;margin: 4rpx 0;">WELCOME</view>
-	    		<view style="text-align: center;color: #605800;font-size: 22rpx;margin: 4rpx 0;">{{userInfo.level}}</view>
-				<view style="text-align: center;color: #605800;font-size: 20rpx;margin: 4rpx 0;">加入时间：{{userInfo.joinTime}}</view>
-				<view class="box" style="margin-top: 30rpx;">
-					<view class="box-left">未入账</view>
-					<view class="box-mid">已结算金额</view>
-					<view class="box-right">已提现</view>
+	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">WELCOME</view>
+	    		<view style="text-align: center;color: #7C7312;font-size: 20rpx;letter-spacing: 0.5rpx;padding-bottom: 13rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.level}}</view>
+				<view style="text-align: center;color: #7C7312;font-size: 24rpx;letter-spacing: 0.5rpx;padding-bottom: 54rpx;font-family: FZLanTingKanHei-R-GBK;">加入时间：{{userInfo.joinTime}}</view>
+				<view class="box" style="padding-bottom: 20rpx;">
+					<view class="box-left" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;">未入账</view>
+					<view class="box-mid" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;margin: 0 30rpx;">已结算金额</view>
+					<view class="box-right" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;">已提现</view>
 				</view>
-				<view class="box">
-					<view class="box-left">0</view>
-					<view class="box-mid">0</view>
-					<view class="box-right">0</view>
+				<view class="box" >
+					<view class="box-left" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;">0</view>
+					<view class="box-mid" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;margin: 0 10rpx;">0</view>
+					<view class="box-right" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;">0</view>
 				</view>
 			</view>
 		</view>
@@ -146,27 +146,30 @@ export default {
 	}
 	.distribution{
 		
-		padding: 20rpx 0;
+		padding: 24rpx 0 0 0;
 	}
 	.distribution-nav{
 		background-color: #FCE77A;
-		height: 370rpx;
-		margin:0 20rpx;
+		height: 400rpx;
+		margin:0 30rpx;
+		padding: 27rpx 0 0;
 	}
 	.top{
-		height: 120rpx;
-		padding: 20rpx 0 4rpx;
+		height: 100rpx;
+		padding-bottom: 19rpx;
+		
 	}
 	.distribution-nav-top{
-		width: 120rpx;
-		height: 120rpx;
+		width: 105rpx;
+		height: 105rpx;
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 0 auto;
+		
 	}
 	.distribution-nav-top-img{
-		width: 140rpx;
-		height: 140rpx;
+		width: 120rpx;
+		height: 120rpx;
 		display: block;
 		margin-top: -10rpx;
 		margin-left: -10rpx;

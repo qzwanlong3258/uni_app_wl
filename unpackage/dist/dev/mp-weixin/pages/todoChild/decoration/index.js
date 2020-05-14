@@ -199,8 +199,8 @@ var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js 
       menus: [
       { icon: "iconxinshenqing-", img: _image.BANK_APPT, title: "发起申请", href: _router.LOAN_APPLICATION },
 
-      { icon: "icongerencanbaoxinxichaxun", img: _image.BANK_RECORD, title: "借款记录", href: _router.LOAN_RECORD },
-      { icon: "iconshengyuyiliaofeijiesuanjiluchaxun", img: _image.BANK_LOOKFOR, title: "查询进度", href: _router.LOAN_SCHEDULE }],
+      { icon: "icongerencanbaoxinxichaxun", img: _image.BANK_RECORD, title: "申请记录", href: _router.LOAN_RECORD },
+      { icon: "iconshengyuyiliaofeijiesuanjiluchaxun", img: _image.BANK_LOOKFOR, title: "申请进度", href: _router.LOAN_SCHEDULE }],
 
       bank_pic: _image.BANK_PIC,
       bank_logo: _image.BANK_LOGO,

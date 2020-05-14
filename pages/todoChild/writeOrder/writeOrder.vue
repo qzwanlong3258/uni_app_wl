@@ -52,6 +52,7 @@ import { ORDER_DETAIL, ADDRESS_INDEX } from '@/config/router.js';
 import { model, toast } from '@/config/package.js';
 import { loadAddress } from '@/api/address.js';
 import { createOrder, payOrder } from '@/api/order.js';
+import { loadIntegral } from '@/api/tabbar/todo.js';
 
 export default {
 	data() {
@@ -65,7 +66,8 @@ export default {
 				}
 			},
 			allMoney: 0,
-			submiting: false
+			submiting: false,
+			integral:0
 		};
 	},
 	onLoad() {
@@ -77,12 +79,22 @@ export default {
 		this.$eventBus.$on('addressChange', data => {
 			this.shippingAddress.infor = data;
 		});
+		this.loadIntegral();
 	},
 	components: {
 		OrderInfor,
 		YldAddress
 	},
 	methods: {
+		/**
+		 * 加载积分
+		 */
+		loadIntegral: function() {
+			loadIntegral().then(res => {
+				// console.log(res)
+				this.integral = Number(res.integral);
+			});
+		},
 		/**
 		 * 调整总金额
 		 */
@@ -126,6 +138,7 @@ export default {
 				uuid,
 				money: this.allMoney
 			});
+			console.log(res)
 			Number(res.count) !== 1 && ((res = null), await model({ content: '支付失败,请重新选择商品', showCancel: false }));
 			return res;
 		},
@@ -134,7 +147,14 @@ export default {
 		 * 处理提交订单
 		 */
 		startTodo: async function() {
+			let e= Number(this.integral)-Number(this.allMoney)
+			console.log(e)
+			if(e<0){
+				await model({ content: '你的积分不足，无法支付', showCancel: false });
+				this.submiting=true
+			}
 			if (this.submiting) return;
+			
 			this.submiting = true;
 			let checkAddressRes, createOrderRes, payOrderRes;
 			if (!((checkAddressRes = await this.checkAddress()) && (createOrderRes = await this.createOrder()) && (payOrderRes = await this.payOrder(createOrderRes.uuid)))) {

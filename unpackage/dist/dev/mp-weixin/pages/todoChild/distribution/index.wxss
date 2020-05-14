@@ -82,27 +82,28 @@ page{
     box-sizing: border-box;
 }
 .distribution-box .distribution.data-v-91ea75c0 {
-    padding: 20rpx 0;
+    padding: 24rpx 0 0 0;
 }
 .distribution-box .distribution-nav.data-v-91ea75c0 {
     background-color: #FCE77A;
-    height: 370rpx;
-    margin: 0 20rpx;
+    height: 400rpx;
+    margin: 0 30rpx;
+    padding: 27rpx 0 0;
 }
 .distribution-box .top.data-v-91ea75c0 {
-    height: 120rpx;
-    padding: 20rpx 0 4rpx;
+    height: 100rpx;
+    padding-bottom: 19rpx;
 }
 .distribution-box .distribution-nav-top.data-v-91ea75c0 {
-    width: 120rpx;
-    height: 120rpx;
+    width: 105rpx;
+    height: 105rpx;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
 }
 .distribution-box .distribution-nav-top-img.data-v-91ea75c0 {
-    width: 140rpx;
-    height: 140rpx;
+    width: 120rpx;
+    height: 120rpx;
     display: block;
     margin-top: -10rpx;
     margin-left: -10rpx;

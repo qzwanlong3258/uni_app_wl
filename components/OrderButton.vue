@@ -67,7 +67,7 @@ export default {
 		 * 取消订单
 		 */
 		deleteOrder: async function() {
-			(await model()).confirm && (await this._deleteOrder({ uuid: this.infor.uuid })) && this.$emit('change', this.selected);
+			(await model()).confirm && (await this._deleteOrder({ uuid: this.infor.id })) && this.$emit('change', this.selected);
 		},
 
 		/**
@@ -75,7 +75,7 @@ export default {
 		 */
 		linkToAddress: function() {
 			uni.navigateTo({
-				url: `${ADDRESS_INDEX}?operating=orderUpdate&orderid=${this.infor.id}`
+				url: `${ADDRESS_INDEX}?operating=orderUpdate&orderid=${this.infor.id?this.infor.id:this.infor.uuid}`
 			});
 		},
 

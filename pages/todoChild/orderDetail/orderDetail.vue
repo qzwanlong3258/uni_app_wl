@@ -5,7 +5,7 @@
 				<i class='iconfont iconqueding'></i>
 				<text class="title-font">{{orderInformation.status}}</text>
 			</view>
-			<order-button :orderid="orderInformation.id" :btnList='orderInformation.showBtn'></order-button>
+			<order-button :infor="orderInformation" :btnList='orderInformation.showBtn'></order-button>
 		</view>
 		<view class="order-infor">
 			<view class='order-address'>
@@ -45,6 +45,7 @@
 		},
 		onLoad: async function(options) {
 			let res = await getOrderDetail({ uuid: options.id });
+			
 			this.orderInformation = {
 				id: options.id,
 				url: res.showImg[0].url,

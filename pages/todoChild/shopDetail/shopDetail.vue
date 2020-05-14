@@ -86,7 +86,7 @@ export default {
 		buyShop: function() {
 			getApp().globalData.goodsInfor = {
 				id: this.infor.id,
-				url: this.imgList[0]&&this.imgList[0].url,
+				url: this.imgList[0]&&this.imgList[0].img,
 				goodsName: this.infor.name,
 				goodsOriginalPrice: this.infor.originalPrice,
 				goodsPrice: this.infor.price,

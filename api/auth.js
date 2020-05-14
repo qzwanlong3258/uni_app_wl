@@ -3,7 +3,8 @@ import {
 } from '@/config/http.js';
 import {
 	LOGIN_NOWECAHT_LOGIN,
-	SEND_VERIFICATION_CODE
+	SEND_VERIFICATION_CODE,
+	GET_USER_ROLE
 } from '@/config/api.js';
 
 //获取验证码
@@ -25,3 +26,15 @@ export function getPhoneLogin(data){
 		data,
 	})
 }
+
+
+// 获取用户角色
+export function getUserRole(data) {
+	return request({
+		method: 'GET',
+		url: GET_USER_ROLE,
+		data,
+	});
+}
+
+

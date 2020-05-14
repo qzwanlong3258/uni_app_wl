@@ -17,7 +17,7 @@ export default {
 	methods:{},
 	 onLoad(options) {
 		 _self=this
-		_self.web=options.id
+		_self.web= options.id
 		// this.$forceUpdate()
 	}
 };

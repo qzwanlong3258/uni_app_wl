@@ -94,7 +94,10 @@ module.exports = {
 	/** 海报**/
 	GET_POSTER:`${baseUrl}/posters/loadPosters`,
 	/** 积分**/
-	GET_SCORE_DETAIL:`${baseUrl}/integral/loadIntegral`
+	GET_SCORE_DETAIL:`${baseUrl}/integral/loadIntegral`,
+	/** 角色**/
+	GET_USER_ROLE:`${baseUrl}/user/loadRoleList`,
+	
 	
 	
 	

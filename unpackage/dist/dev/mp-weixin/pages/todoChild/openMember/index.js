@@ -51,7 +51,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
 
 
@@ -154,7 +154,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _image = __webpack_require__(/*! @/config/image.js */ 34);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+
+
+
+
+
+
+
+
+
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
+
+var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
 'use strict';
 var _self;var _default =
 {
@@ -165,7 +181,7 @@ var _self;var _default =
         nickName: '李三',
         phone: '广东 深圳' },
 
-      agree: false,
+      agreeM: false,
       img: [_image.MEMBER_ONE, _image.MEMBER_TWO, _image.MEMBER_THREE, _image.MEMBER_FOUR, _image.MEMBER_FIVE, _image.MEMBER_SIX, _image.MEMBER_SEVEN, _image.MEMBER_EIGHT],
       datalist: [
       { img: _image.MEMBER_ONE, nametop: '新房免费', namebottom: '除甲醛' },
@@ -175,17 +191,41 @@ var _self;var _default =
       { img: _image.MEMBER_FIVE, nametop: ' 指定银行按揭', namebottom: '利率优惠' },
       { img: _image.MEMBER_SIX, nametop: '赠送', namebottom: '100积分' },
       { img: _image.MEMBER_SEVEN, nametop: '先装修后付款', namebottom: '体验卡一张' },
-      { img: _image.MEMBER_EIGHT, nametop: '赠送全年金融', namebottom: '咨询服务' }] };
+      { img: _image.MEMBER_EIGHT, nametop: '赠送全年金融', namebottom: '咨询服务' }],
 
+      agree: false,
+      member: '' };
 
   },
   methods: {
     agreeClick: function agreeClick() {
+      _self.agreeM = !this.agreeM;
+    },
+    agre: function agre() {
       _self.agree = !this.agree;
+    },
+    open: function open() {
+      var e = this.member;
+      console.log(e);
+      var testmsg = e.substring(e.lastIndexOf('.') + 1);
+      var extensio = testmsg === 'jpg';
+      var extensio2 = testmsg === 'png';
+      var extensio3 = testmsg === 'jpeg';
+      if (extensio || extensio2 || extensio3) {
+        uni.navigateTo({ url: "".concat(BANK_DETAIL, "?id=").concat(e) });
+      } else {
+        uni.navigateTo({ url: "".concat(_router.TO_WEB, "?id=").concat(e) });
+      }
     } },
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              _self = this;case 1:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              _self = this;
+              _self.userInfo = (0, _storage.getStorage)('userInfo');
+              home.loadHomeCarousel({ type: 4 }).then(function (res) {
+                _this.member = res.list.find(function (item) {return item.url == '会员协议';}).img;
+
+              });case 3:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

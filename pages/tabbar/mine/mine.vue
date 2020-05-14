@@ -2,6 +2,7 @@
 	
 	<view class="mine" v-if="show">
 		<view :hidden='!imgShow'>
+			<image :src="jifenPic" mode="widthFix" style="width: 100%;" @click="jifenLinkTo"></image>
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
@@ -20,6 +21,7 @@
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
 				<view style="flex: 0.1;"></view>
 			</view>
+			
 			<!-- <view class="mine-pic">
 				<view style="flex: 1;text-align: center;"><image :src="img[0]" mode="widthFix" ></image></view>
 				<view style="flex: 1;text-align: center;"><image :src="img[1]" mode="widthFix"></image></view>
@@ -33,6 +35,7 @@
 			</view>
 			
 		</view>
+		
 		<view class="schedule">
 			<view style="flex: 1;color: #333333;font-size: 26rpx;text-align: center;font-weight: Regular;">我的申请记录</view>
 			<view style="flex: 1;"></view>
@@ -83,11 +86,16 @@
 
 <script>
 'use strict';
-import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO} from '@/config/image.js';
-import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO} from '@/config/router.js';
+import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO,JIFEN_PIC} from '@/config/image.js';
+import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO,TO_WEB} from '@/config/router.js';
 import { getStorage } from '@/utils/storage.js';
 const { AUTH } = require('../../../config/router.js');
 import { loadIntegral } from '@/api/tabbar/todo.js';
+import * as home from "@/api/tabbar/home.js";
+import {getUserRole} from "@/api/auth.js";
+
+
+
 
 var _self;
 export default {
@@ -108,12 +116,27 @@ export default {
 			imglogo:TOUXIANG_LOGO,
 			show:false,
 			imgShow:false,
-			integral:0
+			integral:0,
+			jifenPic:JIFEN_PIC,//积分协议照片
+			jifen:''
 			
 		}
 	},
 	
 	methods:{
+		jifenLinkTo(){
+			let e= this.jifen
+			console.log(e)
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+		},
 		imgshow(){
 			_self.imgShow=true
 		},
@@ -158,7 +181,7 @@ export default {
 		loadIntegral: function() {
 			loadIntegral().then(res => {
 				// console.log(res)
-				this.integral = Number(res.integral);
+				_self.integral = Number(res.integral);
 			});
 		},
 	},
@@ -170,6 +193,20 @@ export default {
 			const isLogin = getStorage('isLogin');
 			if (isLogin) {
 				this.show=true
+				_self =this;
+				_self.userInfo = getStorage('userInfo');
+				// this.getData(this.toYear+"-"+this.toMonth);
+				_self.index =getStorage('index')
+				let e = await getUserRole()
+				console.log(e)
+				_self.role =e.roleName.split(',')
+				console.log(_self.role)
+				this.loadIntegral();
+				
+				home.loadHomeCarousel({type:4}).then(res => {
+							this.jifen = res.list.find(item=>item.url=='积分协议').img;
+							
+						});
 				
 			} else {
 			
@@ -179,18 +216,16 @@ export default {
 					url: `${AUTH}?name=${'mine'}`
 				});	
 				}
-		_self =this;
-		_self.userInfo = getStorage('userInfo');
-		// this.getData(this.toYear+"-"+this.toMonth);
-		_self.index =getStorage('index')
-		_self.role =getStorage('userInfo').role[0]
-		console.log(_self.role)
-		this.loadIntegral();
+		
 	},
-	onShow() {
+	async onShow() {
 		_self.userInfo = getStorage('userInfo');
 		_self.index =getStorage('index')
-		_self.role =getStorage('userInfo').role[0]
+		let e = await getUserRole()
+		this.loadIntegral();
+			_self.role =e.roleName.split(',')
+		
+		
 	}
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<view class="recomCenter">
-		<view class="recomCenter-nav ">
+		<view class="recomCenter-nav " >
 			<view class="top">
 				<view class="recomCenter-nav-top">
 					<image :src="userInfo.avatarUrl" class="recomCenter-nav-top-img" mode="aspectFill">
@@ -10,6 +10,7 @@
 			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">普通会员</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 20rpx 200rpx 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">10249人</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">加入黄金会员</view>
+			<!-- <view style="position: absolute;right: 50rpx;top: 50rpx;font-size: 28rpx;color: #999999;">《会员协议》</view> -->
 		</view>
 		<view class="schedule">
 			<view style="flex: 1;color: #333333;font-size: 26rpx;text-align: center;font-weight: Regular;">选择开通类型</view>
@@ -24,7 +25,7 @@
 			</view>
 			<view style="flex: 1;"></view>
 			<view style="flex: 1;text-align: right;line-height: 80rpx;">
-				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 24rpx;margin-right: 10rpx;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agree" @click="agreeClick()" /></label>
+				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 24rpx;margin-right: 10rpx;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agreeM" @click="agreeClick()" /></label>
 			</view>
 		</view>
 		<view style="color: #333333;font-size: 26rpx;text-align: left;height: 90rpx;line-height: 90rpx;margin-left: 20rpx;margin-bottom: 20rpx;">黄金会员的八大权益</view>
@@ -93,15 +94,30 @@
 			</view> -->
 			
 		</view>
-		<view class="apptMeasureHome_ft">
-			<view class="btn" @click="toLinkChoose">立即支付</view>
+		<view class="ft" style="position: fixed;height: 130rpx;width: 100%;left: 0;bottom: 20px;z-index: 800;background: #FFFFFF;">
+			<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;">
+				<label class="radio" style="font-size: 25rpx;">
+					<radio value="r1" :checked="agree" @click="agre" />
+					你已完全阅读并确认
+					<label class="noticeBook" @click.stop="open" style="color: #333333;">《会员协议》</label>的内容
+				</label>
+			</view>
+			<view class="apptMeasureHome_ft">
+				<view class="btn" @click="toLinkChoose">立即支付</view>
+			</view>
 		</view>
+		
 		
 	</view>
 </template>
 
 <script>
 	import {MEMBER_ONE,MEMBER_TWO,MEMBER_THREE,MEMBER_FOUR,MEMBER_FIVE,MEMBER_SIX,MEMBER_SEVEN,MEMBER_EIGHT} from '@/config/image.js'
+	import { getStorage } from '@/utils/storage.js';
+	import {TO_WEB} from '@/config/router.js'
+	
+	import * as home from "@/api/tabbar/home.js";
+	
 'use strict';
 var _self;
 export default {                                          
@@ -112,7 +128,7 @@ export default {
 				nickName:'李三',
 				phone:'广东 深圳'
 			},
-			agree:false,
+			agreeM:false,
 			img:[MEMBER_ONE,MEMBER_TWO,MEMBER_THREE,MEMBER_FOUR,MEMBER_FIVE,MEMBER_SIX,MEMBER_SEVEN,MEMBER_EIGHT],
 			datalist:[
 				{img:MEMBER_ONE,nametop:'新房免费',namebottom:'除甲醛'},
@@ -123,16 +139,39 @@ export default {
 				{img:MEMBER_SIX,nametop:'赠送',namebottom:'100积分'},
 				{img:MEMBER_SEVEN,nametop:'先装修后付款',namebottom:'体验卡一张'},
 				{img:MEMBER_EIGHT,nametop:'赠送全年金融',namebottom:'咨询服务'}
-			]
+			],
+			agree:false,
+			member:''
 		}
 	},
 	methods:{
 		agreeClick(){
+			_self.agreeM=!this.agreeM
+		},
+		agre() {
 			_self.agree=!this.agree
+		},
+		open(){
+			let e= this.member
+			console.log(e)
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
 		}
 	},
 	async onLoad() {
 		_self=this
+		_self.userInfo = getStorage('userInfo');
+		home.loadHomeCarousel({type:4}).then(res => {
+					this.member = res.list.find(item=>item.url=='会员协议').img;
+					
+				});
 	}
 };
 </script>
@@ -206,7 +245,7 @@ export default {
 		bottom: 20rpx; */
 		width: 100%;
 		height: 100rpx;
-		margin-top: 100rpx;
+		margin-top: 30rpx;
 		
 	}
 	.btn{

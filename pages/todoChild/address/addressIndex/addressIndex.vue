@@ -12,7 +12,7 @@
 						<!-- 这里是故意写错成addres，后端字段命名垃圾 -->
 						{{ item.addres }}
 					</view>
-					<view @click.stop="exitAddress" :data-index="index" :data-id="item.id" class="column-exit">
+					<view @click.stop="exitAddress"  :data-index="index" :data-id="item.id" class="column-exit">
 						{{ options.operating === 'selectAddress' ? '选择' : rightName }}
 					</view>
 				</view>
@@ -31,7 +31,8 @@ import { loadAddress } from '@/api/address.js';
 import { updateOrder } from '@/api/order.js';
 import { toRoute } from '@/utils/util.js';
 import { model } from '@/config/package.js';
-
+import { ORDER_DETAIL } from '@/config/router.js';
+var _self;
 export default {
 	data() {
 		return {
@@ -49,6 +50,9 @@ export default {
 	},
 	onLoad: async function(options) {
 		this.options = options;
+		if(this.options.operating == 'orderUpdate'){
+			this.rightName="选择"
+		}
 		this.refreshAddressList();
 		this.$eventBus.$on('refreshAddressList', this.refreshAddressList);
 	},
@@ -80,12 +84,16 @@ export default {
 		 * 更新订单地址
 		 */
 		orderUpdate: async function({ id }) {
+			
 			let res = await updateOrder({
 				uuid: this.options.orderid,
 				addressId: id
 			});
 			let isSuccess = res.count === 1;
 			!isSuccess && (await model({ content: '更新订单收货地址失败，请刷新重试', showCancel: false }));
+			uni.navigateTo({
+				url: `${ORDER_DETAIL}?id=${this.options.orderid}`
+			});
 			return isSuccess ? res : false;
 		},
 

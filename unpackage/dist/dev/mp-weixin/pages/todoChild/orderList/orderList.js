@@ -187,15 +187,15 @@ __webpack_require__.r(__webpack_exports__);
 var _filter = __webpack_require__(/*! @/config/filter.js */ 47);
 
 var _router = __webpack_require__(/*! @/config/router */ 21);
-var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor */ 537));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var OrderButton = function OrderButton() {Promise.all(/*! require.ensure | components/OrderButton */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/OrderButton")]).then((function () {return resolve(__webpack_require__(/*! @/components/OrderButton */ 544));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var NoMoreData = function NoMoreData() {__webpack_require__.e(/*! require.ensure | components/NoMoreData */ "components/NoMoreData").then((function () {return resolve(__webpack_require__(/*! @/components/NoMoreData.vue */ 552));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlOrderMenu = function LjlOrderMenu() {__webpack_require__.e(/*! require.ensure | components/LjlOrderMenu/index */ "components/LjlOrderMenu/index").then((function () {return resolve(__webpack_require__(/*! @/components/LjlOrderMenu */ 559));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var NullData = function NullData() {Promise.all(/*! require.ensure | components/NullData */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/NullData")]).then((function () {return resolve(__webpack_require__(/*! @/components/NullData.vue */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor */ 547));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var OrderButton = function OrderButton() {Promise.all(/*! require.ensure | components/OrderButton */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/OrderButton")]).then((function () {return resolve(__webpack_require__(/*! @/components/OrderButton */ 554));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var NoMoreData = function NoMoreData() {__webpack_require__.e(/*! require.ensure | components/NoMoreData */ "components/NoMoreData").then((function () {return resolve(__webpack_require__(/*! @/components/NoMoreData.vue */ 562));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlOrderMenu = function LjlOrderMenu() {__webpack_require__.e(/*! require.ensure | components/LjlOrderMenu/index */ "components/LjlOrderMenu/index").then((function () {return resolve(__webpack_require__(/*! @/components/LjlOrderMenu */ 569));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var NullData = function NullData() {Promise.all(/*! require.ensure | components/NullData */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/NullData")]).then((function () {return resolve(__webpack_require__(/*! @/components/NullData.vue */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 {
   data: function data() {
     return {
-      orderStateList: [{ state: 1, count: 0 }, { state: 2, count: 0 }, { state: 3, count: 0 }, { state: 4, count: 0 }, { state: 5, count: 0 }],
+      orderStateList: [{ state: 2, count: 0 }, { state: 3, count: 0 }, { state: 4, count: 0 }, { state: 5, count: 0 }],
       list: [],
-      state: 1,
+      state: 2,
       isShowNoMoreData: false,
       listQuery: {
         page: 1,
@@ -206,6 +206,10 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
   onLoad: function onLoad(options) {
     options.state && (this.state = options.state);
     options.title && uni.setNavigationBarTitle({ title: options.title });
+    this.stateChangeAll(2);
+    this.stateChangeAll(3);
+    this.stateChangeAll(4);
+    this.stateChangeAll(5);
     this.stateChange();
   },
   onReachBottom: function onReachBottom() {var _this = this;
@@ -245,26 +249,60 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
     /**
         * 订单状态切换
         */
-    stateChange: function () {var _stateChange = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var state,res,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:state = _args.length > 0 && _args[0] !== undefined ? _args[0] : this.state;_context.next = 3;return (
+    stateChange: function () {var _stateChange = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _this2 = this;var state,res,_args2 = arguments;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:state = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : this.state;
+                console.log(state);_context2.next = 4;return (
                   (0, _order.getOrderList)({
                     state: state,
                     page: this.listQuery.page,
-                    size: this.listQuery.size }));case 3:res = _context.sent;
+                    size: this.listQuery.size }));case 4:res = _context2.sent;
 
                 this.state = state;
-                this.list = res.list;
-                // this.orderStateList.find(item => item.state === state).count = res.count;
-                this.orderStateList.find(function (item) {return item.state === Number(state);}).count = this.list.length;case 7:case "end":return _context.stop();}}}, _callee, this);}));function stateChange() {return _stateChange.apply(this, arguments);}return stateChange;}(),
+                this.list = [];
+                res.list.map( /*#__PURE__*/function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(item) {var data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
 
+                              (0, _order.getOrderDetail)({ uuid: item.uuid }));case 2:data = _context.sent;
+                            console.log(data);
+                            _this2.list.push(_objectSpread({},
+                            item, {
+                              url: data.showImg[0].url }));case 5:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref2.apply(this, arguments);};}());
+
+
+
+                console.log(this.list);
+                // this.orderStateList.find(item => item.state === state).count = res.count;
+                // this.orderStateList.find(item => item.state === Number(state)).count = this.list.length;
+              case 9:case "end":return _context2.stop();}}}, _callee2, this);}));function stateChange() {return _stateChange.apply(this, arguments);}return stateChange;}(),
 
     /**
-                                                                                                                                                                                                                                                                                        * 删除订单
-                                                                                                                                                                                                                                                                                        */
-    deleteOrder: function deleteOrder(_ref2) {var _this2 = this;var id = _ref2.id;
+                                                                                                                                                                              * 订单状态切换
+                                                                                                                                                                              */
+    stateChangeAll: function () {var _stateChangeAll = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var state,res,_args3 = arguments;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:state = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : this.state;
+                console.log(state);_context3.next = 4;return (
+                  (0, _order.getOrderList)({
+                    state: state,
+                    page: this.listQuery.page,
+                    size: this.listQuery.size }));case 4:res = _context3.sent;
+
+                // this.state = state;
+                // this.list = res.list;
+                // this.orderStateList.find(item => item.state === state).count = res.count;
+                this.orderStateList.find(function (item) {return item.state === Number(state);}).count = res.list.length;
+                // console.log(this.orderStateList)
+                // console.log(this.orderStateList.find(item => item.state === Number(state)).count)
+                // console.log(this.list.length)
+                // console.log(res)
+                // console.log(res.list)
+                // this.$forceUpdate()
+              case 6:case "end":return _context3.stop();}}}, _callee3, this);}));function stateChangeAll() {return _stateChangeAll.apply(this, arguments);}return stateChangeAll;}(),
+
+    /**
+                                                                                                                                                                                       * 删除订单
+                                                                                                                                                                                       */
+    deleteOrder: function deleteOrder(_ref3) {var _this3 = this;var id = _ref3.id;
       var index = this.list.findIndex(function (item) {return item.id == id;});
       this.list.splice(index, 1);
       this.orderStateList = this.orderStateList.map(function (item) {
-        item.state === _this2.state && item.count--;
+        item.state === _this3.state && item.count--;
         return item;
       });
     } },

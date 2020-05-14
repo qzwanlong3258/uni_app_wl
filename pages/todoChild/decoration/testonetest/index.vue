@@ -66,44 +66,44 @@
 			  switch(v) {
 			  	case 1:  
 				 self_.dataList.one ={
-    "titleid": e,
-    "chooseid": d
+    "titleid": d,
+    "chooseid": e
 }
 				 return ;
 			  	case 2:
 				self_.dataList.two = {
-				 "titleid": e,
-				 "chooseid": d}
+				 "titleid": d,
+				 "chooseid": e}
 				 return ;
 			  	case 3: 
 				self_.dataList.three = {
-				"titleid": e,
-				"chooseid": d}
+				"titleid": d,
+				"chooseid": e}
 				return ;
 			  	case 4: 
 				self_.dataList.four ={
-				"titleid": e,
-				"chooseid": d}
+				"titleid": d,
+				"chooseid":e}
 				return ;
 				case 5:
 				 self_.dataList.five ={
-				 "titleid": e,
-				 "chooseid": d}
+				 "titleid": d,
+				 "chooseid": e}
 				 return ;
 				case 6:
 				 self_.dataList.six ={
-				 "titleid": e,
-				 "chooseid": d}
+				 "titleid": d,
+				 "chooseid": e}
 				 return ;
 				 case 7:
 				  self_.dataList.seven ={
-				  "titleid": e,
-				  "chooseid": d}
+				  "titleid": d,
+				  "chooseid": e}
 				  return ;
 				  case 8:
 				   self_.dataList.eight ={
-				   "titleid": e,
-				   "chooseid": d}
+				   "titleid": d,
+				   "chooseid": e}
 				   return ;
 			  }
 			  

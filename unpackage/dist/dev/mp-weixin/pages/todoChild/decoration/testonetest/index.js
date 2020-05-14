@@ -171,7 +171,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 137);
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 699));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 706));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 713));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 720));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 727));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 734));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 709));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 716));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 723));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 730));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 737));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 744));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     sectionOne: sectionOne,
@@ -201,44 +201,44 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
       switch (v) {
         case 1:
           self_.dataList.one = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
 
           return;
         case 2:
           self_.dataList.two = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 3:
           self_.dataList.three = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 4:
           self_.dataList.four = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 5:
           self_.dataList.five = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 6:
           self_.dataList.six = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 7:
           self_.dataList.seven = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;
         case 8:
           self_.dataList.eight = {
-            "titleid": e,
-            "chooseid": d };
+            "titleid": d,
+            "chooseid": e };
           return;}
 
 

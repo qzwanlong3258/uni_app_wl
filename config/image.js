@@ -37,7 +37,8 @@ module.exports = {
 	AFTER_SALE: `${staticUrl}/tabbar/售后@2x.png`,
 	// 分销中心
 	MEMBER: `${staticUrl}/todoChild/distribution/位图@2x.png`,
-	DESIGNER: `${staticUrl}/todoChild/distribution/位图@2x(1).png`,
+	// DESIGNER: `${staticUrl}/todoChild/distribution/位图@2x(1).png`,
+	DESIGNER: `https://www.feiaizn.com/images/20200514152221_qianbi.png`,
 	CLIENT: `${staticUrl}/todoChild/distribution/位图@2x(2).png`,
 	POSTER: `${staticUrl}/todoChild/海报@2x.png`,
 	GOODS: `${staticUrl}/todoChild/商品@2x.png`,
@@ -178,5 +179,7 @@ module.exports = {
 	SIGNIN:`${staticUrl}/todoChild/calender/签到@2x.png`,
 	SIGNIN_IMAGE:`${staticUrl}/todoChild/calender/时间@2x.png`,
 	//分享
-	FENXIANG:`${staticUrl}/fenxiang.png`
+	FENXIANG:`${staticUrl}/fenxiang.png`,
+	//分销中心积分协议
+	JIFEN_PIC:'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png'
 }

@@ -76,7 +76,7 @@ page{
 	bottom: 20rpx; */
 	width: 100%;
 	height: 100rpx;
-	margin-top: 100rpx;
+	margin-top: 30rpx;
 }
 .btn.data-v-6dd92060{
 	height: 80rpx;

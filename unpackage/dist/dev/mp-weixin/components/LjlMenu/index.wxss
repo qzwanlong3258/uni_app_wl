@@ -31,11 +31,11 @@
 /* 透明度 */
 /* 文章场景相关 */
 .menu-box .title.data-v-04a6874c {
-  font-size: 30rpx;
-  font-weight: bold;
+  font-size: 32rpx;
   color: #333333;
   margin-left: 20rpx;
   vertical-align: middle;
+  letter-spacing: 0.5rpx;
 }
 .menu-box .content.data-v-04a6874c {
   display: -webkit-box;
@@ -43,7 +43,7 @@
   display: flex;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
-  border-bottom: 6rpx solid #f1f1f1;
+  border-bottom: 2rpx solid #f1f1f1;
   padding: 20rpx 0;
 }
 .menu-box .item.data-v-04a6874c {

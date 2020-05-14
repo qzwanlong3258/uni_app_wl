@@ -32,7 +32,7 @@
 		.title {
 			display: block;
 			color: #666666;
-			font-size: 28rpx;
+			font-size: 26rpx;
 			margin-top: 15rpx;
 		}
 	}

@@ -184,7 +184,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _package = __webpack_require__(/*! @/config/package.js */ 66);
 var _address = __webpack_require__(/*! @/api/address.js */ 67);
-var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor.vue */ 537));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldAddress = function YldAddress() {__webpack_require__.e(/*! require.ensure | components/YldAddress */ "components/YldAddress").then((function () {return resolve(__webpack_require__(/*! @/components/YldAddress.vue */ 566));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _order = __webpack_require__(/*! @/api/order.js */ 49);
+var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 85);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor.vue */ 547));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldAddress = function YldAddress() {__webpack_require__.e(/*! require.ensure | components/YldAddress */ "components/YldAddress").then((function () {return resolve(__webpack_require__(/*! @/components/YldAddress.vue */ 576));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   data: function data() {
@@ -198,7 +199,8 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
 
 
       allMoney: 0,
-      submiting: false };
+      submiting: false,
+      integral: 0 };
 
   },
   onLoad: function onLoad() {var _this = this;
@@ -210,6 +212,7 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
     this.$eventBus.$on('addressChange', function (data) {
       _this.shippingAddress.infor = data;
     });
+    this.loadIntegral();
   },
   components: {
     OrderInfor: OrderInfor,
@@ -217,8 +220,17 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
 
   methods: {
     /**
-              * 调整总金额
+              * 加载积分
               */
+    loadIntegral: function loadIntegral() {var _this2 = this;
+      (0, _todo.loadIntegral)().then(function (res) {
+        // console.log(res)
+        _this2.integral = Number(res.integral);
+      });
+    },
+    /**
+        * 调整总金额
+        */
     changeAllMoney: function changeAllMoney(counts) {
       this.allMoney = Number(counts) * Number(this.orderInformation.goodsPrice);
     },
@@ -257,26 +269,34 @@ var _order = __webpack_require__(/*! @/api/order.js */ 49);function _interopRequ
     payOrder: function () {var _payOrder2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(uuid) {var res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
                   (0, _order.payOrder)({
                     uuid: uuid,
-                    money: this.allMoney }));case 2:res = _context3.sent;_context3.t0 =
+                    money: this.allMoney }));case 2:res = _context3.sent;
 
-                Number(res.count) !== 1;if (!_context3.t0) {_context3.next = 8;break;}res = null;_context3.next = 8;return (0, _package.model)({ content: '支付失败,请重新选择商品', showCancel: false });case 8:return _context3.abrupt("return",
-                res);case 9:case "end":return _context3.stop();}}}, _callee3, this);}));function payOrder(_x) {return _payOrder2.apply(this, arguments);}return payOrder;}(),
+                console.log(res);_context3.t0 =
+                Number(res.count) !== 1;if (!_context3.t0) {_context3.next = 9;break;}res = null;_context3.next = 9;return (0, _package.model)({ content: '支付失败,请重新选择商品', showCancel: false });case 9:return _context3.abrupt("return",
+                res);case 10:case "end":return _context3.stop();}}}, _callee3, this);}));function payOrder(_x) {return _payOrder2.apply(this, arguments);}return payOrder;}(),
 
 
     /**
-                                                                                                                                                                               * 处理提交订单
-                                                                                                                                                                               */
-    startTodo: function () {var _startTodo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var checkAddressRes, createOrderRes, payOrderRes;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:if (!
-                this.submiting) {_context4.next = 2;break;}return _context4.abrupt("return");case 2:
-                this.submiting = true;_context4.next = 5;return (
+                                                                                                                                                                                * 处理提交订单
+                                                                                                                                                                                */
+    startTodo: function () {var _startTodo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var e, checkAddressRes, createOrderRes, payOrderRes;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                e = Number(this.integral) - Number(this.allMoney);
+                console.log(e);if (!(
+                e < 0)) {_context4.next = 6;break;}_context4.next = 5;return (
+                  (0, _package.model)({ content: '你的积分不足，无法支付', showCancel: false }));case 5:
+                this.submiting = true;case 6:if (!
 
-                  this.checkAddress());case 5:_context4.t1 = checkAddressRes = _context4.sent;if (!_context4.t1) {_context4.next = 10;break;}_context4.next = 9;return this.createOrder();case 9:_context4.t1 = createOrderRes = _context4.sent;case 10:_context4.t0 = _context4.t1;if (!_context4.t0) {_context4.next = 15;break;}_context4.next = 14;return this.payOrder(createOrderRes.uuid);case 14:_context4.t0 = payOrderRes = _context4.sent;case 15:if (_context4.t0) {_context4.next = 17;break;}return _context4.abrupt("return",
-                this.submiting = false);case 17:
+                this.submiting) {_context4.next = 8;break;}return _context4.abrupt("return");case 8:
+
+                this.submiting = true;_context4.next = 11;return (
+
+                  this.checkAddress());case 11:_context4.t1 = checkAddressRes = _context4.sent;if (!_context4.t1) {_context4.next = 16;break;}_context4.next = 15;return this.createOrder();case 15:_context4.t1 = createOrderRes = _context4.sent;case 16:_context4.t0 = _context4.t1;if (!_context4.t0) {_context4.next = 21;break;}_context4.next = 20;return this.payOrder(createOrderRes.uuid);case 20:_context4.t0 = payOrderRes = _context4.sent;case 21:if (_context4.t0) {_context4.next = 23;break;}return _context4.abrupt("return",
+                this.submiting = false);case 23:
 
                 uni.navigateTo({
                   url: "".concat(_router.ORDER_DETAIL, "?id=").concat(createOrderRes.uuid) });
 
-                this.submiting = false;case 19:case "end":return _context4.stop();}}}, _callee4, this);}));function startTodo() {return _startTodo.apply(this, arguments);}return startTodo;}() } };exports.default = _default;
+                this.submiting = false;case 25:case "end":return _context4.stop();}}}, _callee4, this);}));function startTodo() {return _startTodo.apply(this, arguments);}return startTodo;}() } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

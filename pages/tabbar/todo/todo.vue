@@ -1,5 +1,5 @@
 <template>
-	<view class="todo-box">
+	<view class="todo-box" v-if="show">
 		<view :hidden='!imgShow' >
 		<view class="shop-swiper"><swiper-img :imgList="imgList" :heightNum="450"></swiper-img></view>
 		<view class="shop-nav"><yld-nav :integral="integral"></yld-nav></view>
@@ -16,6 +16,10 @@ import YldShop from './components/YldShop.vue';
 import { getGoodsList,getGoodsDetail } from '@/api/goods.js';
 import { loadHomeCarousel } from '@/api/tabbar/home.js';
 import { loadIntegral } from '@/api/tabbar/todo.js';
+import { getStorage } from '@/utils/storage.js';
+const { AUTH } = require('../../../config/router.js');
+
+
 var _self
 export default {
 	data: function() {
@@ -28,10 +32,23 @@ export default {
 			imgList: [],
 			shopList: [],
 			imgShow:false,
-			integral:0
+			integral:0,
+			show:false
 		};
 	},
 	onLoad: function() {
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.show=true
+			
+		} else {
+		
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url: `${AUTH}?name=${'mine'}`
+			});	
+			}
 		_self=this
 		this.getCarousel();
 		this.getList();

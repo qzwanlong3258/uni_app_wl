@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _goods = __webpack_require__(/*! @/api/goods.js */ 76);var SwiperImg = function SwiperImg() {Promise.all(/*! require.ensure | components/SwiperImg */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/SwiperImg")]).then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 516));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldInfor = function YldInfor() {__webpack_require__.e(/*! require.ensure | pages/todoChild/shopDetail/components/YldInfor */ "pages/todoChild/shopDetail/components/YldInfor").then((function () {return resolve(__webpack_require__(/*! ./components/YldInfor.vue */ 573));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldRecommend = function YldRecommend() {Promise.all(/*! require.ensure | pages/todoChild/shopDetail/components/YldRecommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/shopDetail/components/YldRecommend")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldRecommend.vue */ 580));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlStates = function LjlStates() {__webpack_require__.e(/*! require.ensure | components/LjlStates */ "components/LjlStates").then((function () {return resolve(__webpack_require__(/*! @/components/LjlStates.vue */ 585));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _goods = __webpack_require__(/*! @/api/goods.js */ 76);var SwiperImg = function SwiperImg() {__webpack_require__.e(/*! require.ensure | components/SwiperImg */ "components/SwiperImg").then((function () {return resolve(__webpack_require__(/*! ../../../components/SwiperImg.vue */ 526));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldInfor = function YldInfor() {__webpack_require__.e(/*! require.ensure | pages/todoChild/shopDetail/components/YldInfor */ "pages/todoChild/shopDetail/components/YldInfor").then((function () {return resolve(__webpack_require__(/*! ./components/YldInfor.vue */ 583));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldRecommend = function YldRecommend() {Promise.all(/*! require.ensure | pages/todoChild/shopDetail/components/YldRecommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/shopDetail/components/YldRecommend")]).then((function () {return resolve(__webpack_require__(/*! ./components/YldRecommend.vue */ 590));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlStates = function LjlStates() {__webpack_require__.e(/*! require.ensure | components/LjlStates */ "components/LjlStates").then((function () {return resolve(__webpack_require__(/*! @/components/LjlStates.vue */ 595));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   data: function data() {
@@ -219,7 +219,7 @@ var _self;var _default =
     buyShop: function buyShop() {
       getApp().globalData.goodsInfor = {
         id: this.infor.id,
-        url: this.imgList[0] && this.imgList[0].url,
+        url: this.imgList[0] && this.imgList[0].img,
         goodsName: this.infor.name,
         goodsOriginalPrice: this.infor.originalPrice,
         goodsPrice: this.infor.price,

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": false,
 		"postcss": false,
@@ -25,6 +25,8 @@
 	"libVersion": "2.9.2",
 	"appid": "wx1b24a4f9a91a7cb6",
 	"projectname": "非客钱包",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -51,8 +53,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/tabbar/todo/scoreDetail/index",
-					"pathName": "pages/tabbar/todo/scoreDetail/index",
+					"name": "pages/todoChild/distribution/index",
+					"pathName": "pages/todoChild/distribution/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/tabbar/mine/mine",
+					"pathName": "pages/tabbar/mine/mine",
 					"scene": null
 				}
 			]

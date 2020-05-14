@@ -1,8 +1,8 @@
 <template>
 	<view class="menu-box" :class="infor.center">
-		<view style="border-bottom: 2rpx solid rgba(241,241,241,1);
-			height: 60rpx;line-height: 60rpx;">
-			<image :src='infor.img' mode="widthFix" style="width: 30rpx;margin-left: 20rpx;vertical-align: middle;"></image> <text class="title">{{infor.title}}</text>
+		<view style="
+			height: 60rpx;font-family: Microsoft YaHei;line-height: 60rpx;padding-top: 20rpx;">
+			<image :src='infor.img' mode="aspectFit" style="width: 40rpx;height: 40rpx;margin-left: 20rpx;vertical-align: middle;"></image> <text class="title">{{infor.title}}</text>
 			</view>
 		
 		<view class="content">
@@ -53,17 +53,18 @@
 <style lang="scss" scoped>
 	.menu-box {
 		.title {
-			font-size: 30rpx;
-			font-weight: bold;
+			font-size: 32rpx;
 			color: #333333;
 			margin-left: 20rpx;
 			vertical-align: middle;
+			letter-spacing: 0.5rpx;
+			
 			
 		}
 		.content {
 			display: flex;
 			flex-wrap: wrap;
-			border-bottom: 6rpx solid rgba(241,241,241,1);
+			border-bottom: 2rpx solid rgba(241,241,241,1);
 			padding: 20rpx 0;
 		}
 		.item {

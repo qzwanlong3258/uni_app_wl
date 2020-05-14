@@ -2,7 +2,7 @@
 	<view class="nav-box">
 		<view class="nav-clonum" v-for="(item, index) in navList" :key="index" @click="linkToRoute(item.href)">
 			<i :class="['iconfont', item.icon]"></i>
-			<text class="page_text-single-omit" @click="toScoreDetail">{{item.name + (item.name !== '我的积分' || isNaN(integral) ? '' : ':' + integral)}}</text>
+			<text class="page_text-single-omit" >{{item.name + (item.name !== '我的积分' || isNaN(integral) ? '' : ':' + integral)}}</text>
 		</view>
 	</view>
 </template>
@@ -26,7 +26,7 @@ export default {
 					id: 1,
 					icon: 'iconjifen',
 					name: '我的积分',
-					href: ''
+					href: TO_SCORE_DETAIL
 				},
 				{
 					id: 2,
@@ -42,11 +42,11 @@ export default {
 		// this.loadIntegral();
 	},
 	methods: {
-		toScoreDetail(){
-			uni.navigateTo({
-				url:TO_SCORE_DETAIL
-			})
-		},
+		// toScoreDetail(){
+		// 	uni.navigateTo({
+		// 		url:TO_SCORE_DETAIL
+		// 	})
+		// },
 		/**
 		 * 加载积分
 		 */

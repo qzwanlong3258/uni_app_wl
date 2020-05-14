@@ -2,9 +2,9 @@
 	<view class="decoration_view-box-box " v-if='showAuth'>
 		<view :hidden='!imgShow'>
 		<view class="decoration_view-nav ">
-			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高额度</text>
+			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高预算</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
-			<text class="decoration_text-row-submit" @click="testLinkTo">测一测额度</text>
+			<text class="decoration_text-row-submit" @click="testLinkTo">测一测预算</text>
 			<!-- <image :src="bank_pic" mode="widthFix" class="bank_pic"></image>
 			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image> -->
 		</view>
@@ -64,8 +64,8 @@
 				menus: [
 					{ icon: "iconxinshenqing-",img:BANK_APPT, title: "发起申请", href: LOAN_APPLICATION },
 					
-					{ icon: "icongerencanbaoxinxichaxun",img:BANK_RECORD, title: "借款记录" ,href: LOAN_RECORD},
-					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun",img:BANK_LOOKFOR, title: "查询进度" ,href: LOAN_SCHEDULE},
+					{ icon: "icongerencanbaoxinxichaxun",img:BANK_RECORD, title: "申请记录" ,href: LOAN_RECORD},
+					{ icon: "iconshengyuyiliaofeijiesuanjiluchaxun",img:BANK_LOOKFOR, title: "申请进度" ,href: LOAN_SCHEDULE},
 				],
 				bank_pic:BANK_PIC,
 				bank_logo:BANK_LOGO,

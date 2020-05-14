@@ -163,8 +163,9 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _address = __webpack_require__(/*! @/api/address.js */ 67);
 var _order = __webpack_require__(/*! @/api/order.js */ 49);
 var _util = __webpack_require__(/*! @/utils/util.js */ 48);
-var _package = __webpack_require__(/*! @/config/package.js */ 66);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var GxgButton = function GxgButton() {__webpack_require__.e(/*! require.ensure | components/GxgButton */ "components/GxgButton").then((function () {return resolve(__webpack_require__(/*! @/components/GxgButton.vue */ 627));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _package = __webpack_require__(/*! @/config/package.js */ 66);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var GxgButton = function GxgButton() {__webpack_require__.e(/*! require.ensure | components/GxgButton */ "components/GxgButton").then((function () {return resolve(__webpack_require__(/*! @/components/GxgButton.vue */ 637));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
+var _self;var _default =
 {
   data: function data() {
     return {
@@ -182,8 +183,11 @@ var _package = __webpack_require__(/*! @/config/package.js */ 66);function _inte
   },
   onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               this.options = options;
+              if (this.options.operating == 'orderUpdate') {
+                this.rightName = "选择";
+              }
               this.refreshAddressList();
-              this.$eventBus.$on('refreshAddressList', this.refreshAddressList);case 3:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
+              this.$eventBus.$on('refreshAddressList', this.refreshAddressList);case 4:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
 
   methods: {
     /**
@@ -213,13 +217,17 @@ var _package = __webpack_require__(/*! @/config/package.js */ 66);function _inte
         * 更新订单地址
         */
     orderUpdate: function () {var _orderUpdate = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(_ref) {var id, res, isSuccess;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:id = _ref.id;_context4.next = 3;return (
+
                   (0, _order.updateOrder)({
                     uuid: this.options.orderid,
                     addressId: id }));case 3:res = _context4.sent;
 
                 isSuccess = res.count === 1;_context4.t0 =
-                !isSuccess;if (!_context4.t0) {_context4.next = 9;break;}_context4.next = 9;return (0, _package.model)({ content: '更新订单收货地址失败，请刷新重试', showCancel: false });case 9:return _context4.abrupt("return",
-                isSuccess ? res : false);case 10:case "end":return _context4.stop();}}}, _callee4, this);}));function orderUpdate(_x2) {return _orderUpdate.apply(this, arguments);}return orderUpdate;}(),
+                !isSuccess;if (!_context4.t0) {_context4.next = 9;break;}_context4.next = 9;return (0, _package.model)({ content: '更新订单收货地址失败，请刷新重试', showCancel: false });case 9:
+                uni.navigateTo({
+                  url: "".concat(_router.ORDER_DETAIL, "?id=").concat(this.options.orderid) });return _context4.abrupt("return",
+
+                isSuccess ? res : false);case 11:case "end":return _context4.stop();}}}, _callee4, this);}));function orderUpdate(_x2) {return _orderUpdate.apply(this, arguments);}return orderUpdate;}(),
 
 
     /**
