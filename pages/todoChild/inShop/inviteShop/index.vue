@@ -29,6 +29,7 @@
 import tkiQrcode from '@/components/tki-qrcode/tki-qrcode.vue';
 import { getStorage } from '@/utils/storage.js';
 import { COMPANY_LOGO} from '@/config/image.js';
+import { getUnlimited } from '@/api/wx.js'
 
 
 var _self;
@@ -50,14 +51,14 @@ export default {
 		}
 	},
 	methods:{
-		saveToAlbum() {
-			this.$refs.qrcode._makeCode();
-		},
-		qrR(path) {
-			_self.code=path
+		// saveToAlbum() {
+		// 	this.$refs.qrcode._makeCode();
+		// },
+		// qrR(path) {
+		// 	_self.code=path
 			
 			
-		},
+		// },
 		
 	},
 	 onLoad() {
@@ -70,17 +71,31 @@ export default {
 		console.log(_self.val)
 		console.log(this.num)
 		// this.saveToAlbum()
-		uni.getImageInfo({
-		       src: COMPANY_LOGO,
-		       success: (res)=> {
-			console.log(res.path)
-			_self.imglogo=res.path
-			setTimeout(()=>{
-							this.saveToAlbum()
-						},100)
-			 
-		}
+		
+		let user=_self.userInfo.id + "&" + "1"
+		console.log(user)
+		getUnlimited( {
+              
+              "scene":user,
+              "width":600
+            },).then(respone=>{
+			console.log(respone)
+			_self.code=respone
+			
 		})
+		// uni.getImageInfo({
+		//        src: respone,
+		//        success: (res)=> {
+		// 	console.log(res.path)
+		// 	_self.imglogo=res.path
+		// 	setTimeout(()=>{
+		// 					this.saveToAlbum()
+		// 				},100)
+			 
+		// }
+		// })
+		
+		
 	}
 };
 </script>

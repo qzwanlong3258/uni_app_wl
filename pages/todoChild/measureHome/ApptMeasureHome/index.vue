@@ -35,14 +35,14 @@
 			<view class="apptMeasureHome_item">
 				<view class="appt_item_lable">您的房屋面积 :</view>
 				<view class="appt_item_content" style="position: relative;"><input type="text" @input='areaInput' v-model="dataList.area" placeholder="请输入您的房屋面积" placeholder-class="input_color" />
-				<view style="font-size: 28rpx;position: absolute;left: 90rpx;top: 2rpx;" :hidden='!areaShow'>平米</view>
+				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!areaShow'>平米</view>
 				
 				</view>
 			</view>
 			<view class="apptMeasureHome_item">
 				<view class="appt_item_lable">您的装修预算 :</view>
 				<view class="appt_item_content" style="position: relative;"><input type="text" @input='budgetInput' v-model="dataList.budget" placeholder="请输入您的装修预算" placeholder-class="input_color" />
-				<view style="font-size: 28rpx;position: absolute;left: 90rpx;top: 2rpx;" :hidden='!budgetShow'>万</view>
+				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!budgetShow'>元</view>
 				</view>
 				<!-- <view class="appt_item_content" @click="apptBindPickerChange">
 					<view class="appt_item_content appt_item_content_appt">
@@ -109,13 +109,22 @@ export default {
 			
 		},
 		budgetInput(e){
-			// console.log(e.detail)
-			// this.$forceUpdate();
 			if(e.detail.value ==""){
 				_self.budgetShow=false
 			} else{
 				_self.budgetShow=true
+				if(Number(_self.dataList.budget)>500000){
+					uni.showToast({
+													title: "申请额度需小于500000",
+													icon: 'none',
+													duration: 2000,
+												});
+												_self.dataList.budget=500000
+												this.$forceUpdate()
+					
+				}
 			}
+			
 		},
 		openAddres() {
 			

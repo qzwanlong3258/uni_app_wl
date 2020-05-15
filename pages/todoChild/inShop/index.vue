@@ -9,7 +9,7 @@
 			</view>
 			<view class="application_hd_item" style="border-top:1px solid rgba(229, 229, 229, 1) ;">
 				<view class="appli_hd_item_lable">*营业执照编号：</view>
-				<view class="appli_hd_item_content"><input type="number" maxlength="15" v-model="dataList.businesslicenseCode" placeholder="请输入营业执照编号" placeholder-class="input_color" /></view>
+				<view class="appli_hd_item_content"><input type="number" @blur="licenseCodeClick" maxlength="18" v-model="dataList.businesslicenseCode" placeholder="请输入营业执照编号" placeholder-class="input_color" /></view>
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*法定代表人：</view>
@@ -99,6 +99,15 @@ export default {
 		}
 	},
 	methods:{
+		licenseCodeClick(e){
+			if(e.detail.value.length!=15&&e.detail.value.length!=18){
+				uni.showToast({
+												title: "营业执照编号需15位或18位",
+												icon: 'none',
+												duration: 2000,
+											});
+			} 
+		},
 		createNumberInput(e){
 			if(e.detail.value ==""){
 				_self.createNumberShow=false

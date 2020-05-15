@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1555,6 +1555,104 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
+/***/ 113:
+/*!***********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/auth.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;exports.getUserRole = getUserRole;exports.getApplyId = getApplyId;exports.setApplyId = setApplyId;exports.addScore = addScore;exports.addScoreRecord = addScoreRecord;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+
+
+
+
+
+
+//获取验证码
+function sendVerificationCode(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.SEND_VERIFICATION_CODE,
+    showSuccessToast: true,
+    data: data });
+
+}
+
+//通过手机验证码登录授权
+function getPhoneLogin(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.LOGIN_NOWECAHT_LOGIN,
+    showSuccessToast: true,
+    data: data });
+
+}
+
+
+// 获取用户角色
+function getUserRole(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_USER_ROLE,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+// 获取用户角色
+function getApplyId(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_APPLY_ID,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+// 获取用户角色
+function setApplyId(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.SET_APPLY_ID,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+_api.ADD_SCORE_RECORD;
+// 增加积分
+function addScore(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.ADD_SCORE,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+// 增加积分记录
+function addScoreRecord(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.ADD_SCORE_RECORD,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+/***/ }),
+
 /***/ 12:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/utils/openLogin.js ***!
@@ -1702,7 +1800,19 @@ module.exports = {
 
 /***/ }),
 
-/***/ 129:
+/***/ 13:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
+
+
+/***/ }),
+
+/***/ 130:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/measureHome.js ***!
   \******************************************************************/
@@ -1761,19 +1871,7 @@ function getMyShop(data) {
 
 /***/ }),
 
-/***/ 13:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
-
-
-/***/ }),
-
-/***/ 137:
+/***/ 138:
 /*!*********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/loan.js ***!
   \*********************************************************************/
@@ -1787,7 +1885,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.loanAppt =
 var _api = __webpack_require__(/*! @/config/api.js */ 20);var _require =
 
 
-__webpack_require__(/*! ./storage.js */ 138),getStorage = _require.getStorage;
+__webpack_require__(/*! ./storage.js */ 139),getStorage = _require.getStorage;
 
 function loanAppt(data) {
   // let token=getStorage('tempToken')
@@ -1890,7 +1988,7 @@ function getIssue(data) {
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /*!************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/storage.js ***!
   \************************************************************************/
@@ -2056,61 +2154,6 @@ if (hadRuntime) {
   }
 }
 
-
-/***/ }),
-
-/***/ 149:
-/*!*************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/myWork.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.myWorkFace = myWorkFace;exports.myWorkPhoto = myWorkPhoto;exports.myWorkPhotoLocation = myWorkPhotoLocation;exports.photoSubmit = photoSubmit;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-//加载积分商品
-function myWorkFace(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.MYWORK_FACE,
-    showSuccessToast: true,
-    data: data });
-
-}
-//加载拍照任务
-function myWorkPhoto(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.MYWORKPHOTO,
-    showSuccessToast: true,
-    data: data });
-
-}
-//加载拍照任务
-function myWorkPhotoLocation(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.MYWORKPHOTO_LOCATION,
-    showSuccessToast: true,
-    data: data });
-
-}
-//提交拍照任务
-function photoSubmit(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.PHOTO_SUMBIT,
-    showSuccessToast: true,
-    data: data });
-
-}
 
 /***/ }),
 
@@ -2843,6 +2886,61 @@ function photoSubmit(data) {
   })() || Function("return this")()
 );
 
+
+/***/ }),
+
+/***/ 150:
+/*!*************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/myWork.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.myWorkFace = myWorkFace;exports.myWorkPhoto = myWorkPhoto;exports.myWorkPhotoLocation = myWorkPhotoLocation;exports.photoSubmit = photoSubmit;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+//加载积分商品
+function myWorkFace(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.MYWORK_FACE,
+    showSuccessToast: true,
+    data: data });
+
+}
+//加载拍照任务
+function myWorkPhoto(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.MYWORKPHOTO,
+    showSuccessToast: true,
+    data: data });
+
+}
+//加载拍照任务
+function myWorkPhotoLocation(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.MYWORKPHOTO_LOCATION,
+    showSuccessToast: true,
+    data: data });
+
+}
+//提交拍照任务
+function photoSubmit(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.PHOTO_SUMBIT,
+    showSuccessToast: true,
+    data: data });
+
+}
 
 /***/ }),
 
@@ -9387,7 +9485,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9408,14 +9506,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9491,7 +9589,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9991,7 +10089,10 @@ module.exports = {
   /** 积分**/
   GET_SCORE_DETAIL: "".concat(baseUrl, "/integral/loadIntegral"),
   /** 角色**/
-  GET_USER_ROLE: "".concat(baseUrl, "/user/loadRoleList") };
+  GET_USER_ROLE: "".concat(baseUrl, "/user/loadRoleList"),
+  /** 设置邀请人id**/
+  SET_APPLY_ID: "".concat(baseUrl, "/wx/user/setApplyId"),
+  GET_APPLY_ID: "".concat(baseUrl, "/wx/user/loadApplyId") };
 
 /***/ }),
 
@@ -10100,7 +10201,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /*!***************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
   \***************************************************************/
@@ -10265,7 +10366,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
   \*****************************************************************************/
@@ -11268,7 +11369,7 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /*!***********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/poster.js ***!
   \***********************************************************************/
@@ -11449,7 +11550,8 @@ module.exports = {
   TESTSUCCESS: "".concat(staticUrl, "/todoChild/testonetest/\u5B8C\u6210@2x.png"),
   TESTFAIL: "".concat(staticUrl, "/todoChild/testonetest/3.0-\u672A\u5B8C\u6210@2x.png"),
   // 约量房
-  LOAN_PICTURE: "".concat(staticUrl, "/todoChild/\u88C5\u4FEE\u5206\u671F\u4ED8\uFF0C\u8F7B\u677E\u5C31\u5165\u4F4F.png"),
+  LOAN_PICTURE: "https://www.feiaizn.com/images/20200515182110_loanPicture.png",
+  // LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
   MEASUREHOME: "".concat(staticUrl, "/todoChild/\u7EA6\u91CF\u623F.png"),
   MEASUREHOME_SUCCESS: "".concat(staticUrl, "/todoChild/\u7EA6\u91CF\u623F\u6210\u529F@2x.png"),
   MEASUREHOME_CHOOSE: "".concat(staticUrl, "/todoChild/measureHome/choose.png"),
@@ -11535,7 +11637,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 343:
+/***/ 344:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
   \******************************************************************/
@@ -11654,7 +11756,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 407:
+/***/ 408:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -11804,7 +11906,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 408:
+/***/ 409:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -13318,7 +13420,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 409:
+/***/ 410:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -25871,7 +25973,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 410:
+/***/ 411:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -26532,7 +26634,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 423:
+/***/ 424:
 /*!*************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/inShop.js ***!
   \*************************************************************/
@@ -26561,7 +26663,7 @@ function postShop(data) {
 
 /***/ }),
 
-/***/ 439:
+/***/ 440:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/tki-qrcode/qrcode.js ***!
   \*******************************************************************************/
@@ -28198,7 +28300,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 480:
+/***/ 481:
 /*!***********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/utils/qqmap-wx-jssdk.js ***!
   \***********************************************************************/
@@ -30319,7 +30421,7 @@ main();
 
 /***/ }),
 
-/***/ 559:
+/***/ 560:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -30724,7 +30826,44 @@ function deleteReceiveAddress(data) {
 
 /***/ }),
 
-/***/ 698:
+/***/ 68:
+/*!******************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.loadIntegral = loadIntegral;exports.loadIntegralDeyail = loadIntegralDeyail;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+// 获取我的积分余额
+function loadIntegral(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.LOAD_INTEGRAL,
+    data: data,
+    showLoading: false,
+    hideLoading: false });
+
+}
+// 获取我的积分余额
+function loadIntegralDeyail(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_SCORE_DETAIL,
+    data: data });
+
+}
+
+/***/ }),
+
+/***/ 699:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -30732,7 +30871,7 @@ function deleteReceiveAddress(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 699);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 700);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -31260,7 +31399,19 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 699:
+/***/ 7:
+/*!***************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"style"} ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" }, "usingAutoImportComponents": {} }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" }, "usingAutoImportComponents": {} }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务", "usingComponents": { "ljl-states": "/pages/todoChild/myWorkPhoto/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" }, "usingAutoImportComponents": {} }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas", "hch-poster": "/wxcomponents/hch-poster/hch-poster", "tki-qrcode": "/components/tki-qrcode/tki-qrcode" }, "usingAutoImportComponents": {} }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup", "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "uni-steps": "/components/uni-steps/uni-steps", "ljl-states": "/components/LjlStates", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "uni-steps": "/components/uni-steps/uni-steps" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {}, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户", "usingComponents": {}, "usingAutoImportComponents": { "tki-qrcode": "/components/tki-qrcode/tki-qrcode" } }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到", "usingComponents": { "model-calendar": "/components/Calendar" }, "usingAutoImportComponents": {} }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/todo/scoreDetail/index": { "navigationBarTitleText": "积分详情", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+
+/***/ }),
+
+/***/ 700:
 /*!*********************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
   \*********************************************************/
@@ -31291,19 +31442,7 @@ getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnli
 
 /***/ }),
 
-/***/ 7:
-/*!***************************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"style"} ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom" }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表" }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情" }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单" }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情" }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城" }, "pages/auth/auth": { "navigationBarTitleText": "授权" }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员" }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的" }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换" }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作" }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作" }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务" }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务" }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情" }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表" }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址" }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心" }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员" }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表" }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品" }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现" }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报" }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期" }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住" }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请" }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请" }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请" }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度" }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录" }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情" }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房" }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择" }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询" }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻" }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料" }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户" }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心" }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼" }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到" }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照" }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "" }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策" }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议" }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "" }, "pages/tabbar/todo/scoreDetail/index": { "navigationBarTitleText": "积分详情" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
-
-/***/ }),
-
-/***/ 756:
+/***/ 757:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -31457,7 +31596,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -32975,7 +33114,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 758:
+/***/ 759:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -45534,7 +45673,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /*!************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/goods.js ***!
   \************************************************************/
@@ -45600,7 +45739,7 @@ function getGoodsConvert(data) {var
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -45754,7 +45893,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -47272,7 +47411,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 775:
+/***/ 776:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -59831,7 +59970,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 797:
+/***/ 798:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/lb-picker/utils.js ***!
   \*****************************************************************************/
@@ -59862,7 +60001,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 826:
+/***/ 827:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/uni-icons/icons.js ***!
   \*****************************************************************************/
@@ -59968,41 +60107,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 85:
-/*!******************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/todo.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.loadIntegral = loadIntegral;exports.loadIntegralDeyail = loadIntegralDeyail;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-// 获取我的积分余额
-function loadIntegral(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.LOAD_INTEGRAL,
-    data: data });
-
-}
-// 获取我的积分余额
-function loadIntegralDeyail(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_SCORE_DETAIL,
-    data: data });
-
-}
-
-/***/ }),
-
 /***/ 92:
 /*!********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/auth/wxAuth.js ***!
@@ -60033,7 +60137,11 @@ var _image = __webpack_require__(/*! @/config/image.js */ 34);
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _openLogin2 = __webpack_require__(/*! ../../utils/openLogin */ 12);
-var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
+var _auth = __webpack_require__(/*! @/api/auth.js */ 113);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+
 
 var regeneratorRuntime = __webpack_require__(/*! @/utils/regenerator-runtime/runtime.js */ 18);
 var wxAuth = {
@@ -60076,7 +60184,11 @@ var wxAuth = {
   },
   methods: {
     linkToBankOne: function linkToBankOne() {
-      var e = this.user;
+      var ch = "/";
+      // var str = "这是一/个变量，这是一个变量";
+      var a = this.user.replace(new RegExp(ch, 'g'), "!");
+      var e = a.replace(":", "*");
+
       var testmsg = e.substring(e.lastIndexOf('.') + 1);
       var extensio = testmsg === 'jpg';
       var extensio2 = testmsg === 'png';
@@ -60088,7 +60200,12 @@ var wxAuth = {
       }
     },
     linkToBankTwo: function linkToBankTwo() {
-      var e = this.serve;
+      var ch = "/";
+      // var str = "这是一/个变量，这是一个变量";
+      var a = this.serve.replace(new RegExp(ch, 'g'), "!");
+      var e = a.replace(":", "*");
+
+
       var testmsg = e.substring(e.lastIndexOf('.') + 1);
       var extensio = testmsg === 'jpg';
       var extensio2 = testmsg === 'png';
@@ -60106,51 +60223,73 @@ var wxAuth = {
         duration: 2000 });
 
     },
-    yesBtn: function yesBtn() {
-      (0, _storage.setStorage)('sessionKey', this.session_key);
-      (0, _storage.setStorage)('tempToken', this.dataL.token);
-      (0, _storage.setStorage)('refreshToken', this.dataL.refreshToken);
-      (0, _storage.setStorage)('userInfo', this.dataL.UserInfo);
-      (0, _storage.setStorage)('isLogin', true);
-      console.log(this.name);
-      if (this.name == 'decoration') {
-        uni.switchTab({
-          url: _router.DECORATION,
-          fail: function fail() {
-            uni.reLaunch({
-              url: _router.DECORATION });
+    yesBtn: function () {var _yesBtn = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var openid, e;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
 
-          } });
+                (0, _storage.setStorage)('sessionKey', this.session_key);
+                (0, _storage.setStorage)('tempToken', this.dataL.token);
+                (0, _storage.setStorage)('refreshToken', this.dataL.refreshToken);
+                (0, _storage.setStorage)('userInfo', this.dataL.UserInfo);
+                (0, _storage.setStorage)('isLogin', true);
+                console.log(this.name);
 
-      }
-      if (this.name == 'mine') {
-        uni.switchTab({
-          url: _router.MINE,
-          fail: function fail() {
-            uni.reLaunch({
-              url: _router.MINE });
-
-          } });
-
-      }
-      if (this.name == 'inShop') {
-        uni.switchTab({
-          url: _router.INSHOP,
-          fail: function fail() {
-            uni.reLaunch({
-              url: _router.INSHOP });
-
-          } });
-
-      }
+                openid = (0, _storage.getStorage)('openId');
+                e = (0, _storage.getStorage)('applyId');if (!
+                e) {_context.next = 11;break;}_context.next = 11;return (
+                  (0, _auth.setApplyId)({
+                    applyId: e }));case 11:
 
 
-    },
-    getUserInfo: function () {var _getUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {var _e$detail, encryptedData, iv, _ref, openId, avatarUrl, nickName, _ref2, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (
-                this.session_key) {_context.next = 5;break;}
+
+                // await addScore({
+                //          id: e,
+                //          integral: "500"
+                //          })
+                // await addScoreRecord({
+                //       userid: e,
+                //       money: "500",
+                //       msg: "邀请用户赠送500积分"
+                //      })
+
+
+
+                if (this.name == 'decoration') {
+                  uni.switchTab({
+                    url: _router.DECORATION,
+                    fail: function fail() {
+                      uni.reLaunch({
+                        url: _router.DECORATION });
+
+                    } });
+
+                }
+                if (this.name == 'mine') {
+                  uni.switchTab({
+                    url: _router.MINE,
+                    fail: function fail() {
+                      uni.reLaunch({
+                        url: _router.MINE });
+
+                    } });
+
+                }
+                if (this.name == 'inShop') {
+                  uni.switchTab({
+                    url: _router.INSHOP,
+                    fail: function fail() {
+                      uni.reLaunch({
+                        url: _router.INSHOP });
+
+                    } });
+
+                }case 14:case "end":return _context.stop();}}}, _callee, this);}));function yesBtn() {return _yesBtn.apply(this, arguments);}return yesBtn;}(),
+
+
+
+    getUserInfo: function () {var _getUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {var _e$detail, encryptedData, iv, _ref, openId, avatarUrl, nickName, _ref2, data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (
+                this.session_key) {_context2.next = 5;break;}
                 (0, _openLogin2.refreshToken)();
                 this.session_key = (0, _storage.getStorage)('session_key');if (
-                this.session_key) {_context.next = 5;break;}return _context.abrupt("return",
+                this.session_key) {_context2.next = 5;break;}return _context2.abrupt("return",
                 wx.showToast({
                   title: '登录失败，重新授权试试',
                   icon: 'none' }));case 5:_e$detail =
@@ -60164,7 +60303,7 @@ var wxAuth = {
                 e.detail, encryptedData = _e$detail.encryptedData, iv = _e$detail.iv;
                 console.log(e.detail);
                 //获取用户的微信信息
-                _context.next = 9;return (
+                _context2.next = 9;return (
 
 
 
@@ -60180,7 +60319,7 @@ var wxAuth = {
                     needToken: false,
                     showLoadind: false,
                     hideLoading: false,
-                    errorText: '登录失败' }));case 9:_ref = _context.sent;openId = _ref.openId;avatarUrl = _ref.avatarUrl;nickName = _ref.nickName;_context.next = 15;return (
+                    errorText: '登录失败' }));case 9:_ref = _context2.sent;openId = _ref.openId;avatarUrl = _ref.avatarUrl;nickName = _ref.nickName;_context2.next = 15;return (
 
 
 
@@ -60197,7 +60336,7 @@ var wxAuth = {
                     needToken: false,
                     loadingText: '正在登录',
                     returnHeader: true,
-                    errorText: '登录失败' }));case 15:_ref2 = _context.sent;data = _ref2.data;
+                    errorText: '登录失败' }));case 15:_ref2 = _context2.sent;data = _ref2.data;
 
                 this.dataL = data;
                 this.show = false;
@@ -60210,12 +60349,12 @@ var wxAuth = {
                 // 		})
                 // 	}
                 // })
-              case 19:case "end":return _context.stop();}}}, _callee, this);}));function getUserInfo(_x) {return _getUserInfo.apply(this, arguments);}return getUserInfo;}() },
+              case 19:case "end":return _context2.stop();}}}, _callee2, this);}));function getUserInfo(_x) {return _getUserInfo.apply(this, arguments);}return getUserInfo;}() },
 
 
   /**
-                                                                                                                                                                                 * 用户点击右上角分享
-                                                                                                                                                                                 */
+                                                                                                                                                                                   * 用户点击右上角分享
+                                                                                                                                                                                   */
   onShareAppMessage: function onShareAppMessage() {
 
   } };var _default =
@@ -60223,55 +60362,6 @@ var wxAuth = {
 
 wxAuth;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 971:
-/*!***********************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/auth.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;exports.getUserRole = getUserRole;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-
-
-//获取验证码
-function sendVerificationCode(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.SEND_VERIFICATION_CODE,
-    showSuccessToast: true,
-    data: data });
-
-}
-
-//通过手机验证码登录授权
-function getPhoneLogin(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.LOGIN_NOWECAHT_LOGIN,
-    showSuccessToast: true,
-    data: data });
-
-}
-
-
-// 获取用户角色
-function getUserRole(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_USER_ROLE,
-    data: data });
-
-}
 
 /***/ })
 

@@ -17,7 +17,9 @@ export default {
 	methods:{},
 	 onLoad(options) {
 		 _self=this
-		_self.web= options.id
+		       let a = options.id.replace("*", ":")
+		_self.web= a.replace(/!/g,"/")
+		console.log(_self.web)
 		// this.$forceUpdate()
 	}
 };

@@ -1,10 +1,10 @@
 {
   "navigationBarTitleText": "推广商品",
   "usingComponents": {
-    "tki-qrcode": "/components/tki-qrcode/tki-qrcode",
     "search": "/components/Search",
     "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo",
     "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas",
-    "hch-poster": "/wxcomponents/hch-poster/hch-poster"
+    "hch-poster": "/wxcomponents/hch-poster/hch-poster",
+    "tki-qrcode": "/components/tki-qrcode/tki-qrcode"
   }
 }

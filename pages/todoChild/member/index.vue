@@ -2,7 +2,7 @@
 	<view class="member-box" :style="{height: pageHeight + 'rpx'}">
 		<image class="background-image" :src="img.backgroundImage" mode="widthFix" @load="backgroundLoad"></image>
 		<image class="main-button" :src="img.mainButton" mode="aspectFit"></image>
-		<view class="rewardInfo">
+		<!-- <view class="rewardInfo">
 			<text class="title">| {{rewardInfo.title}}</text>
 			<view class="list">
 				<view class="item" v-for="(item,index) in rewardInfo.list" :key="index">
@@ -10,7 +10,7 @@
 					<text class="content">{{item.content}}</text>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 

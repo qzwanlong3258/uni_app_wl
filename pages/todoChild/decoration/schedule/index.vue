@@ -8,7 +8,7 @@
 				</view>
 				<view class="schedule-hd-mid">
 					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone?userInfo.phone:"无"}}</view>
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>

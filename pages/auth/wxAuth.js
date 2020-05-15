@@ -21,6 +21,10 @@ import {
 import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP} from '@/config/router.js';
 import { refreshToken } from  '../../utils/openLogin';
 import * as home from "@/api/tabbar/home.js";
+import {setApplyId,addScore,addScoreRecord} from '@/api/auth.js'
+
+
+
 
 const regeneratorRuntime = require('@/utils/regenerator-runtime/runtime.js')
 const wxAuth = {
@@ -63,7 +67,11 @@ const wxAuth = {
 	},
 	methods: {
 		linkToBankOne(){
-			let e= this.user
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a = this.user.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			
 			var testmsg=e.substring(e.lastIndexOf('.')+1)
 			        const extensio = testmsg === 'jpg'
 			        const extensio2 = testmsg === 'png'
@@ -75,7 +83,12 @@ const wxAuth = {
 					}
 		},
 		linkToBankTwo(){
-			let e= this.serve
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a =this.serve.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			
+			
 			var testmsg=e.substring(e.lastIndexOf('.')+1)
 			        const extensio = testmsg === 'jpg'
 			        const extensio2 = testmsg === 'png'
@@ -93,13 +106,35 @@ const wxAuth = {
 											duration: 2000,
 										});
 		},
-		  yesBtn(){
+		 async yesBtn(){
+			
 			setStorage('sessionKey', this.session_key)
 			setStorage('tempToken', this.dataL.token)
 			setStorage('refreshToken', this.dataL.refreshToken)
 			setStorage('userInfo', this.dataL.UserInfo)
 			setStorage('isLogin', true)
 			console.log(this.name)
+			
+			let openid=getStorage('openId')
+			let e =getStorage('applyId')
+			if(e){
+				await setApplyId({
+				      applyId: e
+				  })
+			}
+			
+			// await addScore({
+   //          id: e,
+   //          integral: "500"
+   //          })
+			// await addScoreRecord({
+   //       userid: e,
+   //       money: "500",
+   //       msg: "邀请用户赠送500积分"
+   //      })
+			
+			
+			
 			if(this.name=='decoration'){
 				 uni.switchTab({
 					url: DECORATION,

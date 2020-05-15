@@ -254,17 +254,17 @@
 				},500)
 				// 海报商品title end
 				// 会员价 图标
-			// 	uni.getImageInfo({
-			//          src: zpPriceIcon,
-			//          success(res) {
-			// 		ctx.drawImage(res.path,65,380*scaleH,44, 15)
-			// 		ctx.draw(true)
-			//       } ,
-			// 		fail(){
-			// 			_this.canvasFlag=true;
-			// 			uni.showToast({title:'海报生成失败',duration:2000,icon:'none'});
-			// 		}
-			// 	})
+				uni.getImageInfo({
+			         src: zpPriceIcon,
+			         success(res) {
+					ctx.drawImage(res.path,65,380*scaleH,44, 15)
+					ctx.draw(true)
+			      } ,
+					fail(){
+						_this.canvasFlag=true;
+						uni.showToast({title:'海报生成失败',duration:2000,icon:'none'});
+					}
+				})
 				// 会员价 图标 end
 				//绘制价格
 				ctx.setFontSize(12)//设置字体大小，默认10
@@ -310,7 +310,7 @@
 				ctx.setFontSize(14)
 				ctx.setFillStyle('#2f1709')//文字颜色：默认黑色
 				ctx.font = 'normal bold 14px sans-serif';
-				ctx.fillText('小程序的名称', (_this.phoneW-90)/2, 530*scaleH,90);
+				ctx.fillText('非客有家', (_this.phoneW-60)/2, 530*scaleH,90);
 				// 小程序的名称end
 				// 长按/扫描识别查看商品
 				ctx.setFontSize(14)

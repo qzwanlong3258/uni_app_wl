@@ -12,6 +12,8 @@ export function loadIntegral(data) {
 		method: 'GET',
 		url: LOAD_INTEGRAL,
 		data,
+		showLoading:false,
+		hideLoading:false,
 	});
 }
 // 获取我的积分余额

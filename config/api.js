@@ -97,6 +97,12 @@ module.exports = {
 	GET_SCORE_DETAIL:`${baseUrl}/integral/loadIntegral`,
 	/** 角色**/
 	GET_USER_ROLE:`${baseUrl}/user/loadRoleList`,
+	/** 设置邀请人id**/
+	SET_APPLY_ID:`${baseUrl}/wx/user/setApplyId`,
+	GET_APPLY_ID:`${baseUrl}/wx/user/loadApplyId`,
+	
+	
+	
 	
 	
 	

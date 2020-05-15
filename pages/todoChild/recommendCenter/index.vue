@@ -8,7 +8,7 @@
 					</view>
 				</view>
 				<view style="text-align: center;color: #000000;font-size: 20rpx;">WELCOME</view>
-				<view style="text-align: center;color: #605800;font-size: 18rpx;">普通会员</view>
+				<view style="text-align: center;color: #605800;font-size: 18rpx;">{{userInfo.level}}</view>
 				<view class="btn-box"><view class="btn">我的奖励</view></view>
 				<view style="display: flex;" class="recomCenter-pic">
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">

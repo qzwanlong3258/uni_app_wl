@@ -23,6 +23,8 @@
 	'use scrict';
 	import { POSTER_1, POSTER_2, POSTER_3, POSTER_4, POSTER_5,POSTER_6,COMPANY_LOGO, FENXIANG } from "@/config/image.js";
 	import {getPoster} from "@/api/todoChild/poster.js"
+	import { getUnlimited } from '@/api/wx.js'
+	import { getStorage ,setStorage } from '@/utils/storage.js';
 	var _self;
 	
 	export default {
@@ -33,7 +35,7 @@
 					list: [],
 					// list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4, POSTER_5,POSTER_6]
 				},
-				logo: COMPANY_LOGO,
+				logo: "",
 				imgShow:false
 			}
 		},
@@ -44,8 +46,22 @@
 				_self.options.list=res.list.map(res=>{
 					return res.img
 				})
+				_self.userInfo = getStorage('userInfo');
+				let user=_self.userInfo.id 
+				// console.log(user)
+				getUnlimited( {
+				      
+				      "scene":user,
+				      "width":600
+				    },).then(respone=>{
+					console.log(respone)
+					_self.logo=respone
+					
+				})
 				this.$forceUpdate()
 			})
+			
+			
 		},
 		methods: {
 			imgshow(){

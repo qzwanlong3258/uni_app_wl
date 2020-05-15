@@ -13,7 +13,7 @@
 		
 		<view class="schedule-left" :hidden='states.index==1'>
 			<view :hidden='!imgShow'>
-			<button class="box" open-type="share" @click="linkToRoute" v-for="(item,index) in activityList" :key="index" style="background: #FFFFFF;">
+			<button class="box"  open-type="share" @click="linkToRoute" v-for="(item,index) in activityList" :key="index" style="background: #FFFFFF;">
 				<view class="box-left" :style="'background:'+item.color" >
 					<image @load='imgshow' :src='item.img' mode="widthFix"></image>
 					<view class="text" :style="'color:'+item.colorOne">{{item.roleName}}</view>
@@ -52,13 +52,13 @@
 		</view>
 		<view class="schedule-right" :hidden='states.index==0'>
 			
-			<button class="box" open-type="share" @click="linkToRoute" v-for="(item,index) in activityListCom" :key="index" style="background: #FFFFFF;">
+			<view class="box"  v-for="(item,index) in activityListCom" :key="index" style="background: #FFFFFF;">
 				<view class="box-left" :style="'background:'+item.color" >
 					<image  :src='item.img' mode="widthFix"></image>
 					<view class="text" :style="'color:'+item.colorOne">{{item.roleName}}</view>
 				</view>
 				<view class="box-right">{{item.describe}}<image :src="img[3]" mode="widthFix"></image></view>
-			</button>
+			</view>
 			<!-- <view class="box">
 				<view class="box-left" :style="color[index]">
 					<image :src='img[0]' mode="widthFix"></image>

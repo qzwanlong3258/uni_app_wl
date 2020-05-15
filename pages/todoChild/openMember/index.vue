@@ -152,7 +152,11 @@ export default {
 			_self.agree=!this.agree
 		},
 		open(){
-			let e= this.member
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a = this.member.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			
 			console.log(e)
 			var testmsg=e.substring(e.lastIndexOf('.')+1)
 			        const extensio = testmsg === 'jpg'

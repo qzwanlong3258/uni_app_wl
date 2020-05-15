@@ -83,6 +83,7 @@ export default {
 		},
 		searchChange: function(value) {
 			this.listQuery.name = value;
+			this.shopList=[]
 			this.getList();
 		},
 		/**

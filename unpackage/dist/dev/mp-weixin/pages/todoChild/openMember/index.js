@@ -205,7 +205,11 @@ var _self;var _default =
       _self.agree = !this.agree;
     },
     open: function open() {
-      var e = this.member;
+      var ch = "/";
+      // var str = "这是一/个变量，这是一个变量";
+      var a = this.member.replace(new RegExp(ch, 'g'), "!");
+      var e = a.replace(":", "*");
+
       console.log(e);
       var testmsg = e.substring(e.lastIndexOf('.') + 1);
       var extensio = testmsg === 'jpg';

@@ -33,7 +33,7 @@ import { HOME_DEMO ,BANNER_ONE,BANNER_TWO,BANNER_THREE,BANNER_FOUR,AD_ONE, AD_TW
 import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
 import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
-import { getStorage } from '@/utils/storage.js';
+import { getStorage ,setStorage} from '@/utils/storage.js';
 var _self;
 export default {
 	data: function() {
@@ -52,7 +52,7 @@ export default {
 			ScreenHeight:667
 		};
 	},
-	onLoad:  function() {
+	onLoad:  function(options) {
 		_self = this
 		
 		console.log(this.imgList)
@@ -105,6 +105,15 @@ export default {
 		            // #endif
 		        }
 		    })
+			
+	if(options.scene){
+	    let scene=decodeURIComponent(options.scene);
+		setStorage('applyId',scene)
+	    //&是我们定义的参数链接方式
+	    // let userId=scene.split("&")[0];
+	    // let recommendId=scene.split('&')[1];
+	    //其他逻辑处理。。。。。
+	  }
 			
 			
 	},

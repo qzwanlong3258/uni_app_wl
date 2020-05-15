@@ -19,7 +19,7 @@
 	    		</view>
 	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">WELCOME</view>
 	    		<view style="text-align: center;color: #7C7312;font-size: 20rpx;letter-spacing: 0.5rpx;padding-bottom: 13rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.level}}</view>
-				<view style="text-align: center;color: #7C7312;font-size: 24rpx;letter-spacing: 0.5rpx;padding-bottom: 54rpx;font-family: FZLanTingKanHei-R-GBK;">加入时间：{{userInfo.joinTime}}</view>
+				<view style="text-align: center;color: #7C7312;font-size: 24rpx;letter-spacing: 0.5rpx;padding-bottom: 54rpx;font-family: FZLanTingKanHei-R-GBK;">加入时间：{{userInfo.create_time|formatDate}}</view>
 				<view class="box" style="padding-bottom: 20rpx;">
 					<view class="box-left" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;">未入账</view>
 					<view class="box-mid" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;margin: 0 30rpx;">已结算金额</view>
@@ -46,6 +46,7 @@ import LjlMenu from '@/components/LjlMenu';
 import { getStorage } from '@/utils/storage.js';
 import * as imgs from '@/config/image.js';
 import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER } from '@/config/router.js';
+import {formatDate} from '@/config/filter.js'
 
 export default {
 	data() {
@@ -73,12 +74,11 @@ export default {
 			
 		};
 	},
+	filters:{
+		formatDate
+	},
 	onLoad() {
-		this.userInfo = {
-			...getStorage('userInfo'),
-			level: '普通会员',
-			joinTime: '2019-02-25 16:00'
-		};
+		this.userInfo = getStorage('userInfo')
 	},
 	methods: {
 		linkToWithdraw() {

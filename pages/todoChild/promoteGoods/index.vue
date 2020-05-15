@@ -37,8 +37,8 @@
 		<view :hidden="canvasFlag"><!-- 海报 要放外面放组件里面 会找不到 canvas-->
 			<canvas class="canvas"  canvas-id="myCanvas" ></canvas><!-- 海报 -->
 		</view>
-		<tki-qrcode ref="qrcode" :val="val" :size="200" background="#fff" foreground="#000" pdground="#000" :onval="false"
-		 :loadMake="false" @result="qrR" :show="false"></tki-qrcode>
+		<!-- <tki-qrcode ref="qrcode" :val="val" :size="200" background="#fff" foreground="#000" pdground="#000" :onval="false"
+		 :loadMake="false" @result="qrR" :show="false"></tki-qrcode> -->
 	</view>
 </template>
 
@@ -50,7 +50,10 @@ import ShareCanvas from './components/ShareCanvas/ShareCanvas.vue';
 import { getGoodsList,getGoodsDetail } from '@/api/goods.js';
 import hchPoster from '../../../wxcomponents/hch-poster/hch-poster.vue';
 import tkiQrcode from '@/components/tki-qrcode/tki-qrcode.vue';
+import { getStorage } from '@/utils/storage.js';
+import { getUnlimited } from '@/api/wx.js'
 
+var _self;
 export default {
 	data() {
 		return {
@@ -81,11 +84,12 @@ export default {
 			deliveryFlag: false,
 			canvasFlag: true,
 			posterData:{},
-			val: 'https://www.baidu.com',
+			// val: 'https://www.baidu.com',
 			
 		};
 	},
 	onLoad: async function() {
+		_self=this
 		await this.getList();
 		
 	},
@@ -148,13 +152,28 @@ export default {
 			this.canvasFlag=val;
 		},
 		saveToAlbum() {
-			this.$refs.qrcode._makeCode();
-		},
-		qrR(path) {
-			this.posterData.code=path
-			this.shareEvn()
+			// this.$refs.qrcode._makeCode();
+			_self.userInfo = getStorage('userInfo');
+			let user=_self.userInfo.id + "&" + "2"
+			console.log(user)
+			getUnlimited( {
+			      
+			      "scene":user,
+			      "width":600
+			    },).then(respone=>{
+				console.log(respone)
+				_self.posterData.code=respone
+				this.shareEvn()
+				
+				
+			})
 			
 		},
+		// qrR(path) {
+		// 	this.posterData.code=path
+		// 	this.shareEvn()
+			
+		// },
 		
 		goodsChange: function(index) {
 			this.selectedIndex = index;
@@ -190,7 +209,7 @@ export default {
 					// }
 				this.posterData={
 						url:e,//商品主图
-						icon:'',//醉品价图标
+						icon:'https://www.feiaizn.com/images/20200515115542_zhehoujia.png',//醉品价图标
 						title:res.name,//标题
 						discountPrice:res.price,//折后价格
 						orignPrice:res.originalPrice,//原价
@@ -211,15 +230,24 @@ export default {
 		/**
 		 * 创建推广图对象
 		 */
-		setShareConfig: function() {
+		setShareConfig: async function() {
 			let item = this.list[this.selectedIndex];
-			this.shareConfig = {
-				imgUrl: item.url,
-				qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
-				scene: "scene",
-				title: item.name,
-				price: Number(item.price)
-			}
+			// this.shareConfig = {
+			// 	imgUrl: item.url,
+			// 	qRCodeUrl: 'https://feiaizn.com:1001/linkcode?id=1',
+			// 	scene: "scene",
+			// 	title: item.name,
+			// 	price: Number(item.price)
+			// }
+			
+			this.posterData={
+					url:item.url,//商品主图
+					icon:'https://www.feiaizn.com/images/20200515115542_zhehoujia.png',//醉品价图标
+					title:item.name,//标题
+					discountPrice:item.price,//折后价格
+					orignPrice:item.originalPrice,//原价
+					code:'',//小程序码
+				}
 			this.$forceUpdate()
 			console.log(this.shareConfig)
 		},

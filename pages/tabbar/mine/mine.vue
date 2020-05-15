@@ -88,7 +88,7 @@
 'use strict';
 import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO,JIFEN_PIC} from '@/config/image.js';
 import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO,TO_WEB} from '@/config/router.js';
-import { getStorage } from '@/utils/storage.js';
+import { getStorage ,setStorage} from '@/utils/storage.js';
 const { AUTH } = require('../../../config/router.js');
 import { loadIntegral } from '@/api/tabbar/todo.js';
 import * as home from "@/api/tabbar/home.js";
@@ -125,7 +125,11 @@ export default {
 	
 	methods:{
 		jifenLinkTo(){
-			let e= this.jifen
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a = this.jifen.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			// let e= this.jifen
 			console.log(e)
 			var testmsg=e.substring(e.lastIndexOf('.')+1)
 			        const extensio = testmsg === 'jpg'
@@ -189,10 +193,11 @@ export default {
 		this.loadIntegral();
 	},
 	async onLoad() {
-		
+		//登录
 			const isLogin = getStorage('isLogin');
 			if (isLogin) {
 				this.show=true
+				
 				_self =this;
 				_self.userInfo = getStorage('userInfo');
 				// this.getData(this.toYear+"-"+this.toMonth);
@@ -200,6 +205,18 @@ export default {
 				let e = await getUserRole()
 				console.log(e)
 				_self.role =e.roleName.split(',')
+				let userNew={
+					..._self.userInfo,
+					
+				}
+				userNew.role=e.roleName.split(',')
+				for(let i =0;i<userNew.role.length;i++){
+					if(userNew.role[i]=='黑卡会员'){
+						userNew.level ="黄金会员"
+					}
+					userNew.level ="普通会员"
+				}
+				setStorage('userInfo',userNew);
 				console.log(_self.role)
 				this.loadIntegral();
 				
@@ -229,13 +246,15 @@ export default {
 	}
 };
 </script>
-
+<style>
+	page{
+		background: #FFFFFF;
+	}
+</style>
 <style scoped>
 	.mine{
 		background: #FFFFFF;
-		position: absolute;
-		height: 100%;
-		width: 100%;
+		
 		padding: 20rpx 0;
 	}
 	.mine-nav{

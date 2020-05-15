@@ -6,7 +6,7 @@
 			</view>
 			<view class="mid">
 				<view style="height: 50%;line-height: 105rpx;">{{item.name}}</view>
-				<view style="height: 50%;line-height: 49rpx;font-size: 20rpx;color: #7E7E7E;">预约时间:{{item.createTime}}</view>
+				<view style="height: 50%;line-height: 49rpx;font-size: 20rpx;color: #7E7E7E;">预约时间:{{item.createTimes}}</view>
 				
 			</view>
 			<view class="right">

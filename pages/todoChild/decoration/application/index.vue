@@ -74,7 +74,7 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">月收入:</view>
-				<view class="appli_hd_item_content" style="position: relative;"><input type="text" @input='familyMonthIncomenput' v-model="dataList.familyMonthIncome" placeholder="请输入您的月收入" placeholder-class="input_color" />
+				<view class="appli_hd_item_content" style="position: relative;"><input type="number" maxlength="6" @input='familyMonthIncomenput' v-model="dataList.familyMonthIncome" placeholder="请输入您的月收入" placeholder-class="input_color" />
 				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!familyMonthIncomeShow'>元</view>
 				</view>
 			</view>
@@ -84,16 +84,16 @@
 	<view class="title">
 		<view><image :src="img[1]" mode="widthFix"></image></view>
 		
-		<view style="margin-left: 20rpx;">贷款信息:</view>
+		<view style="margin-left: 20rpx;">申请信息:</view>
 	</view>
 	<view class="application_bd">
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请金额:</view>
-			<view class="appli_hd_item_content" style="position: relative;"><input type="number" v-model="dataList.loanMoney" @input='loanMoneyinput' placeholder="请输入您的金额" placeholder-class="input_color" />
+			<view class="appli_hd_item_content" style="position: relative;"><input type="number" v-model="dataList.loanMoney" maxlength="6" @input='loanMoneyinput' placeholder="请输入您的金额" placeholder-class="input_color" />
 			<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!loanMoneyShow'>元</view>
 			</view>
 		</view>
-		<view class="application_hd_item">
+		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请周期:</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
@@ -107,7 +107,7 @@
 					</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">装修类型:</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
@@ -138,7 +138,7 @@
 		</view>
 		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
-			<view class="appli_hd_item_content appli_hd_item_content_work">
+			<view class="appli_hd_item_content appli_hd_item_content_work">s
 				<view class="uni-list uni-input-style">
 					<view class="uni-list-cell uni-input-style">
 						<view class="uni-list-cell-db uni-input-style">
@@ -337,6 +337,16 @@ export default {
 				_self.loanMoneyShow=false
 			} else{
 				_self.loanMoneyShow=true
+				if(Number(_self.dataList.loanMoney)>500000){
+					uni.showToast({
+													title: "申请额度需小于500000",
+													icon: 'none',
+													duration: 2000,
+												});
+												_self.dataList.loanMoney=500000
+												this.$forceUpdate()
+					
+				}
 			}
 		},
 		marriageRadioChange: function(evt) {

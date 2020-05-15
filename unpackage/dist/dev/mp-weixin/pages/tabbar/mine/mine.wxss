@@ -1,9 +1,12 @@
 
+page{
+	background: #FFFFFF;
+}
+
+
 .mine.data-v-dd86ab04{
 	background: #FFFFFF;
-	position: absolute;
-	height: 100%;
-	width: 100%;
+	
 	padding: 20rpx 0;
 }
 .mine-nav.data-v-dd86ab04{

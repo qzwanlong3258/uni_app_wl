@@ -4,7 +4,11 @@ import {
 import {
 	LOGIN_NOWECAHT_LOGIN,
 	SEND_VERIFICATION_CODE,
-	GET_USER_ROLE
+	GET_USER_ROLE,
+	SET_APPLY_ID,
+	GET_APPLY_ID,
+	ADD_SCORE,
+	ADD_SCORE_RECORD
 } from '@/config/api.js';
 
 //获取验证码
@@ -33,6 +37,51 @@ export function getUserRole(data) {
 	return request({
 		method: 'GET',
 		url: GET_USER_ROLE,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+
+// 获取用户角色
+export function getApplyId(data) {
+	return request({
+		method: 'GET',
+		url: GET_APPLY_ID,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+// 获取用户角色
+export function setApplyId(data) {
+	return request({
+		method: 'POST',
+		url: SET_APPLY_ID,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+
+ADD_SCORE_RECORD
+// 增加积分
+export function addScore(data) {
+	return request({
+		method: 'POST',
+		url: ADD_SCORE,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+// 增加积分记录
+export function addScoreRecord(data) {
+	return request({
+		method: 'POST',
+		url: ADD_SCORE_RECORD,
+		showLoading:false,
+		hideLoading:false,
 		data,
 	});
 }

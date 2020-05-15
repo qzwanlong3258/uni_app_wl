@@ -95,6 +95,10 @@ export default {
 				this.toast('请上传门店照片')
 				return;
 			}
+			if(!this.photoData[0].img){
+				this.toast('请上传装修案例')
+				return;
+			}
 			postShop(this.list).then(res=>{
 				uni.showToast({
 												title: "提交成功",
