@@ -4,6 +4,9 @@ const { setStorage, getStorage } = require('./storage.js')
 const { request } = require('../config/http.js')
 const { LOGIN_WECHAT_LOGIN, LOGIN_OPENID_REFRESH } = require('../config/api.js')
 import { APP_ID } from '@/config/common.js'
+import {getUserNum} from '@/api/auth.js'
+
+
 
 /**
  * 获取临时code
@@ -62,6 +65,13 @@ async function refreshToken() {
 	  // console.log(eee)
 	 let e ={}
 	 e.openid =getStorage('openId')
+	 let userNum = (await getUserNum(e)).count
+	 console.log(userNum)
+	 if(userNum == '0') {
+	 		 setStorage('newUser', true) 
+	 } else {
+	 		  setStorage('newUser', false) 
+	 }
 	 const { data } = await request({
 	   method: 'POST',
 	   url: `${LOGIN_OPENID_REFRESH}`,
@@ -97,6 +107,13 @@ async function refreshToken() {
 	 // console.log(c)
 	 setStorage('openId', c.openid)
 	 setStorage('session_key', c.session_key)
+	 let userNum = (await getUserNum({'opend': c.openid})).count
+	 console.log(userNum)
+	 if(userNum == '0') {
+		 setStorage('newUser', true) 
+	 } else {
+		  setStorage('newUser', false) 
+	 }
 	 let e ={}
 	 e.openid =getStorage('openId')
 	 // console.log(e)

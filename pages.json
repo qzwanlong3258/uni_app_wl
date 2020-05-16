@@ -305,6 +305,12 @@
 		    "style" : {
 				"navigationBarTitleText": "积分详情"
 			}
+		},
+		{
+		    "path" : "pages/todoChild/Designer/index",
+		    "style" : {
+				"navigationBarTitleText": "设计师"
+			}
 		}
     ],
 	"globalStyle": {

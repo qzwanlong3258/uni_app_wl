@@ -72,7 +72,7 @@ export default {
 		console.log(this.num)
 		// this.saveToAlbum()
 		
-		let user=_self.userInfo.id + "&" + "1"
+		let user=_self.userInfo.id 
 		console.log(user)
 		getUnlimited( {
               

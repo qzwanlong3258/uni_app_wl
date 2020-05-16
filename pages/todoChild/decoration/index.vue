@@ -1,13 +1,12 @@
 <template>
 	<view class="decoration_view-box-box " v-if='showAuth'>
 		<view :hidden='!imgShow'>
-		<view class="decoration_view-nav ">
+			<image :src="loan_pic" mode="widthFix" style="width: 100%;"></image>
+		<!-- <view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高预算</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
 			<text class="decoration_text-row-submit" @click="testLinkTo">测一测预算</text>
-			<!-- <image :src="bank_pic" mode="widthFix" class="bank_pic"></image>
-			<image :src="bank_logo" mode="widthFix" class="bank_logo"></image> -->
-		</view>
+		</view> -->
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding" style="margin-top: 20px;">
 			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)" v-if="!show">
 				<!-- <icon class="iconfont decoration_icon-menu" :class="item.icon"></icon> -->
@@ -49,11 +48,12 @@
 <script>
 	'use scrict';
 	var _self;
-	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR} from '@/config/image.js';
-	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL, TO_WEB} from '@/config/router.js';
+	import { COMPANY_LOGO ,BANK_PIC, BANK_LOGO, BANK_JH, BANK_BH, BANK_BJ, BANK_APPT, BANK_RECORD, BANK_LOOKFOR, LOAN_NAV_PIC} from '@/config/image.js';
+	import { LOAN_APPLICATION ,LOAN_SCHEDULE, LOAN_RECORD, LOAN_TESTONETEST, BANK_DETAIL, TO_WEB, TO_DESGER} from '@/config/router.js';
 	import { getStorage, setStorage } from '@/utils/storage.js';
 	const { AUTH } = require('../../../config/router.js');
 	import * as home from "@/api/tabbar/home.js";
+	
 	
 	export default {
 		data() {
@@ -69,6 +69,7 @@
 				],
 				bank_pic:BANK_PIC,
 				bank_logo:BANK_LOGO,
+				loan_pic:LOAN_NAV_PIC,
 				bank:[],
 				show:false,
 				showAuth:false,
@@ -86,16 +87,19 @@
 				uni.navigateTo({ url: LOAN_TESTONETEST });
 			},
 			linkToBank(e){
-				var testmsg=e.substring(e.lastIndexOf('.')+1)
-				        const extensio = testmsg === 'jpg'
-				        const extensio2 = testmsg === 'png'
-				        const extensio3 = testmsg === 'jpeg'
-				        if(extensio || extensio2 || extensio3) {
-				          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
-				        } else {
+				uni.navigateTo({
+					url:TO_DESGER
+				})
+				// var testmsg=e.substring(e.lastIndexOf('.')+1)
+				//         const extensio = testmsg === 'jpg'
+				//         const extensio2 = testmsg === 'png'
+				//         const extensio3 = testmsg === 'jpeg'
+				//         if(extensio || extensio2 || extensio3) {
+				//           uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+				//         } else {
 							
-						 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
-						}
+				// 		 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+				// 		}
 			},
 			getImg(){
 				home.loadHomeCarousel({type:3}).then(res => {

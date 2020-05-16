@@ -91,7 +91,12 @@ module.exports = {
 	TO_WEB:'/pages/todoChild/toLink/webview/index',
 	
 	//积分详情
-	TO_SCORE_DETAIL:'/pages/tabbar/todo/scoreDetail/index'
+	TO_SCORE_DETAIL:'/pages/tabbar/todo/scoreDetail/index',
+	
+	//设计师
+	TO_DESGER:'/pages/todoChild/Designer/index',
+	
+	
 	
 	
 }

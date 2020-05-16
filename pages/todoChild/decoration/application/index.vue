@@ -136,7 +136,7 @@
 			<view class="appli_hd_item_lable">详细地址:</view>
 			<view class="appli_hd_item_content"><input type="text" v-model="adressDetail"  placeholder="请输入您的详细地址" placeholder-class="input_color" /></view>
 		</view>
-		<!-- <view class="application_hd_item">
+		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">s
 				<view class="uni-list uni-input-style">
@@ -150,7 +150,7 @@
 				</view>
 				<view class="iconfont  iconyou iconclass" ></view>
 			</view>
-		</view> -->
+		</view>
 	</view>
 	<!-- <view class="application_ft">
 		<view class="application_hd_item">

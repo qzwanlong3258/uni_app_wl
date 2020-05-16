@@ -127,6 +127,7 @@ module.exports = {
 	//家装分期
 	BANK_PIC:`${staticUrl}/todoChild/decoration/bankmoney.png`,
 	BANK_LOGO:`${staticUrl}/todoChild/decoration/banklogo.png`,
+	LOAN_NAV_PIC:`https://www.feiaizn.com/images/20200516112553_loan.png`,
 	// 银行
 	BANK_JH:`${staticUrl}/todoChild/decoration/建设银行@2x.png`,
 	BANK_BH:`${staticUrl}/todoChild/decoration/碧海银行@2x.png`,
@@ -182,5 +183,7 @@ module.exports = {
 	//分享
 	FENXIANG:`${staticUrl}/fenxiang.png`,
 	//分销中心积分协议
-	JIFEN_PIC:'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png'
+	JIFEN_PIC:'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png',
+	//图标
+	BOTTOM_JIANTOU:'https://www.feiaizn.com/images/20200516120658_xiatubiao.png'
 }

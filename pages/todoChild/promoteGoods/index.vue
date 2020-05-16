@@ -154,7 +154,7 @@ export default {
 		saveToAlbum() {
 			// this.$refs.qrcode._makeCode();
 			_self.userInfo = getStorage('userInfo');
-			let user=_self.userInfo.id + "&" + "2"
+			let user=_self.userInfo.id
 			console.log(user)
 			getUnlimited( {
 			      

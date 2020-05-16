@@ -3,7 +3,7 @@
 	<view class="page_poster-box page_view-all-inner-padding">
 		
 		<view class="poster_view-main">
-			<button class="poster_image-logo-box" open-type="share" style="background-color: transparent;">
+			<button class="poster_image-logo-box" open-type="share" :data-id='id' style="background-color: transparent;">
 				<image class="poster_image-logo"  :src="logo" />
 				<!-- <text class="poster_text-logo-desc">扫描或长按二维码</text> -->
 			</button>
@@ -36,7 +36,8 @@
 					// list: [POSTER_1,POSTER_2,POSTER_3,POSTER_4, POSTER_5,POSTER_6]
 				},
 				logo: "",
-				imgShow:false
+				imgShow:false,
+				id:''
 			}
 		},
 		onLoad(options) {
@@ -48,6 +49,7 @@
 				})
 				_self.userInfo = getStorage('userInfo');
 				let user=_self.userInfo.id 
+				_self.id=_self.userInfo.id 
 				// console.log(user)
 				getUnlimited( {
 				      
@@ -99,7 +101,7 @@
 			　　　　var eData = options.target.dataset;
 			　　　　console.log( eData.name );     // shareBtn
 			　　　　// 此处可以修改 shareObj 中的内容
-			　　　　shareObj.path = '/pages/todoChild/poster/index';
+			　　　　shareObj.path =  '/pages/tabbar/home/home?scene='+eData.id;;
 			　　}
 			　　// 返回shareObj
 			　　return shareObj;

@@ -1,0 +1,63 @@
+
+page{
+	background: #FFFFFF;
+}
+
+
+.hd.data-v-83fe4532{
+	height: 250rpx;
+	background: #EEB949;
+	color: #FFFFFF;
+	line-height: 250rpx;
+	text-align: center;
+	font-size: 32rpx;
+	letter-spacing: 1rpx;
+}
+.bd.data-v-83fe4532{
+	padding: 80rpx 20rpx;
+}
+.box.data-v-83fe4532{
+	padding: 20rpx 40rpx 20rpx 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 28rpx;
+	border-bottom: 2rpx solid #F1F1F1;
+	margin-bottom: 40rpx;
+}
+.box-left.data-v-83fe4532{
+	-webkit-flex-basis: 200rpx;
+	        flex-basis: 200rpx;
+	color: #333333;
+	text-align: left;
+}
+.box-right.data-v-83fe4532{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	color: #666666;
+	text-align: right;
+}
+.apptMeasureHome_ft.data-v-83fe4532{
+	/* position: absolute;
+	left: 0;
+	bottom: 20rpx; */
+	width: 100%;
+	height: 100rpx;
+	margin-top: 60px;
+}
+.btn.data-v-83fe4532{
+	height: 80rpx;
+	
+	text-align: center;
+	line-height: 80rpx;
+	border-radius: 20px;
+	background: #FFE906;
+	color: #000000;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+

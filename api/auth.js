@@ -8,7 +8,8 @@ import {
 	SET_APPLY_ID,
 	GET_APPLY_ID,
 	ADD_SCORE,
-	ADD_SCORE_RECORD
+	ADD_SCORE_RECORD,
+	NEW_USER
 } from '@/config/api.js';
 
 //获取验证码
@@ -85,5 +86,16 @@ export function addScoreRecord(data) {
 		data,
 	});
 }
+// 获取用户角色
+export function getUserNum(data) {
+	return request({
+		method: 'GET',
+		url: NEW_USER,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+
 
 

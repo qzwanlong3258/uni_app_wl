@@ -1555,104 +1555,6 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 113:
-/*!***********************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/auth.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;exports.getUserRole = getUserRole;exports.getApplyId = getApplyId;exports.setApplyId = setApplyId;exports.addScore = addScore;exports.addScoreRecord = addScoreRecord;var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);
-
-
-
-
-
-
-
-
-
-//获取验证码
-function sendVerificationCode(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.SEND_VERIFICATION_CODE,
-    showSuccessToast: true,
-    data: data });
-
-}
-
-//通过手机验证码登录授权
-function getPhoneLogin(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.LOGIN_NOWECAHT_LOGIN,
-    showSuccessToast: true,
-    data: data });
-
-}
-
-
-// 获取用户角色
-function getUserRole(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_USER_ROLE,
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-
-// 获取用户角色
-function getApplyId(data) {
-  return (0, _http.request)({
-    method: 'GET',
-    url: _api.GET_APPLY_ID,
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-// 获取用户角色
-function setApplyId(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.SET_APPLY_ID,
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-
-_api.ADD_SCORE_RECORD;
-// 增加积分
-function addScore(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.ADD_SCORE,
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-// 增加积分记录
-function addScoreRecord(data) {
-  return (0, _http.request)({
-    method: 'POST',
-    url: _api.ADD_SCORE_RECORD,
-    showLoading: false,
-    hideLoading: false,
-    data: data });
-
-}
-
-/***/ }),
-
 /***/ 12:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/utils/openLogin.js ***!
@@ -1666,12 +1568,15 @@ function addScoreRecord(data) {
 
 
 
-var _common = __webpack_require__(/*! @/config/common.js */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var regeneratorRuntime = __webpack_require__(/*! ./regenerator-runtime/runtime.js */ 18);var _require = __webpack_require__(/*! ./storage.js */ 17),setStorage = _require.setStorage,getStorage = _require.getStorage;var _require2 = __webpack_require__(/*! ../config/http.js */ 19),request = _require2.request;var _require3 = __webpack_require__(/*! ../config/api.js */ 20),LOGIN_WECHAT_LOGIN = _require3.LOGIN_WECHAT_LOGIN,LOGIN_OPENID_REFRESH = _require3.LOGIN_OPENID_REFRESH;
+var _common = __webpack_require__(/*! @/config/common.js */ 16);
+var _auth = __webpack_require__(/*! @/api/auth.js */ 93);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var regeneratorRuntime = __webpack_require__(/*! ./regenerator-runtime/runtime.js */ 18);var _require = __webpack_require__(/*! ./storage.js */ 17),setStorage = _require.setStorage,getStorage = _require.getStorage;var _require2 = __webpack_require__(/*! ../config/http.js */ 19),request = _require2.request;var _require3 = __webpack_require__(/*! ../config/api.js */ 20),LOGIN_WECHAT_LOGIN = _require3.LOGIN_WECHAT_LOGIN,LOGIN_OPENID_REFRESH = _require3.LOGIN_OPENID_REFRESH;
+
+
 
 /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * 获取临时code
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * @param {超时} timeout
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * 获取临时code
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @param {超时} timeout
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 function login() {var timeout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
   return new Promise(function (resolve, reject) {
     uni.login({
@@ -1719,12 +1624,19 @@ getOpenId() {return _getOpenId.apply(this, arguments);}
 /**
                                                          * 更新token
                                                          */function _getOpenId() {_getOpenId = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var code, _ref, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return login();case 2:code = _context.sent;_context.next = 5;return request({ method: 'POST', url: "".concat(LOGIN_WECHAT_LOGIN, "?appId=").concat(_common.APP_ID, "&code=").concat(code), needToken: false, showLoading: false, showErrorModal: false }).catch(function () {console.log('调用wx.login失败');});case 5:_ref = _context.sent;data = _ref.data;setStorage('openId', data.openid);setStorage('session_key', data.session_key);setStorage('code', code);console.log(data.openid);return _context.abrupt("return", data.openid);case 12:case "end":return _context.stop();}}}, _callee);}));return _getOpenId.apply(this, arguments);}function
-refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshToken() {_refreshToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e, _ref2, data, d, c, _e, b;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
+refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshToken() {_refreshToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e, userNum, _ref2, data, d, c, _userNum, _e, b;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
 
-            getStorage('openId')) {_context2.next = 12;break;}
+            getStorage('openId')) {_context2.next = 17;break;}
             // console.log(eee)
             e = {};
             e.openid = getStorage('openId');_context2.next = 5;return (
+              (0, _auth.getUserNum)(e));case 5:userNum = _context2.sent.count;
+            console.log(userNum);
+            if (userNum == '0') {
+              setStorage('newUser', true);
+            } else {
+              setStorage('newUser', false);
+            }_context2.next = 10;return (
               request({
                 method: 'POST',
                 url: "".concat(LOGIN_OPENID_REFRESH),
@@ -1735,18 +1647,18 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
                 errorText: 'openId刷新失败',
                 returnHeader: true,
                 data: e }).
-              catch(function (err) {return console.log(err);}));case 5:_ref2 = _context2.sent;data = _ref2.data;
+              catch(function (err) {return console.log(err);}));case 10:_ref2 = _context2.sent;data = _ref2.data;
             setStorage('tempToken', data.token);
             setStorage('userInfo', data.UserInfo);
             if (!data.token) {
               setStorage('isLogin', false);
             } else {
               setStorage('isLogin', true);
-            }_context2.next = 28;break;case 12:
+            }_context2.next = 38;break;case 17:
 
             // console.log(12)
-            d = {};_context2.next = 15;return (
-              login());case 15:d.code = _context2.sent;_context2.next = 18;return (
+            d = {};_context2.next = 20;return (
+              login());case 20:d.code = _context2.sent;_context2.next = 23;return (
               request({
                 method: 'POST',
                 url: "".concat(LOGIN_WECHAT_LOGIN),
@@ -1756,14 +1668,21 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
                 data: d }).
               catch(function () {
                 console.log('调用wx.login失败');
-              }));case 18:c = _context2.sent;
+              }));case 23:c = _context2.sent;
             // console.log(c)
             setStorage('openId', c.openid);
-            setStorage('session_key', c.session_key);
+            setStorage('session_key', c.session_key);_context2.next = 28;return (
+              (0, _auth.getUserNum)({ 'opend': c.openid }));case 28:_userNum = _context2.sent.count;
+            console.log(_userNum);
+            if (_userNum == '0') {
+              setStorage('newUser', true);
+            } else {
+              setStorage('newUser', false);
+            }
             _e = {};
             _e.openid = getStorage('openId');
             // console.log(e)
-            _context2.next = 25;return request({
+            _context2.next = 35;return request({
               method: 'POST',
               url: "".concat(LOGIN_OPENID_REFRESH),
               needToken: false,
@@ -1773,7 +1692,7 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
               errorText: 'openId刷新失败',
               returnHeader: true,
               data: _e }).
-            catch(function (err) {return console.log(err);});case 25:b = _context2.sent;
+            catch(function (err) {return console.log(err);});case 35:b = _context2.sent;
             console.log(b);
             if (b.code == 0) {
               setStorage('tempToken', b.data.token);
@@ -1788,7 +1707,7 @@ refreshToken() {return _refreshToken.apply(this, arguments);}function _refreshTo
             // } else{
             // 	setStorage('isLogin',true)
             // }
-          case 28:case "end":return _context2.stop();}}}, _callee2);}));return _refreshToken.apply(this, arguments);}
+          case 38:case "end":return _context2.stop();}}}, _callee2);}));return _refreshToken.apply(this, arguments);}
 
 
 
@@ -1812,7 +1731,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
 
 /***/ }),
 
-/***/ 130:
+/***/ 132:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/measureHome.js ***!
   \******************************************************************/
@@ -1871,7 +1790,55 @@ function getMyShop(data) {
 
 /***/ }),
 
-/***/ 138:
+/***/ 14:
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(/*! ./runtime */ 15);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+
+/***/ 140:
 /*!*********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/loan.js ***!
   \*********************************************************************/
@@ -1885,7 +1852,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.loanAppt =
 var _api = __webpack_require__(/*! @/config/api.js */ 20);var _require =
 
 
-__webpack_require__(/*! ./storage.js */ 139),getStorage = _require.getStorage;
+__webpack_require__(/*! ./storage.js */ 141),getStorage = _require.getStorage;
 
 function loanAppt(data) {
   // let token=getStorage('tempToken')
@@ -1988,7 +1955,7 @@ function getIssue(data) {
 
 /***/ }),
 
-/***/ 139:
+/***/ 141:
 /*!************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/storage.js ***!
   \************************************************************************/
@@ -2106,54 +2073,6 @@ module.exports = {
   clearStorage: clearStorage,
   getStorageInfo: getStorageInfo };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 14:
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ 15);
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
 
 /***/ }),
 
@@ -2889,7 +2808,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 150:
+/***/ 152:
 /*!*************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/myWork.js ***!
   \*************************************************************/
@@ -10092,7 +10011,14 @@ module.exports = {
   GET_USER_ROLE: "".concat(baseUrl, "/user/loadRoleList"),
   /** 设置邀请人id**/
   SET_APPLY_ID: "".concat(baseUrl, "/wx/user/setApplyId"),
-  GET_APPLY_ID: "".concat(baseUrl, "/wx/user/loadApplyId") };
+  GET_APPLY_ID: "".concat(baseUrl, "/wx/user/loadApplyId"),
+  /** 积分**/
+  ADD_SCORE: "".concat(baseUrl, "/wx/user/addIntegral"),
+  ADD_SCORE_RECORD: "".concat(baseUrl, "/wx/user/insertIntegralInfo"),
+  /** 设计师**/
+  SHE_JI_SHI: "".concat(baseUrl, "/design/submitDesign"),
+  /** 新用户**/
+  NEW_USER: "".concat(baseUrl, "/wx/user/openIdCount") };
 
 /***/ }),
 
@@ -10197,11 +10123,14 @@ module.exports = {
   TO_WEB: '/pages/todoChild/toLink/webview/index',
 
   //积分详情
-  TO_SCORE_DETAIL: '/pages/tabbar/todo/scoreDetail/index' };
+  TO_SCORE_DETAIL: '/pages/tabbar/todo/scoreDetail/index',
+
+  //设计师
+  TO_DESGER: '/pages/todoChild/Designer/index' };
 
 /***/ }),
 
-/***/ 215:
+/***/ 217:
 /*!***************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/activity.js ***!
   \***************************************************************/
@@ -10366,7 +10295,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 244:
+/***/ 246:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/customerList.js ***!
   \*****************************************************************************/
@@ -10415,6 +10344,53 @@ var store = new _vuex.default.Store({
 
 
 store;exports.default = _default;
+
+/***/ }),
+
+/***/ 255:
+/*!*********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.getUnlimited = getUnlimited;exports.postDesigner = postDesigner;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+
+
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 获取二维码
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */function
+getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+/**
+                                                                 * 设计师
+                                                                 */function _getUnlimited() {_getUnlimited = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {var accessToken;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:accessToken = getApp().globalData.accessToken;_context.t0 = !accessToken;if (!_context.t0) {_context.next = 8;break;}_context.next = 5;return (0, _http.request)({ method: 'GET', url: _api.GET_ACCESS_TOKEN });case 5:_context.t1 = accessToken = _context.sent.access_token;if (!_context.t1) {_context.next = 8;break;}getApp().globalData.accessToken = accessToken;case 8:return _context.abrupt("return", (0, _http.request)({ method: 'POST', url: _api.GET_UNLIMITED, data: _objectSpread({ "access_token": accessToken }, data) }));case 9:case "end":return _context.stop();}}}, _callee);}));return _getUnlimited.apply(this, arguments);}
+
+function postDesigner(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.SHE_JI_SHI,
+    showSuccessToast: true,
+    data: data });
+
+}
 
 /***/ }),
 
@@ -11369,7 +11345,23 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 269:
+/***/ 27:
+/*!****************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/store/getters.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var getters = {};var _default =
+
+
+
+getters;exports.default = _default;
+
+/***/ }),
+
+/***/ 272:
 /*!***********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/todoChild/poster.js ***!
   \***********************************************************************/
@@ -11391,22 +11383,6 @@ function getPoster(data) {
     data: data });
 
 }
-
-/***/ }),
-
-/***/ 27:
-/*!****************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/store/getters.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var getters = {};var _default =
-
-
-
-getters;exports.default = _default;
 
 /***/ }),
 
@@ -11578,6 +11554,7 @@ module.exports = {
   //家装分期
   BANK_PIC: "".concat(staticUrl, "/todoChild/decoration/bankmoney.png"),
   BANK_LOGO: "".concat(staticUrl, "/todoChild/decoration/banklogo.png"),
+  LOAN_NAV_PIC: "https://www.feiaizn.com/images/20200516112553_loan.png",
   // 银行
   BANK_JH: "".concat(staticUrl, "/todoChild/decoration/\u5EFA\u8BBE\u94F6\u884C@2x.png"),
   BANK_BH: "".concat(staticUrl, "/todoChild/decoration/\u78A7\u6D77\u94F6\u884C@2x.png"),
@@ -11633,11 +11610,13 @@ module.exports = {
   //分享
   FENXIANG: "".concat(staticUrl, "/fenxiang.png"),
   //分销中心积分协议
-  JIFEN_PIC: 'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png' };
+  JIFEN_PIC: 'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png',
+  //图标
+  BOTTOM_JIANTOU: 'https://www.feiaizn.com/images/20200516120658_xiatubiao.png' };
 
 /***/ }),
 
-/***/ 344:
+/***/ 347:
 /*!******************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/tabbar/mine.js ***!
   \******************************************************************/
@@ -11756,7 +11735,7 @@ function loadCity(data) {
 
 /***/ }),
 
-/***/ 408:
+/***/ 411:
 /*!*****************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/province.js ***!
   \*****************************************************************************************/
@@ -11906,7 +11885,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 409:
+/***/ 412:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/city.js ***!
   \*************************************************************************************/
@@ -13420,7 +13399,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 410:
+/***/ 413:
 /*!*************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/city-data/area.js ***!
   \*************************************************************************************/
@@ -25973,7 +25952,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 411:
+/***/ 414:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/w-picker/w-picker.js ***!
   \*******************************************************************************/
@@ -26634,7 +26613,7 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 424:
+/***/ 427:
 /*!*************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/api/inShop.js ***!
   \*************************************************************/
@@ -26663,7 +26642,7 @@ function postShop(data) {
 
 /***/ }),
 
-/***/ 440:
+/***/ 443:
 /*!*******************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/tki-qrcode/qrcode.js ***!
   \*******************************************************************************/
@@ -28300,7 +28279,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 481:
+/***/ 484:
 /*!***********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/utils/qqmap-wx-jssdk.js ***!
   \***********************************************************************/
@@ -30421,7 +30400,7 @@ main();
 
 /***/ }),
 
-/***/ 560:
+/***/ 563:
 /*!**********************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/store/mutationTypes.js ***!
   \**********************************************************************/
@@ -30863,7 +30842,19 @@ function loadIntegralDeyail(data) {
 
 /***/ }),
 
-/***/ 699:
+/***/ 7:
+/*!***************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"style"} ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" }, "usingAutoImportComponents": {} }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" }, "usingAutoImportComponents": {} }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务", "usingComponents": { "ljl-states": "/pages/todoChild/myWorkPhoto/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" }, "usingAutoImportComponents": {} }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas", "hch-poster": "/wxcomponents/hch-poster/hch-poster", "tki-qrcode": "/components/tki-qrcode/tki-qrcode" }, "usingAutoImportComponents": {} }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup", "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "uni-steps": "/components/uni-steps/uni-steps", "ljl-states": "/components/LjlStates", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "uni-steps": "/components/uni-steps/uni-steps" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {}, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户", "usingComponents": {}, "usingAutoImportComponents": { "tki-qrcode": "/components/tki-qrcode/tki-qrcode" } }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到", "usingComponents": { "model-calendar": "/components/Calendar" }, "usingAutoImportComponents": {} }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/todo/scoreDetail/index": { "navigationBarTitleText": "积分详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/Designer/index": { "navigationBarTitleText": "设计师" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
+
+/***/ }),
+
+/***/ 702:
 /*!**********************************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvasUtil.js ***!
   \**********************************************************************************************************************/
@@ -30871,7 +30862,7 @@ function loadIntegralDeyail(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 700);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.IWX = exports.renum = exports.Result = void 0;var _wx = __webpack_require__(/*! @/api/wx.js */ 255);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 
 /************************************ 工具类 *******************************/
 
@@ -31399,50 +31390,7 @@ ShareCanvas = /*#__PURE__*/function () {_createClass(ShareCanvas, null, [{ key: 
 
 /***/ }),
 
-/***/ 7:
-/*!***************************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"style"} ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tabbar/home/home": { "navigationBarTitleText": "非客钱包", "navigationStyle": "custom", "usingComponents": { "yld-top": "/pages/tabbar/home/components/YldTop", "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/home/components/YldNav", "yld-hot": "/pages/tabbar/home/components/YldHot" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderList/orderList": { "navigationBarTitleText": "订单列表", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton", "no-more-data": "/components/NoMoreData", "ljl-order-menu": "/components/LjlOrderMenu/index", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/orderDetail/orderDetail": { "navigationBarTitleText": "订单详情", "usingComponents": { "order-infor": "/components/OrderInfor", "order-button": "/components/OrderButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/writeOrder/writeOrder": { "navigationBarTitleText": "填写订单", "usingComponents": { "order-infor": "/components/OrderInfor", "yld-address": "/components/YldAddress" }, "usingAutoImportComponents": {} }, "pages/todoChild/shopDetail/shopDetail": { "navigationBarTitleText": "商品详情", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor", "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/tabbar/todo/todo": { "navigationBarTitleText": "积分商城", "usingComponents": { "swiper-img": "/components/SwiperImg", "yld-nav": "/pages/tabbar/todo/components/YldNav", "yld-shop": "/pages/tabbar/todo/components/YldShop" }, "usingAutoImportComponents": {} }, "pages/auth/auth": { "navigationBarTitleText": "授权", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/openMember/index": { "navigationBarTitleText": "开通会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/mine/mine": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/swapRole/index": { "navigationBarTitleText": "角色互换", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/apptRecord/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "ljl-states": "/pages/todoChild/apptRecord/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/index": { "navigationBarTitleText": "我的工作", "usingComponents": { "ljl-states": "/pages/todoChild/myWork/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWork/myWorkDetail/index": { "navigationBarTitleText": "我的工作", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/index": { "navigationBarTitleText": "拍照任务", "usingComponents": { "ljl-states": "/pages/todoChild/myWorkPhoto/components/changeStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/myWorkPhoto/myWorkPhotoDetail/index": { "navigationBarTitleText": "拍照任务", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/refundOrder/refundOrder": { "navigationBarTitleText": "退单详情", "usingComponents": { "order-infor": "/components/OrderInfor" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressIndex/addressIndex": { "navigationBarTitleText": "地址列表", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/address/addressDetail/addressDetail": { "navigationBarTitleText": "操作地址", "usingComponents": { "gxg-button": "/components/GxgButton" }, "usingAutoImportComponents": {} }, "pages/todoChild/recommended/index": { "navigationBarTitleText": "推荐中心", "usingComponents": { "ljl-activity": "/pages/todoChild/recommended/components/LjlActivity", "ljl-states": "/components/LjlStates" }, "usingAutoImportComponents": {} }, "pages/todoChild/distribution/index": { "navigationBarTitleText": "分销中心", "usingComponents": { "ljl-nav": "/components/LjlNav", "ljl-showroom-item": "/pages/todoChild/distribution/components/LjlShowroomItem", "ljl-menu": "/components/LjlMenu/index" }, "usingAutoImportComponents": {} }, "pages/todoChild/member/index": { "navigationBarTitleText": "推荐会员", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/customerList/index": { "navigationBarTitleText": "客户列表", "usingComponents": { "ljl-menu": "/components/LjlMenu/index", "ljl-states": "/components/LjlStates", "ljl-customer-infor": "/pages/todoChild/customerList/components/LjlCustomerInfor", "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/promoteGoods/index": { "navigationBarTitleText": "推广商品", "usingComponents": { "search": "/components/Search", "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo", "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas", "hch-poster": "/wxcomponents/hch-poster/hch-poster", "tki-qrcode": "/components/tki-qrcode/tki-qrcode" }, "usingAutoImportComponents": {} }, "pages/todoChild/withdraw/index": { "navigationBarTitleText": "提现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/poster/index": { "navigationBarTitleText": "专属海报", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/index": { "navigationBarTitleText": "装修分期", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/decorationPicture/index": { "navigationBarTitleText": "装修分期付，轻松就入住", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/index": { "navigationBarTitleText": "额度申请", "usingComponents": { "section-one": "/pages/todoChild/decoration/testonetest/components/sectionOne", "section-two": "/pages/todoChild/decoration/testonetest/components/sectionTwo", "section-three": "/pages/todoChild/decoration/testonetest/components/sectionThree", "section-four": "/pages/todoChild/decoration/testonetest/components/sectionFour", "section-five": "/pages/todoChild/decoration/testonetest/components/sectionFive", "section-six": "/pages/todoChild/decoration/testonetest/components/sectionSix" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/testonetest/testonetestsubmit/index": { "navigationBarTitleText": "额度申请", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/application/index": { "navigationBarTitleText": "申请", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "uni-popup": "/components/uni-popup/uni-popup", "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/decoration/schedule/index": { "navigationBarTitleText": "贷款进度", "usingComponents": { "uni-steps": "/components/uni-steps/uni-steps", "ljl-states": "/components/LjlStates", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "uni-steps": "/components/uni-steps/uni-steps" } }, "pages/todoChild/decoration/record/index": { "navigationBarTitleText": "申请记录", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/decoration/record/recordDetail/index": { "navigationBarTitleText": "申请记录详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/index": { "navigationBarTitleText": "约量房", "usingComponents": { "simple-address": "/components/simple-address-normal/simple-address" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/todoChild/measureHome/ApptMeasureHome/success/index": { "navigationBarTitleText": "约量房", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/measureHome/ApptMeasureHome/chooseBussiness/index": { "navigationBarTitleText": "商户选择", "usingComponents": { "w-picker": "/components/w-picker/w-picker", "null-data": "/components/NullData" }, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/measureHome/queryProgress/index": { "navigationBarTitleText": "进度查询", "usingComponents": { "null-data": "/components/NullData" }, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/index": { "navigationBarTitleText": "好店入驻", "usingComponents": {}, "usingAutoImportComponents": { "w-picker": "/components/w-picker/w-picker" } }, "pages/todoChild/inShop/upload/index": { "navigationBarTitleText": "上传资料", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inShop/inviteShop/index": { "navigationBarTitleText": "邀请商户", "usingComponents": {}, "usingAutoImportComponents": { "tki-qrcode": "/components/tki-qrcode/tki-qrcode" } }, "pages/todoChild/recommendCenter/index": { "navigationBarTitleText": "推荐中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/inviteGift/index": { "navigationBarTitleText": "邀请有礼", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/calender/index": { "navigationBarTitleText": "签到", "usingComponents": { "model-calendar": "/components/Calendar" }, "usingAutoImportComponents": {} }, "pages/todoChild/camera/index": { "navigationBarTitleText": "拍照", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/bankDetail/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/privacy/index": { "navigationBarTitleText": "隐私政策", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/service/index": { "navigationBarTitleText": "服务协议", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/todoChild/toLink/webview/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/tabbar/todo/scoreDetail/index": { "navigationBarTitleText": "积分详情", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "非客有家", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#fff" } };exports.default = _default;
-
-/***/ }),
-
-/***/ 700:
-/*!*********************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/api/wx.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getUnlimited = getUnlimited;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));var _http = __webpack_require__(/*! @/config/http.js */ 19);
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
-
-
-
-
-/**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 获取二维码
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */function
-getUnlimited(_x) {return _getUnlimited.apply(this, arguments);}function _getUnlimited() {_getUnlimited = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {var accessToken;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-            accessToken = getApp().globalData.accessToken;_context.t0 =
-            !accessToken;if (!_context.t0) {_context.next = 8;break;}_context.next = 5;return (0, _http.request)({ method: 'GET', url: _api.GET_ACCESS_TOKEN });case 5:_context.t1 = accessToken = _context.sent.access_token;if (!_context.t1) {_context.next = 8;break;}getApp().globalData.accessToken = accessToken;case 8:return _context.abrupt("return",
-            (0, _http.request)({
-              method: 'POST',
-              url: _api.GET_UNLIMITED,
-              data: _objectSpread({
-                "access_token": accessToken },
-              data) }));case 9:case "end":return _context.stop();}}}, _callee);}));return _getUnlimited.apply(this, arguments);}
-
-/***/ }),
-
-/***/ 757:
+/***/ 759:
 /*!***********************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/province.js ***!
   \***********************************************************************************************/
@@ -31596,7 +31544,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 758:
+/***/ 760:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/city.js ***!
   \*******************************************************************************************/
@@ -33114,7 +33062,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 759:
+/***/ 761:
 /*!*******************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address/city-data/area.js ***!
   \*******************************************************************************************/
@@ -45739,7 +45687,7 @@ function getGoodsConvert(data) {var
 
 /***/ }),
 
-/***/ 774:
+/***/ 776:
 /*!******************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/province.js ***!
   \******************************************************************************************************/
@@ -45893,7 +45841,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 775:
+/***/ 777:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/city.js ***!
   \**************************************************************************************************/
@@ -47411,7 +47359,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 776:
+/***/ 778:
 /*!**************************************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/simple-address-normal/city-data/area.js ***!
   \**************************************************************************************************/
@@ -59970,7 +59918,19 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 798:
+/***/ 8:
+/*!**************************************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"stat"} ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__B837C14" };exports.default = _default;
+
+/***/ }),
+
+/***/ 800:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/lb-picker/utils.js ***!
   \*****************************************************************************/
@@ -59989,19 +59949,7 @@ function getIndicatorHeight() {
 
 /***/ }),
 
-/***/ 8:
-/*!**************************************************************************!*\
-  !*** D:/laragon/www/wl_project/feike_uni_app/pages.json?{"type":"stat"} ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__B837C14" };exports.default = _default;
-
-/***/ }),
-
-/***/ 827:
+/***/ 829:
 /*!*****************************************************************************!*\
   !*** D:/laragon/www/wl_project/feike_uni_app/components/uni-icons/icons.js ***!
   \*****************************************************************************/
@@ -60138,7 +60086,7 @@ var _image = __webpack_require__(/*! @/config/image.js */ 34);
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _openLogin2 = __webpack_require__(/*! ../../utils/openLogin */ 12);
 var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js */ 35));
-var _auth = __webpack_require__(/*! @/api/auth.js */ 113);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _auth = __webpack_require__(/*! @/api/auth.js */ 93);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 
 
 
@@ -60236,19 +60184,21 @@ var wxAuth = {
                 e = (0, _storage.getStorage)('applyId');if (!
                 e) {_context.next = 11;break;}_context.next = 11;return (
                   (0, _auth.setApplyId)({
-                    applyId: e }));case 11:
+                    applyId: e }));case 11:if (!
+
+
+                (0, _storage.getStorage)('newUser')) {_context.next = 16;break;}_context.next = 14;return (
+                  (0, _auth.addScore)({
+                    id: e,
+                    integral: "500" }));case 14:_context.next = 16;return (
+
+                  (0, _auth.addScoreRecord)({
+                    userid: e,
+                    money: "500",
+                    msg: "邀请用户赠送500积分" }));case 16:
 
 
 
-                // await addScore({
-                //          id: e,
-                //          integral: "500"
-                //          })
-                // await addScoreRecord({
-                //       userid: e,
-                //       money: "500",
-                //       msg: "邀请用户赠送500积分"
-                //      })
 
 
 
@@ -60281,7 +60231,7 @@ var wxAuth = {
 
                     } });
 
-                }case 14:case "end":return _context.stop();}}}, _callee, this);}));function yesBtn() {return _yesBtn.apply(this, arguments);}return yesBtn;}(),
+                }case 19:case "end":return _context.stop();}}}, _callee, this);}));function yesBtn() {return _yesBtn.apply(this, arguments);}return yesBtn;}(),
 
 
 
@@ -60362,6 +60312,115 @@ var wxAuth = {
 
 wxAuth;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 93:
+/*!***********************************************************!*\
+  !*** D:/laragon/www/wl_project/feike_uni_app/api/auth.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;exports.getUserRole = getUserRole;exports.getApplyId = getApplyId;exports.setApplyId = setApplyId;exports.addScore = addScore;exports.addScoreRecord = addScoreRecord;exports.getUserNum = getUserNum;var _http = __webpack_require__(/*! @/config/http.js */ 19);
+
+
+var _api = __webpack_require__(/*! @/config/api.js */ 20);
+
+
+
+
+
+
+
+
+
+
+//获取验证码
+function sendVerificationCode(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.SEND_VERIFICATION_CODE,
+    showSuccessToast: true,
+    data: data });
+
+}
+
+//通过手机验证码登录授权
+function getPhoneLogin(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.LOGIN_NOWECAHT_LOGIN,
+    showSuccessToast: true,
+    data: data });
+
+}
+
+
+// 获取用户角色
+function getUserRole(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_USER_ROLE,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+// 获取用户角色
+function getApplyId(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.GET_APPLY_ID,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+// 获取用户角色
+function setApplyId(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.SET_APPLY_ID,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+
+_api.ADD_SCORE_RECORD;
+// 增加积分
+function addScore(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.ADD_SCORE,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+// 增加积分记录
+function addScoreRecord(data) {
+  return (0, _http.request)({
+    method: 'POST',
+    url: _api.ADD_SCORE_RECORD,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
+// 获取用户角色
+function getUserNum(data) {
+  return (0, _http.request)({
+    method: 'GET',
+    url: _api.NEW_USER,
+    showLoading: false,
+    hideLoading: false,
+    data: data });
+
+}
 
 /***/ })
 

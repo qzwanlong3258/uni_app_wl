@@ -3,7 +3,8 @@ import {
 } from '@/config/http.js';
 import {
 	GET_ACCESS_TOKEN,
-	GET_UNLIMITED
+	GET_UNLIMITED,
+	SHE_JI_SHI
 } from '@/config/api.js';
 
 /**
@@ -19,5 +20,17 @@ export async function getUnlimited(data) {
 			"access_token": accessToken,
 			...data
 		}
+	});
+}
+/**
+ * 设计师
+ */
+
+export function postDesigner(data) {
+	return request({
+		method: 'POST',
+		url: SHE_JI_SHI,
+		showSuccessToast: true,
+		data
 	});
 }

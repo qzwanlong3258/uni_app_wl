@@ -100,6 +100,15 @@ module.exports = {
 	/** 设置邀请人id**/
 	SET_APPLY_ID:`${baseUrl}/wx/user/setApplyId`,
 	GET_APPLY_ID:`${baseUrl}/wx/user/loadApplyId`,
+	/** 积分**/
+	ADD_SCORE:`${baseUrl}/wx/user/addIntegral`,
+	ADD_SCORE_RECORD:`${baseUrl}/wx/user/insertIntegralInfo`,
+	/** 设计师**/
+	SHE_JI_SHI:`${baseUrl}/design/submitDesign`,
+	/** 新用户**/
+	NEW_USER:`${baseUrl}/wx/user/openIdCount`,
+	
+	
 	
 	
 	

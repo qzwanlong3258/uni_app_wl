@@ -122,16 +122,18 @@ const wxAuth = {
 				      applyId: e
 				  })
 			}
+			if(getStorage('newUser')){
+				await addScore({
+				    id: e,
+				    integral: "500"
+				    })
+					await addScoreRecord({
+				 userid: e,
+				 money: "500",
+				 msg: "邀请用户赠送500积分"
+				})
+			}
 			
-			// await addScore({
-   //          id: e,
-   //          integral: "500"
-   //          })
-			// await addScoreRecord({
-   //       userid: e,
-   //       money: "500",
-   //       msg: "邀请用户赠送500积分"
-   //      })
 			
 			
 			
