@@ -9,7 +9,7 @@
 			</view>
 		</view>
 	</view> -->
-	<view class="application">
+	<view class="application" v-if="showAuth">
 		<view class="title">
 			<view><image :src="img[0]" mode="widthFix"></image></view>
 			
@@ -93,7 +93,7 @@
 			<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!loanMoneyShow'>元</view>
 			</view>
 		</view>
-		<!-- <view class="application_hd_item">
+		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">申请周期:</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
@@ -107,7 +107,7 @@
 					</view>
 				</view>
 			</view>
-		</view> -->
+		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">装修类型:</view>
 			<view class="appli_hd_item_content appli_hd_item_content_work">
@@ -136,9 +136,9 @@
 			<view class="appli_hd_item_lable">详细地址:</view>
 			<view class="appli_hd_item_content"><input type="text" v-model="adressDetail"  placeholder="请输入您的详细地址" placeholder-class="input_color" /></view>
 		</view>
-		<view class="application_hd_item">
+		<!-- <view class="application_hd_item">
 			<view class="appli_hd_item_lable">期数</view>
-			<view class="appli_hd_item_content appli_hd_item_content_work">s
+			<view class="appli_hd_item_content appli_hd_item_content_work">
 				<view class="uni-list uni-input-style">
 					<view class="uni-list-cell uni-input-style">
 						<view class="uni-list-cell-db uni-input-style">
@@ -150,7 +150,7 @@
 				</view>
 				<view class="iconfont  iconyou iconclass" ></view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 	<!-- <view class="application_ft">
 		<view class="application_hd_item">
@@ -231,9 +231,11 @@ import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
 import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
 import simpleAddress from "@/components/simple-address-normal/simple-address.nvue";
-import { getStorage } from '@/utils/storage.js';
+
 
 import { loanAppt } from '@/api/todoChild/loan.js'
+import { getStorage ,setStorage } from '@/utils/storage.js';
+		const { AUTH } = require('../../../../config/router.js');
 var _self;
 export default {
 	data() {
@@ -302,7 +304,8 @@ export default {
 				                pickerText: '北京市 市辖区 西城区',
 								adressDetail:'',
 								familyMonthIncomeShow:false,
-								loanMoneyShow:false
+								loanMoneyShow:false,
+								showAuth:false
 								
 			
 			
@@ -319,6 +322,19 @@ export default {
 		_self.dataList.latitude=22.686206,
 		_self.dataList.longitude=114.230672,
 		_self.dataList.did =getStorage('userInfo').avatarUrl;
+		
+		
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+		} else {
+			
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url:`${AUTH}?name=${'loanApply'}`
+			});	
+			}
 		
 	},
 	methods: {

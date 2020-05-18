@@ -265,7 +265,7 @@ var _self;var _default =
       return Number(val).toFixed(2);
     },
     arry: function arry(val) {
-      var b = ["待预审", "预审通过（待面签）", "预审没过", "面签通过", "面签未通过"];
+      var b = ["待预审", "预审通过（待面签）", "预审失败", "面签通过", "面签失败"];
       var e = Number(val) - 1;
       return b[e];
     },

@@ -158,6 +158,7 @@ var _default = { props: { imgList: { type: Array }, heightNum: { type: Number, d
       this.dotIndex = e.detail.current;
     },
     linkToPage: function linkToPage(e) {
+      if (!e) {return;}
       var testmsg = e.substring(e.lastIndexOf('.') + 1);
       var extensio = testmsg === 'jpg';
       var extensio2 = testmsg === 'png';

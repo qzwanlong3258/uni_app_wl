@@ -6,7 +6,7 @@
 					<image :src="userInfo.avatarUrl" class="recomCenter-nav-top-img" mode="aspectFill">
 				</view>
 			</view>
-			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">WELCOME</view>
+			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view>
 			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">普通会员</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 20rpx 200rpx 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">10249人</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">加入黄金会员</view>

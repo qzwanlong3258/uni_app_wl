@@ -219,6 +219,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
@@ -243,9 +255,9 @@ var _self;var _default = _defineProperty({
         // nickName:'李三',
         // phone:'广东 深圳'
       },
-      img: [_image.MINE_MONEY, _image.MINE_INTEGRAL],
+      img: [_image.MINE_MONEY, _image.MINE_INTEGRAL, _image.RECOMMEND_COUPON, _image.RECOMMEND_POINT],
       imgMeaLoan: [_image.MINE_MEASURE, _image.MINE_LOAN],
-      imgNav: [_image.MINE_RECOMMEND, _image.MINE_INTEGRAL_LOGO, _image.MINE_SHARE_CENTER, _image.MINE_ADRESS],
+      imgNav: [_image.MINE_RECOMMEND, _image.MINE_INTEGRAL_LOGO, _image.MINE_SHARE_CENTER, _image.MINE_ADRESS, _image.MINE_DESIGER, _image.MINE_ROLE_CHANGE],
       index: '',
       role: '',
       imglogo: _image.TOUXIANG_LOGO,
@@ -259,6 +271,12 @@ var _self;var _default = _defineProperty({
   },
 
   methods: {
+    // 去积分详情
+    toScoreDetail: function toScoreDetail() {
+      uni.navigateTo({
+        url: _router.TO_SCORE_DETAIL });
+
+    },
     jifenLinkTo: function jifenLinkTo() {
       var ch = "/";
       // var str = "这是一/个变量，这是一个变量";
@@ -288,10 +306,11 @@ var _self;var _default = _defineProperty({
       switch (value) {
         case "签到日历":return _router.CALENDER;
         case "黄金会员":return _router.OPENMEMBER;
-        case "推荐中心":return _router.RECOMMENDCENTER;
+        case "推荐中心":return _router.RECOMMENDED;
         case "分销中心":return _router.DISTRIBUTION;
         case "地址管理":return "".concat(_router.ADDRESS_INDEX, "?operating=updateAddress");
-        case "角色切换":return _router.SWAPROLE;}
+        case "角色切换":return _router.SWAPROLE;
+        case "设计师认证":return _router.TO_DESGER;}
 
     },
     linkToUrl: function linkToUrl(e) {
@@ -327,10 +346,10 @@ var _self;var _default = _defineProperty({
   onShow: function onShow() {
     this.loadIntegral();
   },
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;var isLogin, e, userNew, i, pages;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;var isLogin, e, userNew, i, _userNew, _i, pages;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               //登录
               isLogin = (0, _storage.getStorage)('isLogin');if (!
-              isLogin) {_context.next = 20;break;}
+              isLogin) {_context.next = 16;break;}
               this.show = true;
 
               _self = this;
@@ -339,33 +358,50 @@ var _self;var _default = _defineProperty({
               _self.index = (0, _storage.getStorage)('index');_context.next = 8;return (
                 (0, _auth.getUserRole)());case 8:e = _context.sent;
               console.log(e);
-              _self.role = e.roleName.split(',');
-              userNew = _objectSpread({},
-              _self.userInfo);
+              if (e.roleName) {
+                _self.role = e.roleName.split(',');
+                userNew = _objectSpread({},
+                _self.userInfo);
 
 
-              userNew.role = e.roleName.split(',');
-              for (i = 0; i < userNew.role.length; i++) {
-                if (userNew.role[i] == '黑卡会员') {
-                  userNew.level = "黄金会员";
+                userNew.role = e.roleName.split(',');
+                for (i = 0; i < userNew.role.length; i++) {
+                  if (userNew.role[i] == '黑卡会员') {
+                    userNew.level = "黄金会员";
+                  }
+                  userNew.level = "普通会员";
                 }
-                userNew.level = "普通会员";
+                (0, _storage.setStorage)('userInfo', userNew);
+              } else {
+                _self.role = [];
+                _userNew = _objectSpread({},
+                _self.userInfo);
+
+
+                _userNew.role = [];
+                for (_i = 0; _i < _userNew.role.length; _i++) {
+                  if (_userNew.role[_i] == '黑卡会员') {
+                    _userNew.level = "黄金会员";
+                  }
+                  _userNew.level = "普通会员";
+                }
+                (0, _storage.setStorage)('userInfo', _userNew);
               }
-              (0, _storage.setStorage)('userInfo', userNew);
+
               console.log(_self.role);
               this.loadIntegral();
 
               home.loadHomeCarousel({ type: 4 }).then(function (res) {
                 _this.jifen = res.list.find(function (item) {return item.url == '积分协议';}).img;
 
-              });_context.next = 24;break;case 20:
+              });_context.next = 20;break;case 16:
 
 
 
               pages = getCurrentPages();if (!(
-              pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0)) {_context.next = 23;break;}return _context.abrupt("return");case 23:
+              pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0)) {_context.next = 19;break;}return _context.abrupt("return");case 19:
               uni.reLaunch({
-                url: "".concat(AUTH, "?name=", 'mine') });case 24:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() }, "onShow", function () {var _onShow = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                url: "".concat(AUTH, "?name=", 'mine') });case 20:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() }, "onShow", function () {var _onShow = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
 
 
 

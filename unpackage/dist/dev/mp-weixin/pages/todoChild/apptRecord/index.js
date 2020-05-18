@@ -100,7 +100,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l0 = _vm.__map(_vm.dataList, function(item, index) {
+  var l0 = _vm.__map(_vm.dataListW, function(item, index) {
     var f0 = _vm._f("num")(item.loanMoney)
 
     return {
@@ -205,6 +205,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
@@ -230,8 +246,8 @@ var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);function _in
 
       nullContent: '暂无数据',
       show: true,
-      img: _image.BANK_LOGO,
-      dataList: [] };
+      img: _image.BOTTOM_JIANTOU,
+      dataListW: [] };
 
   },
   filters: {
@@ -252,7 +268,7 @@ var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);function _in
     } },
 
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(options) {var e, p, v, a, b;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(options) {var e, p, v, a, b, c, d;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
               _self = this;
               console.log(options);
               this.states.index = Number(options.num);_context2.next = 5;return (
@@ -267,9 +283,14 @@ var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);function _in
               console.log(a);
               p.push.apply(p, _toConsumableArray(a.list));_context2.next = 20;return (
                 (0, _loan.loanList)({ status: 4 }));case 20:b = _context2.sent;
+              console.log(b);_context2.next = 24;return (
+                (0, _loan.loanList)({ status: 3 }));case 24:c = _context2.sent;
+              console.log(a);
+              p.push.apply(p, _toConsumableArray(a.list));_context2.next = 29;return (
+                (0, _loan.loanList)({ status: 5 }));case 29:d = _context2.sent;
               console.log(b);
               p.push.apply(p, _toConsumableArray(b.list));
-              _self.dataList = p;case 24:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad(_x2) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+              _self.dataListW = p;case 33:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad(_x2) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

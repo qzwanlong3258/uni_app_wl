@@ -13,10 +13,10 @@
 		
 		<view class="schedule-left" :hidden='states.index==1'>
 			<view :hidden='!imgShow'>
-			<button class="box"  open-type="share" @click="linkToRoute" v-for="(item,index) in activityList" :key="index" style="background: #FFFFFF;">
+			<button class="box"  open-type="share" :data-id='id' @click="linkToRoute" v-for="(item,index) in activityList" :key="index" style="background: #FFFFFF;">
 				<view class="box-left" :style="'background:'+item.color" >
 					<image @load='imgshow' :src='item.img' mode="widthFix"></image>
-					<view class="text" :style="'color:'+item.colorOne">{{item.roleName}}</view>
+					<view class="text" :style="'color:'+item.colorOne">{{item.name}}</view>
 				</view>
 				<view class="box-right">{{item.describe}}</view>
 			</button>
@@ -55,7 +55,7 @@
 			<view class="box"  v-for="(item,index) in activityListCom" :key="index" style="background: #FFFFFF;">
 				<view class="box-left" :style="'background:'+item.color" >
 					<image  :src='item.img' mode="widthFix"></image>
-					<view class="text" :style="'color:'+item.colorOne">{{item.roleName}}</view>
+					<view class="text" :style="'color:'+item.colorOne">{{item.name}}</view>
 				</view>
 				<view class="box-right">{{item.describe}}<image :src="img[3]" mode="widthFix"></image></view>
 			</view>
@@ -98,6 +98,7 @@ import LjlStates from '@/components/LjlStates';
 import { RECOMMENDED_MEMBER } from '@/config/router.js';
 import { loadActivity, completeActivity } from '@/api/activity.js';
 import { RECOMMEND_DESIGNER, RECOMMEND_VIP, RECOMMEND_CLIENT, RECOMMEND_OVER} from '@/config/image.js';
+import { getStorage ,setStorage} from '@/utils/storage.js';
 var _self;
 export default {
 	data() {
@@ -119,7 +120,8 @@ export default {
 			"#EBCD9B","#EB9B9B","#9BD2EB",
 				
 			],
-			imgShow:false
+			imgShow:false,
+			id:''
 			
 		};
 	},
@@ -131,6 +133,9 @@ export default {
 	        },
 	onLoad() {
 		_self=this
+		
+		_self.userInfo = getStorage('userInfo');
+		_self.id=_self.userInfo.id
 		this.loadListForActivity();
 	},
 	methods: {
@@ -147,13 +152,43 @@ export default {
 		          
 		        
 		      },
-		onShareAppMessage(res) {
-		      return {
-		        title: '邀请有礼',
-		        path: 'pages/todoChild/recommended/index',
-				
-		      }
-		    },
+		
+		
+		onShareAppMessage: function( options ){
+		　　var that = this;
+		　　// 设置菜单中的转发按钮触发转发事件时的转发内容
+		　　var shareObj = {
+		　　　　title: "邀请有礼",        // 默认是小程序的名称(可以写slogan等)
+		　　　　path: '/pages/tabbar/home/home',        // 默认是当前页面，必须是以‘/’开头的完整路径
+		// 　　　　imageUrl: FENXIANG,     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+		　　　　success: function(res){
+		　　　　　　// 转发成功之后的回调
+		　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
+		　　　　　　}
+		　　　　},
+		　　　　fail: function(){
+		　　　　　　// 转发失败之后的回调
+		　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
+		　　　　　　　　// 用户取消转发
+		　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
+		　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+		　　　　　　}
+		　　　　},
+		　　　　complete: function(){
+		　　　　　　// 转发结束之后的回调（转发成不成功都会执行）
+		　　　　}
+		　　};
+		　　// 来自页面内的按钮的转发
+		　　if( options.from == 'button' ){
+		　　　　var eData = options.target.dataset;
+		　　　　console.log( eData.name );     // shareBtn
+		　　　　// 此处可以修改 shareObj 中的内容
+		　　　　shareObj.path =  '/pages/tabbar/home/home?scene='+eData.id;;
+		　　}
+		　　// 返回shareObj
+		　　return shareObj;
+		},
+		
 		/**
 		 * 加载活动列表
 		 */
@@ -166,17 +201,71 @@ export default {
 					let e=this.randomRgb()
 					let c=this.randomRgb()
 					if(Date.now()>Number(res.edate)){
+						if(res.roleName == "设计师"){
+							b.push({
+								color:"#EB9B9B",
+								colorOne:"#860A0A",
+								...res
+							})
+							return
+						}
+						if(res.roleName == "客户"){
+							
+							
+							b.push({
+								color:"#9BD2EB",
+								colorOne:"#07587C",
+								...res
+							})
+							return
+						}
+						if(res.roleName == "会员"){
+							
+							
+							b.push({
+								color:"#EBCD9B",
+								colorOne:"#825203",
+								...res
+							})
+							return
+						}
 						b.push({
-						color:e,
-						colorOne:c,
-						...res
-					})
+							color:e,
+							colorOne:c,
+							...res
+						})
+						
 					} else {
+						if(res.roleName == "设计师"){
+							a.push({
+								color:"#EB9B9B",
+								colorOne:"#860A0A",
+								...res
+							})
+							return
+						}
+						if(res.roleName == "客户"){
+							a.push({
+								color:"#9BD2EB",
+								colorOne:"#07587C",
+								...res
+							})
+							return
+						}
+						if(res.roleName == "会员"){
+							a.push({
+								color:"#EBCD9B",
+								colorOne:"#825203",
+								...res
+							})
+							return
+						}
 						a.push({
 							color:e,
 							colorOne:c,
 							...res
 						})
+						
 					}
 			
 				});

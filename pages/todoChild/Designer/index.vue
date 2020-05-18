@@ -53,7 +53,8 @@ export default {
 		return{
 			dataList:{},
 			timeShow:false,
-			userInfo:{}
+			userInfo:{},
+			role:[]
 		}
 	},
 	methods:{
@@ -83,31 +84,59 @@ export default {
 				this.toast('请输入您的姓名')
 				return;
 			}
-			if(this.userInfo.role.find(item=>item="设计师")){
-				uni.showToast({
-				    title: "你已经是设计师",
-				    duration: 2000,
-					icon:'none'
-				});
-				return
+			if(!this.dataList.phone){
+				this.toast('请输入您的手机号码')
+				return;
 			}
-			// for(let i=0;i<this.userInfo.role.length;i++){
-			// 	if(this.userInfo.role[i]=="设计师") 
-				
-			// 	console.log(this.userInfo.role[i])
-				
+			if(!this.dataList.ageNumber){
+				this.toast('请输入您的从业年限')
+				return;
+			}
+			if(!this.dataList.unit){
+				this.toast('请输入您的现工作单位名称')
+				return;
+			}
+			// if(this.userInfo.role.find(item=>item=="设计师")){
+			// 	uni.showToast({
+			// 	    title: "你已经是设计师",
+			// 	    duration: 2000,
+			// 		icon:'none'
+			// 	});
+			// 	return
 			// }
-			let applyId = (await getApplyId()).applyId 
-			await addScore({
-			    id: applyId,
-			    integral: "50"
-			    })
-				await addScoreRecord({
-			 userid: applyId,
-			 money: "50",
-			 msg: "邀请设计师赠送50积分"
-			})
-			postDesigner(this.dataList).then(res=>{
+			console.log(this.role)
+			console.log(this.role.length)
+			if(this.role.length!=0){
+				for(let i=0;i<this.role.length;i++){
+					if(this.role[i]=="设计师") {
+						uni.showToast({
+							    title: "你已经是设计师",
+							    duration: 2000,
+								icon:'none'
+							});
+							return;
+					}
+					
+					
+					
+				}
+			}
+			
+			
+			let applyId = (await getApplyId()).applyId
+			 if(applyId){
+				await addScore({
+				    id: applyId,
+				    integral: "50"
+				    })
+					await addScoreRecord({
+				 userid: applyId,
+				 money: "50",
+				 msg: "邀请设计师赠送50积分"
+				}) 
+			 }
+			
+			await postDesigner(this.dataList).then(res=>{
 				uni.showToast({
 												title: "提交成功",
 												icon: 'success',
@@ -127,20 +156,26 @@ export default {
 		
 		let e = await getUserRole()
 		console.log(e)
-		_self.role =e.roleName.split(',')
+		// _self.role =e.roleName.split(',')
 		let userNew={
 			..._self.userInfo,
 			
 		}
-		userNew.role=e.roleName.split(',')
-		for(let i =0;i<userNew.role.length;i++){
-			if(userNew.role[i]=='黑卡会员'){
-				userNew.level ="黄金会员"
-			}
-			userNew.level ="普通会员"
+		if(e.roleName){
+			this.role=e.roleName.split(',')
+		} else {
+			this.role=[]
 		}
-		setStorage('userInfo',userNew)
-		_self.userInfo = getStorage('userInfo');
+		
+		// userNew.role=e.roleName.split(',')
+		// for(let i =0;i<userNew.role.length;i++){
+		// 	if(userNew.role[i]=='黑卡会员'){
+		// 		userNew.level ="黄金会员"
+		// 	}
+		// 	userNew.level ="普通会员"
+		// }
+		// setStorage('userInfo',userNew)
+		// _self.userInfo = getStorage('userInfo');
 	}
 };
 </script>

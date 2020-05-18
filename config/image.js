@@ -99,7 +99,7 @@ module.exports = {
 	TESTSUCCESS: `${staticUrl}/todoChild/testonetest/完成@2x.png`,
 	TESTFAIL: `${staticUrl}/todoChild/testonetest/3.0-未完成@2x.png`,
 	// 约量房
-	LOAN_PICTURE: `https://www.feiaizn.com/images/20200515182110_loanPicture.png`,
+	LOAN_PICTURE: `https://www.feiaizn.com/images/20200518120407_loanPicture.png`,
 	// LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
 	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
 	MEASUREHOME_SUCCESS: `${staticUrl}/todoChild/约量房成功@2x.png`,
@@ -127,7 +127,7 @@ module.exports = {
 	//家装分期
 	BANK_PIC:`${staticUrl}/todoChild/decoration/bankmoney.png`,
 	BANK_LOGO:`${staticUrl}/todoChild/decoration/banklogo.png`,
-	LOAN_NAV_PIC:`https://www.feiaizn.com/images/20200516112553_loan.png`,
+	LOAN_NAV_PIC:`https://www.feiaizn.com/images/20200518163409_loanTH.jpg`,
 	// 银行
 	BANK_JH:`${staticUrl}/todoChild/decoration/建设银行@2x.png`,
 	BANK_BH:`${staticUrl}/todoChild/decoration/碧海银行@2x.png`,
@@ -153,6 +153,8 @@ module.exports = {
 	MINE_INTEGRAL_LOGO:`${staticUrl}/todoChild/mine/积分@2x.png`,
 	MINE_SHARE_CENTER:`${staticUrl}/todoChild/mine/分销中心@2x.png`,
 	MINE_ADRESS:`${staticUrl}/todoChild/mine/地址@2x.png`,
+	MINE_DESIGER:`https://www.feiaizn.com/images/20200518111543_shejishirenzheng.png`,
+	MINE_ROLE_CHANGE:`https://www.feiaizn.com/images/20200518111657_jiaoseqiehuan.png`,
 	//推荐中心
 	RECOMMEND_POINT:`${staticUrl}/todoChild/recommend/积分@2x.png`,
 	RECOMMEND_COUPON:`${staticUrl}/todoChild/recommend/优惠券@2x.png`,

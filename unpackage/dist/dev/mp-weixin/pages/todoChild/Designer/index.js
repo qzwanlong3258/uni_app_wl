@@ -188,7 +188,8 @@ var _self;var _default =
     return {
       dataList: {},
       timeShow: false,
-      userInfo: {} };
+      userInfo: {},
+      role: [] };
 
   },
   methods: {
@@ -213,16 +214,40 @@ var _self;var _default =
 
     },
 
-    submit: function () {var _submit = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var applyId;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (
+    submit: function () {var _submit = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var i, applyId;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (
                 this.dataList.name) {_context.next = 3;break;}
-                this.toast('请输入您的姓名');return _context.abrupt("return");case 3:if (!
+                this.toast('请输入您的姓名');return _context.abrupt("return");case 3:if (
 
 
-                this.userInfo.role.find(function (item) {return item = "设计师";})) {_context.next = 6;break;}
+                this.dataList.phone) {_context.next = 6;break;}
+                this.toast('请输入您的手机号码');return _context.abrupt("return");case 6:if (
+
+
+                this.dataList.ageNumber) {_context.next = 9;break;}
+                this.toast('请输入您的从业年限');return _context.abrupt("return");case 9:if (
+
+
+                this.dataList.unit) {_context.next = 12;break;}
+                this.toast('请输入您的现工作单位名称');return _context.abrupt("return");case 12:
+
+
+                // if(this.userInfo.role.find(item=>item=="设计师")){
+                // 	uni.showToast({
+                // 	    title: "你已经是设计师",
+                // 	    duration: 2000,
+                // 		icon:'none'
+                // 	});
+                // 	return
+                // }
+                console.log(this.role);
+                console.log(this.role.length);if (!(
+                this.role.length != 0)) {_context.next = 23;break;}
+                i = 0;case 16:if (!(i < this.role.length)) {_context.next = 23;break;}if (!(
+                this.role[i] == "设计师")) {_context.next = 20;break;}
                 uni.showToast({
                   title: "你已经是设计师",
                   duration: 2000,
-                  icon: 'none' });return _context.abrupt("return");case 6:_context.next = 8;return (
+                  icon: 'none' });return _context.abrupt("return");case 20:i++;_context.next = 16;break;case 23:_context.next = 25;return (
 
 
 
@@ -232,50 +257,61 @@ var _self;var _default =
 
 
 
-                  (0, _auth.getApplyId)());case 8:applyId = _context.sent.applyId;_context.next = 11;return (
+
+                  (0, _auth.getApplyId)());case 25:applyId = _context.sent.applyId;if (!
+                applyId) {_context.next = 31;break;}_context.next = 29;return (
                   (0, _auth.addScore)({
                     id: applyId,
-                    integral: "50" }));case 11:_context.next = 13;return (
+                    integral: "50" }));case 29:_context.next = 31;return (
 
                   (0, _auth.addScoreRecord)({
                     userid: applyId,
                     money: "50",
-                    msg: "邀请设计师赠送50积分" }));case 13:
-
-                (0, _wx.postDesigner)(this.dataList).then(function (res) {
-                  uni.showToast({
-                    title: "提交成功",
-                    icon: 'success',
-                    duration: 1000 });
-
-                  setTimeout(function () {
-                    uni.navigateBack({
-                      delta: 1 });
-
-                  }, 1000);
-                });case 14:case "end":return _context.stop();}}}, _callee, this);}));function submit() {return _submit.apply(this, arguments);}return submit;}() },
+                    msg: "邀请设计师赠送50积分" }));case 31:_context.next = 33;return (
 
 
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e, userNew, i;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+
+                  (0, _wx.postDesigner)(this.dataList).then(function (res) {
+                    uni.showToast({
+                      title: "提交成功",
+                      icon: 'success',
+                      duration: 1000 });
+
+                    setTimeout(function () {
+                      uni.navigateBack({
+                        delta: 1 });
+
+                    }, 1000);
+                  }));case 33:case "end":return _context.stop();}}}, _callee, this);}));function submit() {return _submit.apply(this, arguments);}return submit;}() },
+
+
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var e, userNew;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
               _self = this;
               this.userInfo = (0, _storage.getStorage)('userInfo');_context2.next = 4;return (
 
                 (0, _auth.getUserRole)());case 4:e = _context2.sent;
               console.log(e);
-              _self.role = e.roleName.split(',');
+              // _self.role =e.roleName.split(',')
               userNew = _objectSpread({},
               _self.userInfo);
 
 
-              userNew.role = e.roleName.split(',');
-              for (i = 0; i < userNew.role.length; i++) {
-                if (userNew.role[i] == '黑卡会员') {
-                  userNew.level = "黄金会员";
-                }
-                userNew.level = "普通会员";
+              if (e.roleName) {
+                this.role = e.roleName.split(',');
+              } else {
+                this.role = [];
               }
-              (0, _storage.setStorage)('userInfo', userNew);
-              _self.userInfo = (0, _storage.getStorage)('userInfo');case 12:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+
+              // userNew.role=e.roleName.split(',')
+              // for(let i =0;i<userNew.role.length;i++){
+              // 	if(userNew.role[i]=='黑卡会员'){
+              // 		userNew.level ="黄金会员"
+              // 	}
+              // 	userNew.level ="普通会员"
+              // }
+              // setStorage('userInfo',userNew)
+              // _self.userInfo = getStorage('userInfo');
+            case 8:case "end":return _context2.stop();}}}, _callee2, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

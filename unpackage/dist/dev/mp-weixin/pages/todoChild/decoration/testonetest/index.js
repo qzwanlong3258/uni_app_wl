@@ -171,7 +171,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);
-var _router = __webpack_require__(/*! @/config/router.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 712));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 719));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 726));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 733));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 740));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 747));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _router = __webpack_require__(/*! @/config/router.js */ 21);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var self_;var sectionOne = function sectionOne() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionOne */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionOne")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionOne */ 712));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionTwo = function sectionTwo() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionTwo */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionTwo")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionTwo */ 719));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionThree = function sectionThree() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionThree */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionThree")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionThree */ 726));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFour = function sectionFour() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFour */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFour")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFour */ 733));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionFive = function sectionFive() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionFive */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionFive")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionFive */ 740));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var sectionSix = function sectionSix() {Promise.all(/*! require.ensure | pages/todoChild/decoration/testonetest/components/sectionSix */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/todoChild/decoration/testonetest/components/sectionSix")]).then((function () {return resolve(__webpack_require__(/*! ./components/sectionSix */ 747));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _require =
+__webpack_require__(/*! ../../../../config/router.js */ 21),AUTH = _require.AUTH;var _default =
+
 {
   components: {
     sectionOne: sectionOne,
@@ -191,7 +194,8 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
       margintop: 0, //滑动下拉距离
       transform: 'translateY(-' + 0 + '%)',
       dataList: {},
-      dataL: [] };
+      dataL: [],
+      showAuth: false };
 
 
   },
@@ -325,6 +329,19 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);function _intero
   onLoad: function onLoad() {
     self_ = this;
     this.getList();
+
+
+    var isLogin = (0, _storage.getStorage)('isLogin');
+    if (isLogin) {
+      this.showAuth = true;
+    } else {
+
+      var pages = getCurrentPages();
+      if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+      uni.reLaunch({
+        url: "".concat(AUTH, "?name=", 'testonetest') });
+
+    }
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

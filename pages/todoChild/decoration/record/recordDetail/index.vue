@@ -23,13 +23,13 @@
 			
 			<!-- <view class="box-content" > -->
 				<view class="boxl">
-					<view class="box-left">借款金额</view>
+					<view class="box-left">申请金额</view>
 					<view class="box-right">
 						{{orderList.loanMoney|num}}
 					</view>
 				</view>
 				<view class="boxl">
-					<view class="box-left">借款期限</view>
+					<view class="box-left">申请期限</view>
 					<view class="box-right">
 						{{orderList.term?orderList.term:''}} 期
 					</view>
@@ -41,7 +41,7 @@
 					</view>
 				</view>
 				<view class="boxl">
-					<view class="box-left">借款单号</view>
+					<view class="box-left">申请单号</view>
 					<view class="box-right">
 						{{orderList.id}}
 					</view>
@@ -56,7 +56,7 @@
 					</view>
 				</view>
 				<view class="boxl">
-					<view class="box-left">进度</view>
+					<view class="box-left">当前进度</view>
 					<view class="box-right">
 						{{orderList.state|arry}}
 					</view>
@@ -114,7 +114,7 @@ export default {
 			return Number(val).toFixed(2)
 		},
 		arry(val){
-			let b=["待预审" ,"预审通过（待面签）","预审没过", "面签通过", "面签未通过"]
+			let b=["待预审" ,"预审通过（待面签）","预审失败", "面签通过", "面签失败"]
 			let e=Number(val) - 1
 			return b[e]
 		},

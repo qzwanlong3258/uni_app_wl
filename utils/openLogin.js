@@ -107,7 +107,7 @@ async function refreshToken() {
 	 // console.log(c)
 	 setStorage('openId', c.openid)
 	 setStorage('session_key', c.session_key)
-	 let userNum = (await getUserNum({'opend': c.openid})).count
+	 let userNum = (await getUserNum({'openid': c.openid})).count
 	 console.log(userNum)
 	 if(userNum == '0') {
 		 setStorage('newUser', true) 

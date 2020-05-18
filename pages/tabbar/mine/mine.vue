@@ -2,7 +2,7 @@
 	
 	<view class="mine" v-if="show">
 		<view :hidden='!imgShow'>
-			<image :src="jifenPic" mode="widthFix" style="width: 100%;" @click="jifenLinkTo"></image>
+			<!-- <image :src="jifenPic" mode="widthFix" style="width: 100%;" @click="jifenLinkTo"></image> -->
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
@@ -13,10 +13,10 @@
 			<!-- <view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view> -->
 			<view class="btn-box"> 
 				<view style="flex: 0.1;"></view>
-				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到日历</view>
+				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到有礼</view>
 				<view style="flex: 0.8;font-size: 28rpx;text-align: center;margin: 0 20rpx;"> 
-				 <view style="height: 50%;line-height: 38rpx;">签到有礼</view> 
-				 <view style="text-align: center;color: #D3B86C;font-size: 16rpx;height: 50%;line-height: 34rpx;">WELCOME</view>
+				 <view style="height: 50%;line-height: 68rpx;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view> 
+				 <view style="text-align: center;color: #D3B86C;font-size: 16rpx;height: 50%;line-height: 34rpx;"> </view>
 				</view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
 				<view style="flex: 0.1;"></view>
@@ -28,9 +28,17 @@
 			</view> -->
 			<view class="mine-text">
 				<view style="flex: 0.1;"></view>
-				<view style="flex: 1;text-align: center;">余额(元) | 0</view>
+				<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
+					<view><image :src="img[2]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
+					<view>优惠券: 0张</view>
+				</view>
+				<!-- <view style="flex: 1;text-align: center;">余额(元) | 0</view> -->
 				<view style="flex: 0.8;"></view>
-				<view style="flex: 1;text-align: center;">积分 | {{integral?integral:0}}</view>
+				<view style="flex: 1;display: flex;justify-content: center;align-content: center;" @click="toScoreDetail">
+					<view><image :src="img[3]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
+					<view>积分: {{integral?integral:0}}</view>
+				</view>
+				<!-- <view style="flex: 1;text-align: center;">积分 | {{integral?integral:0}}</view> -->
 				<view style="flex: 0.1;"></view>
 			</view>
 			
@@ -67,8 +75,12 @@
 			<image :src="imgNav[3]" mode="widthFix"></image><text>地址管理</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
+		<view class="mine-link"  @click="linkToUrl('设计师认证')">
+			<image :src="imgNav[4]" mode="aspectFill" style="height: 40rpx;"></image><text>设计师认证</text>
+			<view class="iconfont  iconyou iconclass" ></view>
+		</view>
 		<view class="mine-link"  @click="linkToUrl('角色切换')" v-if="role">
-			<image :src="imgNav[3]" mode="widthFix"></image><text>角色切换</text>
+			<image :src="imgNav[5]" mode="widthFix" ></image><text>角色切换</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		<view class="mine-link"  @click="linkToWork()" v-if="index === 1">
@@ -86,8 +98,8 @@
 
 <script>
 'use strict';
-import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO,JIFEN_PIC} from '@/config/image.js';
-import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO,TO_WEB} from '@/config/router.js';
+import { MINE_MONEY, MINE_INTEGRAL, MINE_MEASURE, MINE_LOAN, MINE_RECOMMEND, MINE_INTEGRAL_LOGO, MINE_SHARE_CENTER, MINE_ADRESS, TOUXIANG_LOGO,JIFEN_PIC,MINE_DESIGER,MINE_ROLE_CHANGE,RECOMMEND_COUPON,RECOMMEND_POINT} from '@/config/image.js';
+import {OPENMEMBER, CALENDER, APPTRECORD,RECOMMENDED, SHOP, DISTRIBUTION, ADDRESS_INDEX, ORDER_LIST, SWAPROLE, MYWORK,RECOMMENDCENTER,MYWORK_PHOTO,TO_WEB,TO_DESGER,TO_SCORE_DETAIL} from '@/config/router.js';
 import { getStorage ,setStorage} from '@/utils/storage.js';
 const { AUTH } = require('../../../config/router.js');
 import { loadIntegral } from '@/api/tabbar/todo.js';
@@ -108,9 +120,9 @@ export default {
 				// nickName:'李三',
 				// phone:'广东 深圳'
 			},
-			img:[MINE_MONEY,MINE_INTEGRAL],
+			img:[MINE_MONEY,MINE_INTEGRAL,RECOMMEND_COUPON,RECOMMEND_POINT],
 			imgMeaLoan:[MINE_MEASURE,MINE_LOAN],
-			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS],
+			imgNav:[MINE_RECOMMEND,MINE_INTEGRAL_LOGO,MINE_SHARE_CENTER,MINE_ADRESS,MINE_DESIGER,MINE_ROLE_CHANGE],
 			index:'',
 			role:'',
 			imglogo:TOUXIANG_LOGO,
@@ -124,6 +136,12 @@ export default {
 	},
 	
 	methods:{
+		// 去积分详情
+		toScoreDetail(){
+			uni.navigateTo({
+				url:TO_SCORE_DETAIL
+			})
+		},
 		jifenLinkTo(){
 			let ch = "/";
 			// var str = "这是一/个变量，这是一个变量";
@@ -153,10 +171,11 @@ export default {
 			switch(value) {
 				case "签到日历": return CALENDER;
 				case "黄金会员": return OPENMEMBER;
-				case "推荐中心": return RECOMMENDCENTER;
+				case "推荐中心": return RECOMMENDED;
 				case "分销中心": return DISTRIBUTION;
 				case "地址管理": return `${ADDRESS_INDEX}?operating=updateAddress`;
 				case "角色切换": return SWAPROLE;
+				case "设计师认证": return TO_DESGER;
 			}
 		},
 		linkToUrl(e){
@@ -204,19 +223,36 @@ export default {
 				_self.index =getStorage('index')
 				let e = await getUserRole()
 				console.log(e)
-				_self.role =e.roleName.split(',')
-				let userNew={
-					..._self.userInfo,
-					
-				}
-				userNew.role=e.roleName.split(',')
-				for(let i =0;i<userNew.role.length;i++){
-					if(userNew.role[i]=='黑卡会员'){
-						userNew.level ="黄金会员"
+				if(e.roleName){
+					_self.role =e.roleName.split(',')
+					let userNew={
+						..._self.userInfo,
+						
 					}
-					userNew.level ="普通会员"
+					userNew.role=e.roleName.split(',')
+					for(let i =0;i<userNew.role.length;i++){
+						if(userNew.role[i]=='黑卡会员'){
+							userNew.level ="黄金会员"
+						}
+						userNew.level ="普通会员"
+					}
+					setStorage('userInfo',userNew);
+				} else {
+					_self.role =[]
+					let userNew={
+						..._self.userInfo,
+						
+					}
+					userNew.role=[]
+					for(let i =0;i<userNew.role.length;i++){
+						if(userNew.role[i]=='黑卡会员'){
+							userNew.level ="黄金会员"
+						}
+						userNew.level ="普通会员"
+					}
+					setStorage('userInfo',userNew);
 				}
-				setStorage('userInfo',userNew);
+				
 				console.log(_self.role)
 				this.loadIntegral();
 				

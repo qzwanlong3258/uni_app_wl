@@ -189,8 +189,9 @@ var _self;var _default =
       checkIn: {
         isShow: false,
         url: _image.CHECK_IN,
-        crossUrl: _image.CROSS } };
+        crossUrl: _image.CROSS },
 
+      count: 0 };
 
   },
   components: {
@@ -244,12 +245,16 @@ var _self;var _default =
     // },
 
     clickbtn: function () {var _clickbtn = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var e;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                this.count++;if (!(
+                this.count == 1)) {_context3.next = 10;break;}
                 this.$refs.calender.clickSignUp(parseInt(new Date().getDate()), 1);
                 (0, _mine.checkIn)();
-                this.getData(this.getTime());_context3.next = 5;return (
-                  (0, _mine.getCheckIn)());case 5:e = _context3.sent;
+                this.getData(this.getTime());_context3.next = 7;return (
+                  (0, _mine.getCheckIn)());case 7:e = _context3.sent;
                 _self.show = e;
-                this.checkIn.isShow = !this.checkIn.isShow;case 8:case "end":return _context3.stop();}}}, _callee3, this);}));function clickbtn() {return _clickbtn.apply(this, arguments);}return clickbtn;}(),
+                this.checkIn.isShow = !this.checkIn.isShow;case 10:case "end":return _context3.stop();}}}, _callee3, this);}));function clickbtn() {return _clickbtn.apply(this, arguments);}return clickbtn;}(),
+
+
 
     clickRegister: function clickRegister(day) {
       //console.log("在模版页签到了", day);
@@ -306,8 +311,10 @@ var _self;var _default =
                 } else {
                   this.signData = [];
                 }
+                this.$forceUpdate();
+
                 // })
-              case 8:case "end":return _context4.stop();}}}, _callee4, this);}));function getData(_x2) {return _getData.apply(this, arguments);}return getData;}() } };exports.default = _default;
+              case 9:case "end":return _context4.stop();}}}, _callee4, this);}));function getData(_x2) {return _getData.apply(this, arguments);}return getData;}() } };exports.default = _default;
 
 /***/ }),
 

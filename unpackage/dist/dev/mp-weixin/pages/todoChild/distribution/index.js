@@ -182,6 +182,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
@@ -191,11 +206,13 @@ __webpack_require__.r(__webpack_exports__);
 var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);
 var imgs = _interopRequireWildcard(__webpack_require__(/*! @/config/image.js */ 34));
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _filter = __webpack_require__(/*! @/config/filter.js */ 47);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}var LjlNav = function LjlNav() {Promise.all(/*! require.ensure | components/LjlNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/LjlNav")]).then((function () {return resolve(__webpack_require__(/*! @/components/LjlNav.vue */ 655));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlShowroomItem = function LjlShowroomItem() {__webpack_require__.e(/*! require.ensure | pages/todoChild/distribution/components/LjlShowroomItem */ "pages/todoChild/distribution/components/LjlShowroomItem").then((function () {return resolve(__webpack_require__(/*! ./components/LjlShowroomItem.vue */ 662));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlMenu = function LjlMenu() {__webpack_require__.e(/*! require.ensure | components/LjlMenu/index */ "components/LjlMenu/index").then((function () {return resolve(__webpack_require__(/*! @/components/LjlMenu */ 669));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _filter = __webpack_require__(/*! @/config/filter.js */ 47);
+var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var LjlNav = function LjlNav() {Promise.all(/*! require.ensure | components/LjlNav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/LjlNav")]).then((function () {return resolve(__webpack_require__(/*! @/components/LjlNav.vue */ 655));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlShowroomItem = function LjlShowroomItem() {__webpack_require__.e(/*! require.ensure | pages/todoChild/distribution/components/LjlShowroomItem */ "pages/todoChild/distribution/components/LjlShowroomItem").then((function () {return resolve(__webpack_require__(/*! ./components/LjlShowroomItem.vue */ 662));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlMenu = function LjlMenu() {__webpack_require__.e(/*! require.ensure | components/LjlMenu/index */ "components/LjlMenu/index").then((function () {return resolve(__webpack_require__(/*! @/components/LjlMenu */ 669));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _self;var _default =
 
 {
-  data: function data() {
-    return {
+  data: function data() {var _ref;
+    return _ref = {
       userInfo: {},
       img: 'https://s2.ax1x.com/2019/10/08/ufSasU.jpg',
       showroom: {
@@ -212,8 +229,12 @@ var _filter = __webpack_require__(/*! @/config/filter.js */ 47);function _getReq
         { title: '邀请会员', icon: imgs.DIR_NAV_THREE, href: "".concat(_router.POSTER, "?title=\u9080\u8BF7\u4F1A\u5458") },
         { title: '邀请设计师', icon: imgs.DIR_NAV_FOUR, href: "".concat(_router.POSTER, "?title=\u9080\u8BF7\u8BBE\u8BA1\u5E08") },
         { title: '邀请客户', icon: imgs.DIR_NAV_FIVE, href: "".concat(_router.POSTER, "?title=\u9080\u8BF7\u5BA2\u6237") },
-        { title: '首页', icon: imgs.DIR_NAV_SIX, href: _router.HOME }] }] };
+        { title: '首页', icon: imgs.DIR_NAV_SIX, href: _router.HOME }] }] }, _defineProperty(_ref, "img",
 
+
+
+    [imgs.RECOMMEND_COUPON, imgs.RECOMMEND_POINT]), _defineProperty(_ref, "integral",
+    0), _ref;
 
 
 
@@ -222,15 +243,37 @@ var _filter = __webpack_require__(/*! @/config/filter.js */ 47);function _getReq
   filters: {
     formatDate: _filter.formatDate },
 
+  onShow: function onShow() {
+    this.loadIntegral();
+  },
   onLoad: function onLoad() {
+    _self = this;
     this.userInfo = (0, _storage.getStorage)('userInfo');
+    this.loadIntegral();
   },
   methods: {
+    // 去积分详情
+    toScoreDetail: function toScoreDetail() {
+      uni.navigateTo({
+        url: _router.TO_SCORE_DETAIL });
+
+    },
     linkToWithdraw: function linkToWithdraw() {
       uni.navigateTo({
         url: _router.WITHDRAW });
 
+    },
+    /**
+        * 加载积分
+        */
+    loadIntegral: function loadIntegral() {
+      (0, _todo.loadIntegral)().then(function (res) {
+        // console.log(res)
+        _self.integral = Number(res.integral);
+      });
     } },
+
+
 
   components: {
     LjlNav: LjlNav,

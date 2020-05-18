@@ -185,7 +185,11 @@ var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _package = __webpack_require__(/*! @/config/package.js */ 66);
 var _address = __webpack_require__(/*! @/api/address.js */ 67);
 var _order = __webpack_require__(/*! @/api/order.js */ 49);
-var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor.vue */ 551));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldAddress = function YldAddress() {__webpack_require__.e(/*! require.ensure | components/YldAddress */ "components/YldAddress").then((function () {return resolve(__webpack_require__(/*! @/components/YldAddress.vue */ 580));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);
+var _auth = __webpack_require__(/*! @/api/auth.js */ 93);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var OrderInfor = function OrderInfor() {__webpack_require__.e(/*! require.ensure | components/OrderInfor */ "components/OrderInfor").then((function () {return resolve(__webpack_require__(/*! @/components/OrderInfor.vue */ 551));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var YldAddress = function YldAddress() {__webpack_require__.e(/*! require.ensure | components/YldAddress */ "components/YldAddress").then((function () {return resolve(__webpack_require__(/*! @/components/YldAddress.vue */ 580));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 {
   data: function data() {
@@ -200,7 +204,8 @@ var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);function _intero
 
       allMoney: 0,
       submiting: false,
-      integral: 0 };
+      integral: 0,
+      userInfo: {} };
 
   },
   onLoad: function onLoad() {var _this = this;
@@ -213,6 +218,8 @@ var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);function _intero
       _this.shippingAddress.infor = data;
     });
     this.loadIntegral();
+    // 用户信息
+    this.userInfo = (0, _storage.getStorage)('userInfo');
   },
   components: {
     OrderInfor: OrderInfor,
@@ -286,17 +293,24 @@ var _todo = __webpack_require__(/*! @/api/tabbar/todo.js */ 68);function _intero
                   (0, _package.model)({ content: '你的积分不足，无法支付', showCancel: false }));case 5:
                 this.submiting = true;case 6:if (!
 
-                this.submiting) {_context4.next = 8;break;}return _context4.abrupt("return");case 8:
+                this.submiting) {_context4.next = 8;break;}return _context4.abrupt("return");case 8:_context4.next = 10;return (
 
-                this.submiting = true;_context4.next = 11;return (
+                  (0, _auth.addScoreRecord)({
+                    userid: this.userInfo.id,
+                    money: '-' + this.allMoney,
+                    msg: "\u5151\u6362\u5546\u54C1".concat('-' + this.allMoney, "\u79EF\u5206") }));case 10:
 
-                  this.checkAddress());case 11:_context4.t1 = checkAddressRes = _context4.sent;if (!_context4.t1) {_context4.next = 16;break;}_context4.next = 15;return this.createOrder();case 15:_context4.t1 = createOrderRes = _context4.sent;case 16:_context4.t0 = _context4.t1;if (!_context4.t0) {_context4.next = 21;break;}_context4.next = 20;return this.payOrder(createOrderRes.uuid);case 20:_context4.t0 = payOrderRes = _context4.sent;case 21:if (_context4.t0) {_context4.next = 23;break;}return _context4.abrupt("return",
-                this.submiting = false);case 23:
+
+
+                this.submiting = true;_context4.next = 13;return (
+
+                  this.checkAddress());case 13:_context4.t1 = checkAddressRes = _context4.sent;if (!_context4.t1) {_context4.next = 18;break;}_context4.next = 17;return this.createOrder();case 17:_context4.t1 = createOrderRes = _context4.sent;case 18:_context4.t0 = _context4.t1;if (!_context4.t0) {_context4.next = 23;break;}_context4.next = 22;return this.payOrder(createOrderRes.uuid);case 22:_context4.t0 = payOrderRes = _context4.sent;case 23:if (_context4.t0) {_context4.next = 25;break;}return _context4.abrupt("return",
+                this.submiting = false);case 25:
 
                 uni.navigateTo({
                   url: "".concat(_router.ORDER_DETAIL, "?id=").concat(createOrderRes.uuid) });
 
-                this.submiting = false;case 25:case "end":return _context4.stop();}}}, _callee4, this);}));function startTodo() {return _startTodo.apply(this, arguments);}return startTodo;}() } };exports.default = _default;
+                this.submiting = false;case 27:case "end":return _context4.stop();}}}, _callee4, this);}));function startTodo() {return _startTodo.apply(this, arguments);}return startTodo;}() } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

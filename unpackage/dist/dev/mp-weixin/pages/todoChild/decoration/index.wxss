@@ -158,4 +158,11 @@ page{
 .image_nav.data-v-49c3948c {
   width: 60rpx;
 }
+.btn.data-v-49c3948c {
+  width: 275rpx;
+  height: 52rpx;
+  position: absolute;
+  left: calc(50% + 38rpx);
+  top: calc(50% - 65rpx);
+}
 

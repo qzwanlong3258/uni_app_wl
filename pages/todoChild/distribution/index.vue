@@ -17,10 +17,10 @@
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
-	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">WELCOME</view>
+	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view>
 	    		<view style="text-align: center;color: #7C7312;font-size: 20rpx;letter-spacing: 0.5rpx;padding-bottom: 13rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.level}}</view>
 				<view style="text-align: center;color: #7C7312;font-size: 24rpx;letter-spacing: 0.5rpx;padding-bottom: 54rpx;font-family: FZLanTingKanHei-R-GBK;">加入时间：{{userInfo.create_time|formatDate}}</view>
-				<view class="box" style="padding-bottom: 20rpx;">
+				<!-- <view class="box" style="padding-bottom: 20rpx;">
 					<view class="box-left" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;">未入账</view>
 					<view class="box-mid" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;margin: 0 30rpx;">已结算金额</view>
 					<view class="box-right" style="color: #615808;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 26rpx;">已提现</view>
@@ -29,6 +29,21 @@
 					<view class="box-left" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;">0</view>
 					<view class="box-mid" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;margin: 0 10rpx;">0</view>
 					<view class="box-right" style="color: #000000;font-family: Microsoft YaHei;letter-spacing: 0.5rpx;font-size: 34rpx;">0</view>
+				</view> -->
+				<view class="mine-text">
+					<view style="flex: 0.3;"></view>
+					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
+						<view><image :src="img[0]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
+						<view>优惠券: 0张</view>
+					</view>
+					<!-- <view style="flex: 1;text-align: center;">余额(元) | 0</view> -->
+					<view style="flex: 0.4;"></view>
+					<view style="flex: 1;display: flex;justify-content: center;align-content: center;" @click="toScoreDetail">
+						<view><image :src="img[1]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
+						<view>积分: {{integral?integral:0}}</view>
+					</view>
+					<!-- <view style="flex: 1;text-align: center;">积分 | {{integral?integral:0}}</view> -->
+					<view style="flex: 0.3;"></view>
 				</view>
 			</view>
 		</view>
@@ -45,8 +60,10 @@ import LjlShowroomItem from './components/LjlShowroomItem.vue';
 import LjlMenu from '@/components/LjlMenu';
 import { getStorage } from '@/utils/storage.js';
 import * as imgs from '@/config/image.js';
-import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER } from '@/config/router.js';
+import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER ,TO_SCORE_DETAIL} from '@/config/router.js';
 import {formatDate} from '@/config/filter.js'
+import { loadIntegral } from '@/api/tabbar/todo.js';
+var _self;
 
 export default {
 	data() {
@@ -70,22 +87,48 @@ export default {
 						{ title: '首页', icon: imgs.DIR_NAV_SIX, href: HOME }
 					]
 				}
-			]
+			],
+			img:[imgs.RECOMMEND_COUPON,imgs.RECOMMEND_POINT],
+			integral:0
+			
+			
 			
 		};
 	},
 	filters:{
 		formatDate
 	},
+	onShow() {
+		this.loadIntegral();
+	},
 	onLoad() {
+		_self=this
 		this.userInfo = getStorage('userInfo')
+		this.loadIntegral();
 	},
 	methods: {
+		// 去积分详情
+		toScoreDetail(){
+			uni.navigateTo({
+				url:TO_SCORE_DETAIL
+			})
+		},
 		linkToWithdraw() {
 			uni.navigateTo({
 				url: WITHDRAW
 			});
-		}
+		},
+		/**
+		 * 加载积分
+		 */
+		loadIntegral: function() {
+			loadIntegral().then(res => {
+				// console.log(res)
+				_self.integral = Number(res.integral);
+			});
+		},
+		
+		
 	},
 	components: {
 		LjlNav,
@@ -192,6 +235,12 @@ export default {
 	.box-right{
 		flex: 1;
 		text-align: center;
+	}
+	.mine-text{
+		height: 40rpx;
+		display: flex;
+		font-size: 26rpx;
+		margin-top: 20rpx;
 	}
 }
 </style>

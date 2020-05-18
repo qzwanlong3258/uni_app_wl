@@ -1,7 +1,11 @@
 <template>
 	<view class="decoration_view-box-box " v-if='showAuth'>
 		<view :hidden='!imgShow'>
-			<image :src="loan_pic" mode="widthFix" style="width: 100%;"></image>
+			<view style="position: relative;">
+				<image :src="loan_pic" mode="widthFix" style="width: 100%;"></image>
+				<view class="btn" @click="testLinkTo"></view>
+			</view>
+			
 		<!-- <view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高预算</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
@@ -87,19 +91,20 @@
 				uni.navigateTo({ url: LOAN_TESTONETEST });
 			},
 			linkToBank(e){
-				uni.navigateTo({
-					url:TO_DESGER
-				})
-				// var testmsg=e.substring(e.lastIndexOf('.')+1)
-				//         const extensio = testmsg === 'jpg'
-				//         const extensio2 = testmsg === 'png'
-				//         const extensio3 = testmsg === 'jpeg'
-				//         if(extensio || extensio2 || extensio3) {
-				//           uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
-				//         } else {
+				// uni.navigateTo({
+				// 	url:TO_DESGER
+				// })
+				if(!e){return}
+				var testmsg=e.substring(e.lastIndexOf('.')+1)
+				        const extensio = testmsg === 'jpg'
+				        const extensio2 = testmsg === 'png'
+				        const extensio3 = testmsg === 'jpeg'
+				        if(extensio || extensio2 || extensio3) {
+				          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+				        } else {
 							
-				// 		 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
-				// 		}
+						 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+						}
 			},
 			getImg(){
 				home.loadHomeCarousel({type:3}).then(res => {
@@ -250,5 +255,23 @@
 	}
 	.image_nav{
 		width: 60rpx;
+	}
+	.btn{
+		// color: #FFFFFF;
+		width: 275rpx;
+		height: 52rpx;
+		// line-height: 38rpx;
+		// text-align: center;
+		// background-color: #4E5572;
+		// border: 6rpx solid #32374A;
+		// box-shadow: 0 3rpx 3rpx  rgba(153,153,153,0.3);
+		// font-weight: 500;
+		// border-radius: 10rpx;
+		// font-size: 30rpx;
+		// letter-spacing: 1.2rpx;
+		position: absolute;
+		left:calc(50% + 38rpx) ;
+		top:calc(50% - 65rpx) 
+		
 	}
 </style>

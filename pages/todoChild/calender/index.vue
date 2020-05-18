@@ -55,7 +55,8 @@
 					isShow: false,
 					url: CHECK_IN,
 					crossUrl: CROSS
-				}
+				},
+				count:0
 			};
 		},
 		components: {
@@ -109,12 +110,16 @@
 			// },
 			
 			async clickbtn() {
-				this.$refs.calender.clickSignUp(parseInt(new Date().getDate()),1)
-				checkIn()
-				this.getData(this.getTime())
-				let e = await getCheckIn()
-				_self.show=e
-				this.checkIn.isShow = !this.checkIn.isShow;
+				this.count++
+				if(this.count==1){
+					this.$refs.calender.clickSignUp(parseInt(new Date().getDate()),1)
+					checkIn()
+					this.getData(this.getTime())
+					let e = await getCheckIn()
+					_self.show=e
+					this.checkIn.isShow = !this.checkIn.isShow;
+				}
+				
 			},
 			clickRegister(day) {
 				//console.log("在模版页签到了", day);
@@ -171,6 +176,8 @@
 				} else {
 				 	this.signData = [];
 				 }
+				 this.$forceUpdate()
+				 
 				// })
 			},
 		}

@@ -53,6 +53,10 @@ import { model, toast } from '@/config/package.js';
 import { loadAddress } from '@/api/address.js';
 import { createOrder, payOrder } from '@/api/order.js';
 import { loadIntegral } from '@/api/tabbar/todo.js';
+import {addScoreRecord} from '@/api/auth.js';
+import { getStorage } from '@/utils/storage.js';
+
+
 
 export default {
 	data() {
@@ -67,7 +71,8 @@ export default {
 			},
 			allMoney: 0,
 			submiting: false,
-			integral:0
+			integral:0,
+			userInfo:{}
 		};
 	},
 	onLoad() {
@@ -80,6 +85,8 @@ export default {
 			this.shippingAddress.infor = data;
 		});
 		this.loadIntegral();
+		// 用户信息
+		this.userInfo = getStorage('userInfo');
 	},
 	components: {
 		OrderInfor,
@@ -154,6 +161,13 @@ export default {
 				this.submiting=true
 			}
 			if (this.submiting) return;
+			// 积分记录
+			await addScoreRecord({
+							 userid: this.userInfo.id,
+							 money: '-' + this.allMoney,
+							 msg: `兑换商品${'-' + this.allMoney}积分`
+							})
+			
 			
 			this.submiting = true;
 			let checkAddressRes, createOrderRes, payOrderRes;

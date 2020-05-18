@@ -180,6 +180,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 'use scrict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
 
@@ -222,19 +226,20 @@ var home = _interopRequireWildcard(__webpack_require__(/*! @/api/tabbar/home.js 
       uni.navigateTo({ url: _router.LOAN_TESTONETEST });
     },
     linkToBank: function linkToBank(e) {
-      uni.navigateTo({
-        url: _router.TO_DESGER });
+      // uni.navigateTo({
+      // 	url:TO_DESGER
+      // })
+      if (!e) {return;}
+      var testmsg = e.substring(e.lastIndexOf('.') + 1);
+      var extensio = testmsg === 'jpg';
+      var extensio2 = testmsg === 'png';
+      var extensio3 = testmsg === 'jpeg';
+      if (extensio || extensio2 || extensio3) {
+        uni.navigateTo({ url: "".concat(_router.BANK_DETAIL, "?id=").concat(e) });
+      } else {
 
-      // var testmsg=e.substring(e.lastIndexOf('.')+1)
-      //         const extensio = testmsg === 'jpg'
-      //         const extensio2 = testmsg === 'png'
-      //         const extensio3 = testmsg === 'jpeg'
-      //         if(extensio || extensio2 || extensio3) {
-      //           uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
-      //         } else {
-
-      // 		 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
-      // 		}
+        uni.navigateTo({ url: "".concat(_router.TO_WEB, "?id=").concat(e) });
+      }
     },
     getImg: function getImg() {var _this = this;
       home.loadHomeCarousel({ type: 3 }).then(function (res) {

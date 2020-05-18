@@ -1,7 +1,7 @@
 <template>
 	
 	
-	<view class="container container-fill">
+	<view class="container container-fill" v-if="showAuth">
 		<view class="scroll-fullpage" id='scrollTouch' @touchstart="scrollTouchstart" @touchmove="scrollTouchmove" @touchend="scrollTouchend" v-bind:style="{margintop: margintop+'px',transform: transform}">
 			<view :class="scrollindex==0?'active':''" style="height: 100%;">
 				<sectionOne  @testOne='test' :dataOne="dataL[0]"></sectionOne>
@@ -37,6 +37,9 @@
 	import sectionSix from './components/sectionSix';
 	import { testOneTest ,getIssue} from '@/api/todoChild/loan.js';
 	import { LOAN_TESTONETEST_SUBMIT} from '@/config/router.js';
+	import { getStorage ,setStorage } from '@/utils/storage.js';
+	const { AUTH } = require('../../../../config/router.js');
+	
 	export default {
 		components:{
 				  sectionOne,
@@ -56,7 +59,8 @@
 	          margintop:0,  //滑动下拉距离
 			  transform:'translateY(-' + 0 + '%)',
 			  dataList:{},
-			  dataL:[]
+			  dataL:[],
+			  showAuth:false
 			  
 	    }
 	  },
@@ -190,6 +194,19 @@
 	  onLoad() {
 	  	self_=this
 		this.getList()
+		
+		
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+		} else {
+			
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url:`${AUTH}?name=${'testonetest'}`
+			});	
+			}
 	  }
 	}
 </script>

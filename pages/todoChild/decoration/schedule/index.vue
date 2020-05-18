@@ -12,14 +12,14 @@
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}][item.state==1?0: item.state].title}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '申请成功'}][item.state==1?0: item.state].title}}</view>
 				</view>
 			</view>
 			<view class="schedule-bd">
-				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
-				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
+				<view style="font-size: 28rpx;color:#999999">申请额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">申请日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}]"  :active="item.state|state"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签成功'},{title: '申请成功'}]"  :active="item.state|state"></uni-steps>
 			<!-- <view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -54,14 +54,14 @@
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}][item.state - 1].title}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '申请成功'}][item.state - 1].title}}</view>
 				</view>
 			</view>
 			<view class="schedule-bd">
-				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
-				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
+				<view style="font-size: 28rpx;color:#999999">申请额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">申请日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审失败'}, {title: '待面签'}, {title: '面签成功'},{title: '申请成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
 			<!-- <view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>
@@ -96,14 +96,14 @@
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '打款成功'}][item.state - 1].title}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '申请成功'}][item.state - 1].title}}</view>
 				</view>
 			</view>
 			<view class="schedule-bd">
-				<view style="font-size: 28rpx;color:#999999">贷款额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
-				<view style="font-size: 29rpx;color:#999999">贷款日期: {{item.lastTime|time}}</view>
+				<view style="font-size: 28rpx;color:#999999">申请额:<text style="font-size: 28rpx;color:#8A4850">{{item.loanMoney}}</text></view>
+				<view style="font-size: 29rpx;color:#999999">申请日期: {{item.lastTime|time}}</view>
 			</view>
-			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '打款成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
+			<uni-steps :options="[{title: '提交申请'}, {title: '预审'}, {title: '预审成功'}, {title: '待面签'}, {title: '面签失败'},{title: '申请成功'}]" :activeColor="'#FF3B30'" :active="item.state|state"></uni-steps>
 			<!-- <view class="schedule-ft">
 				<view style="width: 20%;height: 40px;">
 					<view style="height: 20px;text-align: center;font-size: 10px;color: #666666;">2020-01-23</view>

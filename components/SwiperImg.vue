@@ -42,6 +42,7 @@
 				this.dotIndex = e.detail.current
 			},
 			linkToPage: function(e) {
+				if(!e){return}
 				var testmsg=e.substring(e.lastIndexOf('.')+1)
 				        const extensio = testmsg === 'jpg'
 				        const extensio2 = testmsg === 'png'

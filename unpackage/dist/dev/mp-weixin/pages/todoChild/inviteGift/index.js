@@ -152,21 +152,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));
-var _image = __webpack_require__(/*! @/config/image.js */ 34);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _self;var _default =
 {
   data: function data() {
     return {
-      img: [_image.INVITE_GIFT, _image.INVITE_FRIEND, _image.INVITE_POINT_ONE, _image.INVITE_POINT_TWO, _image.INVITE_POINT_THREE] };
+      img: [_image.INVITE_GIFT, _image.INVITE_FRIEND, _image.INVITE_POINT_ONE, _image.INVITE_POINT_TWO, _image.INVITE_POINT_THREE],
+      id: '' };
 
   },
-  onShareAppMessage: function onShareAppMessage(res) {
-    return {
-      title: '邀请有礼',
-      path: '/pages/todoChild/inviteGift/index' };
+  onShareAppMessage: function onShareAppMessage(options) {
+    var that = this;
+    // 设置菜单中的转发按钮触发转发事件时的转发内容
+    var shareObj = {
+      title: "邀请有礼", // 默认是小程序的名称(可以写slogan等)
+      path: '/pages/tabbar/home/home', // 默认是当前页面，必须是以‘/’开头的完整路径
+      // 　　　　imageUrl: FENXIANG,     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      success: function success(res) {
+        // 转发成功之后的回调
+        if (res.errMsg == 'shareAppMessage:ok') {
+        }
+      },
+      fail: function fail() {
+        // 转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {
+          // 用户取消转发
+        } else if (res.errMsg == 'shareAppMessage:fail') {
+          // 转发失败，其中 detail message 为详细失败信息
+        }
+      },
+      complete: function complete() {
+        // 转发结束之后的回调（转发成不成功都会执行）
+      } };
 
+    // 来自页面内的按钮的转发
+    if (options.from == 'button') {
+      var eData = options.target.dataset;
+      console.log(eData.name); // shareBtn
+      // 此处可以修改 shareObj 中的内容
+      shareObj.path = '/pages/tabbar/home/home?scene=' + eData.id;;
+    }
+    // 返回shareObj
+    return shareObj;
   },
   methods: {},
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              _self = this;
+              _self.userInfo = (0, _storage.getStorage)('userInfo');
+              _self.id = _self.userInfo.id;case 3:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 
 /***/ }),
 

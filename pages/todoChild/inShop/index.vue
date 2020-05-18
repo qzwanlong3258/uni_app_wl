@@ -24,7 +24,7 @@
 			</view>
 			<view class="application_hd_item">
 				<view class="appli_hd_item_lable">*注册资金：</view>
-				<view class="appli_hd_item_content" style="position: relative;"><input type="number" @input="createNumberInput" v-model="dataList.createNumber" placeholder="请输入注册资金" placeholder-class="input_color" />
+				<view class="appli_hd_item_content" style="position: relative;"><input type="number" maxlength="10" @input="createNumberInput" v-model="dataList.createNumber" placeholder="请输入注册资金" placeholder-class="input_color" />
 				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!createNumberShow'>元</view>
 				</view>
 			</view>

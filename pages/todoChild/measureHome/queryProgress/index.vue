@@ -1,5 +1,5 @@
 <template>
-	<view class="chooseBussiness">
+	<view class="chooseBussiness" v-if="showAuth">
 		<view class="box" v-for="(item,index) in dataList" :key="index">
 			<view class="left">
 				<image :src="item.storePhotos" style="width: 110rpx;height: 110rpx;border-radius:50% ; display: block;box-shadow: 0 0 2rpx 2rpx  rgba(153,153,153,0.3);" mode="scaleToFill"></image>
@@ -25,13 +25,17 @@
 var _self;
 import { getMyShop} from '@/api/measureHome.js';
 import NullData from '@/components/NullData.vue';
+import { getStorage ,setStorage } from '@/utils/storage.js';
+		const { AUTH } = require('../../../../config/router.js');
+		var _self;
 export default {
 	components:{
 		NullData
 	},
 	data() {
 		return{
-			dataList:{}
+			dataList:{},
+			showAuth:false
 		}
 	},
 	methods:{
@@ -41,6 +45,21 @@ export default {
 		_self=this
 		let e = await getMyShop()
 		_self.dataList=e.list
+		
+		
+		
+		
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+		} else {
+			
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url:`${AUTH}?name=${'queryProgress'}`
+			});	
+			}
 		
 	}
 };

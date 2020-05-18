@@ -135,4 +135,12 @@ page{
             flex: 1;
     text-align: center;
 }
+.distribution-box .mine-text.data-v-91ea75c0 {
+    height: 40rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 26rpx;
+    margin-top: 20rpx;
+}
 

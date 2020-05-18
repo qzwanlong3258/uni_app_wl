@@ -370,9 +370,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _image = __webpack_require__(/*! @/config/image.js */ 34);
 
-var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);
 
-var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 764));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 771));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 764));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 771));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _require =
+__webpack_require__(/*! ../../../../config/router.js */ 21),AUTH = _require.AUTH;
 var _self;var _default =
 {
   data: function data() {
@@ -441,7 +443,8 @@ var _self;var _default =
       pickerText: '北京市 市辖区 西城区',
       adressDetail: '',
       familyMonthIncomeShow: false,
-      loanMoneyShow: false };
+      loanMoneyShow: false,
+      showAuth: false };
 
 
 
@@ -458,6 +461,19 @@ var _self;var _default =
     _self.dataList.latitude = 22.686206,
     _self.dataList.longitude = 114.230672,
     _self.dataList.did = (0, _storage.getStorage)('userInfo').avatarUrl;
+
+
+    var isLogin = (0, _storage.getStorage)('isLogin');
+    if (isLogin) {
+      this.showAuth = true;
+    } else {
+
+      var pages = getCurrentPages();
+      if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+      uni.reLaunch({
+        url: "".concat(AUTH, "?name=", 'loanApply') });
+
+    }
 
   },
   methods: {

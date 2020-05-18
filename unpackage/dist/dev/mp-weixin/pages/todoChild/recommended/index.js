@@ -232,7 +232,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var _router = __webpack_require__(/*! @/config/router.js */ 21);
 var _activity = __webpack_require__(/*! @/api/activity.js */ 217);
-var _image = __webpack_require__(/*! @/config/image.js */ 34);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var LjlActivity = function LjlActivity() {__webpack_require__.e(/*! require.ensure | pages/todoChild/recommended/components/LjlActivity */ "pages/todoChild/recommended/components/LjlActivity").then((function () {return resolve(__webpack_require__(/*! ./components/LjlActivity.vue */ 648));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlStates = function LjlStates() {__webpack_require__.e(/*! require.ensure | components/LjlStates */ "components/LjlStates").then((function () {return resolve(__webpack_require__(/*! @/components/LjlStates */ 599));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var LjlActivity = function LjlActivity() {__webpack_require__.e(/*! require.ensure | pages/todoChild/recommended/components/LjlActivity */ "pages/todoChild/recommended/components/LjlActivity").then((function () {return resolve(__webpack_require__(/*! ./components/LjlActivity.vue */ 648));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var LjlStates = function LjlStates() {__webpack_require__.e(/*! require.ensure | components/LjlStates */ "components/LjlStates").then((function () {return resolve(__webpack_require__(/*! @/components/LjlStates */ 599));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var _self;var _default =
 {
   data: function data() {
@@ -254,7 +255,8 @@ var _self;var _default =
       "#EBCD9B", "#EB9B9B", "#9BD2EB"],
 
 
-      imgShow: false };
+      imgShow: false,
+      id: '' };
 
 
   },
@@ -266,6 +268,9 @@ var _self;var _default =
 
   onLoad: function onLoad() {
     _self = this;
+
+    _self.userInfo = (0, _storage.getStorage)('userInfo');
+    _self.id = _self.userInfo.id;
     this.loadListForActivity();
   },
   methods: {
@@ -282,13 +287,43 @@ var _self;var _default =
 
 
     },
-    onShareAppMessage: function onShareAppMessage(res) {
-      return {
-        title: '邀请有礼',
-        path: 'pages/todoChild/recommended/index' };
 
 
+    onShareAppMessage: function onShareAppMessage(options) {
+      var that = this;
+      // 设置菜单中的转发按钮触发转发事件时的转发内容
+      var shareObj = {
+        title: "邀请有礼", // 默认是小程序的名称(可以写slogan等)
+        path: '/pages/tabbar/home/home', // 默认是当前页面，必须是以‘/’开头的完整路径
+        // 　　　　imageUrl: FENXIANG,     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+        success: function success(res) {
+          // 转发成功之后的回调
+          if (res.errMsg == 'shareAppMessage:ok') {
+          }
+        },
+        fail: function fail() {
+          // 转发失败之后的回调
+          if (res.errMsg == 'shareAppMessage:fail cancel') {
+            // 用户取消转发
+          } else if (res.errMsg == 'shareAppMessage:fail') {
+            // 转发失败，其中 detail message 为详细失败信息
+          }
+        },
+        complete: function complete() {
+          // 转发结束之后的回调（转发成不成功都会执行）
+        } };
+
+      // 来自页面内的按钮的转发
+      if (options.from == 'button') {
+        var eData = options.target.dataset;
+        console.log(eData.name); // shareBtn
+        // 此处可以修改 shareObj 中的内容
+        shareObj.path = '/pages/tabbar/home/home?scene=' + eData.id;;
+      }
+      // 返回shareObj
+      return shareObj;
     },
+
     /**
         * 加载活动列表
         */
@@ -301,16 +336,70 @@ var _self;var _default =
           var e = _this.randomRgb();
           var c = _this.randomRgb();
           if (Date.now() > Number(res.edate)) {
+            if (res.roleName == "设计师") {
+              b.push(_objectSpread({
+                color: "#EB9B9B",
+                colorOne: "#860A0A" },
+              res));
+
+              return;
+            }
+            if (res.roleName == "客户") {
+
+
+              b.push(_objectSpread({
+                color: "#9BD2EB",
+                colorOne: "#07587C" },
+              res));
+
+              return;
+            }
+            if (res.roleName == "会员") {
+
+
+              b.push(_objectSpread({
+                color: "#EBCD9B",
+                colorOne: "#825203" },
+              res));
+
+              return;
+            }
             b.push(_objectSpread({
               color: e,
               colorOne: c },
             res));
 
+
           } else {
+            if (res.roleName == "设计师") {
+              a.push(_objectSpread({
+                color: "#EB9B9B",
+                colorOne: "#860A0A" },
+              res));
+
+              return;
+            }
+            if (res.roleName == "客户") {
+              a.push(_objectSpread({
+                color: "#9BD2EB",
+                colorOne: "#07587C" },
+              res));
+
+              return;
+            }
+            if (res.roleName == "会员") {
+              a.push(_objectSpread({
+                color: "#EBCD9B",
+                colorOne: "#825203" },
+              res));
+
+              return;
+            }
             a.push(_objectSpread({
               color: e,
               colorOne: c },
             res));
+
 
           }
 

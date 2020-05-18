@@ -171,13 +171,13 @@
 		{
 		    "path" : "pages/todoChild/decoration/testonetest/index",
 		    "style" : {
-				"navigationBarTitleText": "额度申请"
+				"navigationBarTitleText": "测一测"
 			}
 		},
 		{
 		    "path" : "pages/todoChild/decoration/testonetest/testonetestsubmit/index",
 		    "style" : {
-				"navigationBarTitleText": "额度申请"
+				"navigationBarTitleText": "测一测"
 			}
 		},
 		{
@@ -189,7 +189,7 @@
 		{
 		    "path" : "pages/todoChild/decoration/schedule/index",
 		    "style" : {
-				"navigationBarTitleText": "贷款进度"
+				"navigationBarTitleText": "申请进度"
 			}
 		},
 		{

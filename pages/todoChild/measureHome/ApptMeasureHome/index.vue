@@ -34,14 +34,14 @@
 			</view>
 			<view class="apptMeasureHome_item">
 				<view class="appt_item_lable">您的房屋面积 :</view>
-				<view class="appt_item_content" style="position: relative;"><input type="text" @input='areaInput' v-model="dataList.area" placeholder="请输入您的房屋面积" placeholder-class="input_color" />
+				<view class="appt_item_content" style="position: relative;"><input type="number" maxlength="3" @input='areaInput' v-model="dataList.area" placeholder="请输入您的房屋面积" placeholder-class="input_color" />
 				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!areaShow'>平米</view>
 				
 				</view>
 			</view>
 			<view class="apptMeasureHome_item">
 				<view class="appt_item_lable">您的装修预算 :</view>
-				<view class="appt_item_content" style="position: relative;"><input type="text" @input='budgetInput' v-model="dataList.budget" placeholder="请输入您的装修预算" placeholder-class="input_color" />
+				<view class="appt_item_content" style="position: relative;"><input type="number" maxlength="6" @input='budgetInput' v-model="dataList.budget" placeholder="请输入您的装修预算" placeholder-class="input_color" />
 				<view style="font-size: 28rpx;position: absolute;left: 140rpx;top: 2rpx;" :hidden='!budgetShow'>元</view>
 				</view>
 				<!-- <view class="appt_item_content" @click="apptBindPickerChange">

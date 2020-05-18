@@ -18,7 +18,7 @@ import {
 import {
 	COMPANY_LOGO
 } from '@/config/image.js'
-import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP} from '@/config/router.js';
+import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP,QUERYPROGRESS,LOAN_APPLICATION,LOAN_TESTONETEST} from '@/config/router.js';
 import { refreshToken } from  '../../utils/openLogin';
 import * as home from "@/api/tabbar/home.js";
 import {setApplyId,addScore,addScoreRecord} from '@/api/auth.js'
@@ -167,6 +167,38 @@ const wxAuth = {
 					}
 				})
 			}
+			if(this.name=='queryProgress'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: QUERYPROGRESS,
+						})
+					}
+				})
+			}
+			if(this.name=='loanApply'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: LOAN_APPLICATION,
+						})
+					}
+				})
+			}
+			if(this.name=='testonetest'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: LOAN_TESTONETEST,
+						})
+					}
+				})
+			}
+			
+			
 			
 			
 		},
