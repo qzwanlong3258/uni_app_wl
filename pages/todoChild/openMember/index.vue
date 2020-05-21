@@ -7,7 +7,7 @@
 				</view>
 			</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view>
-			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">普通会员</view>
+			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">{{userInfo.level}}</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 20rpx 200rpx 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">10249人</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">加入黄金会员</view>
 			<!-- <view style="position: absolute;right: 50rpx;top: 50rpx;font-size: 28rpx;color: #999999;">《会员协议》</view> -->
@@ -31,7 +31,7 @@
 		<view style="color: #333333;font-size: 26rpx;text-align: left;height: 90rpx;line-height: 90rpx;margin-left: 20rpx;margin-bottom: 20rpx;">黄金会员的八大权益</view>
 		<view class="box">
 			<view class="box_item" v-for="(item,index) in datalist" :key='index'>
-				<image :src="item.img" mode="widthFix"></image>
+				<image :src="item.img" mode="aspectFit"></image>
 				<view style="color: #333333;font-size: 18rpx;text-align: center;">
                               {{item.nametop}} </view>
 				<view style="color: #333333;font-size: 18rpx;text-align: center;">{{item.namebottom}}</view>
@@ -103,7 +103,7 @@
 				</label>
 			</view>
 			<view class="apptMeasureHome_ft">
-				<view class="btn" @click="toLinkChoose">立即支付</view>
+				<view class="btn" @click="pay">立即支付</view>
 			</view>
 		</view>
 		
@@ -115,8 +115,14 @@
 	import {MEMBER_ONE,MEMBER_TWO,MEMBER_THREE,MEMBER_FOUR,MEMBER_FIVE,MEMBER_SIX,MEMBER_SEVEN,MEMBER_EIGHT} from '@/config/image.js'
 	import { getStorage } from '@/utils/storage.js';
 	import {TO_WEB} from '@/config/router.js'
-	
+	import {postPay} from '@/api/wx.js'
 	import * as home from "@/api/tabbar/home.js";
+	import {setApplyId,addScore,addScoreRecord,getApplyId,newMember,oldMember,aginMember} from '@/api/auth.js'
+	
+	import {
+		
+		wxpay
+	} from '@/config/package.js';
 	
 'use strict';
 var _self;
@@ -141,7 +147,8 @@ export default {
 				{img:MEMBER_EIGHT,nametop:'赠送全年金融',namebottom:'咨询服务'}
 			],
 			agree:false,
-			member:''
+			member:'',
+			openId:''
 		}
 	},
 	methods:{
@@ -167,11 +174,86 @@ export default {
 			        } else {	
 					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
 					}
+		},
+		async pay(){
+			if(!this.agreeM){
+				uni.showToast({
+												title: "请选择金额",
+												icon: 'none',
+												duration: 2000,
+											});
+			}
+			if(!this.agree){
+				uni.showToast({
+												title: "请阅读会员协议",
+												icon: 'none',
+												duration: 2000,
+											});
+			}
+			let e={
+				openid:this.openId,
+				price:'99'
+			}
+			let payContent = await postPay(e)
+			console.log(payContent)
+			payContent.paySign=payContent.sign
+			const payRes = await wxpay(payContent);
+			if (payRes.type == 'success') {
+				let applyId = (await getApplyId()).applyId
+				 if(applyId){
+					await addScore({
+					    id: applyId,
+					    integral: "100"
+					    })
+						await addScoreRecord({
+					 userid: applyId,
+					 money: "100",
+					 msg: "邀请会员赠送100积分"
+					}) 
+				 }
+				 await addScore({
+				     id: this.userInfo.id,
+				     integral: "100"
+				     })
+				 	await addScoreRecord({
+				  userid: this.userInfo.id,
+				  money: "100",
+				  msg: "注册会员赠送100积分"
+				 })
+				 if(this.userInfo.level =="黄金会员"){
+					 let e={
+					  							 id:this.userInfo.cardId,
+					  							 number:'365'
+					  }
+					 await aginMember(e)
+					
+					 
+				 }else{
+					 if(this.userInfo.state){
+						 let e={
+							 id:this.userInfo.cardId,
+							 number:'365'
+						 }
+						 await oldMember(e) 
+					 } else {
+						 await newMember({number:"365"})
+					 }
+					
+					 
+				 }
+				 
+				 
+				  uni.navigateBack({
+				  	delta:1
+				  })
+			}
+			
 		}
 	},
 	async onLoad() {
 		_self=this
 		_self.userInfo = getStorage('userInfo');
+		_self.openId = getStorage('openId')
 		home.loadHomeCarousel({type:4}).then(res => {
 					this.member = res.list.find(item=>item.url=='会员协议').img;
 					
@@ -239,7 +321,8 @@ export default {
 		margin-top: 20rpx;
 	}
 	.box_item image{
-		width:40rpx;
+		width:50rpx;
+		height: 50rpx;
 		margin: 0 auto;
 		display: block;
 	}

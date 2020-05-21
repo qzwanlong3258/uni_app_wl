@@ -9,7 +9,11 @@ import {
 	GET_APPLY_ID,
 	ADD_SCORE,
 	ADD_SCORE_RECORD,
-	NEW_USER
+	NEW_USER,
+	ISMEMBER,
+	NEWMEMBER,
+	OLDMEMBER,
+	AGINMEMBER
 } from '@/config/api.js';
 
 //获取验证码
@@ -96,6 +100,53 @@ export function getUserNum(data) {
 		data,
 	});
 }
+
+
+/**
+ * 判断是否是会员
+ */
+export function getMember(data) {
+	return request({
+		method: 'GET',
+		url: ISMEMBER,
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+// 会员
+export function newMember(data) {
+	return request({
+		method: 'POST',
+		url: NEWMEMBER,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+// 会员
+export function oldMember(data) {
+	return request({
+		method: 'POST',
+		url: OLDMEMBER,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+// 会员
+export function aginMember(data) {
+	return request({
+		method: 'POST',
+		url: AGINMEMBER,
+		showLoading:false,
+		hideLoading:false,
+		data,
+	});
+}
+
+
+
 
 
 

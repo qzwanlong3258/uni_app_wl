@@ -107,6 +107,20 @@ module.exports = {
 	SHE_JI_SHI:`${baseUrl}/design/submitDesign`,
 	/** 新用户**/
 	NEW_USER:`${baseUrl}/wx/user/openIdCount`,
+	/** 支付**/
+	PAY:`${baseUrl}/payment/toPay`,
+	/** 会员**/
+	ISMEMBER:`${baseUrl}/card/loadCardExpire`,
+	/** 卡**/
+	ADDMEMBER:`${baseUrl}/card/rechargeCard`,
+	/** 新开**/
+	NEWMEMBER:`${baseUrl}/card/createCard`,
+	/** 过期**/
+	OLDMEMBER:`${baseUrl}/card/rechargeCardNow`,
+	/** 续期**/
+	AGINMEMBER:`${baseUrl}/card/rechargeCard`,
+	
+	
 	
 	
 	

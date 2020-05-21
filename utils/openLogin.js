@@ -85,7 +85,7 @@ async function refreshToken() {
 	 }).catch(err => console.log(err))
 	 	setStorage('tempToken', data.token)
 	 	setStorage('userInfo',data.UserInfo)
-		if(!data.token){
+		if(!data.token&&!data.UserInfo){
 			setStorage('isLogin',false)
 		} else{
 			setStorage('isLogin',true)
@@ -132,7 +132,11 @@ async function refreshToken() {
 		if (b.code==0){
 			setStorage('tempToken', b.data.token)
 			setStorage('userInfo',b.data.UserInfo)
-			setStorage('isLogin',true)
+			if(!b.data.token&&!b.data.UserInfo){
+				setStorage('isLogin',false)
+			} else{
+				setStorage('isLogin',true)
+			}
 		} else {
 			setStorage('isLogin',false)
 		}

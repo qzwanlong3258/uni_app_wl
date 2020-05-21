@@ -6,7 +6,7 @@
 		<view class="mine-nav ">
 			<view class="top">
 				<view class="mine-nav-top">
-					<image :src="userInfo.avatarUrl"  @load='imgshow' class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+					<image :src="userInfo.avatarUrl"   class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
 					<image :src="imglogo" class="mine-nav-top-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 			</view>
@@ -15,7 +15,7 @@
 				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到有礼</view>
 				<view style="flex: 0.8;font-size: 28rpx;text-align: center;margin: 0 20rpx;"> 
-				 <view style="height: 50%;line-height: 68rpx;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view> 
+				 <view style="height: 50%;line-height: 68rpx;">{{userInfo.nickName?userInfo.nickName:'WELCOME'}}</view> 
 				 <view style="text-align: center;color: #D3B86C;font-size: 16rpx;height: 50%;line-height: 34rpx;"> </view>
 				</view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('黄金会员')">黄金会员</view>
@@ -60,7 +60,7 @@
 			</view>
 		</view>
 		<view class="mine-link" @click="linkToUrl('推荐中心')">
-			<image :src="imgNav[0]"  mode="widthFix"></image><text >推荐中心</text>
+			<image :src="imgNav[0]" @load='imgshow' mode="widthFix"></image><text >推荐中心</text>
 			<view class="iconfont  iconyou iconclass" ></view>
 		</view>
 		<view class="mine-link"  @click="linkToshop()">
@@ -104,7 +104,7 @@ import { getStorage ,setStorage} from '@/utils/storage.js';
 const { AUTH } = require('../../../config/router.js');
 import { loadIntegral } from '@/api/tabbar/todo.js';
 import * as home from "@/api/tabbar/home.js";
-import {getUserRole} from "@/api/auth.js";
+import {getUserRole ,getMember} from "@/api/auth.js";
 
 
 
@@ -212,42 +212,74 @@ export default {
 		this.loadIntegral();
 	},
 	async onLoad() {
+		_self=this
 		//登录
 			const isLogin = getStorage('isLogin');
 			if (isLogin) {
-				this.show=true
+				_self.show=true
 				
-				_self =this;
+				
 				_self.userInfo = getStorage('userInfo');
 				// this.getData(this.toYear+"-"+this.toMonth);
 				_self.index =getStorage('index')
 				let e = await getUserRole()
 				console.log(e)
+				
+				let card = (await getMember()).card
+				
 				if(e.roleName){
 					_self.role =e.roleName.split(',')
 					let userNew={
 						..._self.userInfo,
-						
 					}
 					userNew.role=e.roleName.split(',')
-					for(let i =0;i<userNew.role.length;i++){
-						if(userNew.role[i]=='黑卡会员'){
-							userNew.level ="黄金会员"
+					// for(let i =0;i<userNew.role.length;i++){
+					// 	if(userNew.role[i]=='黑卡会员'){
+					// 		userNew.level ="黄金会员"
+					// 	}
+					// 	userNew.level ="普通会员"
+					// }
+					// console.log(bdate)
+					// console.log(card.edate)
+					// console.log(new Date().getTime())
+					if(card){
+						if(card.bdate&&card.edate<new Date().getTime()){
+							userNew.state=1
 						}
+						if(card.bdate&&card.edate>new Date().getTime()){
+							userNew.level ="黄金会员"
+							userNew.cardId =card.id
+						}else{
+							userNew.level ="普通会员"
+						}
+					} else{
 						userNew.level ="普通会员"
 					}
+					
 					setStorage('userInfo',userNew);
 				} else {
 					_self.role =[]
 					let userNew={
-						..._self.userInfo,
-						
+						..._self.userInfo,	
 					}
 					userNew.role=[]
-					for(let i =0;i<userNew.role.length;i++){
-						if(userNew.role[i]=='黑卡会员'){
-							userNew.level ="黄金会员"
+					// for(let i =0;i<userNew.role.length;i++){
+					// 	if(userNew.role[i]=='黑卡会员'){
+					// 		userNew.level ="黄金会员"
+					// 	}
+					// 	userNew.level ="普通会员"
+					// }
+					if(card){
+						if(card.bdate&&card.edate<new Date().getTime()){
+							userNew.state=1
 						}
+						if(card.bdate&&card.edate>new Date().getTime()){
+							userNew.level ="黄金会员"
+							userNew.cardId =card.id
+						}else{
+							userNew.level ="普通会员"
+						}
+					} else{
 						userNew.level ="普通会员"
 					}
 					setStorage('userInfo',userNew);
@@ -256,10 +288,12 @@ export default {
 				console.log(_self.role)
 				this.loadIntegral();
 				
-				home.loadHomeCarousel({type:4}).then(res => {
-							this.jifen = res.list.find(item=>item.url=='积分协议').img;
+				// home.loadHomeCarousel({type:4}).then(res => {
+				// 			this.jifen = res.list.find(item=>item.url=='积分协议').img;
 							
-						});
+				// 		});
+				
+				
 				
 			} else {
 			

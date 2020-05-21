@@ -6,9 +6,11 @@ import {
 	COMPANY_LOGO
 } from '@/config/image.js'
 import {
-	setStorage
+	setStorage,getStorage
 } from '@/utils/storage.js'
-const regeneratorRuntime = require('@/utils/regenerator-runtime/runtime.js')
+import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP,QUERYPROGRESS,LOAN_APPLICATION,LOAN_TESTONETEST} from '@/config/router.js';
+import * as home from "@/api/tabbar/home.js";
+import {setApplyId,addScore,addScoreRecord} from '@/api/auth.js'
 
 const notWxAuth = {
 	data() {
@@ -18,13 +20,172 @@ const notWxAuth = {
 			param: {
 				phone: '',
 				code: ''
-			}
+			},
+			show:true,
+			name:'',
+			user:'',
+			serve:'',
+			dataL:''
 		}
 	},
-	onLoad() {
-		// console.log(getApp().globalData.fm)
+	onLoad:  function(options) {
+		//请求微信接口wx.login,获取code
+		// const code = await this.login();
+		// // const code = getStorage('code')
+		// const {
+		// 	session_key
+		// } = await request({
+		// 	method: 'POST',
+		// 	url: `${LOGIN_WECHAT_LOGIN}?appId=${APP_ID}&code=${code}`,
+		// 	needToken: false,
+		// 	showLoading: false,
+		// 	showErrorModal: false
+		// }).catch(() => {
+		// 	console.log('调用wx.login失败')
+		// })
+		// this.session_key = session_key;
+		// this.session_key = getStorage('session_key')
+		this.name=options.name
+		home.loadHomeCarousel({type:4}).then(res => {
+			this.user = res.list.find(item=>item.url=='用户协议').img;
+			this.serve = res.list.find(item=>item.url=='服务协议').img;
+		});
+		// console.log(this.session_key)
+		
 	},
 	methods: {
+		linkToBankOne(){
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a = this.user.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+		},
+		linkToBankTwo(){
+			let ch = "/";
+			// var str = "这是一/个变量，这是一个变量";
+			let a =this.serve.replace(new RegExp(ch,'g'),"!");
+			let e = a.replace(":", "*")
+			
+			
+			var testmsg=e.substring(e.lastIndexOf('.')+1)
+			        const extensio = testmsg === 'jpg'
+			        const extensio2 = testmsg === 'png'
+			        const extensio3 = testmsg === 'jpeg'
+			        if(extensio || extensio2 || extensio3) {
+			          uni.navigateTo({ url: `${BANK_DETAIL}?id=${e}` });
+			        } else {	
+					 uni.navigateTo({ url: `${TO_WEB}?id=${e}` });
+					}
+		},
+		noBtn(){
+			uni.showToast({
+											title: "若不同意协议则无法登录和操作下单哦",
+											icon:"none",
+											duration: 2000,
+										});
+		},
+		 async yesBtn(){
+			
+			// setStorage('sessionKey', this.session_key)
+			setStorage('tempToken', this.dataL.token)
+			setStorage('refreshToken', this.dataL.refreshToken)
+			setStorage('userInfo', this.dataL.UserInfo)
+			setStorage('isLogin', true)
+			console.log(this.name)
+			
+			let openid=getStorage('openId')
+			let e =getStorage('applyId')
+			if(e){
+				await setApplyId({
+				      applyId: e
+				  })
+			}
+			if(getStorage('newUser')){
+				await addScore({
+				    id: e,
+				    integral: "500"
+				    })
+					await addScoreRecord({
+				 userid: e,
+				 money: "500",
+				 msg: "邀请用户赠送500积分"
+				})
+			}
+			
+			
+			
+			
+			if(this.name=='decoration'){
+				 uni.switchTab({
+					url: DECORATION,
+					fail: () => {
+						uni.reLaunch({
+							url: DECORATION,
+						})
+					}
+				})
+			}
+			if(this.name=='mine'){
+				 uni.switchTab({
+					url: MINE,
+					fail: () => {
+						uni.reLaunch({
+							url: MINE,
+						})
+					}
+				})
+			}
+			if(this.name=='inShop'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: INSHOP,
+						})
+					}
+				})
+			}
+			if(this.name=='queryProgress'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: QUERYPROGRESS,
+						})
+					}
+				})
+			}
+			if(this.name=='loanApply'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: LOAN_APPLICATION,
+						})
+					}
+				})
+			}
+			if(this.name=='testonetest'){
+				 uni.switchTab({
+					url: INSHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: LOAN_TESTONETEST,
+						})
+					}
+				})
+			}
+		},	
 		//获取验证码
 		getCode: function() {
 			const _this = this;
@@ -61,18 +222,20 @@ const notWxAuth = {
 		login: function() {
 			if (this.param.phone && this.param.code) {
 				getPhoneLogin(this.param).then(res => {
-					setStorage('tempToken', res.token)
-					setStorage('refreshToken', res.refreshToken)
-					setStorage('userInfo', res.userInfo)
-					setStorage('isLogin', true)
-					uni.switchTab({
-						url: getApp().globalData.fm,
-						fail: () => {
-							uni.reLaunch({
-								url: getApp().globalData.fm,
-							})
-						}
-					})
+					this.dataL=res
+					// setStorage('tempToken', res.token)
+					// setStorage('refreshToken', res.refreshToken)
+					// setStorage('userInfo', res.userInfo)
+					// setStorage('isLogin', true)
+					// uni.switchTab({
+					// 	url: getApp().globalData.fm,
+					// 	fail: () => {
+					// 		uni.reLaunch({
+					// 			url: getApp().globalData.fm,
+					// 		})
+					// 	}
+					// })
+					this.show=false
 				})
 			} else {
 				uni.showToast({

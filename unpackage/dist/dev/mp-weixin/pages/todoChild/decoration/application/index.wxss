@@ -52,6 +52,7 @@ page{
 .application.data-v-71b650e6 {
   font-size: 30rpx;
   color: #666666;
+  position: relative;
 }
 .application_hd.data-v-71b650e6 {
   padding: 0 16rpx 0 16rpx;

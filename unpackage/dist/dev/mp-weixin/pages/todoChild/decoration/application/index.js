@@ -31,7 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=css& */ 317);
 /* harmony import */ var _index_vue_vue_type_style_index_1_id_71b650e6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=1&id=71b650e6&lang=scss&scoped=true& */ 319);
-/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 24);
+/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 25);
 
 var renderjs
 
@@ -96,8 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
-  "simple-address": function() {
-    return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.nvue */ 754))
+  "pick-regions": function() {
+    return Promise.all(/*! import() | components/pick-regions/pick-regions */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/pick-regions/pick-regions")]).then(__webpack_require__.bind(null, /*! @/components/pick-regions/pick-regions.vue */ 764))
   }
 }
 var render = function() {
@@ -362,25 +362,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 'use scrict';
 // import { ApplicationInput } from './components/ApplicationInput.vue';
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _router = __webpack_require__(/*! @/config/router.js */ 21);
-var _image = __webpack_require__(/*! @/config/image.js */ 34);
+var _router = __webpack_require__(/*! @/config/router.js */ 22);
+var _image = __webpack_require__(/*! @/config/image.js */ 35);
 
 
 
-var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 140);
-var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 764));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 771));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _require =
-__webpack_require__(/*! ../../../../config/router.js */ 21),AUTH = _require.AUTH;
+
+var _loan = __webpack_require__(/*! @/api/todoChild/loan.js */ 141);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 17);var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 406));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 770));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address-normal/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address-normal/simple-address")]).then((function () {return resolve(__webpack_require__(/*! @/components/simple-address-normal/simple-address.nvue */ 777));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pickRegions = function pickRegions() {Promise.all(/*! require.ensure | components/pick-regions/pick-regions */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/pick-regions/pick-regions")]).then((function () {return resolve(__webpack_require__(/*! @/components/pick-regions/pick-regions.vue */ 764));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _require =
+__webpack_require__(/*! ../../../../config/router.js */ 22),AUTH = _require.AUTH;
 var _self;var _default =
 {
   data: function data() {
     return {
       dataList: {},
-      img: [_image.APPT_TITLE_ONE, _image.APPT_TITLE_TWO],
+      img: [_image.APPT_TITLE_ONE, _image.APPT_TITLE_TWO, _image.BACK_IMG],
       // form: [
       // 	{title: "申请信息", list: [
       // 		{title: "额度", submitKey: "quota", type: "text"},
@@ -444,7 +452,12 @@ var _self;var _default =
       adressDetail: '',
       familyMonthIncomeShow: false,
       loanMoneyShow: false,
-      showAuth: false };
+
+      region: [],
+      defaultRegion: ['北京市', '市辖区', '西城区'],
+      defaultRegionCode: '010101',
+      regionName: '北京市 市辖区 西城区' };
+
 
 
 
@@ -463,20 +476,38 @@ var _self;var _default =
     _self.dataList.did = (0, _storage.getStorage)('userInfo').avatarUrl;
 
 
-    var isLogin = (0, _storage.getStorage)('isLogin');
-    if (isLogin) {
-      this.showAuth = true;
-    } else {
+    // const isLogin = getStorage('isLogin');
+    // if (isLogin) {
+    // 	this.showAuth=true
+    // } else {
 
-      var pages = getCurrentPages();
-      if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-      uni.reLaunch({
-        url: "".concat(AUTH, "?name=", 'loanApply') });
-
-    }
+    // 	let pages = getCurrentPages();
+    // 	if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+    // 	uni.reLaunch({
+    // 		url:`${AUTH}?name=${'loanApply'}`
+    // 	});	
+    // 	}
 
   },
+  // computed:{
+  //            regionName(){
+  //                // 转为字符串
+  //                return this.region.map(item=>item.name).join(' ')
+  //            }
+  //        },
   methods: {
+    // 获取选择的地区
+    handleGetRegion: function handleGetRegion(region) {
+      this.region = region;
+      this.regionName = this.region.map(function (item) {return item.name;}).join(' ');
+      this.$forceUpdate();
+    },
+    Back: function Back() {
+      uni.navigateTo({
+        url: _router.DECORATION });
+
+
+    },
     familyMonthIncomenput: function familyMonthIncomenput(e) {
       // console.log(e.detail)
       // this.$forceUpdate();
@@ -593,7 +624,7 @@ var _self;var _default =
     },
     submit: function submit() {
       console.log(_router.DECORATION);
-      _self.dataList.address = this.pickerText + ' ' + this.adressDetail;
+      _self.dataList.address = this.regionName + ' ' + this.adressDetail;
       (0, _loan.loanAppt)(this.dataList).then(function (res) {
         uni.showToast({
           title: "提交成功",
@@ -627,7 +658,8 @@ var _self;var _default =
 
     wPicker: wPicker,
     uniPopup: uniPopup,
-    simpleAddress: simpleAddress } };exports.default = _default;
+    simpleAddress: simpleAddress,
+    pickRegions: pickRegions } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

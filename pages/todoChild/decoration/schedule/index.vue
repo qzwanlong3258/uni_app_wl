@@ -1,14 +1,18 @@
 <template>
 	<view class="schedule" >
+		<view style="position: absolute;right: 10rpx;top: 10rpx;">
+			<image :src="imgback" mode="widthFix" @click="Back" style="width: 120rpx"></image>
+		</view>
+		<view style="height: 30rpx;"></view>
 		<!-- <ljl-states :infor="states" @change="stateChange"  /> -->
 		<view class="schedule-left"  v-for="(item,index) in dataList" :key="index">
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
 				</view>
 				<view class="schedule-hd-mid">
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone?userInfo.phone:"无"}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{item.phone?item.phone:"无"}}</view>
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
@@ -46,11 +50,11 @@
 		<view class="schedule-left"  v-for="(item,index) in failDataListOne" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
 				</view>
 				<view class="schedule-hd-mid">
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{item.phone?item.phone:"无"}}</view>
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
@@ -88,11 +92,11 @@
 		<view class="schedule-left"  v-for="(item,index) in failDataListTwo" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="userInfo.avatarUrl" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
 				</view>
 				<view class="schedule-hd-mid">
-					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{userInfo.nickName}}</view>
-					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{userInfo.phone}}</view>
+					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
+					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;;color:#999999">电话：{{item.phone?item.phone:"无"}}</view>
 				</view>
 				<view class="schedule-hd-right">
 					<view class="schedule-hd-mid-bottom" style="font-size: 28rpx;padding-left: 20rpx;;color:#999999">正在进行</view>
@@ -140,6 +144,7 @@ import LjlStates from '@/components/LjlStates';
 import { loanList } from '@/api/todoChild/loan.js';
 import { getStorage } from '@/utils/storage.js';
 import NullData from '@/components/NullData.vue';
+import {BACK_IMG} from "@/config/image.js"
 export default {
 	 components: {uniSteps,LjlStates,NullData
 	 },
@@ -154,6 +159,7 @@ export default {
 				index: 0,
 				list: [ { title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }]
 			},
+			imgback:BACK_IMG
 		}
 	},
 	filters:{
@@ -196,6 +202,13 @@ export default {
 		}
 	},
 	methods:{
+		
+
+		Back(){
+			uni.navigateBack({
+				delta:1
+			})
+		},
 		/**
 		 * 切换状态
 		 */
@@ -207,8 +220,8 @@ export default {
 	async onLoad() {
 		
 		_self = this;
-		_self.userInfo = getStorage('userInfo');
-		console.log(this.userInfo);
+		// _self.userInfo = getStorage('userInfo');
+		// console.log(this.userInfo);
 		
 		let p =[]
 		 let v = await loanList({status:1})
@@ -250,6 +263,7 @@ export default {
 		width: 100%;
 		height: 100%; */
 		padding: 0 0 80rpx 0;
+		position: relative;
 	}
 	.schedule-left{
 		margin: 40rpx 0;

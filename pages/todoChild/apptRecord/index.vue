@@ -21,6 +21,7 @@
 				</view>
 				
 			</view>
+			<!-- <null-data v-if="!datalist.length" :name="'暂无记录'" class="nullData_view" /> -->
 		</view>
 		<view class="schedule-right" :hidden='states.index==0'>
 			
@@ -62,7 +63,7 @@
 						</view>
 					</view>
 					</view>
-					<null-data v-if="!dataListW.length" class="nullData_view" />
+					<!-- <null-data v-if="!dataListW.length" :name="'暂无记录'" class="nullData_view" /> -->
 				</view>
 		
 		</view>

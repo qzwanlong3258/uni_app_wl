@@ -9,7 +9,11 @@
 			</view>
 		</view>
 	</view> -->
-	<view class="application" v-if="showAuth">
+	<view class="application" >
+		<view style="position: absolute;right: 10rpx;top: 10rpx;">
+			<image :src="img[2]" mode="widthFix" @click="Back" style="width: 120rpx"></image>
+		</view>
+		
 		<view class="title">
 			<view><image :src="img[0]" mode="widthFix"></image></view>
 			
@@ -126,11 +130,14 @@
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">所在地区:</view>
-			<view class="appli_hd_item_content" @click="openAddres">
-				<!-- <input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /> -->
-				{{pickerText}}
-				</view>
-			<simple-address ref="simpleAddress" :themeColor="'#FFEA04'" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onOpenConfirm" themeColor='#007AFF'></simple-address>
+			<pick-regions :defaultRegion="defaultRegionCode" @getRegion="handleGetRegion">
+			            <view class="appli_hd_item_content" >
+			            	<!-- <input type="number" v-model="pickerText" style="width: 100%;"   placeholder-class="input_color" /> -->
+			            	{{regionName}}
+			            	</view>
+			        </pick-regions> 
+			
+			<!-- <simple-address ref="simpleAddress" :themeColor="'#FFEA04'" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onOpenConfirm" themeColor='#007AFF'></simple-address> -->
 		</view>
 		<view class="application_hd_item">
 			<view class="appli_hd_item_lable">详细地址:</view>
@@ -229,8 +236,9 @@
 import wPicker from "@/components/w-picker/w-picker.vue";
 import uniPopup from "@/components/uni-popup/uni-popup.vue";
 import { DECORATION} from '@/config/router.js';
-import { APPT_TITLE_ONE, APPT_TITLE_TWO } from '@/config/image.js';
+import { APPT_TITLE_ONE, APPT_TITLE_TWO, BACK_IMG } from '@/config/image.js';
 import simpleAddress from "@/components/simple-address-normal/simple-address.nvue";
+import pickRegions from '@/components/pick-regions/pick-regions.vue'
 
 
 import { loanAppt } from '@/api/todoChild/loan.js'
@@ -241,7 +249,7 @@ export default {
 	data() {
 		return {
 			dataList:{},
-			img:[APPT_TITLE_ONE,APPT_TITLE_TWO],
+			img:[APPT_TITLE_ONE,APPT_TITLE_TWO,BACK_IMG],
 			// form: [
 			// 	{title: "申请信息", list: [
 			// 		{title: "额度", submitKey: "quota", type: "text"},
@@ -305,7 +313,12 @@ export default {
 								adressDetail:'',
 								familyMonthIncomeShow:false,
 								loanMoneyShow:false,
-								showAuth:false
+								
+								region:[],
+								defaultRegion:['北京市','市辖区','西城区'],
+								defaultRegionCode:'010101',
+								regionName: '北京市 市辖区 西城区',
+								
 								
 			
 			
@@ -324,20 +337,38 @@ export default {
 		_self.dataList.did =getStorage('userInfo').avatarUrl;
 		
 		
-		const isLogin = getStorage('isLogin');
-		if (isLogin) {
-			this.showAuth=true
-		} else {
+		// const isLogin = getStorage('isLogin');
+		// if (isLogin) {
+		// 	this.showAuth=true
+		// } else {
 			
-			let pages = getCurrentPages();
-			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-			uni.reLaunch({
-				url:`${AUTH}?name=${'loanApply'}`
-			});	
-			}
+		// 	let pages = getCurrentPages();
+		// 	if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+		// 	uni.reLaunch({
+		// 		url:`${AUTH}?name=${'loanApply'}`
+		// 	});	
+		// 	}
 		
 	},
+	 // computed:{
+	 //            regionName(){
+	 //                // 转为字符串
+	 //                return this.region.map(item=>item.name).join(' ')
+	 //            }
+	 //        },
 	methods: {
+		// 获取选择的地区
+		            handleGetRegion(region){
+		                this.region = region
+						this.regionName = this.region.map(item=>item.name).join(' ')
+						this.$forceUpdate()
+		            },
+		Back(){
+			uni.navigateTo({
+				url:DECORATION
+			})
+			
+		},
 		familyMonthIncomenput(e){
 			// console.log(e.detail)
 			// this.$forceUpdate();
@@ -454,7 +485,7 @@ export default {
 	    },
 		submit: function () {
 			console.log(DECORATION)
-			_self.dataList.address=this.pickerText+ ' '+this.adressDetail
+			_self.dataList.address=this.regionName+ ' '+this.adressDetail
 			loanAppt(this.dataList).then( res=>{
 				 uni.showToast({
 								title: "提交成功",
@@ -488,7 +519,8 @@ export default {
 		
 		wPicker,
 		uniPopup,
-		simpleAddress
+		simpleAddress,
+		pickRegions 
 	}
 };
 </script>
@@ -546,6 +578,7 @@ export default {
 .application {
 	font-size: 30rpx;
 	color: #666666;
+	position: relative;
 	
 	
 	

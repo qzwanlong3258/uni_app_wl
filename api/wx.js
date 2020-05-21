@@ -4,7 +4,9 @@ import {
 import {
 	GET_ACCESS_TOKEN,
 	GET_UNLIMITED,
-	SHE_JI_SHI
+	SHE_JI_SHI,
+	PAY,
+	
 } from '@/config/api.js';
 
 /**
@@ -34,3 +36,20 @@ export function postDesigner(data) {
 		data
 	});
 }
+/**
+ * 支付
+ */
+export function postPay(data) {
+	return request({
+		method: 'POST',
+		url: PAY,
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+
+
+
+
+
