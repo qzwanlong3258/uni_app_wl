@@ -187,5 +187,25 @@ module.exports = {
 	//分销中心积分协议
 	JIFEN_PIC:'https://www.feiaizn.com/images/20200514171649_jifenfenxiao.png',
 	//图标
-	BOTTOM_JIANTOU:'https://www.feiaizn.com/images/20200516120658_xiatubiao.png'
+	BOTTOM_JIANTOU:'https://www.feiaizn.com/images/20200516120658_xiatubiao.png',
+	//装企联盟顶部
+	DECORATE_HOUSE:'https://www.feiaizn.com/images/20200522094914_outFitTop.png',
+	
+	//星星
+	STAR:'https://www.feiaizn.com/images/20200522114244_xingxing.png',
+	MASK_IMG:'https://www.feiaizn.com/images/20200522164139_youhuijuan.png',
+	
+	//优惠卷背景图片
+	COUPON_BG:"https://www.feiaizn.com/images/20200524201641_youhuijuanbeijing.png",
+	
+	//记录
+	MINE_RECORD:"https://www.feiaizn.com/images/20200525111941_jilu.png",
+	
+	//客服
+	MINE_KEFU:'https://www.feiaizn.com/images/20200525112119_kefu.png',
+	
+	//VIP
+	VIP:'https://www.feiaizn.com/images/20200525112629_v.png'
+	
+	
 }

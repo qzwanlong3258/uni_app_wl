@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/tabbar/home/home",
     "pages/todoChild/orderList/orderList",
     "pages/todoChild/orderDetail/orderDetail",
@@ -25,6 +26,8 @@
     "pages/todoChild/promoteGoods/index",
     "pages/todoChild/withdraw/index",
     "pages/todoChild/poster/index",
+    "pages/todoChild/decorateHouse/index",
+    "pages/todoChild/decorateHouse/shopHome/index",
     "pages/todoChild/decoration/index",
     "pages/todoChild/decoration/decorationPicture/index",
     "pages/todoChild/decoration/testonetest/index",
@@ -50,7 +53,8 @@
     "pages/todoChild/toLink/service/index",
     "pages/todoChild/toLink/webview/index",
     "pages/tabbar/todo/scoreDetail/index",
-    "pages/todoChild/Designer/index"
+    "pages/todoChild/Designer/index",
+    "pages/todoChild/coupon/index"
   ],
   "subPackages": [],
   "window": {
@@ -70,6 +74,12 @@
         "iconPath": "static/img/tabbar/home.png",
         "selectedIconPath": "static/img/tabbar/selectedHome.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/todoChild/decorateHouse/index",
+        "iconPath": "static/img/tabbar/loan.png",
+        "selectedIconPath": "static/img/tabbar/selectedLoan.png",
+        "text": "装企联盟"
       },
       {
         "pagePath": "pages/todoChild/decoration/index",

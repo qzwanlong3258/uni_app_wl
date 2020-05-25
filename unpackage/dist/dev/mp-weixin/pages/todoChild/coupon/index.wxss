@@ -1,0 +1,24 @@
+
+page{
+	background: #FFFFFF;
+}
+
+
+.box.data-v-1aee3dfc{
+	width:calc(100% - 60rpx) ;
+	height: 150rpx;
+	margin-bottom: 60rpx;
+}
+.box image.data-v-1aee3dfc{
+	position: absolute;
+	width:calc(100% - 60rpx);
+}
+.bg.data-v-1aee3dfc{
+	width:calc(100% - 60rpx);
+	height: 150rpx;
+	position: absolute;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+

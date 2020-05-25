@@ -96,6 +96,12 @@ module.exports = {
 	//设计师
 	TO_DESGER:'/pages/todoChild/Designer/index',
 	
+	//装企联盟
+	DECORATE:'/pages/todoChild/decorateHouse/index',
+	SHOP_HOME:'/pages/todoChild/decorateHouse/shopHome/index',
+	
+	//优惠券
+	COUPON:'/pages/todoChild/coupon/index'
 	
 	
 	

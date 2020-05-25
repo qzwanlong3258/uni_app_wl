@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "优惠卷",
+  "usingComponents": {
+    "null-data": "/components/NullData"
+  }
+}

@@ -1,0 +1,13 @@
+
+page {
+	background: #ffffff;
+}
+
+
+.starOne.data-v-a50d39e6 {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-position: -8rpx 0rpx;
+	background-size: 150rpx 260rpx;
+	height: 26rpx;
+}
+

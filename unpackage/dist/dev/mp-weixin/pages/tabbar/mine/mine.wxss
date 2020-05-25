@@ -10,10 +10,21 @@ page{
 	padding: 20rpx 0;
 }
 .mine-nav.data-v-dd86ab04{
+	
+	height: 400rpx;
 	background-color: #FCE77A;
-	height: 330rpx;
 	margin:0 20rpx;
 }
+/* .nav-bg{
+	background-image: url('https://www.feiaizn.com/images/20200525112629_v.png');
+	
+	background: no-repeat;
+	 background-size: 300rpx 372rpx;
+	 background-size: 20rpx 21rpx;
+	 background-position: -1000%  -1000%;
+	 background-color: #FCE77A;
+	 
+} */
 .top.data-v-dd86ab04{
 	height: 120rpx;
 	padding: 20rpx 0 4rpx;
@@ -40,7 +51,7 @@ page{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	margin-top: 40rpx;
+	margin-top: 10rpx;
 }
 .btn.data-v-dd86ab04{
 	color: #FFFFFF;

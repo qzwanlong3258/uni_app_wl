@@ -8,7 +8,7 @@ import {
 import {
 	setStorage,getStorage
 } from '@/utils/storage.js'
-import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP,QUERYPROGRESS,LOAN_APPLICATION,LOAN_TESTONETEST} from '@/config/router.js';
+import { MINE ,DECORATION,BANK_DETAIL, TO_WEB,INSHOP,QUERYPROGRESS,LOAN_APPLICATION,LOAN_TESTONETEST,DECORATE,SHOP} from '@/config/router.js';
 import * as home from "@/api/tabbar/home.js";
 import {setApplyId,addScore,addScoreRecord} from '@/api/auth.js'
 
@@ -157,7 +157,7 @@ const notWxAuth = {
 			}
 			if(this.name=='queryProgress'){
 				 uni.switchTab({
-					url: INSHOP,
+					url: QUERYPROGRESS,
 					fail: () => {
 						uni.reLaunch({
 							url: QUERYPROGRESS,
@@ -167,7 +167,7 @@ const notWxAuth = {
 			}
 			if(this.name=='loanApply'){
 				 uni.switchTab({
-					url: INSHOP,
+					url: LOAN_APPLICATION,
 					fail: () => {
 						uni.reLaunch({
 							url: LOAN_APPLICATION,
@@ -177,13 +177,46 @@ const notWxAuth = {
 			}
 			if(this.name=='testonetest'){
 				 uni.switchTab({
-					url: INSHOP,
+					url: LOAN_TESTONETEST,
 					fail: () => {
 						uni.reLaunch({
 							url: LOAN_TESTONETEST,
 						})
 					}
 				})
+			}
+			if(this.name=='todo'){
+				 uni.switchTab({
+					url: SHOP,
+					fail: () => {
+						uni.reLaunch({
+							url: SHOP,
+						})
+					}
+				})
+			}
+			if(this.name=='decorateHouse'){
+				 uni.switchTab({
+					url: DECORATE,
+					fail: () => {
+						uni.reLaunch({
+							url: DECORATE,
+						})
+					}
+				})
+			}
+			if(this.name=='link'){
+				let url =getApp().globalData.link
+				 let ch = "/";
+				 								// var str = "这是一/个变量，这是一个变量";
+				 								let a = url.replace(new RegExp(ch,'g'),"!");
+				 								let c = a.replace(":", "*")
+												let user = JSON.stringify(this.dataL.UserInfo)
+												
+												 // console.log(user)
+												 // console.log(this.dataL.UserInfo)
+				 uni.navigateTo({ url: `${TO_WEB}?id=${c}&tempToken=${this.dataL.token}&refreshToken=${this.dataL.refreshToken}&userInfo=${user}&isLogin=${true}`});
+				 
 			}
 		},	
 		//获取验证码

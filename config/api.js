@@ -119,6 +119,16 @@ module.exports = {
 	OLDMEMBER:`${baseUrl}/card/rechargeCardNow`,
 	/** 续期**/
 	AGINMEMBER:`${baseUrl}/card/rechargeCard`,
+	/** 装企列表**/
+	SHOP_LIST:`${baseUrl}/decorate/loadDecorate`,
+	/** 装企优惠卷**/
+	SHOP_COUPON:`${baseUrl}/decorate/loadDecorateVolume`,
+	/** 获得优惠卷**/
+	GET_COUPON:`${baseUrl}/decorate/getVolume`,
+	/** 加载优惠卷**/
+	MY_COUPON:`${baseUrl}/decorate/loadMyVolume`,
+	/** 微信登录**/
+	WEIXIN_CODE:`https://open.weixin.qq.com/connect/oauth2/authorize`
 	
 	
 	
