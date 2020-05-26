@@ -128,9 +128,9 @@ module.exports = {
 	/** 加载优惠卷**/
 	MY_COUPON:`${baseUrl}/decorate/loadMyVolume`,
 	/** 微信登录**/
-	WEIXIN_CODE:`https://open.weixin.qq.com/connect/oauth2/authorize`
-	
-	
+	WEIXIN_CODE:`${baseUrl}/gzh/access_token`,
+	/** 微信用户信息**/
+	WEIXIN_USERINFO:`${baseUrl}/gzh/userinfo`
 	
 	
 	

@@ -8,6 +8,8 @@ import {getUserNum} from '@/api/auth.js'
 
 
 
+
+
 /**
  * 获取临时code
  * @param {超时} timeout
@@ -150,8 +152,10 @@ async function refreshToken() {
  
 }
 
+
 module.exports = {
-	login,
+  login,
   getOpenId,
   refreshToken
+ 
 }

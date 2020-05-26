@@ -1,5 +1,5 @@
 <template>
-	<view :hidden='!imgShow' >
+	<view :hidden='!imgShow'>
 		
 	<view :style="{height:height+'px;'}" class="home-hd">
 		<view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view>
@@ -19,6 +19,7 @@
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view> -->
 		<!-- <view style="height: 40px;"></view> -->
+		<view style="height: 100rpx;background: #000000;" @click="code"></view>
 	</scroll-view>
 	</view>
 </template>
@@ -34,6 +35,9 @@ import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
 import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
 import { getStorage ,setStorage} from '@/utils/storage.js';
+import {getWxCode ,getWxUser}from '@/api/wx.js'
+import {APP_ID,APP_SECRET}from '@/config/wx_gch.js'
+import {WEIXIN_CODE , WEIXIN_USERINFO } from '@/config/api.js';
 var _self;
 export default {
 	data: function() {
@@ -52,10 +56,55 @@ export default {
 			ScreenHeight:667
 		};
 	},
-	onLoad:  function(options) {
+	onLoad: async function(options) {
 		_self = this
 		
 		console.log(this.imgList)
+		alert(this.getQuery('code'))
+		// if(this.getQuery('code')){
+			
+		// 	let e={
+		// 		appid:APP_ID,
+		// 		secret:APP_SECRET,
+		// 		code:this.getQuery("code")
+		// 	}
+		// 	uni.request({
+		// 					url: WEIXIN_CODE, //仅为示例，并非真实接口地址。
+		// 					data: e,
+		// 	                method:'GET',//请求方式  或GET
+		// 					success: res => {
+		// 							// console.log('返回', res);
+		// 							setStorage('openId', res.data.openid)
+		// 							setStorage('tempToken', res.data.access_token)
+									
+		// 							let a={
+		// 								access_token:res.data.access_token,
+		// 								openid:res.data.openid
+		// 							}
+									
+		// 							uni.request({
+		// 											url: WEIXIN_USERINFO, //仅为示例，并非真实接口地址。
+		// 											data: a,
+													
+		// 							                method:'GET',//请求方式  或GET
+		// 											success: respone => {
+		// 													// console.log('返回', res);
+		// 													setStorage('userInfo',respone.data)
+		// 													setStorage('isLogin', true)
+															
+		// 														}
+		// 											});
+									
+									
+								
+		// 							       }
+									
+		// 								})
+			
+		// }else{
+		// 	alert('无')
+		// }
+		
 		home.loadHomeCarousel({type:1}).then(res => {
 			_self.imgList = res.list;
 		});
@@ -118,6 +167,59 @@ export default {
 			
 	},
 	methods: {
+		code(){
+			let e={
+				appid:APP_ID,
+				secret:APP_SECRET,
+				code:this.getQuery("code")
+			}
+			uni.request({
+							url: WEIXIN_CODE, //仅为示例，并非真实接口地址。
+							data: e,
+			                method:'GET',//请求方式  或GET
+							success: res => {
+									console.log('返回', res);
+									let a={
+										access_token:res.data.access_token,
+										openid:res.data.openid
+									}
+									setStorage('openId', res.data.openid)
+									setStorage('tempToken', res.data.access_token)
+									
+									uni.request({
+													url: WEIXIN_USERINFO, //仅为示例，并非真实接口地址。
+													data: a,
+													
+									                method:'GET',//请求方式  或GET
+													success: respone => {
+															console.log('返回', respone);
+															setStorage('userInfo',respone.data)
+															setStorage('isLogin', true)
+																}
+													});
+									
+									
+									// let userInfo = await getWxUser(a)
+									// alert(userInfo)
+									// alert(userInfo.nickName)
+									
+									
+									// setStorage('userInfo',userInfo)
+									// setStorage('isLogin', true)
+									       }
+									
+										})
+		},
+		 getQuery(name) {
+		    // 正则：[找寻'&' + 'url参数名字' = '值' + '&']（'&'可以不存在）
+		    let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    let r = location.search.substr(1).match(reg);
+		    if(r != null) {
+		        // 对参数值进行解码
+		        return r[2];
+		    }
+		    return null;
+		},
 		imgshow(){
 			_self.imgShow=true
 		},

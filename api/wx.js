@@ -6,7 +6,8 @@ import {
 	GET_UNLIMITED,
 	SHE_JI_SHI,
 	PAY,
-	WEIXIN_CODE
+	WEIXIN_CODE,
+	WEIXIN_USERINFO
 } from '@/config/api.js';
 
 /**
@@ -56,7 +57,20 @@ export function postPay(data) {
 export function getWxCode(data) {
 	return request({
 		method: 'GET',
-		url: `${WEIXIN_CODE}?appid=${data.appid}&redirect_uri=${data.redirect_uri}login.php&response_type=${'code'}&scope=${data.scope}&state=${data.state}#wechat_redirect`,                 
+		url: `${WEIXIN_CODE}?appid=${data.appid}&secret=${data.secret}&code=${data.code}`,                 
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+/**
+ * 微信用户信息
+ */
+
+export function getWxUser(data) {
+	return request({
+		method: 'GET',
+		url: `${WEIXIN_USERINFO}?access_token=${data.access_token}&openid=${data.openid}`,                 
 		showLoading:false,
 		hideLoading:false,
 		data

@@ -1,9 +1,9 @@
 <template>
 	<view>
-		<image :src="img[0]" @load='imgshow' mode="widthFix" style="width: 100%;display: block;"></image>
+		<image :src="item.logo"  mode="widthFix" style="width: 100%;display: block;"></image>
 		<view style="padding: 30rpx;">
 			<view>{{item.name}}</view>
-			<view class="starOne" style="margin-top: 5rpx;"></view>
+			<view :class="{starOne:item.level=='0',starTwo:item.level=='1',starThree:item.level=='2',starFour:item.level=='3',starFive:item.level=='4',starSix:item.level=='5',starSeven:item.level=='6',starEight:item.level=='7',starNine:item.level=='8',starTen:item.level=='9','starEleven':item.level=='10'}" style="margin-top: 5rpx;"></view>
 		</view>
 		<view @click="map" style="padding: 30rpx;display: flex;border-top:2rpx solid #F1F1F1 ;
 			border-bottom:2rpx solid #F1F1F1 ;position: relative;">
@@ -25,11 +25,12 @@
 			</view>
 			<view class="right" style="flex-basis: 160rpx;display: flex;justify-content: center;align-items: center;">
 				<!-- item.show&& -->
-				<view v-if="item.show&&item.have==0" style="height: 60rpx ;width:140rpx;border-radius: 30rpx;background: #FFEA04;text-align: center;line-height: 60rpx;font-size: 24rpx;"@click="get(item)">领取</view>
+				<view v-if="item.show&&item.have==0" style="height: 60rpx ;width:140rpx;border-radius: 30rpx;background: #FFEA04;text-align: center;line-height: 60rpx;font-size: 24rpx;" @click="get(item)">领取</view>
 				<view v-if="!item.show" style="height: 60rpx ;width:140rpx;border-radius: 30rpx;background: #FFEA04;text-align: center;line-height: 60rpx;font-size: 24rpx;">已过期</view>
 				<view v-if="item.show&&item.have==1" style="height: 60rpx ;width:140rpx;border-radius: 30rpx;background: #FFEA04;text-align: center;line-height: 60rpx;font-size: 24rpx;">已领取</view>
 			</view>
 		</view>
+		<image @load='imgshow' :src="item.details" mode="widthFix" style="width: 100%;"></image>
 		<view class="apptMeasureHome_ft">
 			<view class="btn" @click="clickNavkefu">立即咨询</view>
 		</view>
@@ -188,12 +189,73 @@ export default {
 	}
 </style>
 <style scoped>
-	.starOne{
+	.starOne {
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		 background-position: -8rpx -5rpx; 
+		/* background-position: -8rpx -27rpx; */
 		
-		background:url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
-		background-position: -8rpx 0rpx;
-		background-size:150rpx 260rpx ;
-		height: 26rpx;
+	}
+	.starTwo {
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -28rpx; 
+	}
+	.starThree {
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -51rpx; 
+	}
+	.starFour {
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -74rpx; 
+	}
+	.starFive{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -97rpx; 
+	}
+	.starSix{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -120rpx; 
+	}
+	.starSeven{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -143rpx; 
+	}
+	.starEight{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -166rpx; 
+	}
+	.starNine{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -189rpx; 
+	}
+	.starTen{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -212rpx; 
+	}
+	.starEleven{
+		background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+		background-size: 150rpx 260rpx;
+		height: 22rpx;
+		background-position: -8rpx -235rpx; 
 	}
 	.address{
 		overflow: hidden;

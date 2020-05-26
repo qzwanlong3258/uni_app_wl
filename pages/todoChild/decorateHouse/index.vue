@@ -33,7 +33,7 @@
 				</view>
 				<view class="box-right" style="flex: 1;">
 					<view style="font-size:30rpx ;font-family:Microsoft YaHei;color: #1B1B1B;">{{ item.name }}</view>
-					<view class="starOne" style="margin-top: 5rpx;"></view>
+					<view :class="{starOne:item.level=='0',starTwo:item.level=='1',starThree:item.level=='2',starFour:item.level=='3',starFive:item.level=='4',starSix:item.level=='5',starSeven:item.level=='6',starEight:item.level=='7',starNine:item.level=='8',starTen:item.level=='9','starEleven':item.level=='10'} " style="margin-top: 5rpx;"></view>
 					<view class="rateBox" style="display: flex;margin: 10rpx 0;">
 						<view
 							v-for="(items, index) in item.noPicLable"
@@ -77,6 +77,19 @@ export default {
 			},
 			showAuth:false,
 			imgShow:false,
+			star:[
+				'starOne',
+				'starTwo',
+				'starThree',
+				'starFour',
+				'starFive',
+				'starSix',
+				'starSeven',
+				'starEight',
+				'starNine',
+				'starTen',
+				'starElever'
+			]
 		};
 	},
 	methods: {
@@ -142,10 +155,76 @@ page {
 }
 </style>
 <style scoped>
+
 .starOne {
 	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
-	background-position: -8rpx 0rpx;
 	background-size: 150rpx 260rpx;
-	height: 26rpx;
+	height: 22rpx;
+	 background-position: -8rpx -5rpx; 
+	/* background-position: -8rpx -27rpx; */
+	
 }
+.starTwo {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -28rpx; 
+}
+.starThree {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -51rpx; 
+}
+.starFour {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -74rpx; 
+}
+.starFive{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -97rpx; 
+}
+.starSix{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -120rpx; 
+}
+.starSeven{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -143rpx; 
+}
+.starEight{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -166rpx; 
+}
+.starNine{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -189rpx; 
+}
+.starTen{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -212rpx; 
+}
+.starEleven{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -235rpx; 
+}
+
+
+
 </style>

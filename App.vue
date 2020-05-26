@@ -7,6 +7,8 @@ const { request } = require('./config/http.js');
 const { LOGIN_TOKEN_REFRESH, LOGIN_OPENID_REFRESH } = require('./config/api.js');
 import { refreshToken, getOpenId } from  './utils/openLogin'
 
+import {APP_ID,APP_SECRET}from '@/config/wx_gch.js'
+
 export default {
 	globalData: {
 		
@@ -28,6 +30,7 @@ export default {
 		addresss:''
 	},
 	methods: {
+		
 		location(){
 			uni.getSetting({
 			            success(res) {                    
@@ -116,9 +119,10 @@ export default {
 		const { path, query } = options;
 		this.getFrom(path, query);
 
+
 		// 处理token
-		
-		refreshToken();
+		// this.wxGzh()
+		// refreshToken();
 		//获取位置授权
 	},
 	onShow: function() {},
