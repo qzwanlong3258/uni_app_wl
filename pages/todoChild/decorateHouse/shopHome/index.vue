@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view :hidden='!imgShow'>
 		<image :src="item.logo"  mode="widthFix" style="width: 100%;display: block;"></image>
 		<view style="padding: 30rpx;">
 			<view>{{item.name}}</view>

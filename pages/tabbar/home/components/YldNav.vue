@@ -43,9 +43,9 @@
 		},
 		methods: {
 			linkToRouter({item}) {
-				uni.navigateTo({
+				uni.reLaunch({
 					url: formatHomeRoute(item.bname)
-				});
+				})
 			}
 		}
 	}

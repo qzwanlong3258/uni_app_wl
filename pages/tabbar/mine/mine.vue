@@ -1,7 +1,7 @@
 <template>
 	
 	<view class="mine" v-if="show">
-		<view :hidden='imgShow'>
+		<view :hidden='!imgShow'>
 			<!-- <image :src="jifenPic" mode="widthFix" style="width: 100%;" @click="jifenLinkTo"></image> -->
 		<view class="mine-nav" style="position: relative;">
 			<image :src="img[4]" v-if="userInfo.level=='黄金会员'" style="position: absolute;right: 0;top: 0;width: 300rpx;" mode="widthFix"></image>

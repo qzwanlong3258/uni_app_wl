@@ -19,7 +19,7 @@
 		<view class="bottom-show"><image :src="adimg[0]" mode="widthFix"></image></view>
 		<view class="bottom-show"><image :src="adimg[2]" mode="widthFix"></image></view> -->
 		<!-- <view style="height: 40px;"></view> -->
-		<view style="height: 100rpx;background: #000000;" @click="code"></view>
+		<!-- <view style="height: 100rpx;background: #000000;" @click="code"></view> -->
 	</scroll-view>
 	</view>
 </template>
@@ -35,9 +35,10 @@ import * as home from "@/api/tabbar/home.js";
 import { loadCity } from '@/api/city.js';
 import { BANK_DETAIL,TO_WEB} from '@/config/router.js';
 import { getStorage ,setStorage} from '@/utils/storage.js';
-import {getWxCode ,getWxUser}from '@/api/wx.js'
-import {APP_ID,APP_SECRET}from '@/config/wx_gch.js'
-import {WEIXIN_CODE , WEIXIN_USERINFO } from '@/config/api.js';
+// import {getWxCode ,getWxUser}from '@/api/wx.js'
+// import {APP_ID,APP_SECRET}from '@/config/wx_gch.js'
+// import {WEIXIN_CODE , WEIXIN_USERINFO } from '@/config/api.js';
+// import { refreshToken } from  '../../../utils/openLogin'
 var _self;
 export default {
 	data: function() {
@@ -60,7 +61,7 @@ export default {
 		_self = this
 		
 		console.log(this.imgList)
-		alert(this.getQuery('code'))
+		// alert(this.getQuery('code'))
 		// if(this.getQuery('code')){
 			
 		// 	let e={
@@ -167,48 +168,26 @@ export default {
 			
 	},
 	methods: {
-		code(){
+		async code(){
 			let e={
 				appid:APP_ID,
 				secret:APP_SECRET,
 				code:this.getQuery("code")
 			}
-			uni.request({
-							url: WEIXIN_CODE, //仅为示例，并非真实接口地址。
-							data: e,
-			                method:'GET',//请求方式  或GET
-							success: res => {
-									console.log('返回', res);
-									let a={
-										access_token:res.data.access_token,
-										openid:res.data.openid
-									}
-									setStorage('openId', res.data.openid)
-									setStorage('tempToken', res.data.access_token)
-									
-									uni.request({
-													url: WEIXIN_USERINFO, //仅为示例，并非真实接口地址。
-													data: a,
-													
-									                method:'GET',//请求方式  或GET
-													success: respone => {
-															console.log('返回', respone);
-															setStorage('userInfo',respone.data)
-															setStorage('isLogin', true)
-																}
-													});
-									
-									
-									// let userInfo = await getWxUser(a)
-									// alert(userInfo)
-									// alert(userInfo.nickName)
-									
-									
-									// setStorage('userInfo',userInfo)
-									// setStorage('isLogin', true)
-									       }
-									
-										})
+			let data = await getWxCode(e)
+			console.log(data)
+			let dataT=JSON.parse(data)
+			setStorage('openId', dataT.openid)
+			
+			let a={
+				access_token:dataT.access_token,
+				openid:dataT.openid
+			}
+			
+			let userInfo = await getWxUser(a)
+			refreshToken()
+			console.log(userInfo)
+			
 		},
 		 getQuery(name) {
 		    // 正则：[找寻'&' + 'url参数名字' = '值' + '&']（'&'可以不存在）

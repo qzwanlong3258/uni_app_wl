@@ -99,7 +99,7 @@ const notWxAuth = {
 			// setStorage('sessionKey', this.session_key)
 			setStorage('tempToken', this.dataL.token)
 			setStorage('refreshToken', this.dataL.refreshToken)
-			setStorage('userInfo', this.dataL.UserInfo)
+			setStorage('userInfo', this.dataL.userInfo[0])
 			setStorage('isLogin', true)
 			console.log(this.name)
 			
@@ -256,6 +256,7 @@ const notWxAuth = {
 			if (this.param.phone && this.param.code) {
 				getPhoneLogin(this.param).then(res => {
 					this.dataL=res
+					console.log(this.dataL)
 					// setStorage('tempToken', res.token)
 					// setStorage('refreshToken', res.refreshToken)
 					// setStorage('userInfo', res.userInfo)
