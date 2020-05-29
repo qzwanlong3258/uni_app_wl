@@ -181,44 +181,44 @@
 			}
 		},
 		{
-		    "path" : "pages/todoChild/decoration/decorationPicture/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/decorationPicture/index",
+			"style": {
 				"navigationBarTitleText": "装修分期付，轻松就入住"
 			}
 		},
 		{
-		    "path" : "pages/todoChild/decoration/testonetest/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/testonetest/index",
+			"style": {
 				"navigationBarTitleText": "测一测"
 			}
 		},
 		{
-		    "path" : "pages/todoChild/decoration/testonetest/testonetestsubmit/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/testonetest/testonetestsubmit/index",
+			"style": {
 				"navigationBarTitleText": "测一测"
 			}
 		},
 		{
-		          "path" : "pages/todoChild/decoration/application/index",
-		          "style" : {
+			"path": "pages/todoChild/decoration/application/index",
+			"style": {
 				"navigationBarTitleText": "申请"
 			}
-		      },
+		},
 		{
-		    "path" : "pages/todoChild/decoration/schedule/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/schedule/index",
+			"style": {
 				"navigationBarTitleText": "申请进度"
 			}
 		},
 		{
-		    "path" : "pages/todoChild/decoration/record/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/record/index",
+			"style": {
 				"navigationBarTitleText": "申请记录"
 			}
 		},
 		{
-		    "path" : "pages/todoChild/decoration/record/recordDetail/index",
-		    "style" : {
+			"path": "pages/todoChild/decoration/record/recordDetail/index",
+			"style": {
 				"navigationBarTitleText": "申请记录详情"
 			}
 		},
@@ -358,19 +358,19 @@
 			},
 			{
 				"pagePath": "pages/todoChild/decorateHouse/index",
-				"iconPath": "static/img/tabbar/loan.png",
-				"selectedIconPath": "static/img/tabbar/selectedLoan.png",
+				"iconPath": "static/img/tabbar/decorate.png",
+				"selectedIconPath": "static/img/tabbar/selectedDecorate.png",
 				"text": "装企联盟"
 			},
 
 
 
 			{
-					"pagePath": "pages/todoChild/decoration/index",
-					"iconPath": "static/img/tabbar/loan.png",
-					"selectedIconPath": "static/img/tabbar/selectedLoan.png",
-					"text": "装修分期"
-				},
+				"pagePath": "pages/todoChild/decoration/index",
+				"iconPath": "static/img/tabbar/loan.png",
+				"selectedIconPath": "static/img/tabbar/selectedLoan.png",
+				"text": "装修分期"
+			},
 
 			{
 				"pagePath": "pages/tabbar/todo/todo",

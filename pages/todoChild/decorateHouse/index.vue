@@ -25,14 +25,14 @@
 				class="box"
 				v-for="(item, index) in dataList"
 				:key="index"
-				style="height:182rpx ;padding: 30rpx;display: flex;background: rgba(247,247,245,1);margin-bottom: 30rpx;"
+				style="padding: 30rpx;display: flex;background: rgba(247,247,245,1);margin-bottom: 30rpx;"
 				@click="linkTo(item)"
 			>
-				<view class="box-left" style="flex-basis: 182rpx;margin-right: 30rpx;">
-					<image :src="item.storePhotos" mode="aspectFill" style="width: 182rpx;height: 182rpx;"></image>
+				<view class="box-left" style="flex-basis: 182rpx;margin-right: 30rpx;height:182rpx ;">
+					<image :src="item.logo" mode="aspectFill" style="width: 182rpx;height: 182rpx;"></image>
 				</view>
 				<view class="box-right" style="flex: 1;">
-					<view style="font-size:30rpx ;font-family:Microsoft YaHei;color: #1B1B1B;">{{ item.name }}</view>
+					<view style="font-size:30rpx ;font-family:Microsoft YaHei;color: #1B1B1B;white-space: nowrap;">{{ item.name }}</view>
 					<view :class="{starOne:item.level=='0',starTwo:item.level=='1',starThree:item.level=='2',starFour:item.level=='3',starFive:item.level=='4',starSix:item.level=='5',starSeven:item.level=='6',starEight:item.level=='7',starNine:item.level=='8',starTen:item.level=='9','starEleven':item.level=='10'} " style="margin-top: 5rpx;"></view>
 					<view class="rateBox" style="display: flex;margin: 10rpx 0;">
 						<view
@@ -44,7 +44,7 @@
 						</view>
 						<!-- <view style="border: 2rpx solid rgba(220,220,220,1);padding: 0 10rpx;margin-right: 10rpx;font-size: 20rpx;color: #343434;">3D效果图</view> -->
 					</view>
-					<view style="display: flex;padding-bottom: 10rpx;" v-for="(items, index) in item.picLable" :key="index">
+					<view style="display: flex;margin-top: 10rpx;" v-for="(items, index) in item.picLable" :key="index">
 						<image :src="items.img" mode="aspectFill" style="width: 25rpx;height: 25rpx;"></image>
 						<view style="margin-left: 16rpx;font-size: 20rpx;height: 25rpx;line-height: 25rpx;">{{ items.content }}</view>
 					</view>
@@ -109,24 +109,30 @@ export default {
 		getList() {
 			getShopList(this.query).then(res => {
 				console.log(res);
-				_self.dataList = res.list.map(res => {
-					let a = [];
-					let b = [];
-					res.lableList.map(res => {
-						if (res.type == '1') {
-							a.push(res);
+				if(res.list){
+					_self.dataList = res.list.map(res => {
+						let a = [];
+						let b = [];
+						if(res.lableList){
+							res.lableList.map(res => {
+								if (res.type == '1') {
+									a.push(res);
+								}
+								if (res.type == '2') {
+									b.push(res);
+								}
+							});
 						}
-						if (res.type == '2') {
-							b.push(res);
-						}
+						
+					
+						return {
+							...res,
+							picLable: b,
+							noPicLable: a
+						};
 					});
-
-					return {
-						...res,
-						picLable: b,
-						noPicLable: a
-					};
-				});
+				}
+				
 				console.log(_self.dataList);
 			});
 		}

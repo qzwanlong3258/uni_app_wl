@@ -1,16 +1,16 @@
 <template>
 	<view class="decoration_view-box-box " v-if='showAuth'>
 		<view :hidden='!imgShow'>
-			<view style="position: relative;">
+			<!-- <view style="position: relative;">
 				<image :src="loan_pic" mode="widthFix" style="width: 100%;"></image>
 				<view class="btn" @click="testLinkTo"></view>
-			</view>
+			</view> -->
 			
-		<!-- <view class="decoration_view-nav ">
+		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高预算</text>
 			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
 			<text class="decoration_text-row-submit" @click="testLinkTo">测一测预算</text>
-		</view> -->
+		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding" style="margin-top: 20px;">
 			<view class="decoration_view-menu-item" v-for="(item,index) in menus" :key="index" @click="linkToRoute(item.href)" v-if="!show">
 				<!-- <icon class="iconfont decoration_icon-menu" :class="item.icon"></icon> -->
@@ -107,9 +107,13 @@
 						}
 			},
 			getImg(){
-				home.loadHomeCarousel({type:3}).then(res => {
-					this.bank = res.list;
-				});
+				// home.loadHomeCarousel({type:3}).then(res => {
+				// 	this.bank = res.list;
+				// });
+				this.bank = [{
+					img:'https://www.feiaizn.com/images/20200528141144_建设银行@2x.png',url:'https://www.feiaizn.com/images/20200528141324_jianshe (1).png'
+				},{img:'https://www.feiaizn.com/images/20200528141400_北京银行@2x.png',url:'https://www.feiaizn.com/images/20200528141458_beijing (1).png'}
+				,{img:'https://www.feiaizn.com/images/20200528141529_碧海银行@2x.png',url:'https://www.feiaizn.com/images/20200528141626_bohai (1).png'}]
 			}
 			
 		},

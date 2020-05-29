@@ -8,7 +8,7 @@
 						<image :src="item.storePhotos" style="width: 110rpx;height: 110rpx;border-radius:50% ; display: block;box-shadow: 0 0 2rpx 2rpx  rgba(153,153,153,0.3);" mode="scaleToFill"></image>
 					</view>
 					<view class="mid">
-						<view style="height: 50%;line-height: 105rpx;">{{item.name}}</view>
+						<view style="height: 50%;line-height: 105rpx;font-size: 28rpx;">{{item.name}}</view>
 						<view style="height: 50%;line-height: 48rpx;font-size: 20rpx;color: #7E7E7E;">预约时间:{{item.createTimes}}</view>
 						
 					</view>

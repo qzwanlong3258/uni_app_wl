@@ -386,7 +386,7 @@ export default {
 				_self.loanMoneyShow=true
 				if(Number(_self.dataList.loanMoney)>500000){
 					uni.showToast({
-													title: "申请额度需小于500000",
+													title: "申请金额需小于500000",
 													icon: 'none',
 													duration: 2000,
 												});

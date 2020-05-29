@@ -4,10 +4,13 @@
 			<view><input class="content-font" v-model="addressInfo.name" placeholder-class="font-color" placeholder="收货人" /></view>
 			<view><input class="content-font" type="number" v-model="addressInfo.phone" placeholder-class="font-color" maxlength="11" placeholder="手机号码" /></view>
 			<view class="choose-region content-font">
-				<picker style="width: 100%;" mode="region" @change="bindRegionChange" :value="addressInfo.region" :custom-item="customItem">
-					<view :style="{ color: addressInfo.region ? '' : '#8f8fa7' }">{{ addressInfo.region ? addressInfo.region : '所在地区' }}</view>
-					<i class="iconfont iconright" :style="{ color: addressInfo.region ? '' : '#8f8fa7' }"></i>
-				</picker>
+				<pick-regions style="width: 100%;" :defaultRegion="defaultRegionCode" @getRegion="handleGetRegion">
+				           <view :style="{ color: addressInfo.region ? '' : '#8f8fa7' }">{{ addressInfo.region ? addressInfo.region : '所在地区' }}</view>
+				           <i class="iconfont iconright" :style="{ color: addressInfo.region ? '' : '#8f8fa7' }"></i>
+				        </pick-regions> 
+			
+			
+				
 			</view>
 			<textarea class="detail-address content-font" placeholder-class="font-color" :placeholder="placeholderArea" v-model="addressInfo.detailAddress"></textarea>
 			<text class="line-box"></text>
@@ -27,14 +30,18 @@ import { ADDRESS_INDEX } from '@/config/router.js';
 import { addReceiveAddress, deleteReceiveAddress, updateReceiveAddress, loadAddress } from '@/api/address.js';
 import { model } from '@/config/package.js';
 import { toRoute } from '@/utils/util.js';
+import pickRegions from '@/components/pick-regions/pick-regions.vue'
 
 export default {
+	components:{
+		pickRegions
+	},
 	data() {
 		return {
 			addressInfo: {
 				name: '',
 				phone: '',
-				region: '',
+				region: '北京市 市辖区 西城区',
 				detailAddress: '',
 				address: '',
 				default: 0
@@ -42,7 +49,10 @@ export default {
 			placeholderArea: '详情地址：如道路、门牌号、小区、楼栋号、单元室等',
 			customItem: '全部',
 			isExit: false,
-			isDisabledDefault: false
+			isDisabledDefault: false,
+			//地址
+			defaultRegion:['北京市','市辖区','西城区'],
+			defaultRegionCode:'010101'
 		};
 	},
 	onLoad: function(options) {
@@ -51,6 +61,14 @@ export default {
 		this.addressInfo.default && (this.isDisabledDefault = true);
 	},
 	methods: {
+		
+		
+		// 获取选择的地区
+		            handleGetRegion(region){
+		                this.region = region
+						this.addressInfo.region = this.region.map(item=>item.name).join(' ')
+						this.$forceUpdate()
+		            },
 		
 		/**
 		 * 获取地址

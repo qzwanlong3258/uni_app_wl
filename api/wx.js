@@ -7,7 +7,8 @@ import {
 	SHE_JI_SHI,
 	PAY,
 	WEIXIN_CODE,
-	WEIXIN_USERINFO
+	WEIXIN_USERINFO,
+	SIGNATURE
 } from '@/config/api.js';
 
 /**
@@ -71,6 +72,19 @@ export function getWxUser(data) {
 	return request({
 		method: 'GET',
 		url: `${WEIXIN_USERINFO}?access_token=${data.access_token}&openid=${data.openid}`,                 
+		showLoading:false,
+		hideLoading:false,
+		data
+	});
+}
+/**
+ * 获取微信签名
+ */
+
+export function getWxSignature(data) {
+	return request({
+		method: 'GET',
+		url: SIGNATURE,                 
 		showLoading:false,
 		hideLoading:false,
 		data

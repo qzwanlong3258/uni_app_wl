@@ -56,7 +56,8 @@ export default {
 			isShowSlecet: false,
 			cityIndex: 0,
 			img:HOME_HEADER,
-			list:[]
+			list:[],
+			city:''
 		};
 	},
 	props: {
@@ -90,16 +91,16 @@ export default {
 		// 	this.cityName = this.citys[this.cityIndex].name;
 		// },
 		handleChange (item) {
-			console.log('change::', item)
+			// console.log('change::', item)
 			
 		},
 		handleConfirm (item) {
 			this.cityName = item.item.label
 			this.$emit('change', {item:this.cityName,index: item.item.value});
-			console.log('confirm::', item)
+			// console.log('confirm::', item)
 		},
 		handleCancel (item) {
-			console.log('cancel::', item)
+			// console.log('cancel::', item)
 		}
 	}
 };

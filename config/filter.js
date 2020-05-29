@@ -4,7 +4,7 @@ import {
 } from '@/utils/util.js';
 import * as img from '@/config/image.js';
 import Vue from 'vue';
-import { DECORATION, MEASUREHOME, DECORATION_PICTURE, INSHOP ,INVITEGIFT,DECORATE} from '@/config/router.js';
+import { DECORATION, MEASUREHOME, DECORATION_PICTURE, INSHOP ,INVITEGIFT,DECORATE,TO_DESGER} from '@/config/router.js';
 
 /**
  * 格式化-性别
@@ -151,6 +151,6 @@ export function formatHomeRoute(value) {
 		case "好店入驻": return INSHOP;
 		case "邀请有礼": return INVITEGIFT;
 		case "装企联盟": return DECORATE;
-		
+		case "设计师认证": return TO_DESGER;
 	}
 }

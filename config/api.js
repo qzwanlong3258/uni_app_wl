@@ -1,6 +1,6 @@
  // const baseUrl = 'http://47.104.232.184:1001';
-const baseUrl = 'https://feiaizn.com:1001';
- // const baseUrl = 'https://192.168.3.25:1001';
+// const baseUrl = 'https://feiaizn.com:1001';
+ const baseUrl = 'https://192.168.3.25:1001';
  // const baseUrl = 'http://yapi.open.com.cn/mock/2423';
 const auth = `${baseUrl}/wx/user`;
 
@@ -130,9 +130,9 @@ module.exports = {
 	/** 微信登录**/
 	WEIXIN_CODE:`${baseUrl}/gzh/access_token`,
 	/** 微信用户信息**/
-	WEIXIN_USERINFO:`${baseUrl}/gzh/userinfo`
+	WEIXIN_USERINFO:`${baseUrl}/gzh/userinfo`,
 	
-	
+	SIGNATURE:`${baseUrl}/gzh/getSignature`
 	
 	
 	

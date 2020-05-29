@@ -1,17 +1,17 @@
 <template>
 	<view class="decorationPicture" :hidden='!show'>
-		<image :src="img" mode="widthFix" @load='imgshow'> </image>
-		<view class="btn-page">
-			<view class="btnone"  @click="submitTest">
+		<image :src="img" mode="widthFix" @load='imgshow'> <view class="btnone"  @click="submitTest">
 				
 				
 			</view>
 			<view class="btntwo"  @click="submitApply">
 				
 				
-			</view>
+			</view></image>
+		<!-- <view class="btn-page">
 			
-		</view>
+			
+		</view> -->
 	</view>
 </template>
 
@@ -59,7 +59,7 @@ export default {
 		width: 100%;
 		
 		display: block;
-		position: absolute;
+		position: relative;
 	}
 	.btn-page{
 		width: 100%;

@@ -8,7 +8,8 @@
 		<view class="schedule-left"  v-for="(item,index) in dataList" :key="index">
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="userInfo.avatarUrl"  class="schedule-hd-left-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+						<image :src="imglogo" class="schedule-hd-left-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 				<view class="schedule-hd-mid">
 					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
@@ -50,7 +51,8 @@
 		<view class="schedule-left"  v-for="(item,index) in failDataListOne" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="userInfo.avatarUrl"  class="schedule-hd-left-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+						<image :src="imglogo" class="schedule-hd-left-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 				<view class="schedule-hd-mid">
 					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
@@ -92,7 +94,8 @@
 		<view class="schedule-left"  v-for="(item,index) in failDataListTwo" :key="index" >
 			<view class="schedule-hd">
 				<view class="schedule-hd-left">
-					<image :src="item.did" v-if="item.did" class="schedule-hd-left-img" mode="aspectFill">
+					<image :src="userInfo.avatarUrl"  class="schedule-hd-left-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+						<image :src="imglogo" class="schedule-hd-left-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 				<view class="schedule-hd-mid">
 					<view class="schedule-hd-mid-top" style="font-size: 30rpx;padding: 10rpx;">{{item.loanerName}}</view>
@@ -144,7 +147,7 @@ import LjlStates from '@/components/LjlStates';
 import { loanList } from '@/api/todoChild/loan.js';
 import { getStorage } from '@/utils/storage.js';
 import NullData from '@/components/NullData.vue';
-import {BACK_IMG} from "@/config/image.js"
+import {BACK_IMG,TOUXIANG_LOGO} from "@/config/image.js"
 export default {
 	 components: {uniSteps,LjlStates,NullData
 	 },
@@ -159,7 +162,8 @@ export default {
 				index: 0,
 				list: [ { title: '正常', nullContent: "暂无客户" }, { title: '非正常', nullContent: "暂无设计师" }]
 			},
-			imgback:BACK_IMG
+			imgback:BACK_IMG,
+			imglogo:TOUXIANG_LOGO
 		}
 	},
 	filters:{
@@ -220,7 +224,7 @@ export default {
 	async onLoad() {
 		
 		_self = this;
-		// _self.userInfo = getStorage('userInfo');
+		_self.userInfo = getStorage('userInfo');
 		// console.log(this.userInfo);
 		
 		let p =[]

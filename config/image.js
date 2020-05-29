@@ -99,7 +99,7 @@ module.exports = {
 	TESTSUCCESS: `${staticUrl}/todoChild/testonetest/完成@2x.png`,
 	TESTFAIL: `${staticUrl}/todoChild/testonetest/3.0-未完成@2x.png`,
 	// 约量房
-	LOAN_PICTURE: `https://www.feiaizn.com/images/20200518120407_loanPicture.png`,
+	LOAN_PICTURE: `https://www.feiaizn.com/images/20200528150138_loanPic.png`,
 	// LOAN_PICTURE: `${staticUrl}/todoChild/装修分期付，轻松就入住.png`,
 	MEASUREHOME: `${staticUrl}/todoChild/约量房.png`,
 	MEASUREHOME_SUCCESS: `${staticUrl}/todoChild/约量房成功@2x.png`,

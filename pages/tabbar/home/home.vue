@@ -2,7 +2,8 @@
 	<view :hidden='!imgShow'>
 		
 	<view :style="{height:height+'px;'}" class="home-hd">
-		<view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view>
+		<yld-top :citys="citys"  @change="cityChange" ></yld-top>
+		<!-- <view class="home-top"><yld-top :citys="citys"  @change="cityChange" ></yld-top></view> -->
 	</view>
 	<scroll-view scroll-y='true' class="scroll-Y"  :style="'height:'+ScreenHeight+'px'">
 		
@@ -124,8 +125,33 @@ export default {
 				})
 			}
 			_self.citys = list
-			_self.todoNav = res.list[0].button
-			_self.dataL = res.list
+			
+			_self.dataL = res.list.map(res=>{
+				let e=[]
+				res.button.map(reso=>{
+					if(reso.bname=='装修分期'){
+						
+					}else{
+						e.push(reso)
+					}
+				})
+				let c={
+					bname: "装修分期",
+					icon: "https://www.feiaizn.com/images/20200528143342_navthree.png",
+					bid: "11",
+					url: "/pages/todoChild/decoration/decorationPicture/index"
+				}
+				e.push(c)
+				console.log(e)
+				return {
+					button: e,
+					name: res.name,
+					id: res.id,
+					uuid:res.uuid
+				}
+			})
+			_self.todoNav = _self.dataL[0].button
+			
 			// _self.citys = res.list
 			// _self.todoNav = this.citys[0].button;
 		});
@@ -153,6 +179,7 @@ export default {
 		            _self.height = e.statusBarHeight + e.titleBarHeight
 					_self.ScreenHeight=sys.windowHeight - _self.height
 		            // #endif
+					
 		        }
 		    })
 			

@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view v-if="showAuth">
 		<view class="hd">
 			设计师认证信息
 		</view>
@@ -45,6 +45,7 @@ import {postDesigner} from '@/api/wx.js'
 import { getStorage,setStorage } from '@/utils/storage.js';
 import {setApplyId,addScore,addScoreRecord,getApplyId} from '@/api/auth.js'
 import {getUserRole} from "@/api/auth.js";
+		const { AUTH } = require('../../../config/router.js');
 var _self
 
 
@@ -54,7 +55,8 @@ export default {
 			dataList:{},
 			timeShow:false,
 			userInfo:{},
-			role:[]
+			role:[],
+			showAuth:false
 		}
 	},
 	methods:{
@@ -152,20 +154,32 @@ export default {
 	},
 	async onLoad() {
 		_self=this
-		this.userInfo = getStorage('userInfo');
-		
-		let e = await getUserRole()
-		console.log(e)
-		// _self.role =e.roleName.split(',')
-		let userNew={
-			..._self.userInfo,
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+			this.userInfo = getStorage('userInfo');
 			
-		}
-		if(e.roleName){
-			this.role=e.roleName.split(',')
+			let e = await getUserRole()
+			console.log(e)
+			// _self.role =e.roleName.split(',')
+			let userNew={
+				..._self.userInfo,
+				
+			}
+			if(e.roleName){
+				this.role=e.roleName.split(',')
+			} else {
+				this.role=[]
+			}
 		} else {
-			this.role=[]
-		}
+			
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.reLaunch({
+				url:`${AUTH}?name=${'designer'}`
+			});	
+			}
+		
 		
 		// userNew.role=e.roleName.split(',')
 		// for(let i =0;i<userNew.role.length;i++){
@@ -176,6 +190,9 @@ export default {
 		// }
 		// setStorage('userInfo',userNew)
 		// _self.userInfo = getStorage('userInfo');
+		
+		
+		
 	}
 };
 </script>

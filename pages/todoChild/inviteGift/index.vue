@@ -15,11 +15,14 @@
 	</view>
 </template>
 
-<script>
+<script type="text/javascript">
 'use strict';
 import {INVITE_GIFT,INVITE_FRIEND,INVITE_POINT_ONE,INVITE_POINT_TWO,INVITE_POINT_THREE} from '@/config/image.js';
 import { getStorage ,setStorage} from '@/utils/storage.js';
+import {getWxSignature} from '@/api/wx.js'
+import wx  from '@/utils/wx-jssdk.js'
 var _self;
+
 export default {
 	data() {
 		return{
@@ -27,7 +30,7 @@ export default {
 			id:''
 		}
 	},
-	onShareAppMessage: function( options ){
+	updateAppMessageShareData: function( options ){
 	　　var that = this;
 	　　// 设置菜单中的转发按钮触发转发事件时的转发内容
 	　　var shareObj = {
@@ -61,11 +64,63 @@ export default {
 	　　// 返回shareObj
 	　　return shareObj;
 	},
-	methods:{},
+	methods:{
+		 wxConfig(){ {
+			var myurl = 'https://www.feiaizn.com/gzh/index.html'
+			
+			
+			//          myurl = encodeURIComponent(myurl);
+			//          var url = ` 获取配置的后台接口?url=${myurl}`;
+			         getWxSignature({url:myurl}).then(data=>{
+						 console.log(data)
+						 
+						 signature: "364e7f58d0f53b10a85d283705a5098ea1f7ba59"
+						 appid: "wxfa45d95c85659eb3"
+						 noncestr: "10983bb7-6dd9-4f14-9614-5fa76b9ebcea"
+						 timestamp: "1590745968",
+						 console.log(wx)
+						 wx.config({
+						                      debug: true, // 开启调试模式,成功失败都会有alert框
+						                      appId: data.appid, // 必填，公众号的唯一标识
+						                      timestamp: data.timestamp, // 必填，生成签名的时间戳
+						                      nonceStr: data.noncestr, // 必填，生成签名的随机串
+						                      signature: data.signature, // 必填，签名
+						                      jsApiList: [ 'onMenuShareTimeline',
+						                                      'onMenuShareAppMessage',
+						                                      'onMenuShareQQ',
+						                                     'onMenuShareWeibo',
+						                                      'scanQRCode',
+						                                     'updateAppMessageShareData'
+						                             ] // 必填，需要使用的JS接口列表  选择自己需要的接口               
+						                  });
+						                  wx.ready(function () {
+						                      // config信息验证后会执行ready方法，所有接口调用都必须在config接口获
+						 //                      得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载
+						 //                     时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。
+						 //                     对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+						                  });
+						              wx.error(function (res) {
+							 console.log(res)
+						                      // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错
+						 //                     误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，
+						 //                     对于SPA可以在这里更新签名。
+						              });
+					 })
+		}
+
+	},
+	
 	async onLoad() {
 		_self=this
+		
+		 this.wxConfig()
+		
+		
+		
+		
 		_self.userInfo = getStorage('userInfo');
 		_self.id=_self.userInfo.id
+	}
 	}
 };
 </script>

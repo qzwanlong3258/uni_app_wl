@@ -105,6 +105,7 @@ export default {
 		console.log(f)
 		o.push(...f.list)
 		_self.dataListCom = o
+		console.log(_self.dataListCom)
 	}
 
  }

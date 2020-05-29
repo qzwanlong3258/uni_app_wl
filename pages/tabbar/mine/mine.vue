@@ -11,7 +11,7 @@
 			
 			<view class="top">
 				<view class="mine-nav-top">
-					<image :src="userInfo.avatarUrl"  @load='imgshow' class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
+					<image :src="userInfo.avatarUrl"   class="mine-nav-top-img" mode="aspectFill" v-if='userInfo.avatarUrl'>
 					<image :src="imglogo" class="mine-nav-top-img" mode="aspectFill" v-if='!userInfo.avatarUrl'>
 				</view>
 			</view>
@@ -35,7 +35,7 @@
 			<view class="mine-text">
 				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
-					<view><image :src="img[2]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
+					<view><image :src="img[2]" @load='imgshow' mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
 					<view @click="toCoupon">优惠券: {{couponNum}}张</view>
 				</view>
 				<!-- <view style="flex: 1;text-align: center;">余额(元) | 0</view> -->
@@ -246,7 +246,14 @@ export default {
 		loadCouponNext(){
 			loadCoupon().then(res=>{
 				if(res.list){
-					_self.couponNum=res.list.length
+					let num =0
+					res.list.map(reso=>{
+						let e = reso.volume.split(',')
+						num+=e.length
+						_self.couponNum=num
+					})
+					
+					// _self.couponNum=res.list.length
 					_self.couponList=res.list
 				}
 				
@@ -259,11 +266,11 @@ export default {
 	},
 	async onLoad() {
 		//登录
-		_self =this;
 			const isLogin = getStorage('isLogin');
 			if (isLogin) {
-				_self.show=true
+				this.show=true
 				
+				_self =this;
 				_self.userInfo = getStorage('userInfo');
 				// this.getData(this.toYear+"-"+this.toMonth);
 				_self.index =getStorage('index')
@@ -361,6 +368,7 @@ export default {
 		_self.index =getStorage('index')
 		let e = await getUserRole()
 		this.loadIntegral();
+		this.loadCouponNext()
 		if(e.roleName){
 			_self.role =e.roleName.split(',')
 		}

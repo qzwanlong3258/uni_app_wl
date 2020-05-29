@@ -115,7 +115,7 @@ export default {
 				_self.budgetShow=true
 				if(Number(_self.dataList.budget)>500000){
 					uni.showToast({
-													title: "申请额度需小于500000",
+													title: "装修预算需小于500000",
 													icon: 'none',
 													duration: 2000,
 												});

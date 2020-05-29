@@ -11,7 +11,10 @@
 			</view>
 		</view> -->
 	    <view class="distribution">
-	    	<view class="distribution-nav ">
+	    	<view class="distribution-nav " style="position: relative;">
+				
+				<image :src="img[2]" v-if="userInfo.level=='黄金会员'" style="position: absolute;right: 0;top: 0;width: 300rpx;" mode="widthFix"></image>
+				<view style="position: absolute;width: 100%;height: 100%;">
 	    		<view class="top">
 	    			<view class="distribution-nav-top">
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
@@ -34,7 +37,7 @@
 					<view style="flex: 0.3;"></view>
 					<view style="flex: 1;display: flex;justify-content: center;align-content: center;">
 						<view><image :src="img[0]" mode="widthFix" style="width: 40rpx;margin-right: 10rpx;"></image></view>
-						<view>优惠券: 0张</view>
+						<view @click="toCoupon">优惠券: {{couponNum}}张</view>
 					</view>
 					<!-- <view style="flex: 1;text-align: center;">余额(元) | 0</view> -->
 					<view style="flex: 0.4;"></view>
@@ -44,6 +47,7 @@
 					</view>
 					<!-- <view style="flex: 1;text-align: center;">积分 | {{integral?integral:0}}</view> -->
 					<view style="flex: 0.3;"></view>
+				</view>
 				</view>
 			</view>
 		</view>
@@ -60,9 +64,10 @@ import LjlShowroomItem from './components/LjlShowroomItem.vue';
 import LjlMenu from '@/components/LjlMenu';
 import { getStorage } from '@/utils/storage.js';
 import * as imgs from '@/config/image.js';
-import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER ,TO_SCORE_DETAIL} from '@/config/router.js';
+import { HOME, CUSTOMER_LIST, PROMOTE_GOODS, WITHDRAW, POSTER ,TO_SCORE_DETAIL,COUPON} from '@/config/router.js';
 import {formatDate} from '@/config/filter.js'
 import { loadIntegral } from '@/api/tabbar/todo.js';
+import {loadCoupon} from '@/api/decorateHome.js'
 var _self;
 
 export default {
@@ -88,8 +93,11 @@ export default {
 					]
 				}
 			],
-			img:[imgs.RECOMMEND_COUPON,imgs.RECOMMEND_POINT],
-			integral:0
+			img:[imgs.RECOMMEND_COUPON,imgs.RECOMMEND_POINT,imgs.VIP],
+			integral:0,
+			//优惠卷
+			couponNum:0,
+			couponList:[]
 			
 			
 			
@@ -105,6 +113,7 @@ export default {
 		_self=this
 		this.userInfo = getStorage('userInfo')
 		this.loadIntegral();
+		this.loadCouponNext()
 	},
 	methods: {
 		// 去积分详情
@@ -128,6 +137,31 @@ export default {
 			});
 		},
 		
+		
+		//去优惠卷
+		toCoupon(){
+			let e=JSON.stringify(this.couponList)
+			uni.navigateTo({
+				url:`${COUPON}?data=${e}` 
+			})
+		},
+		/**
+		 * 加载优惠卷
+		 */
+		loadCouponNext(){
+			loadCoupon().then(res=>{
+				if(res.list){
+					let num =0
+					res.list.map(reso=>{
+						let e = reso.volume.split(',')
+						num+=e.length
+						_self.couponNum=num
+					})
+					_self.couponList=res.list
+				}
+				
+			})
+		}
 		
 	},
 	components: {
