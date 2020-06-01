@@ -7,19 +7,19 @@
 			<view class="box">
 				<view class="box-left">姓名</view>
 				<view class="box-right">
-					<input type="text" v-model="dataList.name" placeholder="请输入您的姓名">
+					<input type="text" v-model="dataList.name" placeholder-style="font-size:28rpx" placeholder="请输入您的姓名">
 				</view>
 			</view>
 			<view class="box">
 				<view class="box-left">手机号码</view>
 				<view class="box-right">
-					<input type="number"  v-model="dataList.phone" maxlength="11" placeholder="请输入您的手机号码">
+					<input type="number"  v-model="dataList.phone" maxlength="11" placeholder-style="font-size:28rpx" placeholder="请输入您的手机号码">
 				</view>
 			</view>
 			<view class="box">
 				<view class="box-left">工作年限(年)</view>
 				<view class="box-right" style="position: relative;">
-					<input type="text" v-model="dataList.ageNumber" @input='timeInput' placeholder="请输入您的从业年限">
+					<input type="text" v-model="dataList.ageNumber" @input='timeInput' placeholder-style="font-size:28rpx" placeholder="请输入您的从业年限">
 					
 					<!-- <view style="font-size: 28rpx;position: absolute;left: 60rpx;top: 2rpx;" :hidden='!timeShow'>平米</view> -->
 					
@@ -29,7 +29,7 @@
 			<view class="box">
 				<view class="box-left">工作单位名称</view>
 				<view class="box-right">
-					<input type="text" v-model="dataList.unit" placeholder="请输入您的现工作单位名称">
+					<input type="text" v-model="dataList.unit" placeholder-style="font-size:28rpx" placeholder="请输入您的现工作单位名称">
 				</view>
 			</view>
 		</view>
@@ -230,7 +230,7 @@ export default {
 	.box-right{
 		flex: 1;
 		color: #666666;
-		text-align: right;
+		text-align: left;
 	}
 	.apptMeasureHome_ft{
 		/* position: absolute;

@@ -129,7 +129,7 @@ export default {
 			_self.dataL = res.list.map(res=>{
 				let e=[]
 				res.button.map(reso=>{
-					if(reso.bname=='装修分期'){
+					if(reso.bname=='装修分期'||reso.bname=='设计师认证'){
 						
 					}else{
 						e.push(reso)

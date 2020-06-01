@@ -203,7 +203,7 @@
 			
 			let pages = getCurrentPages();
 			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-			uni.reLaunch({
+			uni.redirectTo({
 				url:`${AUTH}?name=${'testonetest'}`
 			});	
 			}

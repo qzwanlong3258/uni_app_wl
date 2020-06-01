@@ -87,6 +87,7 @@ export function getWxSignature(data) {
 		url: SIGNATURE,                 
 		showLoading:false,
 		hideLoading:false,
+		needToken:false,
 		data
 	});
 }

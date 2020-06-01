@@ -260,10 +260,10 @@ export default {
 			})
 		}
 	},
-	onShow() {
-		this.loadIntegral();
-		this.loadCouponNext()
-	},
+	// onShow() {
+	// 	this.loadIntegral();
+	// 	this.loadCouponNext()
+	// },
 	async onLoad() {
 		//登录
 			const isLogin = getStorage('isLogin');
@@ -357,7 +357,7 @@ export default {
 			
 				let pages = getCurrentPages();
 				if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-				uni.reLaunch({
+				uni.redirectTo({
 					url: `${AUTH}?name=${'mine'}`
 				});	
 				}

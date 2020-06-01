@@ -8,7 +8,7 @@
 			
 		<view class="decoration_view-nav ">
 			<text class="decoration_text-row decoration_text-row-title" style="color: #50450C;">最高预算</text>
-			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>50.0000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
+			<text class=" decoration_text-row-content"> <text style="font-size: 70rpx; color:#E7CD64 ;font-weight:100 ;">—</text>1000,000.00<text style="font-size:70rpx; color:#E7CD64 ;font-weight:100 ;">—</text></text>
 			<text class="decoration_text-row-submit" @click="testLinkTo">测一测预算</text>
 		</view>
 		<view class="decoration_view-row decoration_view-menu page_view-box page_view-box-inner-padding" style="margin-top: 20px;">
@@ -134,7 +134,7 @@
 				
 				let pages = getCurrentPages();
 				if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-				uni.reLaunch({
+				uni.redirectTo({
 					url:`${AUTH}?name=${'decoration'}`
 				});	
 				}

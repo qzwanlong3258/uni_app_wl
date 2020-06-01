@@ -337,17 +337,17 @@ export default {
 		_self.dataList.did =getStorage('userInfo').avatarUrl;
 		
 		
-		// const isLogin = getStorage('isLogin');
-		// if (isLogin) {
-		// 	this.showAuth=true
-		// } else {
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			this.showAuth=true
+		} else {
 			
-		// 	let pages = getCurrentPages();
-		// 	if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
-		// 	uni.reLaunch({
-		// 		url:`${AUTH}?name=${'loanApply'}`
-		// 	});	
-		// 	}
+			let pages = getCurrentPages();
+			if (pages.length > 0 && AUTH.indexOf('/' + pages[pages.length - 1].route) === 0) return;
+			uni.redirectTo({
+				url:`${AUTH}?name=${'loanApply'}`
+			});	
+			}
 		
 	},
 	 // computed:{
