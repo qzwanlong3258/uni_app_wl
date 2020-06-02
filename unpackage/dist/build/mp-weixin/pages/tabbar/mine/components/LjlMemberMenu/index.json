@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "ljl-column": "/pages/tabbar/mine/components/LjlMemberMenu/components/LjlColumn"
-  },
-  "component": true
-}

@@ -16,7 +16,7 @@
 				</view>
 			</view>
 			<!-- <view style="text-align: center;color: #000000;font-size: 10px;">WELCOME</view> -->
-			<view style="height: 68rpx;line-height: 68rpx;text-align: center;font-size: 28rpx;margin-top: 10rpx;">{{userInfo.nickName?userInfo.nickName:'WELCOME'}}</view>
+			<view style="height: 68rpx;line-height: 68rpx;text-align: center;font-size: 28rpx;margin-top: 10rpx;">{{userInfo.nickName?decodeURIComponent(userInfo.nickName):'WELCOME'}}</view>
 			<view class="btn-box"> 
 				<view style="flex: 0.1;"></view>
 				<view style="flex: 1;" class="btn" @click="linkToUrl('签到日历')">签到有礼</view>
@@ -265,12 +265,14 @@ export default {
 	// 	this.loadCouponNext()
 	// },
 	async onLoad() {
+		_self =this;
 		//登录
 			const isLogin = getStorage('isLogin');
+			console.log(isLogin)
 			if (isLogin) {
 				this.show=true
 				
-				_self =this;
+				
 				_self.userInfo = getStorage('userInfo');
 				// this.getData(this.toYear+"-"+this.toMonth);
 				_self.index =getStorage('index')
@@ -364,13 +366,17 @@ export default {
 		
 	},
 	async onShow() {
-		_self.userInfo = getStorage('userInfo');
-		_self.index =getStorage('index')
-		let e = await getUserRole()
-		this.loadIntegral();
-		this.loadCouponNext()
-		if(e.roleName){
-			_self.role =e.roleName.split(',')
+		
+		const isLogin = getStorage('isLogin');
+		if (isLogin) {
+			_self.userInfo = getStorage('userInfo');
+			_self.index =getStorage('index')
+			let e = await getUserRole()
+			this.loadIntegral();
+			this.loadCouponNext()
+			if(e.roleName){
+				_self.role =e.roleName.split(',')
+			}
 		}
 			
 		

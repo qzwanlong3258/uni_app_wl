@@ -362,9 +362,6 @@
 				"selectedIconPath": "static/img/tabbar/selectedDecorate.png",
 				"text": "装企联盟"
 			},
-
-
-
 			{
 				"pagePath": "pages/todoChild/decoration/index",
 				"iconPath": "static/img/tabbar/loan.png",

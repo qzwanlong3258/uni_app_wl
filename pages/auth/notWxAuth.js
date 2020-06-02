@@ -99,7 +99,8 @@ const notWxAuth = {
 			// setStorage('sessionKey', this.session_key)
 			setStorage('tempToken', this.dataL.token)
 			setStorage('refreshToken', this.dataL.refreshToken)
-			setStorage('userInfo', this.dataL.userInfo[0])
+			setStorage('userInfo',this.dataL.userInfo[0])
+			getApp().globalData.nickName=this.dataL.userInfo[0].nickName
 			setStorage('isLogin', true)
 			console.log(this.name)
 			
@@ -126,7 +127,7 @@ const notWxAuth = {
 			
 			
 			if(this.name=='decoration'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: DECORATION,
 					fail: () => {
 						uni.reLaunch({
@@ -136,7 +137,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='mine'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: MINE,
 					fail: () => {
 						uni.reLaunch({
@@ -146,7 +147,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='inShop'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: INSHOP,
 					fail: () => {
 						uni.reLaunch({
@@ -156,7 +157,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='queryProgress'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: QUERYPROGRESS,
 					fail: () => {
 						uni.reLaunch({
@@ -166,7 +167,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='loanApply'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: LOAN_APPLICATION,
 					fail: () => {
 						uni.reLaunch({
@@ -176,7 +177,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='testonetest'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: LOAN_TESTONETEST,
 					fail: () => {
 						uni.reLaunch({
@@ -186,7 +187,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='todo'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: SHOP,
 					fail: () => {
 						uni.reLaunch({
@@ -196,7 +197,7 @@ const notWxAuth = {
 				})
 			}
 			if(this.name=='decorateHouse'){
-				 uni.switchTab({
+				 uni.reLaunch({
 					url: DECORATE,
 					fail: () => {
 						uni.reLaunch({

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "贷款进度",
-  "usingComponents": {
-    "ljl-states": "/components/LjlStates"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "ljl-nav": "/components/LjlNav",
-    "ljl-member-menu": "/pages/tabbar/mine/components/LjlMemberMenu/index",
-    "ljl-order-menu": "/components/LjlOrderMenu/index",
-    "ljl-main-menu": "/pages/tabbar/mine/components/LjlMainMenu"
-  }
-}

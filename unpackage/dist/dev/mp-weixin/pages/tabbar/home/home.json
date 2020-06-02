@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "非客钱包",
+  "navigationBarTitleText": "非客有家",
   "navigationStyle": "custom",
   "usingComponents": {
     "yld-top": "/pages/tabbar/home/components/YldTop",

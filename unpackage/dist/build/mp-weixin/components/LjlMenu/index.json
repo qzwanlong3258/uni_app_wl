@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "ljl-menu-item": "/components/LjlMenu/components/LjlMenuItem"
-  },
-  "component": true
-}

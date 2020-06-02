@@ -41,7 +41,8 @@
 }
 .poster_image-back {
   position: absolute;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 .poster_image-logo-box {
   position: absolute;
@@ -66,10 +67,9 @@
 }
 .poster_image-option {
   width: 130rpx;
-  height: 100%;
-}
-.poster_image-option + .poster_image-option {
+  height: 200rpx;
   margin-left: 30rpx;
+  display: inline-block;
 }
 .scroll-view_H {
   height: 100%;

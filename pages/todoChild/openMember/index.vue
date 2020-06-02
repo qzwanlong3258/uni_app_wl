@@ -6,7 +6,7 @@
 					<image :src="userInfo.avatarUrl" class="recomCenter-nav-top-img" mode="aspectFill">
 				</view>
 			</view>
-			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view>
+			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 10rpx;">{{userInfo.nickName?decodeURIComponent(userInfo.nickName):WELCOME}}</view>
 			<view style="text-align: center;color: #605800;font-size: 18rpx;margin: 10rpx;">{{userInfo.level}}</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 20rpx 200rpx 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">10249人</view>
 			<view style="text-align: center;color: #000000;font-size: 20rpx;margin: 0 200rpx;border-left:2rpx solid #000000 ;border-right:2rpx solid #000000 ;">加入黄金会员</view>
@@ -24,8 +24,8 @@
 				<view style="height: 30rpx;line-height: 30rpx;text-align: center;font-size: 18rpx;color: #666666;">赠送100积分</view>
 			</view>
 			<view style="flex: 1;"></view>
-			<view style="flex: 1;text-align: right;line-height: 80rpx;">
-				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 24rpx;margin-right: 10rpx;vertical-align: middle;">￥99</text><radio style="vertical-align: middle;"  value="r1" :checked="agreeM" @click="agreeClick()" /></label>
+			<view style="flex: 1;text-align: right;line-height: 80rpx;padding-right: 20rpx;">
+				<label class="radio" style="font-size: 25rpx;"><text style="color: #AD0505;font-size: 24rpx;margin-right: 10rpx;vertical-align: middle;">￥198</text><radio style="vertical-align: middle;"  value="r1" :checked="agreeM" @click="agreeClick()" /></label>
 			</view>
 		</view>
 		<view style="color: #333333;font-size: 26rpx;text-align: left;height: 90rpx;line-height: 90rpx;margin-left: 20rpx;margin-bottom: 20rpx;">黄金会员的八大权益</view>
@@ -176,6 +176,12 @@ export default {
 					}
 		},
 		async pay(){
+			uni.showToast({
+											title: "功能正在开发,敬请期待",
+											icon: 'none',
+											duration: 2000,
+										});
+										return
 			if(!this.agreeM){
 				uni.showToast({
 												title: "请选择金额",
@@ -192,7 +198,7 @@ export default {
 			}
 			let e={
 				openid:this.openId,
-				price:'99'
+				price:'198'
 			}
 			let payContent = await postPay(e)
 			console.log(payContent)

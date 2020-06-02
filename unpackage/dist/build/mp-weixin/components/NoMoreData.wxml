@@ -1,1 +1,0 @@
-<view class="no-more-data-box" style="{{'animation:'+(isShow?'no-data 2s':'')+';'}}" hidden="{{!isShow}}"><text>没有更多数据了哦！</text></view>

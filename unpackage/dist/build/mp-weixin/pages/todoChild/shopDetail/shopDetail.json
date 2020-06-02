@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "商品详情",
-  "usingComponents": {
-    "swiper-img": "/components/SwiperImg",
-    "yld-infor": "/pages/todoChild/shopDetail/components/YldInfor",
-    "yld-recommend": "/pages/todoChild/shopDetail/components/YldRecommend",
-    "ljl-states": "/components/LjlStates"
-  }
-}

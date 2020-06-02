@@ -20,7 +20,7 @@
 	    				<image :src="userInfo.avatarUrl" class="distribution-nav-top-img" mode="aspectFill">
 	    			</view>
 	    		</view>
-	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.nickName?userInfo.nickName:WELCOME}}</view>
+	    		<view style="text-align: center;color: #000000;font-size: 22rpx;padding-bottom: 10rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.nickName?decodeURIComponent(userInfo.nickName):'WELCOME'}}</view>
 	    		<view style="text-align: center;color: #7C7312;font-size: 20rpx;letter-spacing: 0.5rpx;padding-bottom: 13rpx;font-family: FZLanTingKanHei-R-GBK;">{{userInfo.level}}</view>
 				<view style="text-align: center;color: #7C7312;font-size: 24rpx;letter-spacing: 0.5rpx;padding-bottom: 54rpx;font-family: FZLanTingKanHei-R-GBK;">加入时间：{{userInfo.create_time|formatDate}}</view>
 				<!-- <view class="box" style="padding-bottom: 20rpx;">
@@ -111,7 +111,7 @@ export default {
 	},
 	onLoad() {
 		_self=this
-		this.userInfo = getStorage('userInfo')
+		_self.userInfo = getStorage('userInfo');
 		this.loadIntegral();
 		this.loadCouponNext()
 	},

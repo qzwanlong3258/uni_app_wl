@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "优惠卷",
   "usingComponents": {
+    "tki-qrcode": "/components/tki-qrcode/tki-qrcode",
     "null-data": "/components/NullData"
   }
 }

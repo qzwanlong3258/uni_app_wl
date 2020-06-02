@@ -8,7 +8,7 @@
 	width: 100%;
 	
 	display: block;
-	position: absolute;
+	position: relative;
 }
 .btn-page.data-v-3fb0ed2a{
 	width: 100%;

@@ -1,18 +1,18 @@
 
 page {
-background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 
 
-.inviteGift.data-v-6c751c75{
+.inviteGift.data-v-6c751c75 {
 	position: relative;
-	background: #FFFFFF;
+	background: #ffffff;
 }
-.inviteGift-hd.data-v-6c751c75{
+.inviteGift-hd.data-v-6c751c75 {
 	width: 100%;
 	display: block;
 }
-.inviteGift-hd-friend.data-v-6c751c75{
+.inviteGift-hd-friend.data-v-6c751c75 {
 	width: 300rpx;
 	position: absolute;
 	left: 50%;
@@ -20,39 +20,39 @@ background-color: #FFFFFF;
 	        transform: translateX(-50%);
 	top: 320rpx;
 }
-.text.data-v-6c751c75{
+.text.data-v-6c751c75 {
 	height: 70rpx;
 	line-height: 70rpx;
-	border-bottom: 2rpx solid #F1F1F1;
+	border-bottom: 2rpx solid #f1f1f1;
 }
-.pic.data-v-6c751c75{
+.pic.data-v-6c751c75 {
 	margin: 20rpx 40rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.pic image.data-v-6c751c75{
+.pic image.data-v-6c751c75 {
 	width: 230rpx;
 }
-.apptMeasureHome_ft.data-v-6c751c75{
+.apptMeasureHome_ft.data-v-6c751c75 {
 	/* position: absolute;
-	left: 0;
-	bottom: 20rpx; */
+		left: 0;
+		bottom: 20rpx; */
 	width: 100%;
 	height: 100rpx;
 	margin-top: 60rpx;
 }
-.btn.data-v-6c751c75{
+.btn.data-v-6c751c75 {
 	height: 80rpx;
-	
+
 	text-align: center;
 	line-height: 80rpx;
 	border-radius: 40rpx;
-	background: #FFE906;
+	background: #ffe906;
 	color: #000000;
 	margin-left: 20rpx;
 	margin-right: 20rpx;
-	box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+	box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
 	font-size: 28rpx;
 	letter-spacing: 4rpx;
 }

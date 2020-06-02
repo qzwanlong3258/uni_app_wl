@@ -6,7 +6,7 @@
 					<image :src="userInfo.avatarUrl" class="scheduleCard-top-left-img" mode="aspectFill">
 				</view>
 				<view class="scheduleCard-top-mid">
-					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx;color: #333333;">{{userInfo.nickName}}</view>
+					<view class="scheduleCard-top-mid-top" style="font-size: 31rpx;padding: 10rpx;color: #333333;">{{decodeURIComponent(userInfo.nickName)}}</view>
 					<view class="scheduleCard-top-mid-bottom" style="font-size: 28rpx;padding-left: 10rpx;color:#333333">{{userInfo.phone}}</view>
 				</view>
 				<view class="scheduleCard-top-right">

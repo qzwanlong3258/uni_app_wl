@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/tabbar/home/home",
     "pages/todoChild/orderList/orderList",
     "pages/todoChild/orderDetail/orderDetail",
@@ -77,8 +76,8 @@
       },
       {
         "pagePath": "pages/todoChild/decorateHouse/index",
-        "iconPath": "static/img/tabbar/loan.png",
-        "selectedIconPath": "static/img/tabbar/selectedLoan.png",
+        "iconPath": "static/img/tabbar/decorate.png",
+        "selectedIconPath": "static/img/tabbar/selectedDecorate.png",
         "text": "装企联盟"
       },
       {
@@ -107,5 +106,6 @@
     }
   },
   "resizable": true,
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap7.json"
 }

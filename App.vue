@@ -27,7 +27,9 @@ export default {
 		// 收货地址列表
 		addressList: null,
 		
-		addresss:''
+		addresss:'',
+		
+		nickName:''
 	},
 	methods: {
 		

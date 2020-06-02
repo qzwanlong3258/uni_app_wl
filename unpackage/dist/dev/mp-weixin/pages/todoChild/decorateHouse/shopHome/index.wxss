@@ -4,12 +4,72 @@ page{
 }
 
 
-.starOne.data-v-7afe988d{
-	
-	background:url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
-	background-position: -8rpx 0rpx;
-	background-size:150rpx 260rpx ;
-	height: 26rpx;
+.starOne.data-v-7afe988d {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	 background-position: -8rpx -5rpx; 
+	/* background-position: -8rpx -27rpx; */
+}
+.starTwo.data-v-7afe988d {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -28rpx;
+}
+.starThree.data-v-7afe988d {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -51rpx;
+}
+.starFour.data-v-7afe988d {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -74rpx;
+}
+.starFive.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -97rpx;
+}
+.starSix.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -120rpx;
+}
+.starSeven.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -143rpx;
+}
+.starEight.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -166rpx;
+}
+.starNine.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -189rpx;
+}
+.starTen.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -212rpx;
+}
+.starEleven.data-v-7afe988d{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -235rpx;
 }
 .address.data-v-7afe988d{
 	overflow: hidden;

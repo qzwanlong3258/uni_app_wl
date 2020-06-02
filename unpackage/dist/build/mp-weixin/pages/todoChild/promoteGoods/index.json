@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "推广商品",
-  "usingComponents": {
-    "search": "/components/Search",
-    "ljl-goods-info": "/pages/todoChild/promoteGoods/components/LjlGoodsInfo",
-    "share-canvas": "/pages/todoChild/promoteGoods/components/ShareCanvas/ShareCanvas"
-  }
-}

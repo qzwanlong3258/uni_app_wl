@@ -36,7 +36,7 @@ page{
 	-webkit-flex: 1;
 	        flex: 1;
 	color: #666666;
-	text-align: right;
+	text-align: left;
 }
 .apptMeasureHome_ft.data-v-83fe4532{
 	/* position: absolute;

@@ -6,8 +6,72 @@ page {
 
 .starOne.data-v-a50d39e6 {
 	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
-	background-position: -8rpx 0rpx;
 	background-size: 150rpx 260rpx;
-	height: 26rpx;
+	height: 22rpx;
+	 background-position: -8rpx -5rpx; 
+	/* background-position: -8rpx -27rpx; */
 }
+.starTwo.data-v-a50d39e6 {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -28rpx;
+}
+.starThree.data-v-a50d39e6 {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -51rpx;
+}
+.starFour.data-v-a50d39e6 {
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -74rpx;
+}
+.starFive.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -97rpx;
+}
+.starSix.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -120rpx;
+}
+.starSeven.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -143rpx;
+}
+.starEight.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -166rpx;
+}
+.starNine.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -189rpx;
+}
+.starTen.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -212rpx;
+}
+.starEleven.data-v-a50d39e6{
+	background: url('https://www.feiaizn.com/images/20200522114244_xingxing.png') no-repeat;
+	background-size: 150rpx 260rpx;
+	height: 22rpx;
+	background-position: -8rpx -235rpx;
+}
+
+
+
 
